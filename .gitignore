@@ -1,0 +1,29 @@
+# macOS and editor state
+.DS_Store
+*.lyx~
+*.lyx.emergency*
+*-lyx23.lyx~
+
+# LyX / LaTeX build products
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.eps
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.tex
+*.toc
+*.vrb
+
+# Local QA renders
+/tmp/

@@ -1,0 +1,87 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+my $path = shift // die "usage: book_map.pl FILE.lyx\n";
+open my $fh, '<', $path or die "$path: $!\n";
+my @lines = <$fh>;
+
+sub layout_text {
+    my ($start) = @_;
+    my @text;
+    for (my $j = $start + 1; $j < @lines && $lines[$j] !~ /^\\end_layout$/; $j++) {
+        my $line = $lines[$j];
+        chomp $line;
+        if ($line =~ /^\\begin_inset Formula \$(.*)\$$/) {
+            push @text, "\$$1\$";
+        } elsif ($line !~ /^\\/ && $line !~ /^\s*$/ && $line !~ /^(status|collapsed)/) {
+            push @text, $line;
+        }
+    }
+    my $text = join(' ', @text);
+    $text =~ s/\s+/ /g;
+    $text =~ s/^\s+|\s+$//g;
+    return $text;
+}
+
+my %formal = map { $_ => 1 } qw(Axiom Definition Fact Claim Lemma Proposition Corollary Theorem Proof Exercise Example);
+my (@chapters, %seen_chapter, %part_for, %sections, %formal_count, %section_count);
+my ($part, $chapter) = ('Front matter', '');
+
+for (my $i = 0; $i < @lines; $i++) {
+    if ($lines[$i] =~ /^appendix\s*$/) {
+        $part = 'Mathematical appendices';
+        next;
+    }
+    if ($lines[$i] =~ /^\\begin_layout (Part|Chapter|Section|Subsection)$/) {
+        my ($kind, $title) = ($1, layout_text($i));
+        if ($kind eq 'Part') {
+            $part = $title;
+        } elsif ($kind eq 'Chapter') {
+            $chapter = $title;
+            if (!$seen_chapter{$chapter}++) {
+                push @chapters, $chapter;
+                $part_for{$chapter} = $part;
+            }
+        } elsif ($chapter ne '') {
+            push @{$sections{$chapter}}, [$kind, $title];
+            $section_count{$title}++ if $kind eq 'Section';
+        }
+        next;
+    }
+    if ($chapter ne '' && $lines[$i] =~ /^\\begin_layout (\w+)$/ && $formal{$1}) {
+        $formal_count{$chapter}{$1}++;
+    }
+}
+
+print "# Book map and duplication index\n\n";
+print "Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX formal-layout blocks; a single displayed theorem may span several blocks.\n\n";
+print "| Part | Chapter | Definitions | Results | Proofs | Exercises/examples |\n";
+print "|---|---|---:|---:|---:|---:|\n";
+for my $ch (@chapters) {
+    my $c = $formal_count{$ch} // {};
+    my $results = ($c->{Theorem} // 0) + ($c->{Proposition} // 0) + ($c->{Lemma} // 0) + ($c->{Corollary} // 0) + ($c->{Claim} // 0) + ($c->{Fact} // 0);
+    my $examples = ($c->{Exercise} // 0) + ($c->{Example} // 0);
+    print "| $part_for{$ch} | $ch | ", ($c->{Definition} // 0), " | $results | ", ($c->{Proof} // 0), " | $examples |\n";
+}
+
+print "\n## Detailed sequence\n\n";
+for my $ch (@chapters) {
+    print "### $ch\n\n";
+    for my $entry (@{$sections{$ch} // []}) {
+        my ($kind, $title) = @$entry;
+        my $indent = $kind eq 'Subsection' ? '  -' : '-';
+        print "$indent $title\n";
+    }
+    print "\n";
+}
+
+print "## Repeated section titles\n\n";
+my @duplicates = sort { $section_count{$b} <=> $section_count{$a} || $a cmp $b }
+                 grep { $section_count{$_} > 1 } keys %section_count;
+if (@duplicates) {
+    print "| Section title | Occurrences |\n|---|---:|\n";
+    print "| $_ | $section_count{$_} |\n" for @duplicates;
+} else {
+    print "No exact duplicate section titles.\n";
+}
