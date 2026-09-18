@@ -4,7 +4,7 @@ the economic claims. Logical order and physical reading order are deliberately
 separate: Order Theory is a logical root but appears as Appendix A.
 -/
 
-namespace Econ804.BookNarrative
+namespace Econ803.BookNarrative
 
 inductive ClaimKind where
   | foundation | definition | model | analyticResult | application
@@ -117,4 +117,4 @@ theorem mainMap_reading_positions_valid :
     readingPositionsValid mainMap = true := by
   decide
 
-end Econ804.BookNarrative
+end Econ803.BookNarrative

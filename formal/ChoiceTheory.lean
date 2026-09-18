@@ -1,4 +1,4 @@
-namespace Econ804.ChoiceTheory
+namespace Econ803.ChoiceTheory
 
 abbrev Rel (α : Type) := α → α → Prop
 abbrev Menu (α : Type) := α → Prop
@@ -29,4 +29,4 @@ theorem chosen_not_strictly_dominated
   intro hyx
   exact hyx.2 (hx.2 hy)
 
-end Econ804.ChoiceTheory
+end Econ803.ChoiceTheory

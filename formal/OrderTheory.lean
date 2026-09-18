@@ -1,4 +1,4 @@
-namespace Econ804.OrderTheory
+namespace Econ803.OrderTheory
 
 abbrev Rel (α : Type) := α → α → Prop
 
@@ -72,4 +72,4 @@ theorem complete_maximal_iff_greatest (r : Rel α) (s : α → Prop)
   · exact complete_maximal_implies_greatest r s hc
   · exact greatest_implies_maximal r s
 
-end Econ804.OrderTheory
+end Econ803.OrderTheory

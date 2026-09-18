@@ -1,4 +1,4 @@
-# ECON 804 Microeconomic Theory I — Fall 2026
+# ECON 803 Microeconomic Theory I — Fall 2026
 
 Simon Fraser University · Department of Economics
 
@@ -11,13 +11,13 @@ Simon Fraser University · Department of Economics
 | Room | WMC 4602 |
 | Instructor | Victor H. Aguiar |
 | Email | [vaguiarl@sfu.ca](mailto:vaguiarl@sfu.ca) |
-| Prerequisites | ECON 802 and ECON 803, or equivalent preparation |
+| Prerequisites | ECON 802, or equivalent preparation |
 
-The [formatted course outline](course/ECON_804_Fall_2026_Course_Outline.docx) is also available as a DOCX file.
+The [formatted course outline](course/ECON_803_Fall_2026_Course_Outline.docx) is also available as a DOCX file.
 
 ## Description
 
-ECON 804 is a first-year PhD core course in microeconomic theory. It develops a common language for modern theory from individual choice and demand through uncertainty, production, competitive equilibrium, matching, random utility, behavioral economics, and computable general equilibrium. The course emphasizes explicit assumptions, proof strategy, logical dependencies, and testable implications.
+ECON 803 is a first-year PhD core course in microeconomic theory. It develops a common language for modern theory from individual choice and demand through uncertainty, production, competitive equilibrium, matching, random utility, behavioral economics, and computable general equilibrium. The course emphasizes explicit assumptions, proof strategy, logical dependencies, and testable implications.
 
 ## Learning goals
 
