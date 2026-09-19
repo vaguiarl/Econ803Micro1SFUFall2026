@@ -16,6 +16,7 @@ The Fall 2026 baseline has four commitments:
 - Authoritative LyX source: [`notes/Microeconomics_1_notes_by_Victor_Aguiar.lyx`](notes/Microeconomics_1_notes_by_Victor_Aguiar.lyx)
 - Chapter and duplication map: [`BOOK_MAP.md`](BOOK_MAP.md)
 - House notation: [`NOTATION.md`](NOTATION.md)
+- Notation link-validation ledger: [`editorial/notation/glossary.tsv`](editorial/notation/glossary.tsv)
 - Mathematical verification ledger: [`formal/COVERAGE.md`](formal/COVERAGE.md)
 - Lean proof architecture: [`formal/ARCHITECTURE.md`](formal/ARCHITECTURE.md)
 - Reader/full theorem-pair plan: [`THEOREM_STAR_PLAN.md`](THEOREM_STAR_PLAN.md)
@@ -24,17 +25,17 @@ The Fall 2026 baseline has four commitments:
 - Publication-baseline review: [`EDITORIAL_REVIEW.md`](EDITORIAL_REVIEW.md)
 - Backward editorial and formalization plan: [`EDITORIAL_AUDIT.md`](EDITORIAL_AUDIT.md)
 
-The LyX file is the authoritative text. Generated LaTeX and temporary build products are intentionally excluded from version control. All five live figures are reproducible vector PDFs: their TikZ/PGFPlots sources and checked data live in `figures_tikz/`, and passing exports live in `notes/figures/tikz/`. Building the book does not require Dropbox or another repository.
+The LyX file is the authoritative text, including the notation definitions and link placements. In the built PDF, a tracked symbol at its first use links to its entry in the final glossary, and the symbol in that glossary entry links back to the first use. The TSV ledger records stable semantic IDs for validation; it is not a second manuscript. Generated LaTeX and temporary build products are intentionally excluded from version control. All five live figures are reproducible vector PDFs: their TikZ/PGFPlots sources and checked data live in `figures_tikz/`, and passing exports live in `notes/figures/tikz/`. Building the book does not require Dropbox or another repository.
 
 ## Verify the release
 
-With LyX, LaTeX (including TikZ/PGFPlots), Poppler, Python 3, Perl, ripgrep, and Lean/Lake available, run:
+With LyX, LaTeX (including TikZ/PGFPlots), Poppler, Python 3 with `pypdf`, Perl, ripgrep, and Lean/Lake available, run:
 
 ```sh
 bash scripts/check_book.sh
 ```
 
-The command rebuilds and preflights all vector figures before exporting LyX, compiles the PDF, rejects raster images and unsafe fonts in the final artifact, builds the pinned Lean project together with the exact WGARP dependency, audits kernel assumptions and proof placeholders, validates the theorem-pair ledger, rejects restricted assessment files, and regenerates the chapter, duplication, and theorem indexes.
+The command rebuilds and preflights all vector figures before exporting LyX, verifies the notation ledger against the canonical LyX source, compiles the PDF, checks every bidirectional first-use/glossary destination and link in that PDF, rejects raster images and unsafe fonts, builds the pinned Lean project together with the exact WGARP dependency, audits kernel assumptions and proof placeholders, validates the theorem-pair ledger, rejects restricted assessment files, and regenerates the chapter, duplication, and theorem indexes.
 
 ## Assessment policy
 

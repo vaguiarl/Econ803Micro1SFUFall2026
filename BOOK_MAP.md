@@ -8,7 +8,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Foundations of Choice and Demand | Preference and Choice | 6 | 3 | 0 | 4 |
 | Foundations of Choice and Demand | Consumer Theory: Utility Maximization | 14 | 33 | 2 | 11 |
 | Choice Beyond the Benchmark Model | Behavioral Economics: Sparse-Max and Rational Inattention | 0 | 2 | 0 | 6 |
-| Choice Beyond the Benchmark Model | Choice under Uncertainty | 7 | 10 | 0 | 5 |
+| Choice Beyond the Benchmark Model | Choice under Uncertainty | 8 | 10 | 0 | 5 |
 | Aggregation and Random Choice | Aggregate Demand | 4 | 2 | 0 | 3 |
 | Aggregation and Random Choice | Discrete Choice and Random Utility | 3 | 2 | 0 | 4 |
 | Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 4 |
@@ -20,6 +20,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Advanced Equilibrium Applications | Matching | 1 | 2 | 0 | 3 |
 | Advanced Equilibrium Applications | Computable General Equilibrium | 1 | 0 | 0 | 3 |
 | Mathematical appendices | Order Theory | 7 | 6 | 6 | 9 |
+| Mathematical appendices | Glossary of Symbols | 0 | 0 | 0 | 0 |
 
 ## Detailed sequence
 
@@ -37,7 +38,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - From Choice Data to Preference
 - Choice environments
 - Preference relations
-- Revealed preference and WARP
+- Revealed choice and WGARP
 - GARP on finite data
 - Problems
 
@@ -191,6 +192,25 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Order Extensions
 - Checklist for Economic Applications
 - Problems
+
+### Glossary of Symbols
+
+- Sets and indices
+- Operators
+- Optimization
+- Choice and preference
+- Revealed preference
+- Consumer theory
+- Behavioral demand
+- Choice under uncertainty
+- Probability
+- Aggregation
+- Discrete choice
+- Firm theory
+- Equilibrium
+- Sequential trade
+- Matching
+- Order theory
 
 ## Repeated section titles
 

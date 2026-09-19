@@ -1,0 +1,116 @@
+id	symbol	category	scope	definition	first_section	link_status
+commodity-count	$L$	Sets and indices	Book-wide	Number of commodities; $L\in\mathbb N_{>0}$.	Notation and Conventions	linked
+commodity-index	$\ell,k$	Sets and indices	Book-wide	Commodity-coordinate indices in $\{1,\ldots,L\}$.	Notation and Conventions	linked
+nonnegative-orthant	$\mathbb R_+^n$	Sets and indices	Book-wide	Vectors in $\mathbb R^n$ whose coordinates are all nonnegative.	Notation and Conventions	linked
+positive-orthant	$\mathbb R_{++}^n$	Sets and indices	Book-wide	Vectors in $\mathbb R^n$ whose coordinates are all strictly positive; equivalently $x\gg0$.	Notation and Conventions	linked
+feasible-set	$X$	Sets and indices	Scoped	Ambient feasible set; in consumer chapters, the consumption set, normally $\mathbb R_+^L$.	Notation and Conventions	linked
+consumer-index	$i=1,\ldots,I$	Sets and indices	Book-wide	Consumer index and number of consumers.	Notation and Conventions	linked
+firm-index	$j=1,\ldots,J$	Sets and indices	Book-wide	Firm index and number of firms.	Notation and Conventions	linked
+bundle	$x$	Consumer theory	Book-wide default	Consumption bundle; arguments such as $x(p,w)$ distinguish demand from a generic bundle.	Notation and Conventions	linked
+production-plan	$y$	Firm theory	Book-wide default	Net-output vector, with positive coordinates denoting outputs and negative coordinates inputs.	Notation and Conventions	linked
+endowment	$\omega$	Equilibrium	Book-wide default	Endowment vector; subscripts identify agents and superscripts identify observations or states when declared.	Notation and Conventions	linked
+price-vector	$p$	Consumer theory	Book-wide default	Commodity-price column vector; normally $p\in\mathbb R_{++}^L$.	Notation and Conventions	linked
+wealth	$w$	Consumer theory	Book-wide default	Scalar wealth or income available to a consumer.	Notation and Conventions	linked
+budget-set	$B(p,w)$	Consumer theory	Book-wide	Bundles affordable at prices $p$ and wealth $w$: $\{x\in X:p\cdot x\leq w\}$.	Notation and Conventions	linked
+marshallian-demand	$x(p,w)$	Consumer theory	Book-wide	Marshallian demand correspondence; treated as a function only when uniqueness is assumed.	Notation and Conventions	linked
+hicksian-demand	$h(p,\bar u)$	Consumer theory	Book-wide	Expenditure-minimizing demand correspondence at prices $p$ and target utility $\bar u$.	Notation and Conventions	linked
+direct-utility	$u$	Consumer theory	Book-wide default	Direct utility; in uncertainty chapters it is the Bernoulli utility of a prize.	Notation and Conventions	linked
+indirect-utility	$v(p,w)$	Consumer theory	Book-wide	Maximum attainable utility at prices $p$ and wealth $w$.	Notation and Conventions	linked
+expenditure-function	$e(p,\bar u)$	Consumer theory	Book-wide	Minimum expenditure required to attain utility $\bar u$ at prices $p$.	Notation and Conventions	linked
+money-metric-utility	$\mu_p(x)$	Consumer theory	Welfare-analysis sections	Expenditure at reference prices $p$ required to attain the utility of bundle $x$: $e(p,u(x))$.	Upper Bounds for Welfare Analysis	linked
+inner-product	$a\cdot b$	Operators	Book-wide	Euclidean inner product.	Notation and Conventions	linked
+euclidean-norm	$\lVert a\rVert_2$	Operators	Book-wide	Euclidean norm of a vector $a$.	Notation and Conventions	linked
+ones-vector	$\mathbf 1_n$	Operators	Book-wide	All-ones column vector in $\mathbb R^n$; the dimension is shown whenever it is not immediate.	Notation and Conventions	linked
+identity-matrix	$I_n$	Operators	Book-wide	$n\times n$ identity matrix; the subscript records its dimension.	Perceived Prices and Limited Attention	linked
+transpose	$a^\top$	Operators	Book-wide	Transpose of a vector or matrix; primes never denote transpose.	Notation and Conventions	linked
+alternative-prime	$a'$	Operators	Book-wide	Alternative observation or object of the same type as $a$.	Notation and Conventions	linked
+set-difference	$A\setminus B$	Operators	Book-wide	Elements of $A$ that do not belong to $B$.	Notation and Conventions	linked
+preference-relations	$\succeq,\succ,\sim$	Choice and preference	Book-wide	Weak preference and its asymmetric and symmetric parts.	Notation and Conventions	linked
+choice-correspondence	$c:\mathcal A\rightrightarrows X$	Choice and preference	Book-wide	Nonempty-valued choice correspondence on a family of feasible menus.	Notation and Conventions	linked
+choice-direct-revealed	$\succeq^C$	Choice and preference	Abstract-choice chapter	Direct weak revealed choice: $x\succeq^C y$ when some menu contains both and selects $x$.	Revealed preference and WARP	linked
+choice-strict-revealed	$\succ^C$	Choice and preference	Abstract-choice chapter	Direct strict revealed choice: some menu selects $x$ and rejects available $y$.	Revealed preference and WARP	linked
+choice-revealed-closure	$\succeq^{C*}$	Choice and preference	Abstract-choice chapter	Reflexive-transitive closure of direct weak revealed choice $\succeq^C$.	Revealed preference and WARP	linked
+jacobian	$D_zf$	Operators	Book-wide	Jacobian of a vector-valued map $f$ with respect to $z$.	Notation and Conventions	linked
+gradient	$\nabla_zf$	Operators	Book-wide	Column gradient of a scalar-valued function $f$ with respect to $z$.	Notation and Conventions	linked
+componentwise-order	$\leq,\geq,\gg$	Operators	Book-wide	Vector inequalities are componentwise; $x\gg0$ means every coordinate is strictly positive.	Notation and Conventions	linked
+powerset	$2^X$	Operators	Book-wide	Power set of $X$.	Notation and Conventions	linked
+argmax-argmin	$\arg\max,\arg\min$	Operators	Book-wide	Sets of maximizers and minimizers; a singleton selection is identified explicitly.	Notation and Conventions	linked
+probability-expectation	$\Pr,\mathbb P,\mathbb E$	Operators	Book-wide	Probability and expectation under the probability space declared in the surrounding model.	Notation and Conventions	linked
+indicator	$\mathbb I\{\cdot\}$	Operators	Book-wide	Indicator of the event inside braces.	Notation and Conventions	linked
+natural-log	$\log$	Operators	Book-wide	Natural logarithm; information quantities are therefore measured in nats.	Notation and Conventions	linked
+observation-index	$\mathbb T=\{1,\ldots,T\}$	Revealed preference	Revealed-preference chapters	Finite set of observation indices.	Consistency in Consumption	linked
+observation-data	$\mathcal O=\{(p^t,x^t)\}_{t\in\mathbb T}$	Revealed preference	Book-wide	Dataset of price-choice observations indexed by $\mathbb T$.	Consistency in Consumption	linked
+observed-expenditure	$w^t=p^t\cdot x^t$	Revealed preference	Revealed-preference chapters	Observed expenditure, equal to wealth under budget exhaustion.	Consistency in Consumption	linked
+direct-revealed	$\succeq^{R,D}$	Revealed preference	Budget-demand chapters	Direct weak revealed preference generated by affordability.	Consistency in Consumption	linked
+strict-direct-revealed	$\succ^{R,D}$	Revealed preference	Budget-demand chapters	Strict direct revealed preference generated by strict affordability.	Generalized Axiom of Revealed Preference (GARP)	linked
+revealed-closure	$\succeq^R$	Revealed preference	Budget-demand chapters	Reflexive-transitive closure of budget-based $\succeq^{R,D}$.	Generalized Axiom of Revealed Preference (GARP)	linked
+afriat-certificates	$(U^t,\lambda^t)$	Revealed preference	Afriat theorem	Utility-level and positive marginal-utility-of-wealth certificates satisfying the Afriat inequalities.	Generalized Axiom of Revealed Preference (GARP)	linked
+efficiency-relations	$\succeq_\alpha^{R,D},\succ_\alpha^{R,D},\succeq_\alpha^R$	Revealed preference	CCEI section	Efficiency-adjusted direct weak, direct strict, and revealed-closure relations at expenditure fraction $\alpha$.	Afriat's Cost-Efficiency Index	linked
+slutsky-matrix	$S(p,w)$	Consumer theory	Book-wide	$D_px(p,w)+D_wx(p,w)x(p,w)^\top$.	Comparative Statics and Slutsky Matrix	linked
+price-domain	$\mathsf P$	Consumer theory	Consumer chapters	Strictly positive commodity-price domain $\mathbb R_{++}^L$.	Demand Correspondences	linked
+wealth-domain	$\mathsf W$	Consumer theory	Consumer chapters	Strictly positive wealth domain $\mathbb R_{++}$.	Demand Correspondences	linked
+lagrangian	$\mathcal L$	Optimization	Scoped	Lagrangian of the optimization problem currently under study.	KKT Conditions for the UMP	linked
+varian-support	$\mathcal S_{\mathcal O}(p,w)$	Revealed preference	Consumer chapter	Bundles consistent with GARP when appended to dataset $\mathcal O$ at a new budget.	Forecasting with Varian's Support Set	linked
+ccei	$\operatorname{CCEI}(\mathcal O)$	Revealed preference	Consumer chapter	Largest common expenditure fraction for which the adjusted dataset satisfies GARP.	Afriat's Cost-Efficiency Index	linked
+perceived-price	$\widehat p$	Behavioral demand	Sparse-max chapter	Price vector used in the consumer's perceived first-order condition.	The Sparse-Max Decision Rule	linked
+sparse-demand	$x^{\mathrm{SM}}$	Behavioral demand	Sparse-max chapter	Sparse-max demand satisfying perceived-price tangency and the true budget.	The Sparse-Max Decision Rule	linked
+attention-weights	$a=(a_1,\ldots,a_L)$	Behavioral demand	Sparse-max chapter	Coordinatewise attention weights in $[0,1]^L$.	Perceived Prices and Limited Attention	linked
+information-cost	$\mathcal C$	Behavioral demand	Attention chapter	Cost of attention or information acquisition.	Endogenizing Attention	linked
+prize-set	$Z$	Choice under uncertainty	Uncertainty chapter	Prize or consequence set; finite unless the infinite-outcome section explicitly broadens it.	Primitives	linked
+lottery	$\mu,\nu,\eta$	Choice under uncertainty	Uncertainty chapter	Probability mass functions or probability measures over prizes.	Primitives	linked
+lottery-space	$\Delta(Z)$	Choice under uncertainty	Uncertainty chapter	Set of lotteries over $Z$; for general spaces the measurable structure is stated explicitly.	Primitives	linked
+degenerate-lottery	$\delta_z$	Choice under uncertainty	Uncertainty chapter	Lottery assigning probability one to prize $z$.	Primitives	linked
+expected-utility	$U(\mu)$	Choice under uncertainty	Uncertainty chapter	Expected Bernoulli utility of lottery $\mu$.	Primitives	linked
+lottery-cdf	$F_\mu$	Choice under uncertainty	Uncertainty chapter	Cumulative distribution function of lottery $\mu$ on an ordered prize space.	Stochastic dominance on a finite prize set	linked
+fosd	$\succeq^{\mathrm{FOSD}}$	Choice under uncertainty	Uncertainty chapter	First-order stochastic-dominance relation, oriented toward the dominating distribution.	Stochastic dominance on a finite prize set	linked
+certainty-equivalent	$\operatorname{CE}(\mu;u)$	Choice under uncertainty	Uncertainty chapter	Sure prize with the same utility as lottery $\mu$.	Attitudes towards Risk	linked
+risk-premium	$\operatorname{RP}(\mu;u)$	Choice under uncertainty	Uncertainty chapter	Expected prize minus certainty equivalent.	Attitudes towards Risk	linked
+probability-premium	$\operatorname{PP}(x,\varepsilon;u)$	Choice under uncertainty	Uncertainty chapter	Probability adjustment making the specified binary risk indifferent to a sure prize.	Attitudes towards Risk	linked
+sigma-algebra	$\Sigma$	Probability	Infinite-outcome section	Borel sigma-algebra on the prize space.	Expected Utility for Infinite Sets	linked
+weak-convergence	$\Rightarrow$	Probability	Infinite-outcome section	Weak convergence of probability measures.	Expected Utility for Infinite Sets	linked
+state-probabilities	$\varpi_s$	Choice under uncertainty	State-contingent chapter	Strictly positive state probabilities summing to one.	Revealed Preference of Expected Utility under Concavity	linked
+crra	$r$	Choice under uncertainty	Risk-aversion section	Coefficient of relative risk aversion in the power-utility family.	Measuring Risk Aversion in the Lab	linked
+aggregate-demand	$x^A(p,\mathbf w)$	Aggregation	Aggregate-demand chapter	Sum of individual Marshallian demands.	Three questions about aggregation	linked
+wealth-distribution	$\mathbf w$	Aggregation	Aggregate-demand chapter	Vector of individual wealth levels.	Three questions about aggregation	linked
+total-wealth	$W$	Aggregation	Aggregate-demand chapter	Sum of individual wealth levels.	Three questions about aggregation	linked
+gorman-form	$a_i(p),b(p)$	Aggregation	Aggregate-demand chapter	Consumer-specific intercept and common wealth coefficient in Gorman indirect utility.	Gorman aggregation	linked
+social-welfare	$\mathcal W$	Aggregation	Scoped	Social welfare function or explicitly stated welfare aggregate.	Representative consumers and welfare	linked
+latent-utility	$U^*_{ij}$	Discrete choice	Discrete-choice chapter	Latent utility of chooser $i$ from alternative $j$.	Choice from a finite menu	linked
+choice-probability	$P_{ij}$	Discrete choice	Discrete-choice chapter	Probability that chooser $i$ selects alternative $j$ from the stated menu.	Choice from a finite menu	linked
+logit-scale	$\tau$	Discrete choice	Discrete-choice chapter	Strictly positive Type-I extreme-value scale parameter.	Multinomial logit and IIA	linked
+random-utility-space	$(\Omega,\mathcal F,\mathbb P)$	Discrete choice	Random-utility section	Probability space supporting random utility.	Random utility	linked
+random-utility	$\boldsymbol U$	Discrete choice	Random-utility section	Measurable utility vector indexed by alternatives.	Random utility	linked
+stochastic-choice	$P_A(a)$	Discrete choice	Random-utility section	Probability of choosing alternative $a$ from menu $A$.	Random utility	linked
+order-types	$\mathcal R_A$	Discrete choice	Random-utility section	Finite set of strict linear orders on alternatives in $A$.	Random utility	linked
+expected-maximum	$\mathcal V(v)$	Discrete choice	Consumer-surplus section	Expected maximum random utility as a function of the mean-utility vector $v\in\mathbb R^A$.	Attributes and consumer surplus	linked
+production-set	$Y$	Firm theory	Firm chapter	Technologically feasible net-output plans.	Production sets	linked
+production-function	$f$	Firm theory	Firm chapter	Single-output production function.	Production functions and input substitution	linked
+profit-function	$\pi_Y(p)$	Firm theory	Firm chapter	Support function of production set $Y$.	Profit maximization	linked
+supply-correspondence	$\mathcal Y_Y(p)$	Firm theory	Firm chapter	Profit-maximizing production plans.	Profit maximization	linked
+input-vector	$\boldsymbol z$	Firm theory	Firm chapter	Nonnegative vector of physical inputs in a single-output technology.	Production functions and input substitution	linked
+input-prices	$\boldsymbol w$	Firm theory	Firm chapter	Strictly positive vector of input prices.	Profit maximization	linked
+output-price	$p_q$	Firm theory	Single-output model	Scalar price of output $q$.	Profit maximization	linked
+cost-function	$C(\boldsymbol w,q)$	Firm theory	Firm chapter	Minimum input expenditure required to produce at least $q$.	Cost minimization	linked
+factor-demand	$\mathcal Z(\boldsymbol w,q)$	Firm theory	Firm chapter	Cost-minimizing input correspondence.	Cost minimization	linked
+ownership-shares	$\theta_{ij}$	Equilibrium	Competitive-equilibrium chapter	Consumer $i$'s ownership share of firm $j$.	Competitive equilibrium	linked
+excess-demand	$z(p)$	Equilibrium	Equilibrium chapters	Aggregate demand minus aggregate resources at prices $p$.	Partial equilibrium with a numeraire	linked
+state-space	$\mathcal S$	Choice under uncertainty	Scoped	Finite state space used in the surrounding model, including sequential-trade applications.	Revealed Preference of Expected Utility under Concavity	linked
+security-payoffs	$R$	Sequential trade	Sequential-trade chapter	Matrix of state-contingent security payoffs.	Spot markets and sequential trade	linked
+asset-prices	$q$	Sequential trade	Sequential-trade chapter	Date-0 security-price vector.	Spot markets and sequential trade	linked
+state-prices	$\psi$	Sequential trade	Sequential-trade chapter	Strictly positive state-price vector satisfying $q=R^\top\psi$ when markets are complete.	Arrow--Debreu benchmark	linked
+matching-sides	$M,W$	Matching	Matching chapter	Two finite sides of the one-to-one matching market.	One-to-one matching	linked
+matching-map	$\varphi$	Matching	Matching chapter	Involutive matching map, with an unmatched agent mapped to themselves.	One-to-one matching	linked
+binary-relation	$R$	Order theory	Scoped	Generic binary relation on a nonempty ground set $X$.	Problems: Preference and Choice	linked
+inverse-relation	$R^{-1}$	Order theory	Appendix A	Inverse relation: $xR^{-1}y$ iff $yRx$.	Binary Relations	linked
+symmetric-part	$I_R$	Order theory	Book-wide	Symmetric part $R\cap R^{-1}$.	Problems: Preference and Choice	linked
+strict-part	$P_R$	Order theory	Appendix A	Asymmetric part of $R$.	Symmetric and Asymmetric Parts	linked
+equivalence-class	$[x]_E$	Order theory	Appendix A	Equivalence class of $x$ under $E$.	Equivalence Classes and Quotient Orders	linked
+quotient-set	$X/E$	Order theory	Book-wide	Set of equivalence classes of $X$ under an equivalence relation $E$.	Utility Representation	linked
+quotient-order	$\bar R$	Order theory	Appendix A	Partial order induced by a preorder on its quotient by $I_R$.	Equivalence Classes and Quotient Orders	linked
+maximal-elements	$\operatorname{Max}(S,R)$	Order theory	Appendix A	Set of $R$-maximal elements of feasible subset $S$.	Maximal and Greatest Elements	linked
+greatest-elements	$\operatorname{Great}(S,R)$	Order theory	Appendix A	Set of $R$-greatest elements of feasible subset $S$.	Maximal and Greatest Elements	linked
+identity-relation	$\Delta_X$	Order theory	Appendix A	Diagonal or identity relation on $X$.	Binary Relations	linked
+relation-powers	$R^n$	Order theory	Appendix A	$n$-fold relational composition, with composition orientation stated in the text.	Transitive Closure	linked
+transitive-closure	$R^+$	Order theory	Appendix A	Least transitive relation containing $R$.	Transitive Closure	linked
+reflexive-transitive-closure	$R^*$	Order theory	Appendix A	$\Delta_X\cup R^+$.	Transitive Closure	linked
+order-extension	$R^{\mathrm{ext}}$	Order theory	Appendix A	Complete-preorder extension obtained from a linear extension of the quotient order.	Order Extensions	linked

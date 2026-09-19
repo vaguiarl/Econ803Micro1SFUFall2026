@@ -27,11 +27,11 @@ Choice environments
 \end_layout
 
 \begin_layout Standard
-Let 
+Let
 \begin_inset Formula $X$
 \end_inset
 
- be a nonempty set of alternatives and let 
+ be a nonempty set of alternatives and let
 \begin_inset Formula $\mathcal{A}\subseteq2^{X}\setminus\{\emptyset\}$
 \end_inset
 
@@ -40,20 +40,20 @@ Let
 
 \begin_layout Definition
 Choice correspondence.
- A choice correspondence is a map 
+ A choice correspondence is a map
 \begin_inset Formula $c:\mathcal{A}\rightrightarrows X$
 \end_inset
 
- satisfying 
+ satisfying
 \begin_inset Formula $\emptyset\neq c(A)\subseteq A$
 \end_inset
 
- for every 
+ for every
 \begin_inset Formula $A\in\mathcal{A}$
 \end_inset
 
 .
- A choice structure is the pair 
+ A choice structure is the pair
 \begin_inset Formula $(\mathcal{A},c)$
 \end_inset
 
@@ -62,19 +62,19 @@ Choice correspondence.
 
 \begin_layout Definition
 Rationalization.
- A binary relation 
+ A binary relation
 \begin_inset Formula $\succeq$
 \end_inset
 
- rationalizes 
+ rationalizes
 \begin_inset Formula $(\mathcal{A},c)$
 \end_inset
 
- if 
+ if
 \begin_inset Formula $c(A)=\{x\in A:x\succeq y\text{ for every }y\in A\}$
 \end_inset
 
- for every 
+ for every
 \begin_inset Formula $A\in\mathcal{A}$
 \end_inset
 
@@ -88,31 +88,31 @@ Preference relations
 \end_layout
 
 \begin_layout Definition
-For a relation 
+For a relation
 \begin_inset Formula $\succeq\subseteq X\times X$
 \end_inset
 
 ,
- define its strict and symmetric parts by 
+ define its strict and symmetric parts by
 \begin_inset Formula $x\succ y\iff x\succeq y\text{ and not }y\succeq x$
 \end_inset
 
- and 
+ and
 \begin_inset Formula $x\sim y\iff x\succeq y\text{ and }y\succeq x$
 \end_inset
 
 .
- If 
+ If
 \begin_inset Formula $\succeq$
 \end_inset
 
  is complete and transitive,
- then 
+ then
 \begin_inset Formula $\succ$
 \end_inset
 
  is irreflexive and transitive,
- while 
+ while
 \begin_inset Formula $\sim$
 \end_inset
 
@@ -122,12 +122,12 @@ For a relation
 
 \begin_layout Proposition
 Finite utility representation.
- If 
+ If
 \begin_inset Formula $X$
 \end_inset
 
  is finite,
- a preference relation on 
+ a preference relation on
 \begin_inset Formula $X$
 \end_inset
 
@@ -142,79 +142,79 @@ For an infinite commodity or choice space,
 \end_layout
 
 \begin_layout Section
-Revealed preference and WARP
+Revealed choice and WGARP
 \end_layout
 
 \begin_layout Definition
 Direct revealed preference.
- For a choice structure 
+ For a choice structure
 \begin_inset Formula $(\mathcal{A},c)$
 \end_inset
 
 ,
- write 
-\begin_inset Formula $x\succeq^{D}y$
+ write
+\begin_inset Formula $x\succeq^{C}y$
 \end_inset
 
- if there is a menu 
+ if there is a menu
 \begin_inset Formula $A\in\mathcal{A}$
 \end_inset
 
- with 
+ with
 \begin_inset Formula $x\in c(A)$
 \end_inset
 
- and 
+ and
 \begin_inset Formula $y\in A$
 \end_inset
 
 .
- Write 
-\begin_inset Formula $x\succ^{D}y$
+ Write
+\begin_inset Formula $x\succ^{C}y$
 \end_inset
 
- if, in addition, 
+ if, in addition,
 \begin_inset Formula $y\notin c(A)$
 \end_inset
 
 .
- Let 
-\begin_inset Formula $\succeq^{*}$
+ Let
+\begin_inset Formula $\succeq^{C*}$
 \end_inset
 
- be the reflexive-transitive closure of 
-\begin_inset Formula $\succeq^{D}$
+ be the reflexive-transitive closure of
+\begin_inset Formula $\succeq^{C}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Definition
-Weak Axiom of Revealed Preference (WARP).
- The data satisfy WARP when 
-\begin_inset Formula $x\succeq^{D}y$
+Weak Generalized Axiom of Revealed Preference (WGARP).
+ The data satisfy WGARP when
+\begin_inset Formula $x\succeq^{C}y$
 \end_inset
 
- implies not 
-\begin_inset Formula $y\succ^{D}x$
+ implies not
+\begin_inset Formula $y\succ^{C}x$
 \end_inset
 
 .
  Equivalently,
- if two menus contain both 
+ if two menus contain both
 \begin_inset Formula $x$
 \end_inset
 
- and 
+ and
 \begin_inset Formula $y$
 \end_inset
 
 ,
- choosing 
+ choosing
 \begin_inset Formula $x$
 \end_inset
 
- from one and strictly choosing 
+ from one and strictly choosing
 \begin_inset Formula $y$
 \end_inset
 
@@ -222,37 +222,37 @@ Weak Axiom of Revealed Preference (WARP).
 \end_layout
 
 \begin_layout Proposition
-Necessity of WARP.
+Necessity of WGARP.
  If a complete and transitive preference relation rationalizes a choice structure,
- then the structure satisfies WARP.
+ then the structure satisfies WGARP.
 \end_layout
 
 \begin_layout Standard
 Proof.
- If 
+ If
 \begin_inset Formula $x\in c(A)$
 \end_inset
 
- and 
+ and
 \begin_inset Formula $y\in A$
 \end_inset
 
 ,
- rationalization gives 
+ rationalization gives
 \begin_inset Formula $x\succeq y$
 \end_inset
 
 .
- If a second menu strictly chose 
+ If a second menu strictly chose
 \begin_inset Formula $y$
 \end_inset
 
- over 
+ over
 \begin_inset Formula $x$
 \end_inset
 
 ,
- it would give 
+ it would give
 \begin_inset Formula $y\succ x$
 \end_inset
 
@@ -266,12 +266,12 @@ GARP on finite data
 
 \begin_layout Definition
 Generalized Axiom of Revealed Preference (GARP).
- A finite dataset satisfies GARP when 
-\begin_inset Formula $x\succeq^{*}y$
+ A finite dataset satisfies GARP when
+\begin_inset Formula $x\succeq^{C*}y$
 \end_inset
 
- never occurs together with 
-\begin_inset Formula $y\succ^{D}x$
+ never occurs together with
+\begin_inset Formula $y\succ^{C}x$
 \end_inset
 
 .
@@ -290,29 +290,29 @@ Finite-data rationalizability (cited).
 \end_layout
 
 \begin_layout Standard
-WARP is the one-step restriction;
+WGARP is the one-step restriction for a correspondence;
  GARP is its transitive closure and is therefore the relevant condition when the data do not contain every pair of alternatives in a common menu.
  Exact single-valued rationalization can require additional tie-breaking assumptions,
  so the theorem above is stated for weak rationalization.
 \end_layout
 
 \begin_layout Example
-Let 
+Let
 \begin_inset Formula $X=\{a,b,c\}$
 \end_inset
 
- and suppose 
-\begin_inset Formula $a\succ^{D}b$
+ and suppose
+\begin_inset Formula $a\succ^{C}b$
 \end_inset
 
 ,
- 
-\begin_inset Formula $b\succ^{D}c$
+
+\begin_inset Formula $b\succ^{C}c$
 \end_inset
 
 ,
- and 
-\begin_inset Formula $c\succ^{D}a$
+ and
+\begin_inset Formula $c\succ^{C}a$
 \end_inset
 
 .

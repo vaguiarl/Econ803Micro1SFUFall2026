@@ -38,7 +38,7 @@ Let $x:\mathbb{R}_{++}^{L}\times\mathbb{R}_{++}\to\mathbb{R}_{+}^{L}$ be continu
 
 ## 2.1 | Core | Incomplete preferences and multiple utilities
 
-Let $X=\{a,b,c\}$ and let $R$ contain all reflexive pairs and the comparison $aRb$, but no other comparison between distinct alternatives.
+Let $X=\{a,b,c\}$ and let $\notationfirst{binary-relation}{R}$ contain all reflexive pairs and the comparison $aRb$, but no other comparison between distinct alternatives.
 
 (a) Show that $R$ is a preorder but is incomplete.
 
@@ -56,15 +56,15 @@ Let $X=\{a,b,c\}$ and suppose a single-valued choice function satisfies $c(\{a,b
 
 (c) State the smallest change to one observation that restores acyclicity, and exhibit a complete and transitive rationalization of the revised data.
 
-## 2.3 | Proof | Maximization and set-valued WARP
+## 2.3 | Proof | Maximization and WGARP
 
 Let $R$ be complete and transitive on a finite set $X$. For each nonempty menu $A\subseteq X$, let $c(A)$ be the set of $R$-greatest elements of $A$.
 
 (a) Prove that $c(A)$ is nonempty.
 
-(b) Suppose $x\in c(A)$, $y\in c(B)$, and $x,y\in A\cap B$. Prove that $xIy$, where $I$ is the symmetric part of $R$.
+(b) Suppose $x\in c(A)$, $y\in c(B)$, and $x,y\in A\cap B$. Prove that $x\notationfirst{symmetric-part}{I_R}y$, where $xI_Ry$ means $xRy$ and $yRx$.
 
-(c) Explain why this conclusion is the appropriate set-valued version of WARP.
+(c) Explain why this conclusion is WGARP, the appropriate weak axiom for a set-valued choice correspondence, and distinguish it from WARP for single-valued demand.
 
 # Consumer Theory: Utility Maximization
 
@@ -96,7 +96,7 @@ Consider two observations: $p^{1}=(1,1)$, $x^{1}=(2,1)$ and $p^{2}=(2,1)$, $x^{2
 
 (b) Check GARP.
 
-(c) Verify that $u^{1}=1$, $u^{2}=0$, and $\lambda^{1}=\lambda^{2}=1$ satisfy the Afriat inequalities.
+(c) Verify that $U^{1}=1$, $U^{2}=0$, and $\lambda^{1}=\lambda^{2}=1$ satisfy the Afriat inequalities.
 
 (d) Write the corresponding piecewise-linear Afriat utility and verify that it assigns the required utility levels at the observations.
 
@@ -112,13 +112,13 @@ Using the Marshallian demand from Problem 3.1, compute $S(p,w)=D_{p}x+D_{w}x\,x^
 
 ## 3.5 | Applied | Demand forecasting with Varian's support set
 
-A finite dataset $\mathcal O=\{(p^{t},x^{t})\}_{t=1}^{T}$ satisfies GARP. Fix a counterfactual budget $(p^{0},w^{0})$ with $p^{0}\gg0$, and define $S(p^{0},w^{0})=\{x^{0}:p^{0}\cdot x^{0}=w^{0},\ \mathcal O\cup\{(p^{0},x^{0})\}\text{ satisfies GARP}\}$.
+A finite dataset $\mathcal O=\{(p^{t},x^{t})\}_{t\in\mathbb T}$ satisfies GARP. Fix a counterfactual budget $(p^{0},w^{0})$ with $p^{0}\gg0$, and define $\mathcal S_{\mathcal O}(p^{0},w^{0})=\{x^{0}:p^{0}\cdot x^{0}=w^{0},\ \mathcal O\cup\{(p^{0},x^{0})\}\text{ satisfies GARP}\}$.
 
-(a) State a revealed-preference condition under which the data imply $x^{t}Rx^{0}$.
+(a) State a revealed-preference condition under which the augmented data imply $x^{t}\succeq^R x^{0}$.
 
 (b) Derive the associated linear restriction on $p^{0}\cdot x^{0}$.
 
-(c) Explain why the restrictions in parts (a)--(b) are necessary but must be combined with every revealed-preference path into and out of the candidate observation to characterize $S(p^{0},w^{0})$. Explain why this set gives bounds rather than point identification.
+(c) Explain why the restrictions in parts (a)--(b) are necessary but must be combined with every revealed-preference path into and out of the candidate observation to characterize $\mathcal S_{\mathcal O}(p^{0},w^{0})$. Explain why this set gives bounds rather than point identification.
 
 # Behavioral Economics: Sparse-Max and Rational Inattention
 
@@ -156,7 +156,7 @@ There are two equally likely states and two actions. The decision maker receives
 
 ## 5.1 | Core | Affine expected-utility representations
 
-Let $Z=\{z_{1},\ldots,z_{n}\}$ and suppose $U(p)=\sum_{j}p_{j}u(z_{j})$ represents a nontrivial preference on $\Delta(Z)$.
+Let $Z=\{z_{1},\ldots,z_{n}\}$ and suppose $U(\mu)=\sum_{j}\mu_{j}u(z_{j})$ represents a nontrivial preference on $\Delta(Z)$.
 
 (a) Show directly that $U$ is affine in lotteries.
 
@@ -166,7 +166,7 @@ Let $Z=\{z_{1},\ldots,z_{n}\}$ and suppose $U(p)=\sum_{j}p_{j}u(z_{j})$ represen
 
 ## 5.2 | Core | First-order stochastic dominance
 
-Lotteries $p$ and $q$ on prizes $\{0,1,2\}$ have probabilities $p=(0.2,0.3,0.5)$ and $q=(0.3,0.4,0.3)$.
+Lotteries $\mu$ and $\nu$ on prizes $\{0,1,2\}$ have probabilities $\mu=(0.2,0.3,0.5)$ and $\nu=(0.3,0.4,0.3)$.
 
 (a) Compare their cumulative distribution functions and determine which lottery first-order stochastically dominates the other.
 
@@ -176,9 +176,15 @@ Lotteries $p$ and $q$ on prizes $\{0,1,2\}$ have probabilities $p=(0.2,0.3,0.5)$
 
 ## 5.3 | Proof | The Arrow-Pratt approximation
 
-An agent with twice continuously differentiable utility $u$ and wealth $w$ faces a zero-mean risk $\varepsilon$ with variance $\sigma^{2}$. Define the risk premium $\pi$ by $u(w-\pi)=\mathbb E[u(w+\varepsilon)]$.
+An agent with twice continuously differentiable utility $u$ and wealth $w$ faces a zero-mean risk $\varepsilon$ with variance $\sigma^{2}$. Define the monetary risk premium $\operatorname{RP}$ by the indifference equation
 
-(a) Use second-order Taylor expansions to derive $\pi\approx\tfrac12A(w)\sigma^{2}$, where $A(w)=-u''(w)/u'(w)$.
+$u(w-\operatorname{RP})=\mathbb E[u(w+\varepsilon)].$
+
+(a) Use second-order Taylor expansions to derive the approximation
+
+$\operatorname{RP}\approx\tfrac12A(w)\sigma^{2},$
+
+where $A(w)=-u''(w)/u'(w)$.
 
 (b) State the regularity and small-risk qualifications needed for this approximation.
 
@@ -186,13 +192,13 @@ An agent with twice continuously differentiable utility $u$ and wealth $w$ faces
 
 ## 5.4 | Applied | CARA-normal portfolio demand
 
-Terminal wealth is $W=wR_{f}+\theta(R-R_{f})$, where $R\sim N(\mu,\sigma^{2})$, $R_{f}$ is risk free, $\theta\in\mathbb R$ (borrowing and short selling are unrestricted), and utility is $u(W)=-\exp(-aW)$ with $a>0$.
+Terminal wealth is $W_T=wR_{f}+\theta(\widetilde R-R_{f})$, where $\widetilde R\sim N(m_R,\sigma^{2})$, $R_{f}$ is risk free, $\theta\in\mathbb R$ (borrowing and short selling are unrestricted), and utility is $u(W_T)=-\exp(-aW_T)$ with $a>0$.
 
 (a) Show that maximizing expected utility is equivalent to maximizing a certainty equivalent.
 
 (b) Derive optimal risky investment $\theta^{*}$.
 
-(c) Give comparative statics with respect to $\mu-R_{f}$, $a$, and $\sigma^{2}$.
+(c) Give comparative statics with respect to $m_R-R_{f}$, $a$, and $\sigma^{2}$.
 
 # Aggregate Demand
 
@@ -230,7 +236,7 @@ Let $x^{A}(p)=\sum_{i}x_{i}(p,w_{i}(p))$, where individual wealth may vary with 
 
 ## 7.1 | Core | Logit odds and IIA
 
-Choice probabilities satisfy $P(j\mid A)=\exp(V_{j}/\mu)/\sum_{k\in A}\exp(V_{k}/\mu)$, where $\mu>0$.
+Choice probabilities satisfy $P(j\mid A)=\exp(V_{j}/\tau)/\sum_{k\in A}\exp(V_{k}/\tau)$, where $\tau>0$.
 
 (a) Derive the odds ratio $P(j\mid A)/P(k\mid A)$.
 
@@ -254,27 +260,27 @@ There are alternatives $a,b,c$. A population consists of three strict preference
 
 (a) Compute choice probabilities from menus $\{a,b\}$ and $\{a,b,c\}$.
 
-(b) Let the columns of $M$ correspond to all six strict orders on $\{a,b,c\}$, with zero masses allowed. Write these probabilities in the form $\rho=M\pi$.
+(b) Let the columns of $M$ correspond to all six strict orders on $\{a,b,c\}$, with zero masses allowed. Stack the observed probabilities as $\mathbf P$ and write $\mathbf P=M\lambda$.
 
-(c) Explain why nonnegativity of $\pi$ and $\mathbf 1^{\top}\pi=1$ are the central finite random-utility feasibility restrictions.
+(c) Explain why nonnegativity of $\lambda$ and $\mathbf 1_6^{\top}\lambda=1$ are the central finite random-utility feasibility restrictions.
 
 # Theory of the Firm
 
 ## 8.1 | Core | Cobb-Douglas production and cost
 
-A firm has production function $f(z)=z_{1}^{\alpha}z_{2}^{\beta}$ with $\alpha,\beta>0$.
+A firm has production function $f(\boldsymbol z)=z_{1}^{\alpha}z_{2}^{\beta}$ with $\alpha,\beta>0$.
 
 (a) Classify returns to scale as a function of $\alpha+\beta$.
 
-(b) Derive conditional factor demands and the cost function for output $q>0$ and input prices $w\gg0$.
+(b) Derive conditional factor demands and the cost function for output $q>0$ and input prices $\boldsymbol w\gg0$.
 
-(c) Verify that cost is homogeneous of degree one and concave in $w$.
+(c) Verify that cost is homogeneous of degree one and concave in $\boldsymbol w$.
 
 ## 8.2 | Proof | Dual properties of the profit function
 
-Let $Y\subseteq\mathbb R^{L}$ be nonempty, closed, and convex. Assume that profit $\pi(p)=\sup_{y\in Y}p\cdot y$ is finite on a neighborhood of the price under study and that the supremum is attained.
+Let $Y\subseteq\mathbb R^{L}$ be nonempty, closed, and convex. Assume that profit $\pi_Y(p)=\sup_{y\in Y}p\cdot y$ is finite on a neighborhood of the price under study and that the supremum is attained.
 
-(a) Prove that $\pi$ is convex and homogeneous of degree one in prices.
+(a) Prove that $\pi_Y$ is convex and homogeneous of degree one in prices.
 
 (b) If supply is unique at $p$, use a subgradient argument to prove Hotelling's lemma and explain why the profit function is differentiable there.
 
@@ -284,7 +290,7 @@ Let $Y\subseteq\mathbb R^{L}$ be nonempty, closed, and convex. Assume that profi
 
 Assume $Y$ is a cone and $0\in Y$.
 
-(a) Prove that either $\pi(p)=0$ or $\pi(p)=+\infty$.
+(a) Prove that either $\pi_Y(p)=0$ or $\pi_Y(p)=+\infty$.
 
 (b) Characterize the price vectors for which profit is zero.
 
@@ -292,13 +298,13 @@ Assume $Y$ is a cone and $0\in Y$.
 
 ## 8.4 | Proof | Shephard's lemma and substitution
 
-Suppose the minimum in $c(w,q)=\min\{w\cdot z:f(z)\geq q,z\geq0\}$ exists, conditional factor demand $z(w,q)$ is unique, and $c$ is twice differentiable in $w$.
+Suppose the minimum in $C(\boldsymbol w,q)=\min\{\boldsymbol w\cdot\boldsymbol z:f(\boldsymbol z)\geq q,\boldsymbol z\geq0\}$ exists, conditional factor demand $\mathcal Z(\boldsymbol w,q)$ is single-valued, and $C$ is twice differentiable in $\boldsymbol w$.
 
 (a) Prove Shephard's lemma.
 
-(b) Show that $D_{w}z=D^{2}_{ww}c$ is symmetric and negative semidefinite.
+(b) Show that $D_{\boldsymbol w}\boldsymbol z=D^{2}_{\boldsymbol w\boldsymbol w}C$ is symmetric and negative semidefinite.
 
-(c) Use homogeneity to show $D_{w}z(w,q)w=0$.
+(c) Use homogeneity to show $D_{\boldsymbol w}\boldsymbol z(\boldsymbol w,q)\boldsymbol w=0$.
 
 # Competitive Markets and Partial Equilibrium
 
@@ -336,7 +342,7 @@ A representative consumer has quasilinear utility $u(q)+m$, with $u$ increasing 
 
 ## 10.1 | Core | Cobb-Douglas exchange equilibrium
 
-There are two consumers with common utility $u_{i}(x_{1i},x_{2i})=x_{1i}^{\alpha}x_{2i}^{1-\alpha}$, $0<\alpha<1$, and endowments $\omega_{1}=(1,2)$, $\omega_{2}=(2,1)$.
+There are two consumers with common utility $u_{i}(x_{i1},x_{i2})=x_{i1}^{\alpha}x_{i2}^{1-\alpha}$, $0<\alpha<1$, and endowments $\omega_{1}=(1,2)$, $\omega_{2}=(2,1)$.
 
 (a) Derive individual Walrasian demands.
 
@@ -382,7 +388,7 @@ Let aggregate excess demand $z:\mathbb R_{++}^{L}\to\mathbb R^{L}$ be continuous
 
 (a) Differentiate homogeneity to show $D_{p}z(p)p=0$.
 
-(b) Differentiate Walras' law to show $D_{p}z(p)^{\top}p=-z(p)$.
+(b) Differentiate Walras' law to show $[D_{p}z(p)]^{\top}p=-z(p)$.
 
 (c) Specialize the second identity to an equilibrium and interpret the left null vector.
 
@@ -516,7 +522,7 @@ Agents $1,2,3$ initially own houses $h_{1},h_{2},h_{3}$. Their rankings are $1:h
 
 ## 15.1 | Core | Calibrating a CES technology
 
-A constant-returns technology is $Q=A[\alpha K^{-\rho}+(1-\alpha)\ell^{-\rho}]^{-1/\rho}$, with $\rho>-1$ and $\rho\ne0$. A strictly positive interior cost-minimizing benchmark observation gives $(Q,K,\ell,r,W)$ and an elasticity of substitution $\sigma>0$, $\sigma\ne1$. (The Cobb-Douglas limit $\sigma=1$ is outside the displayed parameterization.)
+A constant-returns technology is $Q=A[\alpha K^{-\rho}+(1-\alpha)n^{-\rho}]^{-1/\rho}$, with $\rho>-1$ and $\rho\ne0$. A strictly positive interior cost-minimizing benchmark observation gives $(Q,K,n,r,W)$ and an elasticity of substitution $\sigma>0$, $\sigma\ne1$. (The Cobb-Douglas limit $\sigma=1$ is outside the displayed parameterization.)
 
 (a) Recover $\rho$ from $\sigma$.
 
@@ -554,13 +560,13 @@ Give a counterexample for every failed property.
 
 ## A.2 | Proof | Quotienting a preorder
 
-Let $R$ be a preorder on $X$ and define $xIy$ if and only if $xRy$ and $yRx$.
+Let $R$ be a preorder on $X$ and define $xI_Ry$ if and only if $xRy$ and $yRx$.
 
-(a) Prove that $I$ is an equivalence relation.
+(a) Prove that $I_R$ is an equivalence relation.
 
 (b) Define $[x]\,\bar R\,[y]$ if and only if $xRy$. Prove that this definition is independent of representatives.
 
-(c) Prove that $\bar R$ is a partial order on $X/I$.
+(c) Prove that $\bar R$ is a partial order on $X/I_R$.
 
 ## A.3 | Proof | Maximal, greatest, and finite existence
 

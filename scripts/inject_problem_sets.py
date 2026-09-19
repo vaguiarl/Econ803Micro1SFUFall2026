@@ -96,10 +96,13 @@ def lyx_inline(text: str) -> str:
     position = 0
     for match in re.finditer(r"\$(.+?)\$", text):
         pieces.append(text[position : match.start()])
+        # End the source line immediately after the inline formula inset.  LyX
+        # keeps the preceding ordinary space, while later prose starts on the
+        # next source line instead of being swallowed after ``\\end_inset``.
         pieces.append(
-            "\n\\begin_inset Formula $"
+            "\\begin_inset Formula $"
             + match.group(1)
-            + "$\n\\end_inset\n"
+            + "$\\end_inset\n"
         )
         position = match.end()
     pieces.append(text[position:])

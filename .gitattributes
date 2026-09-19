@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# LyX uses end-of-line blanks to encode spaces before inline insets.
+*.lyx whitespace=-blank-at-eol

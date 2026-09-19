@@ -36,20 +36,25 @@ if [[ ! -x "$lyx_bin" ]]; then
   exit 1
 fi
 
-printf '1/9 Building and validating vector figures...\n'
+printf '1/10 Building and validating vector figures...\n'
 bash "$repo_dir/figures_tikz/build_and_check.sh"
 
-printf '2/9 Checking that generated problem sets match the public bank...\n'
+printf '2/10 Checking that generated problem sets match the public bank...\n'
 python3 "$repo_dir/scripts/inject_problem_sets.py" --check \
   "$notes_dir/$stem.lyx" "$repo_dir/problems/PROBLEM_BANK.md"
 
-printf '3/9 Exporting LyX source...\n'
+printf '3/10 Validating notation ledger and first-use/glossary links...\n'
+python3 "$repo_dir/scripts/validate_notation.py" \
+  --lyx "$notes_dir/$stem.lyx" \
+  --ledger "$repo_dir/editorial/notation/glossary.tsv"
+
+printf '4/10 Exporting LyX source...\n'
 (cd "$notes_dir" && "$lyx_bin" --export pdflatex "$stem.lyx")
 
-printf '4/9 Compiling the book...\n'
+printf '5/10 Compiling the book...\n'
 (cd "$notes_dir" && latexmk -pdf -interaction=nonstopmode -halt-on-error "$stem.tex" >/dev/null)
 
-printf '5/9 Auditing final PDF fonts and vector content...\n'
+printf '6/10 Auditing final PDF fonts and vector content...\n'
 pdf_path="$notes_dir/$stem.pdf"
 pdfimages_bin="$(find_poppler_tool pdfimages)"
 pdffonts_bin="$(find_poppler_tool pdffonts)"
@@ -62,11 +67,14 @@ if [[ "$raster_images" != "0" || "$type3_fonts" != "0" || "$unembedded_fonts" !=
   printf 'Final PDF preflight failed.\n' >&2
   exit 4
 fi
+python3 "$repo_dir/scripts/check_pdf_notation_links.py" \
+  --pdf "$pdf_path" \
+  --ledger "$repo_dir/editorial/notation/glossary.tsv"
 
-printf '6/9 Building the pinned Lean project and auditing kernel trust...\n'
+printf '7/10 Building the pinned Lean project and auditing kernel trust...\n'
 bash "$repo_dir/formal/scripts/check.sh"
 
-printf '7/9 Checking theorem pairs and known editorial hazards...\n'
+printf '8/10 Checking theorem pairs and known editorial hazards...\n'
 python3 "$repo_dir/scripts/validate_theorem_pairs.py" \
   --ledger "$repo_dir/formal/theorem_pairs.tsv" \
   --lyx "$notes_dir/$stem.lyx" \
@@ -91,10 +99,10 @@ if [[ -n "$restricted_assessments" ]]; then
   exit 3
 fi
 
-printf '8/9 Regenerating the book map and duplication index...\n'
+printf '9/10 Regenerating the book map and duplication index...\n'
 perl "$repo_dir/scripts/book_map.pl" "$notes_dir/$stem.lyx" > "$repo_dir/BOOK_MAP.md"
 
-printf '9/9 Regenerating the theorem inventory...\n'
+printf '10/10 Regenerating the theorem inventory...\n'
 perl "$repo_dir/scripts/formal_inventory.pl" "$notes_dir/$stem.lyx" > "$repo_dir/formal/theorem_inventory.tsv"
 for layout in Axiom Definition Theorem Proposition Lemma Corollary Fact Claim Proof; do
   count="$(awk -F '\t' -v kind="$layout" 'NR > 1 && $2 == kind { n++ } END { print n + 0 }' \
@@ -102,4 +110,4 @@ for layout in Axiom Definition Theorem Proposition Lemma Corollary Fact Claim Pr
   printf '%-12s %s\n' "$layout" "$count"
 done
 
-printf '\nPASS: figures, PDF, Lean, theorem ledger, and generated indexes passed.\n'
+printf '\nPASS: figures, problem bank, notation links, PDF, Lean, theorem ledger, and generated indexes passed.\n'

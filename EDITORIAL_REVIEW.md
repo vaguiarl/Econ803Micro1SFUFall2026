@@ -17,6 +17,7 @@ The book has five parts, fifteen substantive chapters, and a mathematical append
 The principal repository controls are:
 
 - `NOTATION.md` is the book-wide notation and typographic standard.
+- `editorial/notation/glossary.tsv` records the stable semantic IDs used to validate linked first uses and glossary definitions; it does not supersede the LyX manuscript.
 - `BOOK_MAP.md` records chapter architecture, formal-block counts, and duplicate headings.
 - `formal/COVERAGE.md` states the verification level of each major topic.
 - `formal/theorem_inventory.tsv` indexes the manuscript's definitions, results, proofs, and examples.
@@ -49,6 +50,8 @@ This is a high-value correctness pass, not a substitute for external peer review
 The manuscript's defaults are now stable: $L$ and $\ell$ index commodities; $i$ indexes consumers; $j$ indexes firms; $s,t=1,\ldots,T$ index observations; $p,w$ denote prices and wealth; $x,h,v,e$ denote Marshallian demand, Hicksian demand, indirect utility, and expenditure. Bundles are column vectors, $a\cdot b$ is an inner product, $a^\top$ is a transpose, and a prime identifies an alternative object. Maps display their domains, and functions are distinguished from correspondences. Local exceptions—for lotteries, matching markets, and social-accounting notation—must be announced where introduced.
 
 These conventions should be treated as a style sheet: later additions must not silently introduce competing index families, transpose conventions, or meanings for strict inequalities.
+
+The `.lyx` manuscript remains the canonical source for notation definitions and link placement. In the built PDF, each tracked symbol at first use links to its entry in the final glossary, and the symbol in the glossary links back to that first use. The release validator checks the TSV ledger against those source-level links and requires the glossary to remain the final content chapter before the bibliography.
 
 ## Formal verification: precise claim boundary
 
@@ -84,7 +87,7 @@ Solutions are maintained in a separate private instructor handbook and must neve
 ### Required before submission to an academic press
 
 5. **Commission a professional copyedit.** Apply one publisher style consistently to capitalization, punctuation, displayed equations, theorem names, hyphenation, terminology, citations, and bibliography. The copyeditor should work from LyX and return a change log rather than flattening the source into a one-off PDF.
-6. **Complete publisher-facing apparatus.** Add a preface defining prerequisites and scope, a reader's guide, chapter objectives and summaries, a notation index, a subject index, and acknowledgments. Audit every cross-reference and bibliography entry against the original publication.
+6. **Complete publisher-facing apparatus.** Add a preface defining prerequisites and scope, a reader's guide, chapter objectives and summaries, a subject index, and acknowledgments; retain and polish the linked notation glossary. Audit every cross-reference and bibliography entry against the original publication.
 7. **Make the book accessible and reproducible.** Provide meaningful figure descriptions, selectable mathematical text, embedded fonts, bookmarks, and reproducible source data or code for redrawn figures. Pin the Lean and WGARP toolchain versions used for any formal-verification statement attached to a release.
 8. **Independently test the assessment system.** Have a second solver complete every problem without the handbook, then reconcile the solution, difficulty label, prerequisites, expected time, and any admissible alternative answer.
 

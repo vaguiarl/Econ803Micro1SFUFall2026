@@ -65,7 +65,7 @@ Afriat inequalities and elimination of unobservables
 
 \begin_layout Standard
 For a finite collection of observed or latent bundles, Afriat's inequalities are the linear inequalities
-\begin_inset Formula $u_i^t\leq u_i^s+\lambda_i^s p^s\cdot(x_i^t-x_i^s)$\end_inset
+\begin_inset Formula $U_i^t\leq U_i^s+\lambda_i^s p^s\cdot(x_i^t-x_i^s)$\end_inset
  for all \begin_inset Formula $s,t$\end_inset ,
  with \begin_inset Formula $\lambda_i^s>0$\end_inset .
  They are equivalent to the existence of a monotone,
@@ -77,7 +77,7 @@ The equilibrium restrictions combine these inequalities with the budget inequali
 \begin_inset Formula $p^t\cdot x_i^t\leq p^t\cdot\omega_i^t$\end_inset
  and the market-clearing equalities
 \begin_inset Formula $\sum_i x_i^t=\sum_i\omega_i^t$\end_inset .
- The \begin_inset Formula $x_i^t,u_i^t,\lambda_i^t$\end_inset variables are unobserved;
+ The \begin_inset Formula $x_i^t,U_i^t,\lambda_i^t$\end_inset variables are unobserved;
  prices and the endowment profile are the data in the design considered here.
 \end_layout
 

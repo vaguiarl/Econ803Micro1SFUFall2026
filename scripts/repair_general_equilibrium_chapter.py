@@ -47,7 +47,7 @@ At prices \begin_inset Formula $p\gg0$\end_inset
  consumer \begin_inset Formula $i$\end_inset
  has wealth \begin_inset Formula $p\cdot\omega_i$\end_inset
  and budget set
-\begin_inset Formula 
+\begin_inset Formula
 \[
 B_i(p)=\{x_i\in X_i:p\cdot x_i\leq p\cdot\omega_i\}.
 \]
@@ -60,7 +60,7 @@ Walrasian equilibrium in the exchange economy.
  with \begin_inset Formula $p^*\gg0$\end_inset
  is an equilibrium if \begin_inset Formula $x^*$\end_inset
  is feasible and
-\begin_inset Formula 
+\begin_inset Formula
 \[
 x_i^*\succeq_i x_i\quad\text{for every }x_i\in B_i(p^*),\quad i=1,2.
 \]
@@ -70,7 +70,7 @@ x_i^*\succeq_i x_i\quad\text{for every }x_i\in B_i(p^*),\quad i=1,2.
 
 \begin_layout Example
 Cobb--Douglas exchange.
- Suppose \begin_inset Formula $u_i(x_{1i},x_{2i})=x_{1i}^{\alpha}x_{2i}^{1-\alpha}$\end_inset
+ Suppose \begin_inset Formula $u_i(x_{i1},x_{i2})=x_{i1}^{\alpha}x_{i2}^{1-\alpha}$\end_inset
  with \begin_inset Formula $0<\alpha<1$\end_inset
 ,
  and endowments \begin_inset Formula $\omega_1=(1,2)$\end_inset
@@ -80,7 +80,7 @@ Cobb--Douglas exchange.
 \end_layout
 
 \begin_layout Example
-\begin_inset Formula 
+\begin_inset Formula
 \[
 x_1(p)=\left(\frac{\alpha(p_1+2p_2)}{p_1},\frac{(1-\alpha)(p_1+2p_2)}{p_2}\right),
 \quad
@@ -137,7 +137,7 @@ There is one consumer with endowment \begin_inset Formula $\overline L$\end_inse
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \[
 \max_{z\geq0}\{p f(z)-wz\}.
 \]
@@ -151,7 +151,7 @@ The consumer owns the firm, receives profit \begin_inset Formula $\pi(p,w)$\end_
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \[
 \max_{(x_1,x_2)\in X}u(x_1,x_2)
 \quad\text{subject to}\quad
@@ -164,7 +164,7 @@ p x_2\leq w(\overline L-x_1)+\pi(p,w).
 A competitive equilibrium is a price pair \begin_inset Formula $(p^*,w^*)$\end_inset
  and choices \begin_inset Formula $(x^*,z^*)$\end_inset
  satisfying both optimization problems and the clearing conditions
-\begin_inset Formula 
+\begin_inset Formula
 \[
 x_2^*=f(z^*),\qquad z^*=\overline L-x_1^*.
 \]
@@ -173,7 +173,7 @@ x_2^*=f(z^*),\qquad z^*=\overline L-x_1^*.
 
 \begin_layout Proposition
 Under continuity, convexity, local nonsatiation, and the usual concavity and attainment assumptions, a competitive allocation solves the central-planner problem
-\begin_inset Formula 
+\begin_inset Formula
 \[
 \max_{x_1,x_2}u(x_1,x_2)
 \quad\text{subject to}\quad
@@ -204,7 +204,7 @@ Consider \begin_inset Formula $I$\end_inset
 .
  An allocation \begin_inset Formula $(x,y)$\end_inset
  is feasible when
-\begin_inset Formula 
+\begin_inset Formula
 \[
 \sum_{i=1}^{I}x_i\leq\omega+\sum_{j=1}^{J}y_j.
 \]
@@ -226,7 +226,7 @@ Walrasian equilibrium.
  A price vector \begin_inset Formula $p\gg0$\end_inset
  and allocation \begin_inset Formula $(x^*,y^*)$\end_inset
  form an equilibrium when, for every firm,
-\begin_inset Formula 
+\begin_inset Formula
 \[
 y_j^*\in\arg\max_{y_j\in Y_j}p\cdot y_j,
 \]
@@ -235,7 +235,7 @@ y_j^*\in\arg\max_{y_j\in Y_j}p\cdot y_j,
 
 \begin_layout Standard
 and, for every consumer,
-\begin_inset Formula 
+\begin_inset Formula
 \[
 x_i^*\in\arg\max_{x_i\in X_i}\{u_i(x_i):p\cdot x_i\leq p\cdot\omega_i+\sum_j\theta_{ij}p\cdot y_j^*\},
 \]
@@ -301,7 +301,7 @@ An inattention model must distinguish true prices from the prices or signals use
 \begin_layout Standard
 For a price-perception benchmark, \begin_inset Formula $\widetilde p_i=M_i p$\end_inset
  and a possible behavioral budget are written explicitly, for example
-\begin_inset Formula 
+\begin_inset Formula
 \[
 x^i(p,M_i)\in\arg\max_{x\in X_i}\{u_i(x):\widetilde p_i\cdot x\leq\widetilde p_i\cdot\omega_i\}.
 \]
@@ -315,7 +315,7 @@ Inattention equilibrium.
  A pair \begin_inset Formula $(p,x)$\end_inset
  is an inattention equilibrium when each \begin_inset Formula $x_i\in x^i(p,M_i)$\end_inset
  satisfies the model's actual feasibility restrictions and
-\begin_inset Formula 
+\begin_inset Formula
 \[
 \sum_{i=1}^{I}x_i=\sum_{i=1}^{I}\omega_i.
 \]
