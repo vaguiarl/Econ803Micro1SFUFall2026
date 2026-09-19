@@ -14,14 +14,16 @@ The intended identity is clear and defensible: a modern graduate microeconomics 
 
 The book has five parts, fifteen substantive chapters, and a mathematical appendix on order theory. The physical reading order begins with observable choice and demand; the logical dependency map correctly treats order theory as foundational even though it is placed in Appendix A. `BOOK_MAP.md` records the full sequence and currently reports no exact duplicate section titles. Material that legitimately recurs—WARP, GARP, Slutsky restrictions, aggregation, and equilibrium—is now separated by purpose and level of abstraction rather than repeated as parallel introductions.
 
-Four repository files serve as editorial controls:
+The principal repository controls are:
 
 - `NOTATION.md` is the book-wide notation and typographic standard.
 - `BOOK_MAP.md` records chapter architecture, formal-block counts, and duplicate headings.
 - `formal/COVERAGE.md` states the verification level of each major topic.
 - `formal/theorem_inventory.tsv` indexes the manuscript's definitions, results, proofs, and examples.
+- `formal/theorem_pairs.tsv` gives 22 stable reader/full theorem identifiers and forbids completion overclaims.
+- `FIGURE_AUDIT.md` records every live and legacy figure's technical quality, provenance, rights status, and disposition.
 
-Theorem-like environments now use a common counter reset by chapter, and every chapter has a stable label. The bibliography contains 22 primary or standard sources, with citations attached to the relevant representation, duality, equilibrium, revealed-preference, matching, and extension results.
+Theorem-like environments now use a common counter reset by chapter, and every chapter has a stable label. The bibliography contains 25 primary or standard sources, with citations attached to the relevant representation, duality, equilibrium, revealed-preference, experimental, matching, and extension results.
 
 ## Mathematical and expository revision completed
 
@@ -54,14 +56,15 @@ The book is **not** fully Lean verified, and no release language should imply th
 
 | Material | Current assurance |
 |---|---|
-| Relation parts and maximal-versus-greatest results | Local Lean proof plus textbook exposition |
+| Relation parts, finite greatest elements, transitive closure, and order extension | Local Lean proof plus textbook exposition |
 | Rational choice, set-valued WARP, and strict dominance | Local Lean proof plus textbook exposition |
-| GARP, Afriat inequalities, and revealed-preference closure | Existing external WGARP Lean project when configured; textbook proof in this repository |
+| GARP, Afriat inequalities, budget exhaustion, and compensated demand | Exact wrappers around a pinned WGARP commit, compiled in the same Lake build |
+| Consumer/firm value-function algebra, finite stochastic dominance, and welfare/core price arguments | Delimited local Lean cores; the coverage ledger names each missing analytic or model-encoding bridge |
 | Narrative dependency order | Lean-checked structural map only; it does not prove the economic claims |
 | Standard analysis, representation, equilibrium, and matching results | Audited textbook proof or an explicit citation, as recorded in `formal/COVERAGE.md` |
 | Calibrations and model applications | Algebraic/expository verification |
 
-The release script rejects Lean placeholders and local axioms, compiles every local module, and can build the separate WGARP project through `WGARP_LEAN_DIR`. This transparent, result-level ledger is preferable to a blanket verification claim.
+The release script rejects Lean placeholders and local axioms, builds the pinned local and WGARP libraries, prints the kernel assumptions of every public certificate, and validates a 30-target machine-readable coverage ledger. This transparent, result-level ledger is preferable to a blanket verification claim.
 
 ## Problems and solutions
 
@@ -73,8 +76,8 @@ Solutions are maintained in a separate private instructor handbook and must neve
 
 ### Required before a public versioned release
 
-1. **Rebuild and inspect the final artifact.** Run `scripts/check_book.sh` after the generated problems are synchronized. Inspect the title and contents pages, every chapter opening, dense equations and tables, all problem sections, bibliography, and the end of Appendix A. Resolve overfull boxes, orphan headings, bad page breaks, missing references, and illegible figures.
-2. **Resolve figure provenance and rights.** The manuscript currently uses five raster assets: `rationality_experiment.png`, `CCEI_Afriat_index.png`, `fosd.png`, `polissonquah_passingrates_table_expectedutility.png`, and `holt_laury.png`. Several captions give incomplete or no source information. For each figure, record creator, underlying source, permission or license, and any adaptation. Recreate plots and tables from underlying data where possible, redraw diagrams as vector artwork, and give every figure a self-contained caption and source note.
+1. **Complete the whole-book visual inspection.** `scripts/check_book.sh` now rebuilds the five vector figures, compiles the book, and verifies that the final PDF contains no raster images, Type 3 fonts, or unembedded fonts. A human still must inspect every chapter opening, dense equation, problem section, bibliography page, and the end of Appendix A for page breaks and typographic rhythm.
+2. **Close the remaining figure-rights record.** All five live PNG/screenshot figures have been replaced by reproducible vector artwork with self-contained captions and primary citations. The two plots reconstructed from Quah's vector slides still require permission for wide commercial circulation or a fresh reconstruction from licensed experimental data. Unreferenced scan-like legacy assets should remain outside the production tree and be retained only in a private provenance archive.
 3. **Protect assessment separation.** Confirm that the public Git tree and reachable release history contain no solutions, answer keys, examinations, or unreleased weekly sets.
 4. **Obtain an independent mathematical sign-off.** At minimum, assign separate reviewers to consumer/revealed-preference material; production and equilibrium; and risk, random choice, matching, and the mathematical appendix. Track each correction against the theorem inventory.
 
@@ -87,4 +90,4 @@ Solutions are maintained in a separate private instructor handbook and must neve
 
 ## Release recommendation
 
-Treat the current manuscript as a strong **version 0.1 classroom edition candidate**. Publish a tagged student edition only after the four public-release gates above pass. Describe Lean coverage by result and link to the coverage ledger. Reserve “publication-ready” for the later edition that has cleared figure rights, external mathematical review, professional copyediting, and press-quality production review.
+Treat the current manuscript as a strong **classroom edition** and an auditable publication baseline. Describe Lean coverage by result and link to the coverage ledger; do not call the book fully formalized. Reserve “publication-ready” for the later edition that has cleared the two remaining figure permissions, external mathematical review, professional copyediting, and press-quality production review.

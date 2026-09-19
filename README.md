@@ -17,27 +17,24 @@ The Fall 2026 baseline has four commitments:
 - Chapter and duplication map: [`BOOK_MAP.md`](BOOK_MAP.md)
 - House notation: [`NOTATION.md`](NOTATION.md)
 - Mathematical verification ledger: [`formal/COVERAGE.md`](formal/COVERAGE.md)
+- Lean proof architecture: [`formal/ARCHITECTURE.md`](formal/ARCHITECTURE.md)
+- Reader/full theorem-pair plan: [`THEOREM_STAR_PLAN.md`](THEOREM_STAR_PLAN.md)
+- Figure, provenance, and rights audit: [`FIGURE_AUDIT.md`](FIGURE_AUDIT.md)
 - Canonical question-only problem bank: [`problems/PROBLEM_BANK.md`](problems/PROBLEM_BANK.md)
 - Publication-baseline review: [`EDITORIAL_REVIEW.md`](EDITORIAL_REVIEW.md)
 - Backward editorial and formalization plan: [`EDITORIAL_AUDIT.md`](EDITORIAL_AUDIT.md)
 
-The LyX file is the authoritative text. Generated LaTeX and temporary build products are intentionally excluded from version control. All figures required by the manuscript are stored under `notes/figures/`; building the book does not require Dropbox or another repository.
+The LyX file is the authoritative text. Generated LaTeX and temporary build products are intentionally excluded from version control. All five live figures are reproducible vector PDFs: their TikZ/PGFPlots sources and checked data live in `figures_tikz/`, and passing exports live in `notes/figures/tikz/`. Building the book does not require Dropbox or another repository.
 
 ## Verify the release
 
-With LyX, LaTeX, Perl, ripgrep, and Lean available, run:
+With LyX, LaTeX (including TikZ/PGFPlots), Poppler, Python 3, Perl, ripgrep, and Lean/Lake available, run:
 
 ```sh
 bash scripts/check_book.sh
 ```
 
-To include the separately maintained, already kernel-checked WGARP/Afriat library:
-
-```sh
-WGARP_LEAN_DIR=/path/to/wgarp_final_revision bash scripts/check_book.sh
-```
-
-The command rebuilds the PDF, compiles every local Lean module, optionally builds the external WGARP project, rejects proof placeholders and restricted assessment files, and regenerates the chapter, duplication, and theorem indexes.
+The command rebuilds and preflights all vector figures before exporting LyX, compiles the PDF, rejects raster images and unsafe fonts in the final artifact, builds the pinned Lean project together with the exact WGARP dependency, audits kernel assumptions and proof placeholders, validates the theorem-pair ledger, rejects restricted assessment files, and regenerates the chapter, duplication, and theorem indexes.
 
 ## Assessment policy
 
@@ -45,4 +42,4 @@ This public edition contains 55 question-only end-of-chapter problems, each with
 
 ## Status
 
-This is the Fall 2026 version 0.1 baseline: a complete, buildable textbook manuscript with unified notation, references, end-of-chapter problems, and an explicit verification framework. Later releases should preserve stable problem identifiers and must not change the book's notation or logical spine silently.
+This is the Fall 2026 public baseline: a complete, buildable textbook manuscript with unified notation, references, end-of-chapter problems, vector artwork, and a reproducible Lean verification layer. The proposed starred reader-theorem/full-appendix architecture is mapped and mechanically validated, but the 22 theorem pairs have not yet been migrated into the LyX manuscript. Later releases should preserve stable problem and theorem identifiers and must not change the book's notation or logical spine silently.

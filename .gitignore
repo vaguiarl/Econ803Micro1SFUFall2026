@@ -25,6 +25,10 @@
 *.toc
 *.vrb
 
+# Publication figures are maintained as standalone TeX sources.
+!figures_tikz/figure_style.tex
+!figures_tikz/src/*.tex
+
 # Local QA renders
 /tmp/
 

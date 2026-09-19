@@ -1,0 +1,31 @@
+% Shared visual language for the book's standalone vector figures.
+% Keep this file compatible with the TeX Live version used by LyX.
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\pgfplotsset{compat=1.17}
+
+\definecolor{BookBlue}{HTML}{0072B2}
+\definecolor{BookOrange}{HTML}{D55E00}
+\definecolor{BookGreen}{HTML}{009E73}
+\definecolor{BookGray}{HTML}{666666}
+\definecolor{BookLightGray}{HTML}{D9D9D9}
+
+\pgfplotsset{
+  book axis/.style={
+    axis line style={black!75,line width=0.55pt},
+    tick style={black!75,line width=0.45pt},
+    tick label style={font=\small},
+    label style={font=\small},
+    legend style={
+      font=\small,
+      draw=none,
+      fill=none,
+      cells={anchor=west},
+    },
+    grid style={BookLightGray,line width=0.35pt},
+    major grid style={BookLightGray,line width=0.35pt},
+  },
+}

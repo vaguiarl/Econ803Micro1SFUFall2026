@@ -1,0 +1,20 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{../figure_style.tex}
+\begin{document}
+\begin{tikzpicture}
+  \node[inner sep=0pt] {
+    \renewcommand{\arraystretch}{1.22}
+    \setlength{\tabcolsep}{9pt}
+    \begin{tabular}{@{}ccccc@{}}
+      \toprule
+      Observations dropped & GARP & RDEU & EU & EU$^{*}$ \\
+      \midrule
+      0 & 12/47 (26\%) & 2/47 (4\%)  & 2/47 (4\%)  & 0/47 (0\%) \\
+      1 & 14/47 (30\%) & 7/47 (15\%) & 5/47 (11\%) & 0/47 (0\%) \\
+      2 & 27/47 (57\%) & 9/47 (19\%) & 7/47 (15\%) & 2/47 (4\%) \\
+      3 & 32/47 (68\%) & 12/47 (26\%)& 10/47 (21\%)& 2/47 (4\%) \\
+      \bottomrule
+    \end{tabular}
+  };
+\end{tikzpicture}
+\end{document}

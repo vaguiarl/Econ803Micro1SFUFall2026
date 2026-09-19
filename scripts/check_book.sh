@@ -6,38 +6,73 @@ notes_dir="$repo_dir/notes"
 stem="Microeconomics_1_notes_by_Victor_Aguiar"
 lyx_bin="${LYX_BIN:-/Applications/LyX.app/Contents/MacOS/lyx}"
 
+find_poppler_tool() {
+  local tool_name="$1"
+  local direct_path pdfinfo_path proxy_dir candidate
+  direct_path="$(command -v "$tool_name" 2>/dev/null || true)"
+  if [[ -n "$direct_path" ]]; then
+    printf '%s\n' "$direct_path"
+    return
+  fi
+  if [[ -n "${POPPLER_BIN:-}" && -x "$POPPLER_BIN/$tool_name" ]]; then
+    printf '%s\n' "$POPPLER_BIN/$tool_name"
+    return
+  fi
+  pdfinfo_path="$(command -v pdfinfo 2>/dev/null || true)"
+  if [[ -n "$pdfinfo_path" ]]; then
+    proxy_dir="$(cd "$(dirname "$pdfinfo_path")" && pwd)"
+    candidate="$proxy_dir/../../native/poppler/poppler/bin/$tool_name"
+    if [[ -x "$candidate" ]]; then
+      printf '%s\n' "$candidate"
+      return
+    fi
+  fi
+  printf 'Required Poppler tool not found: %s\n' "$tool_name" >&2
+  return 1
+}
+
 if [[ ! -x "$lyx_bin" ]]; then
   printf 'LyX executable not found: %s\n' "$lyx_bin" >&2
   exit 1
 fi
 
-printf '1/8 Checking that generated problem sets match the public bank...\n'
+printf '1/9 Building and validating vector figures...\n'
+bash "$repo_dir/figures_tikz/build_and_check.sh"
+
+printf '2/9 Checking that generated problem sets match the public bank...\n'
 python3 "$repo_dir/scripts/inject_problem_sets.py" --check \
   "$notes_dir/$stem.lyx" "$repo_dir/problems/PROBLEM_BANK.md"
 
-printf '2/8 Exporting LyX source...\n'
+printf '3/9 Exporting LyX source...\n'
 (cd "$notes_dir" && "$lyx_bin" --export pdflatex "$stem.lyx")
 
-printf '3/8 Compiling the book...\n'
+printf '4/9 Compiling the book...\n'
 (cd "$notes_dir" && latexmk -pdf -interaction=nonstopmode -halt-on-error "$stem.tex" >/dev/null)
 
-printf '4/8 Compiling Lean checks...\n'
-for lean_file in "$repo_dir"/formal/*.lean; do
-  lean "$lean_file"
-done
-
-printf '5/8 Checking the external WGARP proof library when configured...\n'
-if [[ -n "${WGARP_LEAN_DIR:-}" ]]; then
-  if [[ ! -f "$WGARP_LEAN_DIR/lakefile.toml" && ! -f "$WGARP_LEAN_DIR/lakefile.lean" ]]; then
-    printf 'WGARP_LEAN_DIR is not a Lean project: %s\n' "$WGARP_LEAN_DIR" >&2
-    exit 1
-  fi
-  (cd "$WGARP_LEAN_DIR" && lake build)
-else
-  printf 'Skipped (set WGARP_LEAN_DIR to the existing WGARP Lean project).\n'
+printf '5/9 Auditing final PDF fonts and vector content...\n'
+pdf_path="$notes_dir/$stem.pdf"
+pdfimages_bin="$(find_poppler_tool pdfimages)"
+pdffonts_bin="$(find_poppler_tool pdffonts)"
+raster_images="$("$pdfimages_bin" -list "$pdf_path" | awk 'NR > 2 && $1 ~ /^[0-9]+$/ {n++} END {print n+0}')"
+type3_fonts="$("$pdffonts_bin" "$pdf_path" | awk 'NR > 2 && $2 == "Type" && $3 == "3" {n++} END {print n+0}')"
+unembedded_fonts="$("$pdffonts_bin" "$pdf_path" | awk 'NR > 2 && $5 == "no" {n++} END {print n+0}')"
+printf 'Raster images: %s; Type 3 fonts: %s; unembedded fonts: %s\n' \
+  "$raster_images" "$type3_fonts" "$unembedded_fonts"
+if [[ "$raster_images" != "0" || "$type3_fonts" != "0" || "$unembedded_fonts" != "0" ]]; then
+  printf 'Final PDF preflight failed.\n' >&2
+  exit 4
 fi
 
-printf '6/8 Checking proof trust and known editorial hazards...\n'
+printf '6/9 Building the pinned Lean project and auditing kernel trust...\n'
+bash "$repo_dir/formal/scripts/check.sh"
+
+printf '7/9 Checking theorem pairs and known editorial hazards...\n'
+python3 "$repo_dir/scripts/validate_theorem_pairs.py" \
+  --ledger "$repo_dir/formal/theorem_pairs.tsv" \
+  --lyx "$notes_dir/$stem.lyx" \
+  --bib "$notes_dir/references.bib" \
+  --formal-dir "$repo_dir/formal"
+
 if rg -n '\b(sorry|admit)\b|^\s*axiom\b' "$repo_dir/formal" --glob '*.lean'; then
   printf 'Lean trust check failed.\n' >&2
   exit 1
@@ -56,14 +91,15 @@ if [[ -n "$restricted_assessments" ]]; then
   exit 3
 fi
 
-printf '7/8 Regenerating the book map and duplication index...\n'
+printf '8/9 Regenerating the book map and duplication index...\n'
 perl "$repo_dir/scripts/book_map.pl" "$notes_dir/$stem.lyx" > "$repo_dir/BOOK_MAP.md"
 
-printf '8/8 Summarizing formal coverage...\n'
+printf '9/9 Regenerating the theorem inventory...\n'
 perl "$repo_dir/scripts/formal_inventory.pl" "$notes_dir/$stem.lyx" > "$repo_dir/formal/theorem_inventory.tsv"
-for layout in Definition Theorem Proposition Lemma Corollary Fact Claim Proof; do
-  count="$(rg -c "^\\\\begin_layout ${layout}$" "$notes_dir/$stem.lyx" || true)"
-  printf '%-12s %s\n' "$layout" "${count:-0}"
+for layout in Axiom Definition Theorem Proposition Lemma Corollary Fact Claim Proof; do
+  count="$(awk -F '\t' -v kind="$layout" 'NR > 1 && $2 == kind { n++ } END { print n + 0 }' \
+    "$repo_dir/formal/theorem_inventory.tsv")"
+  printf '%-12s %s\n' "$layout" "$count"
 done
 
-printf '\nPASS: PDF builds and the Lean modules compile without placeholders.\n'
+printf '\nPASS: figures, PDF, Lean, theorem ledger, and generated indexes passed.\n'

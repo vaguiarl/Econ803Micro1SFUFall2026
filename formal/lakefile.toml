@@ -1,0 +1,17 @@
+name = "econ803-textbook"
+version = "0.1.0"
+defaultTargets = ["Econ803"]
+
+[leanOptions]
+autoImplicit = false
+linter.unusedVariables = false
+linter.unusedSectionVars = false
+pp.unicode.fun = true
+
+[[lean_lib]]
+name = "Econ803"
+
+[[require]]
+name = "wgarp"
+git = "https://github.com/vaguiarl/wgarp-lean.git"
+rev = "d874dab846e28928f2a75b2359a0c2a8766a7b93"

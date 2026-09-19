@@ -1,53 +1,79 @@
-# Formal and mathematical audit coverage
+# Formal and mathematical coverage
 
-This is an editorial verification ledger, not a claim that every theorem in the textbook has been re-proved in Lean. The policy is:
+This is a verification ledger, not a claim that the entire textbook has been
+re-proved in Lean. The authoritative machine-readable record is
+`coverage.json`; this page summarizes it for readers.
 
-1. kernel-check the small logical core and the results for which an existing verified library is available;
-2. give complete elementary proofs when they materially help students;
-3. cite standard representation, equilibrium, and matching theorems instead of recreating research-scale proofs;
-4. state every theorem with the hypotheses actually used.
+## Status meanings
 
-## Verification levels
-
-| Level | Meaning |
+| Status | Meaning |
 |---|---|
-| Lean | Checked by the Lean kernel with no `sorry`, `admit`, or local `axiom` |
-| External Lean | Checked by the separate WGARP Lean project when `WGARP_LEAN_DIR` is configured |
-| Textbook proof | Formal argument audited line by line in the LyX source |
-| Cited theorem | Statement and hypotheses audited; proof intentionally delegated to the cited source |
-| Expository | Model derivation or example checked algebraically, but not presented as a general theorem |
+| Verified locally | The exact displayed Lean declaration is proved in this repository and passes the kernel trust audit. |
+| Verified through a pinned import | A local declaration consumes an exact theorem from the pinned public WGARP project; both projects compile in one Lake build. |
+| Core verified | A precise downstream theorem is proved, while a named analytic, representation, or model-encoding bridge remains. |
+| Future target | The target and weakest intended assumptions are recorded, but no trusted proof declaration is claimed. |
+| Cited only | The book delegates the research-scale result; exact source selection may still be a gate. |
 
-## Current coverage by topic
+## Current verified frontier
 
-| Topic | Level | Main checks |
+| Topic | Status | Exact declarations or boundary |
 |---|---|---|
-| Order theory appendix | Lean + textbook proof | Lean checks relation parts and maximal-versus-greatest results; the quotient order, finite extrema, closures, and extension theorem currently rely on audited textbook arguments |
-| Choice and WARP | Lean + textbook proof | maximizing choice implies set-valued WARP; strict-part logic |
-| GARP and Afriat | External Lean + textbook proof | graph GARP, Afriat inequalities, direct and indirect revealed preference |
-| Consumer duality | Textbook proof + cited theorem | UMP/EMP hypotheses, expenditure continuity, Shepard's lemma, Slutsky differentiation |
-| Expected utility | Textbook proof + cited theorem | finite-mixture representation, affine versus linear terminology, weak-star theorem assumptions |
-| Aggregate demand | Textbook proof | Gorman aggregation, weak ULD, symmetric Jacobian part, homothetic and uniform-wealth cases |
-| Random utility | Textbook proof + cited theorem | logit signs/scales, finite random-utility matrix representation, representative mixture |
-| Production and partial equilibrium | Textbook proof | free disposal, cone embedding, Kuhn--Tucker corner inequalities, equilibrium existence tails |
-| General equilibrium | Cited theorem + textbook proof | welfare assumptions, excess demand, regularity, index conditions, and core convergence |
-| Sequential trade and matching | Cited theorem | Arrow--Debreu/Radner equivalence, deferred acceptance, TTC/core results |
-| CGE and behavioral applications | Expository | accounting identities, calibration equations, and model-specific comparative statics |
+| Appendix order theory | Verified locally | `symmetricPart_is_equivalence`, `strictPart_asymmetric`, `strictPart_transitive`, `finite_exists_greatest`, `relation_subset_transitiveClosure`, `transitiveClosure_transitive`, `transitiveClosure_least`, `partialOrder_has_linearExtension` |
+| Rational choice and WARP | Verified locally | `rational_choice_satisfies_WARP`, `rationalization_implies_WARP` |
+| Demand homogeneity | Verified locally | `utilityDemand_scale_iff`; it needs only a positive common scale |
+| Budget exhaustion | Verified through a pinned import | `demanded_bundle_exhausts_budget` consumes `WGARP.utilityDemand_expenditure_eq_wealth` |
+| Compensated demand | Verified through a pinned import | `compensated_law_of_demand` requires positivity only of the original price vector; positivity of the compensated/new price is not used. The manuscript's strict single-valued WARP form still needs an encoding bridge. |
+| Finite GARP and Afriat | Verified through a pinned import | `finite_GARP_iff_Afriat_inequalities`, `finite_Afriat_theorem`, `finite_Afriat_constructive` |
+| Expenditure duality | Core verified | On a nonempty explicit admissible price set `P`, `expenditure_homogeneous`, `expenditure_concave`, and `hicksian_bundle_is_supergradient` require attainment only at prices in `P`; scaled-price or mixture membership is assumed only where used. Analytic attainment and smooth Roy/Slutsky bridges remain. |
+| Finite stochastic dominance | Core verified | `monotoneCoupling_implies_expectedUtility_order`; CDF dominance to monotone coupling and general-measure FOSD remain |
+| Multinomial logit | Verified locally | `logit_odds_ratio` is the economic statement and requires `0 < μ`; `logit_odds_ratio_algebraic` records the underlying identity separately |
+| Firm duality | Core verified | On a nonempty explicit admissible price set `P`, `profit_homogeneous`, `profit_convex`, and `profit_maximizer_is_subgradient` require maximization only at prices in `P`; `profit_maximizer_is_efficient` separately uses a positive price. Existence and differentiable envelope bridges remain. |
+| First welfare theorem | Core verified | `priceSupport_rulesOut_paretoImprovement` proves only the price-support summation contradiction; deriving support from equilibrium optimization and local nonsatiation remains |
+| Walrasian allocation and core | Core verified | `priceSupport_rulesOut_coalitionBlock` proves only the coalition price-summing contradiction under exact budget, support, and resource equalities |
 
-## Reused WGARP certificates
+## Pinned WGARP certificates
 
-The external project is intentionally not copied into this public course repository. Its principal reusable certificates include:
+The Lake project pins `vaguiarl/wgarp-lean` at commit
+`d874dab846e28928f2a75b2359a0c2a8766a7b93`. Important consumed interfaces
+include:
 
-| Textbook material | WGARP module/certificate |
+| Textbook material | Upstream certificate |
 |---|---|
-| GARP as reachability plus no strict reverse edge | `WGARP.GARP`, `garp_dataset_iff` |
-| GARP and Afriat inequalities | `WGARP.GARP`, `garp_iff_exists_afriatInequalities` |
-| Direct/revealed-preference closure | `WGARP.GARP`, `revealedPref_refl`, `revealedPref_trans` |
-| Demand and strict affordability | `WGARP.Demand`, `preferenceDemand_strictlyPreferred_of_strictlyAffordable` |
-| WGARP finite rationalization | `WGARP.FiniteConstruction`, `wgarp_iff_hasFiniteCoherentCMURationalization` |
-| Two-observation acyclicity and WGARP | `WGARP.TheoremTwo`, `kAcyclic_two_iff_wgarp` |
+| GARP and Afriat inequalities | `WGARP.garp_iff_exists_afriatInequalities` |
+| Constructive regular Afriat utility | `WGARP.garp_iff_hasRegularUtilityRationalization` and `WGARP.garp_iff_exists_afriatCertificate_and_regularUtility` |
+| Budget exhaustion | `WGARP.utilityDemand_expenditure_eq_wealth` |
+| Compensated law of demand | `WGARP.demand_cross_expenditure`, followed by local algebra |
 
-The one-command audit is `WGARP_LEAN_DIR=/path/to/project bash scripts/check_book.sh`.
+Because the upstream commit is a normal Lake dependency, these are no longer
+conditional on an environment variable. A clean build fetches and compiles the
+recorded source.
 
-## Trust boundary
+## Main future targets
 
-`BookNarrativeLogic.lean` verifies the declared dependency ordering of the book's main claims; it does not prove the economic content of those claims. `theorem_inventory.tsv` inventories the complete formal surface so later passes can be incremental. `BOOK_MAP.md` records the pedagogical sequence and exact repeated section titles.
+No Lean-complete claim is made for continuous utility representation, Berge
+demand continuity, the full smooth consumer-duality chain, finite expected
+utility, general-distribution FOSD, Gorman aggregation, the expected-surplus
+envelope, partial-equilibrium existence, the second welfare theorem,
+Walrasian existence, regularity and gross-substitutes uniqueness,
+Sonnenschein--Mantel--Debreu, Brown--Matzkin, Arrow--Radner equivalence,
+Gale--Shapley, or top trading cycles.
+
+`coverage.json` records the exact target, weakest intended assumptions, and
+missing bridge for each. `ARCHITECTURE.md` compares alternative proof routes
+for the hardest targets. `theorem_pairs.tsv` separately controls the proposed
+reader-theorem/full-theorem editorial pairing.
+
+## Trust audit
+
+Run:
+
+```bash
+bash formal/scripts/check.sh
+```
+
+The command builds the project, rejects unchecked declarations, validates and
+typechecks every verified coverage declaration, and requires each one to have
+an entry in `TrustAudit.lean`. It then checks every reported dependency against
+the explicit whitelist `propext`, `Classical.choice`, and `Quot.sound`.
+`Econ803.BookNarrative` checks dependency metadata only and does not prove
+economic claims.

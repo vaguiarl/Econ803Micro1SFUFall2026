@@ -1,0 +1,38 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{../figure_style.tex}
+\begin{document}
+\pgfplotstableread[col sep=comma]{../data/rationality_budgets.csv}\budgetdata
+\begin{tikzpicture}
+  \begin{axis}[
+    book axis,
+    width=10.5cm,
+    height=10.5cm,
+    scale only axis,
+    axis equal image,
+    xmin=0,xmax=100,
+    ymin=0,ymax=100,
+    xtick={0,10,...,100},
+    ytick={0,10,...,100},
+    xlabel={$x_1$},
+    ylabel={$x_2$},
+    grid=major,
+  ]
+    \pgfplotsinvokeforeach{0,...,49}{
+      \pgfplotstablegetelem{#1}{x_start}\of\budgetdata\let\xa\pgfplotsretval
+      \pgfplotstablegetelem{#1}{y_start}\of\budgetdata\let\ya\pgfplotsretval
+      \pgfplotstablegetelem{#1}{x_end}\of\budgetdata\let\xb\pgfplotsretval
+      \pgfplotstablegetelem{#1}{y_end}\of\budgetdata\let\yb\pgfplotsretval
+      \edef\drawbudget{\noexpand\addplot[BookGray!48,line width=0.38pt,forget plot]
+        coordinates { (\xa,\ya) (\xb,\yb) };}
+      \drawbudget
+    }
+    \addplot[black!65,densely dashed,line width=0.75pt,domain=0:100,samples=2,forget plot] {x};
+    \addplot[
+      only marks,
+      mark=*,
+      mark size=1.5pt,
+      black,
+    ] table[col sep=comma,x=x1,y=x2]{../data/rationality_points.csv};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
