@@ -27,3 +27,7 @@
 
 # Local QA renders
 /tmp/
+
+# Python bytecode
+__pycache__/
+*.pyc

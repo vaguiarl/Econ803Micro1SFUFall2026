@@ -1,25 +1,25 @@
 # Book map and duplication index
 
-Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX formal-layout blocks; a single displayed theorem may span several blocks.
+Generated from the LyX source by `scripts/book_map.pl`. Generated problems are counted once at their labelled opening paragraph. Other formal counts are LyX layout counts.
 
 | Part | Chapter | Definitions | Results | Proofs | Exercises/examples |
 |---|---|---:|---:|---:|---:|
-| Foundations of Choice and Demand | Basics of Consumer Theory | 1 | 4 | 0 | 1 |
-| Foundations of Choice and Demand | Preference and Choice | 6 | 3 | 0 | 1 |
-| Foundations of Choice and Demand | Consumer Theory: Utility Maximization | 14 | 40 | 2 | 6 |
-| Choice Beyond the Benchmark Model | Behavioral Economics: Sparse-Max and Rational Inattention | 0 | 2 | 0 | 3 |
-| Choice Beyond the Benchmark Model | Choice under Uncertainty | 7 | 10 | 0 | 2 |
-| Aggregation and Random Choice | Aggregate Demand | 4 | 2 | 0 | 0 |
-| Aggregation and Random Choice | Discrete Choice and Random Utility | 3 | 2 | 0 | 1 |
-| Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 0 |
-| Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 0 |
-| Production and Equilibrium | General Equilibrium Theory | 7 | 6 | 0 | 2 |
-| Production and Equilibrium | Positive Theory of Equilibrium | 7 | 6 | 0 | 1 |
-| Advanced Equilibrium Applications | Testable Restrictions on the Equilibrium Manifold | 2 | 0 | 0 | 0 |
-| Advanced Equilibrium Applications | Sequential Trade | 3 | 1 | 0 | 0 |
-| Advanced Equilibrium Applications | Matching | 1 | 2 | 0 | 0 |
-| Advanced Equilibrium Applications | Computable General Equilibrium | 1 | 0 | 0 | 0 |
-| Mathematical appendices | Order Theory | 7 | 6 | 6 | 5 |
+| Foundations of Choice and Demand | Basics of Consumer Theory | 1 | 4 | 0 | 4 |
+| Foundations of Choice and Demand | Preference and Choice | 6 | 3 | 0 | 4 |
+| Foundations of Choice and Demand | Consumer Theory: Utility Maximization | 14 | 33 | 2 | 11 |
+| Choice Beyond the Benchmark Model | Behavioral Economics: Sparse-Max and Rational Inattention | 0 | 2 | 0 | 6 |
+| Choice Beyond the Benchmark Model | Choice under Uncertainty | 7 | 10 | 0 | 5 |
+| Aggregation and Random Choice | Aggregate Demand | 4 | 2 | 0 | 3 |
+| Aggregation and Random Choice | Discrete Choice and Random Utility | 3 | 2 | 0 | 4 |
+| Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 4 |
+| Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 3 |
+| Production and Equilibrium | General Equilibrium Theory | 7 | 6 | 0 | 6 |
+| Production and Equilibrium | Positive Theory of Equilibrium | 7 | 6 | 0 | 5 |
+| Advanced Equilibrium Applications | Testable Restrictions on the Equilibrium Manifold | 2 | 0 | 0 | 3 |
+| Advanced Equilibrium Applications | Sequential Trade | 3 | 1 | 0 | 3 |
+| Advanced Equilibrium Applications | Matching | 1 | 2 | 0 | 3 |
+| Advanced Equilibrium Applications | Computable General Equilibrium | 1 | 0 | 0 | 3 |
+| Mathematical appendices | Order Theory | 7 | 6 | 6 | 9 |
 
 ## Detailed sequence
 
@@ -30,6 +30,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Demand Functions
 - Consistency in Consumption
 - Comparative Statics and Slutsky Matrix
+- Problems
 
 ### Preference and Choice
 
@@ -38,6 +39,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Preference relations
 - Revealed preference and WARP
 - GARP on finite data
+- Problems
 
 ### Consumer Theory: Utility Maximization
 
@@ -50,7 +52,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Expenditure Minimization Problem (EMP)
 - Hicksian Compensated Demand
 - KKT Conditions for the EMP
-- Sheppard's Lemma
+- Shephard's Lemma
 - Additional Properties
 - Summary of Relationships between the EMP and UMP
 - Slutsky Equation
@@ -67,6 +69,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Measurement Error
 - Welfare Evaluation
 - Homothetic and Quasilinear Utility Functions
+- Problems
 
 ### Behavioral Economics: Sparse-Max and Rational Inattention
 
@@ -75,11 +78,12 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Perceived Prices and Limited Attention
 - Endogenizing Attention
 - Discrimination with Rational Inattention
+- Problems
 
 ### Choice under Uncertainty
 
 - Primitives
-- Stochastic dominance
+- Stochastic dominance on a finite prize set
 - Model and expected utility
 - Independence Axiom
 - Representation Theorem
@@ -87,11 +91,12 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Attitudes towards Risk
 - Expected Utility for Infinite Sets
 - Application: Demand for a Risky Asset
-- Dominance
+- Stochastic dominance for general distributions
 - The Allais Paradox
 - Revealed Preference of Expected Utility under Concavity
 - Experimental Evidence
 - Measuring Risk Aversion in the Lab
+- Problems
 
 ### Aggregate Demand
 
@@ -99,6 +104,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Gorman aggregation
 - Aggregate demand and WARP
 - Representative consumers and welfare
+- Problems
 
 ### Discrete Choice and Random Utility
 
@@ -107,6 +113,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Random utility
 - Random expected utility
 - Attributes and consumer surplus
+- Problems
 
 ### Theory of the Firm
 
@@ -115,12 +122,14 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Profit maximization
 - Cost minimization
 - Aggregation and efficiency
+- Problems
 
 ### Competitive Markets and Partial Equilibrium
 
 - Competitive equilibrium
 - Partial equilibrium with a numeraire
 - Welfare in the partial model
+- Problems
 
 ### General Equilibrium Theory
 
@@ -129,6 +138,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Production, ownership, and feasibility
 - Welfare theorems
 - General equilibrium with inattention
+- Problems
 
 ### Positive Theory of Equilibrium
 
@@ -138,30 +148,36 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - What equilibrium theory does not identify
 - Uniqueness and gross substitutes
 - The core
+- Problems
 
 ### Testable Restrictions on the Equilibrium Manifold
 
 - Observables and the equilibrium manifold
 - Afriat inequalities and elimination of unobservables
 - Brown--Matzkin theorem
+- Problems
 
 ### Sequential Trade
 
 - Arrow--Debreu benchmark
 - Spot markets and sequential trade
+- Problems
 
 ### Matching
 
 - One-to-one matching
 - Deferred acceptance
 - Housing markets and top trading cycles
+- Problems
 
 ### Computable General Equilibrium
 
 - From accounts to counterfactuals
 - A two-sector small open economy
 - Social accounting and calibration
+- Equilibrium closure
 - Counterfactual policies
+- Problems
 
 ### Order Theory
 
@@ -174,7 +190,10 @@ Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX forma
 - Transitive Closure
 - Order Extensions
 - Checklist for Economic Applications
+- Problems
 
 ## Repeated section titles
 
-No exact duplicate section titles.
+| Section title | Occurrences |
+|---|---:|
+| Problems | 16 |

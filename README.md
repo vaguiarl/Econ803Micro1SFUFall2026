@@ -1,6 +1,6 @@
 # Microeconomic Theory I — Fall 2026
 
-This repository contains the public, book-only first edition of Victor Aguiar's graduate microeconomic theory text for Simon Fraser University. The book is designed for the role that *Microeconomic Theory* by Mas-Colell, Whinston, and Green has traditionally played: a rigorous common language for graduate theory, complemented by modern revealed-preference, behavioral, random-choice, and computational material.
+This repository contains the public, student-facing first edition of Victor Aguiar's graduate microeconomic theory text for Simon Fraser University. The book is designed for the role that *Microeconomic Theory* by Mas-Colell, Whinston, and Green has traditionally played: a rigorous common language for graduate theory, complemented by modern revealed-preference, behavioral, random-choice, and computational material.
 
 The Fall 2026 baseline has four commitments:
 
@@ -17,6 +17,8 @@ The Fall 2026 baseline has four commitments:
 - Chapter and duplication map: [`BOOK_MAP.md`](BOOK_MAP.md)
 - House notation: [`NOTATION.md`](NOTATION.md)
 - Mathematical verification ledger: [`formal/COVERAGE.md`](formal/COVERAGE.md)
+- Canonical question-only problem bank: [`problems/PROBLEM_BANK.md`](problems/PROBLEM_BANK.md)
+- Publication-baseline review: [`EDITORIAL_REVIEW.md`](EDITORIAL_REVIEW.md)
 - Backward editorial and formalization plan: [`EDITORIAL_AUDIT.md`](EDITORIAL_AUDIT.md)
 
 The LyX file is the authoritative text. Generated LaTeX and temporary build products are intentionally excluded from version control. All figures required by the manuscript are stored under `notes/figures/`; building the book does not require Dropbox or another repository.
@@ -39,8 +41,8 @@ The command rebuilds the PDF, compiles every local Lean module, optionally build
 
 ## Assessment policy
 
-This first public edition contains no problem sets, solutions, answer keys, or examinations. Those materials remain in the private Fall 2024 instructor repository. Student problem sets will be revised and released here one at a time; solutions and unreleased assessments will remain private.
+This public edition contains 55 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. The canonical prompts live in `problems/PROBLEM_BANK.md` and are injected reproducibly into the LyX manuscript. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Standalone student sheets will be released one at a time from the same stable problem bank.
 
 ## Status
 
-This is the Fall 2026 version 0.1 baseline: a complete, buildable textbook manuscript with a unified editorial and verification framework. Subsequent releases can add citations, examples, and problem sets without changing the book's notation or logical spine silently.
+This is the Fall 2026 version 0.1 baseline: a complete, buildable textbook manuscript with unified notation, references, end-of-chapter problems, and an explicit verification framework. Later releases should preserve stable problem identifiers and must not change the book's notation or logical spine silently.

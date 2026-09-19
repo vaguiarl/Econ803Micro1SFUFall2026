@@ -25,6 +25,7 @@ sub layout_text {
 }
 
 my %formal = map { $_ => 1 } qw(Axiom Definition Fact Claim Lemma Proposition Corollary Theorem Proof Exercise Example);
+$formal{'Exercise*'} = 1;
 my (@chapters, %seen_chapter, %part_for, %sections, %formal_count, %section_count);
 my ($part, $chapter) = ('Front matter', '');
 
@@ -49,19 +50,24 @@ for (my $i = 0; $i < @lines; $i++) {
         }
         next;
     }
-    if ($chapter ne '' && $lines[$i] =~ /^\\begin_layout (\w+)$/ && $formal{$1}) {
-        $formal_count{$chapter}{$1}++;
+    if ($chapter ne '' && $lines[$i] =~ /^\\begin_layout ([\w*]+)$/ && $formal{$1}) {
+        my $kind = $1;
+        # Consecutive LyX Exercise layouts are exported as one theorem
+        # environment.  Generated problem starts have a stable editorial
+        # label; continuation paragraphs do not and must not be double-counted.
+        next if $kind =~ /^Exercise/ && layout_text($i) !~ /^Problem\s+[\w.]+\s+\[(?:Core|Proof|Applied)\]/;
+        $formal_count{$chapter}{$kind}++;
     }
 }
 
 print "# Book map and duplication index\n\n";
-print "Generated from the LyX source by `scripts/book_map.pl`. Counts are raw LyX formal-layout blocks; a single displayed theorem may span several blocks.\n\n";
+print "Generated from the LyX source by `scripts/book_map.pl`. Generated problems are counted once at their labelled opening paragraph. Other formal counts are LyX layout counts.\n\n";
 print "| Part | Chapter | Definitions | Results | Proofs | Exercises/examples |\n";
 print "|---|---|---:|---:|---:|---:|\n";
 for my $ch (@chapters) {
     my $c = $formal_count{$ch} // {};
     my $results = ($c->{Theorem} // 0) + ($c->{Proposition} // 0) + ($c->{Lemma} // 0) + ($c->{Corollary} // 0) + ($c->{Claim} // 0) + ($c->{Fact} // 0);
-    my $examples = ($c->{Exercise} // 0) + ($c->{Example} // 0);
+    my $examples = ($c->{Exercise} // 0) + ($c->{'Exercise*'} // 0) + ($c->{Example} // 0);
     print "| $part_for{$ch} | $ch | ", ($c->{Definition} // 0), " | $results | ", ($c->{Proof} // 0), " | $examples |\n";
 }
 

@@ -21,7 +21,7 @@ This is an editorial verification ledger, not a claim that every theorem in the 
 
 | Topic | Level | Main checks |
 |---|---|---|
-| Order theory appendix | Lean + textbook proof | relation parts, quotient order, maximal versus greatest, finite extrema, closures, extensions |
+| Order theory appendix | Lean + textbook proof | Lean checks relation parts and maximal-versus-greatest results; the quotient order, finite extrema, closures, and extension theorem currently rely on audited textbook arguments |
 | Choice and WARP | Lean + textbook proof | maximizing choice implies set-valued WARP; strict-part logic |
 | GARP and Afriat | External Lean + textbook proof | graph GARP, Afriat inequalities, direct and indirect revealed preference |
 | Consumer duality | Textbook proof + cited theorem | UMP/EMP hypotheses, expenditure continuity, Shepard's lemma, Slutsky differentiation |

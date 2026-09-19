@@ -7,6 +7,7 @@ open my $fh, '<', $path or die "$path: $!\n";
 my @lines = <$fh>;
 
 my %formal = map { $_ => 1 } qw(Axiom Definition Fact Claim Lemma Proposition Corollary Theorem Proof Exercise Example);
+$formal{'Exercise*'} = 1;
 my ($chapter, $section) = ('', '');
 print "line\ttype\tchapter\tsection\texcerpt\n";
 
@@ -19,7 +20,7 @@ for (my $i = 0; $i < @lines; $i++) {
         else { $section = $title; }
         next;
     }
-    next unless $lines[$i] =~ /^\\begin_layout (\w+)$/ && $formal{$1};
+    next unless $lines[$i] =~ /^\\begin_layout ([\w*]+)$/ && $formal{$1};
     my ($kind, $start) = ($1, $i + 1);
     my @text;
     while (++$i < @lines && $lines[$i] !~ /^\\end_layout$/) {
@@ -43,6 +44,8 @@ for (my $i = 0; $i < @lines; $i++) {
     $excerpt =~ s/\s+/ /g;
     $excerpt =~ s/^\s+|\s+$//g;
     $excerpt = substr($excerpt, 0, 240);
+    $excerpt =~ s/\s+$//;
+    next if $kind =~ /^Exercise/ && $excerpt !~ /^Problem\s+[\w.]+\s+\[(?:Core|Proof|Applied)\]/;
     for ($chapter, $section, $excerpt) { s/\t/ /g; }
     print join("\t", $start, $kind, $chapter, $section, $excerpt), "\n";
 }

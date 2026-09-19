@@ -11,18 +11,22 @@ if [[ ! -x "$lyx_bin" ]]; then
   exit 1
 fi
 
-printf '1/7 Exporting LyX source...\n'
+printf '1/8 Checking that generated problem sets match the public bank...\n'
+python3 "$repo_dir/scripts/inject_problem_sets.py" --check \
+  "$notes_dir/$stem.lyx" "$repo_dir/problems/PROBLEM_BANK.md"
+
+printf '2/8 Exporting LyX source...\n'
 (cd "$notes_dir" && "$lyx_bin" --export pdflatex "$stem.lyx")
 
-printf '2/7 Compiling the book...\n'
+printf '3/8 Compiling the book...\n'
 (cd "$notes_dir" && latexmk -pdf -interaction=nonstopmode -halt-on-error "$stem.tex" >/dev/null)
 
-printf '3/7 Compiling Lean checks...\n'
+printf '4/8 Compiling Lean checks...\n'
 for lean_file in "$repo_dir"/formal/*.lean; do
   lean "$lean_file"
 done
 
-printf '4/7 Checking the external WGARP proof library when configured...\n'
+printf '5/8 Checking the external WGARP proof library when configured...\n'
 if [[ -n "${WGARP_LEAN_DIR:-}" ]]; then
   if [[ ! -f "$WGARP_LEAN_DIR/lakefile.toml" && ! -f "$WGARP_LEAN_DIR/lakefile.lean" ]]; then
     printf 'WGARP_LEAN_DIR is not a Lean project: %s\n' "$WGARP_LEAN_DIR" >&2
@@ -33,7 +37,7 @@ else
   printf 'Skipped (set WGARP_LEAN_DIR to the existing WGARP Lean project).\n'
 fi
 
-printf '5/7 Checking proof trust and known editorial hazards...\n'
+printf '6/8 Checking proof trust and known editorial hazards...\n'
 if rg -n '\b(sorry|admit)\b|^\s*axiom\b' "$repo_dir/formal" --glob '*.lean'; then
   printf 'Lean trust check failed.\n' >&2
   exit 1
@@ -52,10 +56,10 @@ if [[ -n "$restricted_assessments" ]]; then
   exit 3
 fi
 
-printf '6/7 Regenerating the book map and duplication index...\n'
+printf '7/8 Regenerating the book map and duplication index...\n'
 perl "$repo_dir/scripts/book_map.pl" "$notes_dir/$stem.lyx" > "$repo_dir/BOOK_MAP.md"
 
-printf '7/7 Summarizing formal coverage...\n'
+printf '8/8 Summarizing formal coverage...\n'
 perl "$repo_dir/scripts/formal_inventory.pl" "$notes_dir/$stem.lyx" > "$repo_dir/formal/theorem_inventory.tsv"
 for layout in Definition Theorem Proposition Lemma Corollary Fact Claim Proof; do
   count="$(rg -c "^\\\\begin_layout ${layout}$" "$notes_dir/$stem.lyx" || true)"
