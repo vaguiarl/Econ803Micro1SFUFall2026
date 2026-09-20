@@ -210,6 +210,48 @@ def parse_braced_group(text: str, start: int) -> tuple[str, int]:
     raise GroupParseError("unterminated braced group")
 
 
+def parse_tex_argument(text: str, start: int) -> tuple[str, int]:
+    """Return one TeX macro argument and its exclusive end offset.
+
+    A TeX argument is either a balanced group or one token.  LyX 2.4 kept the
+    second argument of the notation macros grouped, even when it contained a
+    single token.  LyX 2.5's format-643 serializer removes those redundant
+    braces, producing, for example, ``\\notationfirst{wealth}w``.  Accepting a
+    genuine one-token argument therefore supports both serializations while
+    preserving the same TeX meaning.
+    """
+
+    if start >= len(text):
+        raise GroupParseError("missing second argument")
+    if text[start] == "{":
+        return parse_braced_group(text, start)
+
+    char = text[start]
+    if char == "\\":
+        cursor = start + 1
+        if cursor >= len(text) or text[cursor].isspace():
+            raise GroupParseError("incomplete control sequence in second argument")
+        if text[cursor].isalpha() or text[cursor] == "@":
+            cursor += 1
+            while cursor < len(text) and (
+                text[cursor].isalpha() or text[cursor] == "@"
+            ):
+                cursor += 1
+        else:
+            cursor += 1
+        token = text[start:cursor]
+        if token in {"\\[", "\\]"} or token.startswith(("\\begin_", "\\end_")):
+            raise GroupParseError("missing second argument before LyX boundary")
+        return token, cursor
+
+    # These characters either delimit the surrounding formula or cannot be a
+    # useful standalone notation body.  Rejecting them prevents a truncated
+    # call such as ``\\notationfirst{id}$`` from being counted as valid.
+    if char in "}\\$%#&^_":
+        raise GroupParseError("missing second argument")
+    return char, start + 1
+
+
 def skip_space(text: str, offset: int) -> int:
     while offset < len(text) and text[offset].isspace():
         offset += 1
@@ -222,7 +264,7 @@ def is_macro_declaration(text: str, macro_offset: int) -> bool:
 
 
 def parse_notation_macros(text: str, errors: list[str]) -> list[MacroCall]:
-    """Parse notation macro calls, including multiline and nested bodies."""
+    """Parse notation calls, including grouped and one-token TeX arguments."""
 
     calls: list[MacroCall] = []
     line_map = LineMap(text)
@@ -234,20 +276,20 @@ def parse_notation_macros(text: str, errors: list[str]) -> list[MacroCall]:
 
         # Ignore the command name inside \newcommand{\notationfirst} and
         # \newcommand{\notationdef}; it is a declaration, not a call.
+        if is_macro_declaration(text, match.start()):
+            continue
+
         if cursor >= len(text) or text[cursor] != "{":
-            if not is_macro_declaration(text, match.start()):
-                errors.append(
-                    f"LyX line {line}, column {column}: \\notation{kind} must "
-                    "be followed by two braced arguments"
-                )
+            errors.append(
+                f"LyX line {line}, column {column}: \\notation{kind} must "
+                "be followed by a braced ID and a TeX argument"
+            )
             continue
 
         try:
             identifier, cursor = parse_braced_group(text, cursor)
             cursor = skip_space(text, cursor)
-            if cursor >= len(text) or text[cursor] != "{":
-                raise GroupParseError("missing second braced argument")
-            body, _ = parse_braced_group(text, cursor)
+            body, _ = parse_tex_argument(text, cursor)
         except GroupParseError as exc:
             errors.append(
                 f"LyX line {line}, column {column}: malformed "
