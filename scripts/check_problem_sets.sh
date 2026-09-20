@@ -4,6 +4,8 @@ set -euo pipefail
 repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 lyx_bin="${LYX_BIN:-/Applications/LyX.app/Contents/MacOS/lyx}"
 poppler_dir="/Users/victoraguiar/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/poppler/bin"
+build_root="$(mktemp -d)"
+trap 'rm -rf "$build_root"' EXIT
 
 if [[ ! -x "$lyx_bin" ]]; then
   printf 'LyX executable not found: %s\n' "$lyx_bin" >&2
@@ -23,15 +25,18 @@ while IFS= read -r source; do
     printf 'Student-edition marker missing from %s\n' "$source" >&2
     exit 2
   fi
-  (cd "$packet_dir" && "$lyx_bin" --export pdflatex "$stem.lyx" >/dev/null)
-  (cd "$packet_dir" && latexmk -pdf -interaction=nonstopmode -halt-on-error "$stem.tex" >/dev/null)
-  if "$poppler_dir/pdfimages" -list "$packet_dir/$stem.pdf" | awk 'NR > 2 && $1 ~ /^[0-9]+$/ { bad=1 } END { exit bad }'; then
+  packet_build="$build_root/$(basename "$packet_dir")"
+  mkdir -p "$packet_build"
+  cp -R "$packet_dir/." "$packet_build/"
+  (cd "$packet_build" && "$lyx_bin" --export pdflatex "$stem.lyx" >/dev/null)
+  (cd "$packet_build" && latexmk -pdf -interaction=nonstopmode -halt-on-error "$stem.tex" >/dev/null)
+  if "$poppler_dir/pdfimages" -list "$packet_build/$stem.pdf" | awk 'NR > 2 && $1 ~ /^[0-9]+$/ { bad=1 } END { exit bad }'; then
     :
   else
     printf 'Raster image found in %s.pdf\n' "$stem" >&2
     exit 3
   fi
-  if "$poppler_dir/pdffonts" "$packet_dir/$stem.pdf" | awk 'NR > 2 && ($2 == "Type" && $3 == "3" || $5 == "no") { bad=1 } END { exit bad }'; then
+  if "$poppler_dir/pdffonts" "$packet_build/$stem.pdf" | awk 'NR > 2 && ($2 == "Type" && $3 == "3" || $5 == "no") { bad=1 } END { exit bad }'; then
     :
   else
     printf 'Font preflight failed for %s.pdf\n' "$stem" >&2
