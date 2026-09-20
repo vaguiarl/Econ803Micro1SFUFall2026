@@ -427,7 +427,7 @@ Demand and supply are $Q^{d}(p)=a-bp$ and $Q^{s}(p)=d(p-c)$ on their economicall
 
 ## 10.2 | Applied | A per-unit tax
 
-Introduce a per-unit tax $t>0$ paid by sellers into the market of Problem 9.1, so buyers pay $p_{b}$ and sellers receive $p_{s}=p_{b}-t$. Assume $t$ is small enough that equilibrium quantity remains nonnegative.
+Introduce a per-unit tax $t>0$ paid by sellers into the market of Problem 10.1, so buyers pay $p_{b}$ and sellers receive $p_{s}=p_{b}-t$. Assume $t$ is small enough that equilibrium quantity remains nonnegative.
 
 (a) Solve for $p_{b}$, $p_{s}$, and quantity.
 
@@ -447,7 +447,7 @@ A representative consumer has quasilinear utility $u(q)+m$, with $u$ increasing 
 
 ## 10.4 | Applied | The Economics of Superstars: Music Sales and Concerts
 
-Taylor S. is a stylized superstar whose fans consume music services and concerts. This revisits Victor Aguiar's 2023 artists case with explicit preferences, technology, and market assumptions. All numbers are hypothetical; the model is not an empirical description of Taylor Swift's contracts. Quantities are divisible, and the mass of identical fans is one.
+Taylor S. is a stylized superstar whose fans consume music services and concerts. This is the graduate version of the music-and-concerts case, with explicit preferences, technology, and market assumptions. All numbers are hypothetical; the model is not an empirical description of Taylor Swift's contracts. Quantities are divisible, and the mass of identical fans is one.
 
 Part I. Fan demand. Write $q_M,q_C$ for music and concert services, the two coordinates of consumption. A fan has wealth $w>0$, prices $p_M,p_C>0$, and utility $u(q_M,q_C)=(\tfrac12 q_M^\rho+\tfrac12 q_C^\rho)^{1/\rho}$, where $0<\rho<1$. The letters $M,C$ are local commodity labels.
 
