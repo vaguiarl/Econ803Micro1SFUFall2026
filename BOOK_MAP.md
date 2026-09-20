@@ -11,7 +11,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Risk, Stochastic Choice, and Attention | Expected Utility and Risk | 8 | 10 | 0 | 5 |
 | Risk, Stochastic Choice, and Attention | Stochastic Choice and Random Utility | 3 | 2 | 0 | 4 |
 | Risk, Stochastic Choice, and Attention | Limited Attention and Costly Information | 1 | 3 | 1 | 6 |
-| Aggregation and Markets | Aggregate Demand and Representative Consumers | 4 | 2 | 1 | 3 |
+| Aggregation and Markets | Aggregate Demand and Representative Consumers | 5 | 4 | 3 | 3 |
 | Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 4 |
 | Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 4 |
 | Production and Equilibrium | General Equilibrium Theory | 7 | 6 | 0 | 6 |
@@ -131,6 +131,12 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Gorman Aggregation
 - Aggregate Demand and WARP
 - Representative Consumers and Welfare
+- The Many-Product Consumer
+  - One item: ideal points and local diversion
+  - Many items: bundles over product space
+  - Finite-data Afriat logic is dimension-free
+  - When product choice becomes matching
+  - Evidence and the modern research map
 - Problems
 
 ### Theory of the Firm

@@ -12999,6 +12999,1127 @@ Gorman aggregation can deliver a positive representative consumer,
  Normative claims require the welfare criterion and the wealth-allocation rule to be stated explicitly.
 \end_layout
 
+\begin_layout Section
+The Many-Product Consumer
+\end_layout
+
+\begin_layout Standard
+The fixed commodity vector 
+\begin_inset Formula $x\in\mathbb{R}^{L}_{+}$
+\end_inset
+
+ is exact when the list of goods is fixed.
+ It becomes a poor organizing device when products enter continuously,
+ differ along many characteristics,
+ and are filtered by search or recommendation before a consumer sees them.
+ Amazon's current public description,
+ for example,
+ reports more than 300 million products across more than 35 categories
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "amazonstore2026"
+literal "false"
+
+\end_inset
+
+.
+ Exact catalog counts change;
+ the economic point is the scale,
+ not a claim that the count is one billion.
+\end_layout
+
+\begin_layout Standard
+Let characteristics live in a compact metric product space 
+\begin_inset Formula $\notationfirst{product-space}{(\mathcal{G},d)}$
+\end_inset
+
+.
+ Three objects must remain distinct:
+ the available catalog 
+\begin_inset Formula $\mathcal{G}_{0}\subseteq\mathcal{G}$
+\end_inset
+
+,
+ consumer 
+\begin_inset Formula $i$
+\end_inset
+
+'s consideration set 
+\begin_inset Formula $A_{i}\subseteq\mathcal{G}_{0}$
+\end_inset
+
+,
+ and the purchased support 
+\begin_inset Formula $\operatorname{supp}x_{i}\subseteq A_{i}$
+\end_inset
+
+.
+ Availability is therefore not attention,
+ and attention is not positive demand.
+ At the individual level,
+ an unseen option and a disliked option generate the same zero purchase
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "abaluckadamsprassl2021"
+literal "false"
+
+\end_inset
+
+.
+ At the market level,
+ an available product can receive zero observed empirical share,
+ requiring methods that do not treat zero share as proof of unavailability
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gandhilushi2023"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+One item: ideal points and local diversion
+\end_layout
+
+\begin_layout Standard
+To isolate product-space geometry,
+ suppose every consumer buys exactly one item,
+ the ideal-point distribution 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a probability measure,
+ and all products receive full consideration:
+\begin_inset Formula $A_{i}=\mathcal{G}_{0}$
+\end_inset
+
+.
+ Participation can instead be modeled by adding an outside option.
+ Product 
+\begin_inset Formula $j$
+\end_inset
+
+ is located at 
+\begin_inset Formula $g_{j}\in\mathcal{G}$
+\end_inset
+
+,
+ has quality intercept 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ and price 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+,
+ and consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ has ideal point 
+\begin_inset Formula $\notationfirst{ideal-point}{b_{i}}\in\mathcal{G}$
+\end_inset
+
+.
+ A quadratic mismatch specification is
+\begin_inset Formula 
+\[
+U^{*}_{ij}=\delta_{j}-p_{j}-\kappa_{d}d(b_{i},g_{j})^{2},\qquad \kappa_{d}>0.
+\]
+
+\end_inset
+
+The types choosing product 
+\begin_inset Formula $j$
+\end_inset
+
+ form the cell
+\begin_inset Formula 
+\[
+\notationfirst{product-cell}{C_{j}(p)}=
+\left\{b\in\mathcal{G}:\delta_{j}-p_{j}-\kappa_{d}d(b,g_{j})^{2}
+\geq \delta_{k}-p_{k}-\kappa_{d}d(b,g_{k})^{2}\ \text{for every }k\right\}.
+\]
+
+\end_inset
+
+Demand share is 
+\begin_inset Formula $s_{j}(p)=\mu(C_{j}(p))$
+\end_inset
+
+ for the distribution 
+\begin_inset Formula $\mu$
+\end_inset
+
+ of ideal points.
+ Assume utility-tie sets have 
+\begin_inset Formula $\mu$
+\end_inset
+
+-measure zero;
+ otherwise fix a tie-breaking rule and define the cells accordingly.
+ These are generalized weighted Voronoi cells;
+ with squared Euclidean distance they are power cells.
+ Equal prices and qualities imply nearest-product choice.
+ With unequal prices or qualities,
+ the nearest product need not be chosen.
+ This formulation joins spatial competition,
+ the characteristics approach,
+ and discrete choice
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hotelling1929,lancaster1966,andersondepalmathisse1989,mcfadden1981"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Local diversion on a line.
+ Let 
+\begin_inset Formula $\mathcal{G}=[\underline g,\overline g]\subset\mathbb{R}$
+\end_inset
+
+ with Euclidean metric 
+\begin_inset Formula $d(b,g)=|b-g|$
+\end_inset
+
+,
+ let active products satisfy 
+\begin_inset Formula $g_{1}<\cdots<g_{J}$
+\end_inset
+
+,
+ and let ideal points have distribution function 
+\begin_inset Formula $F$
+\end_inset
+
+ with continuous density 
+\begin_inset Formula $f$
+\end_inset
+
+ that is strictly positive at the active boundaries.
+ Fix an interior product 
+\begin_inset Formula $j$
+\end_inset
+
+ and an open neighborhood of prices in which its nonempty choice interval has only products 
+\begin_inset Formula $j-1$
+\end_inset
+
+ and 
+\begin_inset Formula $j+1$
+\end_inset
+
+ as active neighbors,
+ all other alternatives remain strictly slack at its boundaries,
+ and no boundary has a triple tie.
+ The boundary between 
+\begin_inset Formula $j$
+\end_inset
+
+ and 
+\begin_inset Formula $j+1$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\overline b_{j,j+1}
+=\frac{g_{j}+g_{j+1}}{2}
++\frac{\delta_{j}-\delta_{j+1}-p_{j}+p_{j+1}}
+{2\kappa_{d}(g_{j+1}-g_{j})},
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+s_{j}=F(\overline b_{j,j+1})-F(\overline b_{j-1,j}).
+\]
+
+\end_inset
+
+At every price vector preserving this active adjacency,
+\begin_inset Formula 
+\[
+\begin{aligned}
+\frac{\partial s_{j}}{\partial p_{j+1}}
+&=\frac{f(\overline b_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})}>0,\\
+\frac{\partial s_{j}}{\partial p_{j-1}}
+&=\frac{f(\overline b_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})}>0,\\
+\frac{\partial s_{j}}{\partial p_{j}}
+&=-\frac{f(\overline b_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})}
+-\frac{f(\overline b_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})}<0,
+\end{aligned}
+\]
+
+\end_inset
+
+whereas 
+\begin_inset Formula $\partial s_{j}/\partial p_{k}=0$
+\end_inset
+
+ locally for every nonneighbor 
+\begin_inset Formula $k\notin\{j-1,j,j+1\}$
+\end_inset
+
+.
+ Equivalently,
+ an increase in 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ diverts the lost share only to the two active neighbors:
+\begin_inset Formula 
+\[
+\frac{\partial s_{j+1}}{\partial p_{j}}
+=\frac{f(\overline b_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})},
+\qquad
+\frac{\partial s_{j-1}}{\partial p_{j}}
+=\frac{f(\overline b_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})},
+\]
+
+\end_inset
+
+all other product shares are locally unchanged,
+ and these two gains sum to 
+\begin_inset Formula $-\partial s_{j}/\partial p_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Equating the two adjacent utilities and expanding the squares gives the displayed boundary.
+ Under stable adjacency,
+ product 
+\begin_inset Formula $j$
+\end_inset
+
+'s cell is exactly the interval between its left and right boundaries,
+ so its share is the difference of the two distribution-function values.
+ Differentiate the right boundary with respect to 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{j+1}$
+\end_inset
+
+,
+ and the left boundary with respect to 
+\begin_inset Formula $p_{j-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+.
+ A nonneighbor's price enters neither active boundary while the cell adjacency is unchanged.
+\end_layout
+
+\begin_layout Standard
+The proposition is local and conditional:
+ a sufficiently large price change can alter the active-neighbor graph.
+ It also shows why a product metric alone is insufficient.
+ The utility specification and stable cell geometry create local diversion.
+ By contrast,
+ conditional logit without an outside option and with price coefficient 
+\begin_inset Formula $\alpha_{p}>0$
+\end_inset
+
+ satisfies
+\begin_inset Formula 
+\[
+s_{j}=\frac{\exp(\delta_{j}-\alpha_{p}p_{j})}
+{\sum_{k}\exp(\delta_{k}-\alpha_{p}p_{k})},
+\qquad
+\frac{\partial s_{j}}{\partial p_{k}}=\alpha_{p}s_{j}s_{k}>0\quad(j\neq k),
+\]
+
+\end_inset
+
+so every product substitutes for every other product regardless of distance.
+ Random coefficients allow richer substitution,
+ but distance decay is still a restriction to be modeled and tested rather than a theorem of discrete choice
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "berrylevinsohnpakes1995,berrypakes2007,feenstralevinsohn1995,pinksesladebrett2002"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Many items: bundles over product space
+\end_layout
+
+\begin_layout Standard
+A continuum of alternatives is not the same object as a bundle drawn from a continuum of goods.
+ For bundle demand,
+ let 
+\begin_inset Formula $\notationfirst{basket-measures}{\mathcal{M}_{+}(\mathcal{G})}$
+\end_inset
+
+ be the finite nonnegative Radon measures on 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+.
+ A basket is 
+\begin_inset Formula $x\in\mathcal{M}_{+}(\mathcal{G})$
+\end_inset
+
+,
+ a price schedule is 
+\begin_inset Formula $p\in C_{++}(\mathcal{G})$
+\end_inset
+
+,
+ and expenditure is the dual pairing
+\begin_inset Formula 
+\[
+\notationfirst{continuum-pairing}{\langle p,x\rangle}
+:=\int_{\mathcal{G}}p(g)\,x(dg).
+\]
+
+\end_inset
+
+The budget is 
+\begin_inset Formula $\{x\in\mathcal{M}_{+}(\mathcal{G}):\langle p,x\rangle\leq w\}$
+\end_inset
+
+.
+ An observed finite basket is included exactly as the atomic measure 
+\begin_inset Formula $x=\sum_{j=1}^{J}q_{j}\delta_{g_{j}}$
+\end_inset
+
+,
+ for which expenditure is 
+\begin_inset Formula $\sum_{j}p(g_{j})q_{j}$
+\end_inset
+
+.
+ A density 
+\begin_inset Formula $q(g)$
+\end_inset
+
+ is the special case 
+\begin_inset Formula $x(dg)=q(g)\nu(dg)$
+\end_inset
+
+ relative to a reference measure 
+\begin_inset Formula $\nu$
+\end_inset
+
+.
+ The measure formulation therefore contains both finite baskets and genuinely diffuse consumption
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mascolell1975,bewley1972"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Neiman and Vavra use a continuum of products for tractability,
+ but their consumer chooses quantities of many varieties in an endogenous subset and incurs a utility cost of expanding that subset.
+ Their heterogeneity is a mixture of common and idiosyncratic product ranks.
+ It is not a metric product geometry:
+ adjacent ranks need not be nearby in characteristics.
+ Their framework therefore supplies selection and variety mechanisms,
+ not a theorem that a price change diverts demand to nearby products
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "neimanvavra2023"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Neighborhood compensated elasticity.
+ The radius-
+\begin_inset Formula $r$
+\end_inset
+
+ neighborhood of product point 
+\begin_inset Formula $g$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\notationfirst{product-neighborhood}{B_{r}(g)}:=\{g'\in\mathcal{G}:d(g,g')\leq r\}.
+\]
+
+\end_inset
+
+Let locally unique Hicksian demand be a measure,
+ and let 
+\begin_inset Formula $h(A;p,\overline u)>0$
+\end_inset
+
+ denote its mass in measurable region 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Fix a family of continuous log-price shock profiles 
+\begin_inset Formula $\varphi_{B}:\mathcal{G}\to[0,1]$
+\end_inset
+
+ indexed by closed regions 
+\begin_inset Formula $B$
+\end_inset
+
+,
+ normalized by 
+\begin_inset Formula $\varphi_{B}=1$
+\end_inset
+
+ on 
+\begin_inset Formula $B$
+\end_inset
+
+ and by a common support rule,
+ for example 
+\begin_inset Formula $\operatorname{supp}\varphi_{B}\subseteq\{g:d(g,B)\leq\rho\}$
+\end_inset
+
+ for a fixed bandwidth 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula $p_{\varepsilon}(g)=p(g)\exp\{\varepsilon\varphi_{B}(g)\}$
+\end_inset
+
+.
+ If the scalar path 
+\begin_inset Formula $\varepsilon\mapsto h(A;p_{\varepsilon},\overline u)$
+\end_inset
+
+ is differentiable at zero,
+ define
+\begin_inset Formula 
+\[
+\notationfirst{neighborhood-elasticity}{\mathcal{E}^{H}(A;\varphi_{B})}
+:=\left.\frac{d\log h(A;p_{\varepsilon},\overline u)}{d\varepsilon}\right|_{\varepsilon=0}.
+\]
+
+\end_inset
+
+In a finite catalog with the discrete topology,
+ one may take 
+\begin_inset Formula $\varphi_{B}(g)=\mathbb{I}\{g\in B\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This statistic replaces an unmanageable product-by-product elasticity matrix with a region-to-region response.
+ It also avoids an inadmissible discontinuous point shock when prices must remain continuous;
+ for diffuse baskets,
+ a singleton additionally has zero mass.
+ For fixed-radius separated closed regions and profiles with the same amplitude and bandwidth,
+ a precise locality restriction uses a nonincreasing envelope 
+\begin_inset Formula $\Psi:[0,\infty)\to[0,\infty)$
+\end_inset
+
+ satisfying
+\begin_inset Formula 
+\[
+\left|\mathcal{E}^{H}(A;\varphi_{B})\right|
+\leq\Psi\!\left(d(A,\operatorname{supp}\varphi_{B})\right).
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $d(A,C):=\inf\{d(a,c):a\in A,\ c\in C\}$
+\end_inset
+
+.
+\begin_inset space ~
+\end_inset
+
+The absolute value permits either substitution or complementarity;
+ the sign records which one obtains.
+ Such decay is an additional economic restriction.
+ It does not follow from continuity,
+ utility maximization,
+ or the existence of a continuum.
+ With bundles,
+ some neighborhoods may instead be complements;
+ compensated and Marshallian cross effects must also be kept distinct.
+\end_layout
+
+\begin_layout Subsection
+Finite-data Afriat logic is dimension-free
+\end_layout
+
+\begin_layout Standard
+The finite-data logic of Afriat's theorem survives this change of commodity space.
+ What the data use is not a coordinate count but the finite matrix of observed expenditures.
+ The functional-analytic assumptions below supply the global utility and demand-existence claims that are automatic in a bounded finite-dimensional presentation.
+\end_layout
+
+\begin_layout Proposition
+Afriat rationalization over a continuum product space.
+ Let 
+\begin_inset Formula $(\mathcal{G},d)$
+\end_inset
+
+ be compact metric,
+ let 
+\begin_inset Formula $\mathcal{M}_{+}(\mathcal{G})$
+\end_inset
+
+ be the cone of finite nonnegative Radon measures in 
+\begin_inset Formula $C(\mathcal{G})^{*}$
+\end_inset
+
+ equipped with the weak-star topology 
+\begin_inset Formula $\sigma(C(\mathcal{G})^{*},C(\mathcal{G}))$
+\end_inset
+
+,
+ let bundles lie in 
+\begin_inset Formula $\mathcal{M}_{+}(\mathcal{G})$
+\end_inset
+
+,
+ and let each observed price schedule 
+\begin_inset Formula $p^{t}\in C_{++}(\mathcal{G})$
+\end_inset
+
+.
+ Suppose the finite dataset 
+\begin_inset Formula $\mathcal{O}=\{(p^{t},x^{t})\}_{t=1}^{T}$
+\end_inset
+
+ has through-observation budget
+\begin_inset Formula 
+\[
+B_{t}:=\{x\in\mathcal{M}_{+}(\mathcal{G}):
+\langle p^{t},x\rangle\leq\langle p^{t},x^{t}\rangle\}.
+\]
+
+\end_inset
+
+Define 
+\begin_inset Formula $x^{t}\mathrel{R^{D}}x^{s}$
+\end_inset
+
+ when 
+\begin_inset Formula $x^{s}\in B_{t}$
+\end_inset
+
+,
+ define 
+\begin_inset Formula $x^{t}\mathrel{P^{D}}x^{s}$
+\end_inset
+
+ when 
+\begin_inset Formula $\langle p^{t},x^{s}\rangle<\langle p^{t},x^{t}\rangle$
+\end_inset
+
+,
+ and let 
+\begin_inset Formula $R$
+\end_inset
+
+ be the transitive closure of 
+\begin_inset Formula $R^{D}$
+\end_inset
+
+.
+ Say that the dataset satisfies GARP if,
+ for every 
+\begin_inset Formula $s,t$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+\begin_inset Formula $x^{t}\mathrel{R}x^{s}$
+\end_inset
+
+ implies 
+\begin_inset Formula $\neg(x^{s}\mathrel{P^{D}}x^{t})$
+\end_inset
+
+.
+ GARP holds if and only if there exist numbers 
+\begin_inset Formula $(U^{t},\lambda^{t})_{t=1}^{T}$
+\end_inset
+
+ satisfying the Afriat inequalities
+\begin_inset Formula 
+\[
+U^{s}\leq U^{t}+\lambda^{t}\langle p^{t},x^{s}-x^{t}\rangle,
+\qquad \lambda^{t}>0,
+\qquad s,t=1,\ldots,T.
+\]
+
+\end_inset
+
+For any such certificate,
+\begin_inset Formula 
+\[
+U(x):=\min_{1\leq t\leq T}
+\left\{U^{t}+\lambda^{t}\langle p^{t},x-x^{t}\rangle\right\}
+\]
+
+\end_inset
+
+is concave,
+ weak-star continuous,
+ and strictly increasing in the measure order,
+ and it rationalizes every observation.
+ Moreover,
+ for every 
+\begin_inset Formula $p\in C_{++}(\mathcal{G})$
+\end_inset
+
+ and 
+\begin_inset Formula $w>0$
+\end_inset
+
+,
+ 
+\begin_inset Formula $U$
+\end_inset
+
+ attains a maximum on 
+\begin_inset Formula $\{x\geq0:\langle p,x\rangle\leq w\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Apply the finite-expenditure-matrix form of Afriat's lemma to 
+\begin_inset Formula $a_{ts}:=\langle p^{t},x^{s}\rangle$
+\end_inset
+
+.
+ This algebraic lemma says that GARP for the finite comparison graph is equivalent to the displayed certificate;
+ it does not use the dimension of the ambient commodity space.
+ At observation 
+\begin_inset Formula $x^{s}$
+\end_inset
+
+,
+ every affine term in the displayed minimum is at least 
+\begin_inset Formula $U^{s}$
+\end_inset
+
+ and term 
+\begin_inset Formula $s$
+\end_inset
+
+ equals 
+\begin_inset Formula $U^{s}$
+\end_inset
+
+.
+ Hence 
+\begin_inset Formula $U(x^{s})=U^{s}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\langle p^{s},x\rangle\leq\langle p^{s},x^{s}\rangle$
+\end_inset
+
+,
+ term 
+\begin_inset Formula $s$
+\end_inset
+
+ gives 
+\begin_inset Formula $U(x)\leq U^{s}=U(x^{s})$
+\end_inset
+
+,
+ which proves rationalization.
+ A finite minimum of continuous affine functionals is concave and weak-star continuous.
+ If 
+\begin_inset Formula $y-x$
+\end_inset
+
+ is a nonzero positive measure,
+ compactness and strict positivity give 
+\begin_inset Formula $\min_{g\in\mathcal{G}}p^{t}(g)>0$
+\end_inset
+
+ and therefore 
+\begin_inset Formula $\lambda^{t}\langle p^{t},y-x\rangle>0$
+\end_inset
+
+ for every 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $T$
+\end_inset
+
+ is finite,
+\begin_inset Formula 
+\[
+\delta:=\min_{1\leq t\leq T}
+\lambda^{t}\langle p^{t},y-x\rangle>0.
+\]
+
+\end_inset
+
+Consequently 
+\begin_inset Formula $U(y)\geq U(x)+\delta>U(x)$
+\end_inset
+
+.
+ Finally,
+ if 
+\begin_inset Formula $m=\min_{g}p(g)>0$
+\end_inset
+
+,
+ every budget-feasible measure satisfies 
+\begin_inset Formula $x(\mathcal{G})\leq w/m$
+\end_inset
+
+.
+ The positive budget set is weak-star closed and is contained in the closed dual norm ball of radius 
+\begin_inset Formula $w/m$
+\end_inset
+
+ in 
+\begin_inset Formula $C(\mathcal{G})^{*}$
+\end_inset
+
+.
+ That ball is weak-star compact by Banach--Alaoglu,
+ so the budget set is weak-star compact as a closed subset.
+ Continuity of 
+\begin_inset Formula $U$
+\end_inset
+
+ gives attainment.
+\end_layout
+
+\begin_layout Remark
+The proposition is a dimension-free corollary of the ordinary Afriat construction,
+ not a claim that all infinite-dimensional consumer theory is automatic.
+ It uses divisible measure-valued bundles,
+ continuous strictly positive linear prices,
+ compact product space,
+ and finitely many observations.
+ Indivisible unit demand,
+ arbitrary nonlinear budgets,
+ equilibrium existence,
+ or differentiable Slutsky operators require separate arguments
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "afriat1967,varian1982,mascolell1975,bewley1972"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+When product choice becomes matching
+\end_layout
+
+\begin_layout Standard
+With unlimited replication at posted prices,
+ consumers independently choosing products is a choice model with assignment geometry;
+ it is not yet a matching market.
+ Matching becomes literal when products,
+ sellers,
+ or qualities have capacity.
+ Let 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu$
+\end_inset
+
+ be probability measures on compact spaces 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ of consumer types and 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ of products,
+ respectively,
+ let 
+\begin_inset Formula $S(b,g)$
+\end_inset
+
+ be continuous transferable surplus,
+ and define
+\begin_inset Formula 
+\[
+\Pi(\mu,\nu):=\{\pi:\pi_{1}=\mu,\ \pi_{2}=\nu\}.
+\]
+
+\end_inset
+
+The planner's assignment problem is
+\begin_inset Formula 
+\[
+\max_{\pi\in\Pi(\mu,\nu)}\int_{\mathcal{B}\times\mathcal{G}}S(b,g)\,d\pi(b,g).
+\]
+
+\end_inset
+
+Compactness and continuity give existence.
+ The fixed second marginal exhausts supply;
+ a model with upper capacities or unmatched agents instead needs marginal inequalities,
+ partial transport,
+ or dummy outside types.
+ This is the planner problem underlying transferable-utility hedonic matching.
+ A market interpretation additionally requires participation conditions and Kantorovich dual potentials that support the assignment as utilities and prices.
+ If 
+\begin_inset Formula $\mathcal{B}\subseteq\mathbb{R}^{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is absolutely continuous,
+ additional twist and regularity conditions can yield an almost-everywhere pure match;
+ without them the optimal plan need not be a function.
+ This capacity-constrained problem is conceptually distinct from the one-to-one deferred-acceptance model studied later in the book
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "chiapporimccannnesheim2010"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Evidence and the modern research map
+\end_layout
+
+\begin_layout Standard
+Neiman and Vavra's Nielsen Homescan evidence covers 2004--2016.
+ Within Nielsen product groups,
+ each household's annual UPC spending becomes more concentrated while aggregate UPC spending becomes less concentrated:
+ households buy narrower but increasingly different baskets.
+ The model infers roughly 70 percent growth in effective variety.
+ In a counterfactual that holds taste disagreement fixed and attributes that growth entirely to catalog variety,
+ welfare rises by 0.56 percent per year in the covered categories;
+ 0.52 percentage points,
+ or about 93 percent of that gain,
+ comes from improved selection rather than conventional love of variety.
+ That variety-only exercise does not reproduce the observed decline in the number of varieties per household.
+ Specifications that target all three trends imply annual welfare gains of 0.45--0.47 percent.
+ These are structural model implications rather than direct causal estimates.
+ In particular,
+ household concentration,
+ aggregate concentration,
+ and the observed average number of varieties consumed jointly identify the dispersion parameter 
+\begin_inset Formula $\eta$
+\end_inset
+
+ and effective variety 
+\begin_inset Formula $\widetilde N=N\alpha/(1-\alpha)$
+\end_inset
+
+,
+ not catalog size 
+\begin_inset Formula $N$
+\end_inset
+
+ separately from taste disagreement 
+\begin_inset Formula $\alpha$
+\end_inset
+
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "neimanvavra2023"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The literature divides naturally by the economic object:
+\end_layout
+
+\begin_layout Itemize
+Characteristics and ideal points explain how a dense catalog acquires geometry;
+ pure-characteristics and local-competition models turn that geometry into substitution restrictions
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lancaster1966,berrypakes2007,feenstralevinsohn1995,pinksesladebrett2002"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Random-coefficients demand estimates heterogeneous tastes and flexible diversion among a large but finite set of products
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "berrylevinsohnpakes1995"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Variety and long-tail models distinguish ordinary love of variety,
+ access costs,
+ and better matching to household tastes
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "brynjolfssonhusmith2003,brynjolfssonhusimester2011,brodaweinstein2010,li2021,neimanvavra2023"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Consideration-set methods distinguish products that are available from products that enter the consumer's consideration set
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "abaluckadamsprassl2021"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Zero-share methods address available products that receive zero observed empirical market share;
+ they do not by themselves identify whether a consumer saw the product
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gandhilushi2023"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Hedonic matching and optimal transport add capacity,
+ fixed supply marginals,
+ and market-clearing assignments to the product-space geometry;
+ endogenous quality design additionally requires producer technology and costs
+\begin_inset space ~
+\end_inset
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "chiapporimccannnesheim2010"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The model-selection rule is therefore simple.
+ If the consumer buys one item,
+ use discrete choice on product space.
+ If the consumer buys a basket,
+ use measure-valued demand.
+ If product capacities constrain who can receive what,
+ use matching or optimal transport.
+ In every case,
+ product nearness must be given economic content before it can discipline cross-price effects.
+\end_layout
+
 
 \begin_layout Standard
 \begin_inset Note Note
@@ -20014,23 +21135,17 @@ ECON803_NOTATION_GLOSSARY_START
 
 
 \end_layout
-
 \begin_layout Standard
+
 \begin_inset CommandInset label
 LatexCommand label
 name "app:notation-glossary"
 
 \end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-This glossary records the book's persistent notation.
-  Each blue symbol links back to its first substantive use in the text.
-  There,
- the blue first use links here.
-  A symbol described as scoped may be reused only after the new local meaning is stated explicitly.
+This glossary records the book's persistent notation.  Each blue symbol links back to its first substantive use in the text.  There, the blue first use links here.  A symbol described as scoped may be reused only after the new local meaning is stated explicitly.
 \end_layout
 
 \begin_layout Section
@@ -20038,95 +21153,58 @@ Sets and indices
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{commodity-count}L$
+\begin_inset Formula $\notationdef{commodity-count}{L}$
 \end_inset
 
- Number of commodities;
- 
-\begin_inset Formula $L\in\mathbb{N}_{>0}$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Number of commodities; \begin_inset Formula $L\in\mathbb N_{>0}$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{commodity-index}{\ell,k}$
 \end_inset
 
- Commodity-coordinate indices in 
-\begin_inset Formula $\{1,\ldots,L\}$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Commodity-coordinate indices in \begin_inset Formula $\{1,\ldots,L\}$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{nonnegative-orthant}{\mathbb{R}^{n}_{+}}$
+\begin_inset Formula $\notationdef{nonnegative-orthant}{\mathbb R_+^n}$
 \end_inset
 
- Vectors in 
-\begin_inset Formula $\mathbb{R}^{n}$
-\end_inset
-
- whose coordinates are all nonnegative.
- Scope:
- Book-wide.
+ Vectors in \begin_inset Formula $\mathbb R^n$\end_inset
+ whose coordinates are all nonnegative. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{positive-orthant}{\mathbb{R}^{n}_{++}}$
+\begin_inset Formula $\notationdef{positive-orthant}{\mathbb R_{++}^n}$
 \end_inset
 
- Vectors in 
-\begin_inset Formula $\mathbb{R}^{n}$
-\end_inset
-
- whose coordinates are all strictly positive;
- equivalently 
-\begin_inset Formula $x\gg0$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Vectors in \begin_inset Formula $\mathbb R^n$\end_inset
+ whose coordinates are all strictly positive; equivalently \begin_inset Formula $x\gg0$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{feasible-set}X$
+\begin_inset Formula $\notationdef{feasible-set}{X}$
 \end_inset
 
- Ambient feasible set;
- in consumer chapters,
- the consumption set,
- normally 
-\begin_inset Formula $\mathbb{R}^{L}_{+}$
-\end_inset
-
-.
- Scope:
- Scoped.
+ Ambient feasible set; in consumer chapters, the consumption set, normally \begin_inset Formula $\mathbb R_+^L$\end_inset
+. Scope: Scoped.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{consumer-index}{i=1,\ldots,I}$
 \end_inset
 
- Consumer index and number of consumers.
- Scope:
- Book-wide.
+ Consumer index and number of consumers. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{firm-index}{j=1,\ldots,J}$
 \end_inset
 
- Firm index and number of firms.
- Scope:
- Book-wide.
+ Firm index and number of firms. Scope: Book-wide.
 \end_layout
 
 \begin_layout Section
@@ -20137,189 +21215,117 @@ Operators
 \begin_inset Formula $\notationdef{inner-product}{a\cdot b}$
 \end_inset
 
- Euclidean inner product.
- Scope:
- Book-wide.
+ Euclidean inner product. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{euclidean-norm}{\lVert a\rVert_{2}}$
+\begin_inset Formula $\notationdef{euclidean-norm}{\lVert a\rVert_2}$
 \end_inset
 
- Euclidean norm of a vector 
-\begin_inset Formula $a$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Euclidean norm of a vector \begin_inset Formula $a$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ones-vector}{\mathbf{1}_{n}}$
+\begin_inset Formula $\notationdef{ones-vector}{\mathbf 1_n}$
 \end_inset
 
- All-ones column vector in 
-\begin_inset Formula $\mathbb{R}^{n}$
-\end_inset
-
-;
- the dimension is shown whenever it is not immediate.
- Scope:
- Book-wide.
+ All-ones column vector in \begin_inset Formula $\mathbb R^n$\end_inset
+; the dimension is shown whenever it is not immediate. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{identity-matrix}{I_{n}}$
+\begin_inset Formula $\notationdef{identity-matrix}{I_n}$
 \end_inset
 
- 
-\begin_inset Formula $n\times n$
-\end_inset
-
- identity matrix;
- the subscript records its dimension.
- Scope:
- Book-wide.
+ \begin_inset Formula $n\times n$\end_inset
+ identity matrix; the subscript records its dimension. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{transpose}{a^{\top}}$
+\begin_inset Formula $\notationdef{transpose}{a^\top}$
 \end_inset
 
- Transpose of a vector or matrix;
- primes never denote transpose.
- Scope:
- Book-wide.
+ Transpose of a vector or matrix; primes never denote transpose. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{alternative-prime}{a'}$
 \end_inset
 
- Alternative observation or object of the same type as 
-\begin_inset Formula $a$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Alternative observation or object of the same type as \begin_inset Formula $a$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{set-difference}{A\setminus B}$
 \end_inset
 
- Elements of 
-\begin_inset Formula $A$
-\end_inset
-
- that do not belong to 
-\begin_inset Formula $B$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Elements of \begin_inset Formula $A$\end_inset
+ that do not belong to \begin_inset Formula $B$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{jacobian}{D_{z}f}$
+\begin_inset Formula $\notationdef{jacobian}{D_zf}$
 \end_inset
 
- Jacobian of a vector-valued map 
-\begin_inset Formula $f$
-\end_inset
-
- with respect to 
-\begin_inset Formula $z$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Jacobian of a vector-valued map \begin_inset Formula $f$\end_inset
+ with respect to \begin_inset Formula $z$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{gradient}{\nabla_{z}f}$
+\begin_inset Formula $\notationdef{gradient}{\nabla_zf}$
 \end_inset
 
- Column gradient of a scalar-valued function 
-\begin_inset Formula $f$
-\end_inset
-
- with respect to 
-\begin_inset Formula $z$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Column gradient of a scalar-valued function \begin_inset Formula $f$\end_inset
+ with respect to \begin_inset Formula $z$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{componentwise-order}{\leq,\geq,\gg}$
 \end_inset
 
- Vector inequalities are componentwise;
- 
-\begin_inset Formula $x\gg0$
-\end_inset
-
- means every coordinate is strictly positive.
- Scope:
- Book-wide.
+ Vector inequalities are componentwise; \begin_inset Formula $x\gg0$\end_inset
+ means every coordinate is strictly positive. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{powerset}{2^{X}}$
+\begin_inset Formula $\notationdef{powerset}{2^X}$
 \end_inset
 
- Power set of 
-\begin_inset Formula $X$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Power set of \begin_inset Formula $X$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{argmax-argmin}{\arg\max,\arg\min}$
 \end_inset
 
- Sets of maximizers and minimizers;
- a singleton selection is identified explicitly.
- Scope:
- Book-wide.
+ Sets of maximizers and minimizers; a singleton selection is identified explicitly. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{probability-expectation}{\Pr,\mathbb{P},\mathbb{E}}$
+\begin_inset Formula $\notationdef{probability-expectation}{\Pr,\mathbb P,\mathbb E}$
 \end_inset
 
- Probability and expectation under the probability space declared in the surrounding model.
- Scope:
- Book-wide.
+ Probability and expectation under the probability space declared in the surrounding model. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{indicator}{\mathbb{I}\{\cdot\}}$
+\begin_inset Formula $\notationdef{indicator}{\mathbb I\{\cdot\}}$
 \end_inset
 
- Indicator of the event inside braces.
- Scope:
- Book-wide.
+ Indicator of the event inside braces. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{natural-log}{\log}$
 \end_inset
 
- Natural logarithm;
- information quantities are therefore measured in nats.
- Scope:
- Book-wide.
+ Natural logarithm; information quantities are therefore measured in nats. Scope: Book-wide.
 \end_layout
 
 \begin_layout Section
@@ -20327,12 +21333,10 @@ Optimization
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{lagrangian}{\mathcal{L}}$
+\begin_inset Formula $\notationdef{lagrangian}{\mathcal L}$
 \end_inset
 
- Lagrangian of the optimization problem currently under study.
- Scope:
- Scoped.
+ Lagrangian of the optimization problem currently under study. Scope: Scoped.
 \end_layout
 
 \begin_layout Section
@@ -20343,67 +21347,40 @@ Choice and preference
 \begin_inset Formula $\notationdef{preference-relations}{\succeq,\succ,\sim}$
 \end_inset
 
- Weak preference and its asymmetric and symmetric parts.
- Scope:
- Book-wide.
+ Weak preference and its asymmetric and symmetric parts. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{choice-correspondence}{c:\mathcal{A}\rightrightarrows X}$
+\begin_inset Formula $\notationdef{choice-correspondence}{c:\mathcal A\rightrightarrows X}$
 \end_inset
 
- Nonempty-valued choice correspondence on a family of feasible menus.
- Scope:
- Book-wide.
+ Nonempty-valued choice correspondence on a family of feasible menus. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{choice-direct-revealed}{\succeq^{C}}$
+\begin_inset Formula $\notationdef{choice-direct-revealed}{\succeq^C}$
 \end_inset
 
- Direct weak revealed choice:
- 
-\begin_inset Formula $x\succeq^{C}y$
-\end_inset
-
- when some menu contains both and selects 
-\begin_inset Formula $x$
-\end_inset
-
-.
- Scope:
- Abstract-choice chapter.
+ Direct weak revealed choice: \begin_inset Formula $x\succeq^C y$\end_inset
+ when some menu contains both and selects \begin_inset Formula $x$\end_inset
+. Scope: Abstract-choice chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{choice-strict-revealed}{\succ^{C}}$
+\begin_inset Formula $\notationdef{choice-strict-revealed}{\succ^C}$
 \end_inset
 
- Direct strict revealed choice:
- some menu selects 
-\begin_inset Formula $x$
-\end_inset
-
- and rejects available 
-\begin_inset Formula $y$
-\end_inset
-
-.
- Scope:
- Abstract-choice chapter.
+ Direct strict revealed choice: some menu selects \begin_inset Formula $x$\end_inset
+ and rejects available \begin_inset Formula $y$\end_inset
+. Scope: Abstract-choice chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{choice-revealed-closure}{\succeq^{C*}}$
 \end_inset
 
- Reflexive-transitive closure of direct weak revealed choice 
-\begin_inset Formula $\succeq^{C}$
-\end_inset
-
-.
- Scope:
- Abstract-choice chapter.
+ Reflexive-transitive closure of direct weak revealed choice \begin_inset Formula $\succeq^C$\end_inset
+. Scope: Abstract-choice chapter.
 \end_layout
 
 \begin_layout Section
@@ -20411,169 +21388,115 @@ Revealed preference
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{observation-index}{\mathbb{T}=\{1,\ldots,T\}}$
+\begin_inset Formula $\notationdef{observation-index}{\mathbb T=\{1,\ldots,T\}}$
 \end_inset
 
- Finite set of observation indices.
- Scope:
- Revealed-preference chapters.
+ Finite set of observation indices. Scope: Revealed-preference chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{observation-data}{\mathcal{O}=\{(p^{t},x^{t})\}_{t\in\mathbb{T}}}$
+\begin_inset Formula $\notationdef{observation-data}{\mathcal O=\{(p^t,x^t)\}_{t\in\mathbb T}}$
 \end_inset
 
- Dataset of price-choice observations indexed by 
-\begin_inset Formula $\mathbb{T}$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Dataset of price-choice observations indexed by \begin_inset Formula $\mathbb T$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{observed-expenditure}{w^{t}=p^{t}\cdot x^{t}}$
+\begin_inset Formula $\notationdef{observed-expenditure}{w^t=p^t\cdot x^t}$
 \end_inset
 
- Observed expenditure,
- equal to wealth under budget exhaustion.
- Scope:
- Revealed-preference chapters.
+ Observed expenditure, equal to wealth under budget exhaustion. Scope: Revealed-preference chapters.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{direct-revealed}{\succeq^{R,D}}$
 \end_inset
 
- Direct weak revealed preference generated by affordability.
- Scope:
- Budget-demand chapters.
+ Direct weak revealed preference generated by affordability. Scope: Budget-demand chapters.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{strict-direct-revealed}{\succ^{R,D}}$
 \end_inset
 
- Strict direct revealed preference generated by strict affordability.
- Scope:
- Budget-demand chapters.
+ Strict direct revealed preference generated by strict affordability. Scope: Budget-demand chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{revealed-closure}{\succeq^{R}}$
+\begin_inset Formula $\notationdef{revealed-closure}{\succeq^R}$
 \end_inset
 
- Reflexive-transitive closure of budget-based 
-\begin_inset Formula $\succeq^{R,D}$
-\end_inset
-
-.
- Scope:
- Budget-demand chapters.
+ Reflexive-transitive closure of budget-based \begin_inset Formula $\succeq^{R,D}$\end_inset
+. Scope: Budget-demand chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{afriat-certificates}{(U^{t},\lambda^{t})}$
+\begin_inset Formula $\notationdef{afriat-certificates}{(U^t,\lambda^t)}$
 \end_inset
 
- Utility-level and positive marginal-utility-of-wealth certificates satisfying the Afriat inequalities.
- Scope:
- Afriat theorem.
+ Utility-level and positive marginal-utility-of-wealth certificates satisfying the Afriat inequalities. Scope: Afriat theorem.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{efficiency-relations}{\succeq^{R,D}_{\alpha},\succ^{R,D}_{\alpha},\succeq^{R}_{\alpha}}$
+\begin_inset Formula $\notationdef{efficiency-relations}{\succeq_\alpha^{R,D},\succ_\alpha^{R,D},\succeq_\alpha^R}$
 \end_inset
 
- Efficiency-adjusted direct weak,
- direct strict,
- and revealed-closure relations at expenditure fraction 
-\begin_inset Formula $\alpha$
-\end_inset
-
-.
- Scope:
- CCEI section.
+ Efficiency-adjusted direct weak, direct strict, and revealed-closure relations at expenditure fraction \begin_inset Formula $\alpha$\end_inset
+. Scope: CCEI section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{varian-support}{\mathcal{S}_{\mathcal{O}}(p,w)}$
+\begin_inset Formula $\notationdef{varian-support}{\mathcal S_{\mathcal O}(p,w)}$
 \end_inset
 
- Bundles consistent with GARP when appended to dataset 
-\begin_inset Formula $\mathcal{O}$
-\end_inset
-
- at a new budget.
- Scope:
- Consumer chapter.
+ Bundles consistent with GARP when appended to dataset \begin_inset Formula $\mathcal O$\end_inset
+ at a new budget. Scope: Consumer chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ccei}{\operatorname{CCEI}(\mathcal{O})}$
+\begin_inset Formula $\notationdef{ccei}{\operatorname{CCEI}(\mathcal O)}$
 \end_inset
 
- Largest common expenditure fraction for which the adjusted dataset satisfies GARP.
- Scope:
- Consumer chapter.
+ Largest common expenditure fraction for which the adjusted dataset satisfies GARP. Scope: Consumer chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{preference-function}{r:X\times X\to\mathbb{R}}$
+\begin_inset Formula $\notationdef{preference-function}{r:X\times X\to\mathbb R}$
 \end_inset
 
- Two-argument numerical comparison rule used to define maximal demand.
- Scope:
- CMU section.
+ Two-argument numerical comparison rule used to define maximal demand. Scope: CMU section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{preference-demand}{x_{r}(p,w)}$
+\begin_inset Formula $\notationdef{preference-demand}{x_r(p,w)}$
 \end_inset
 
- Bundles in 
-\begin_inset Formula $B(p,w)$
-\end_inset
-
- that weakly defeat every feasible alternative under preference function 
-\begin_inset Formula $r$
-\end_inset
-
-.
- Scope:
- CMU section.
+ Bundles in \begin_inset Formula $B(p,w)$\end_inset
+ that weakly defeat every feasible alternative under preference function \begin_inset Formula $r$\end_inset
+. Scope: CMU section.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{cmu-coalition-structure}{\Omega}$
 \end_inset
 
- Compact collection of nonempty compact coalitions of continuous utility functions.
- Scope:
- CMU section.
+ Compact collection of nonempty compact coalitions of continuous utility functions. Scope: CMU section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{cmu-coalition}U$
+\begin_inset Formula $\notationdef{cmu-coalition}{U}$
 \end_inset
 
- A nonempty compact set of continuous utility functions whose members evaluate a comparison unanimously.
- Scope:
- CMU section.
+ A nonempty compact set of continuous utility functions whose members evaluate a comparison unanimously. Scope: CMU section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{cmu-preference-function}{r_{\Omega}(x,y)}$
+\begin_inset Formula $\notationdef{cmu-preference-function}{r_\Omega(x,y)}$
 \end_inset
 
- Coalitional multi-utility preference function 
-\begin_inset Formula $\max_{U\in\Omega}\min_{u\in U}[u(x)-u(y)]$
-\end_inset
-
-.
- Scope:
- CMU section.
+ Coalitional multi-utility preference function \begin_inset Formula $\max_{U\in\Omega}\min_{u\in U}[u(x)-u(y)]$\end_inset
+. Scope: CMU section.
 \end_layout
 
 \begin_layout Section
@@ -20581,42 +21504,27 @@ Consumer theory
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{bundle}x$
+\begin_inset Formula $\notationdef{bundle}{x}$
 \end_inset
 
- Consumption bundle;
- arguments such as 
-\begin_inset Formula $x(p,w)$
-\end_inset
-
- distinguish demand from a generic bundle.
- Scope:
- Book-wide default.
+ Consumption bundle; arguments such as \begin_inset Formula $x(p,w)$\end_inset
+ distinguish demand from a generic bundle. Scope: Book-wide default.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{price-vector}p$
+\begin_inset Formula $\notationdef{price-vector}{p}$
 \end_inset
 
- Commodity-price column vector;
- normally 
-\begin_inset Formula $p\in\mathbb{R}^{L}_{++}$
-\end_inset
-
-.
- Scope:
- Book-wide default.
+ Commodity-price column vector; normally \begin_inset Formula $p\in\mathbb R_{++}^L$\end_inset
+. Scope: Book-wide default.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{wealth}w$
+\begin_inset Formula $\notationdef{wealth}{w}$
 \end_inset
 
- Scalar wealth or income available to a consumer.
- Scope:
- Book-wide default.
+ Scalar wealth or income available to a consumer. Scope: Book-wide default.
 \end_layout
-
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{utility-weights}{a_\ell}$
@@ -20674,159 +21582,147 @@ Consumer theory
 . Scope: Translog expenditure model.
 \end_layout
 
-
 \begin_layout Description
 \begin_inset Formula $\notationdef{budget-set}{B(p,w)}$
 \end_inset
 
- Bundles affordable at prices 
-\begin_inset Formula $p$
-\end_inset
-
- and wealth 
-\begin_inset Formula $w$
-\end_inset
-
-:
- 
-\begin_inset Formula $\{x\in X:p\cdot x\leq w\}$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Bundles affordable at prices \begin_inset Formula $p$\end_inset
+ and wealth \begin_inset Formula $w$\end_inset
+: \begin_inset Formula $\{x\in X:p\cdot x\leq w\}$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{marshallian-demand}{x(p,w)}$
 \end_inset
 
- Marshallian demand correspondence;
- treated as a function only when uniqueness is assumed.
- Scope:
- Book-wide.
+ Marshallian demand correspondence; treated as a function only when uniqueness is assumed. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{hicksian-demand}{h(p,\bar{u})}$
+\begin_inset Formula $\notationdef{hicksian-demand}{h(p,\bar u)}$
 \end_inset
 
- Expenditure-minimizing demand correspondence at prices 
-\begin_inset Formula $p$
-\end_inset
-
- and target utility 
-\begin_inset Formula $\bar{u}$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Expenditure-minimizing demand correspondence at prices \begin_inset Formula $p$\end_inset
+ and target utility \begin_inset Formula $\bar u$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{direct-utility}u$
+\begin_inset Formula $\notationdef{direct-utility}{u}$
 \end_inset
 
- Direct utility;
- in uncertainty chapters it is the Bernoulli utility of a prize.
- Scope:
- Book-wide default.
+ Direct utility; in uncertainty chapters it is the Bernoulli utility of a prize. Scope: Book-wide default.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{indirect-utility}{v(p,w)}$
 \end_inset
 
- Maximum attainable utility at prices 
-\begin_inset Formula $p$
-\end_inset
-
- and wealth 
-\begin_inset Formula $w$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Maximum attainable utility at prices \begin_inset Formula $p$\end_inset
+ and wealth \begin_inset Formula $w$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{expenditure-function}{e(p,\bar{u})}$
+\begin_inset Formula $\notationdef{expenditure-function}{e(p,\bar u)}$
 \end_inset
 
- Minimum expenditure required to attain utility 
-\begin_inset Formula $\bar{u}$
-\end_inset
-
- at prices 
-\begin_inset Formula $p$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Minimum expenditure required to attain utility \begin_inset Formula $\bar u$\end_inset
+ at prices \begin_inset Formula $p$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{money-metric-utility}{\mu_{p}(x)}$
+\begin_inset Formula $\notationdef{money-metric-utility}{\mu_p(x)}$
 \end_inset
 
- Expenditure at reference prices 
-\begin_inset Formula $p$
+ Expenditure at reference prices \begin_inset Formula $p$\end_inset
+ required to attain the utility of bundle \begin_inset Formula $x$\end_inset
+: \begin_inset Formula $e(p,u(x))$\end_inset
+. Scope: Welfare-analysis sections.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{product-space}{(\mathcal G,d)}$
 \end_inset
 
- required to attain the utility of bundle 
-\begin_inset Formula $x$
+ Compact metric space of differentiated-product characteristics and its economically specified distance. Scope: Many-product section.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{ideal-point}{b_i}$
 \end_inset
 
-:
- 
-\begin_inset Formula $e(p,u(x))$
+ Consumer \begin_inset Formula $i$\end_inset
+'s bliss or ideal point in product-characteristic space. Scope: Ideal-point model.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{product-cell}{C_j(p)}$
 \end_inset
 
-.
- Scope:
- Welfare-analysis sections.
+ Types who choose product \begin_inset Formula $j$\end_inset
+ at price vector \begin_inset Formula $p$\end_inset
+; a generalized Voronoi cell under distance-based utility. Scope: Ideal-point model.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{basket-measures}{\mathcal M_+(\mathcal G)}$
+\end_inset
+
+ Finite nonnegative Radon measures on product space; includes atomic finite shopping baskets. Scope: Continuum-product model.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{continuum-pairing}{\langle p,x\rangle}$
+\end_inset
+
+ Expenditure pairing \begin_inset Formula $\int_{\mathcal G}p(g)x(dg)$\end_inset
+ between a continuous price schedule and a basket measure. Scope: Continuum-product model.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{product-neighborhood}{B_r(g)}$
+\end_inset
+
+ Closed radius-\begin_inset Formula $r$\end_inset
+ ball around product point \begin_inset Formula $g$\end_inset
+ in the declared product metric. Scope: Many-product section.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{neighborhood-elasticity}{\mathcal E^H(A;\varphi_B)}$
+\end_inset
+
+ Compensated percentage response of demand mass in region \begin_inset Formula $A$\end_inset
+ to the continuous log-price shock profile \begin_inset Formula $\varphi_B$\end_inset
+ concentrated near region \begin_inset Formula $B$\end_inset
+. Scope: Continuum-product model.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{slutsky-matrix}{S(p,w)}$
 \end_inset
 
- 
-\begin_inset Formula $D_{p}x(p,w)+D_{w}x(p,w)x(p,w)^{\top}$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ \begin_inset Formula $D_px(p,w)+D_wx(p,w)x(p,w)^\top$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{price-domain}{\mathsf{P}}$
+\begin_inset Formula $\notationdef{price-domain}{\mathsf P}$
 \end_inset
 
- Strictly positive commodity-price domain 
-\begin_inset Formula $\mathbb{R}^{L}_{++}$
-\end_inset
-
-.
- Scope:
- Consumer chapters.
+ Strictly positive commodity-price domain \begin_inset Formula $\mathbb R_{++}^L$\end_inset
+. Scope: Consumer chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{wealth-domain}{\mathsf{W}}$
+\begin_inset Formula $\notationdef{wealth-domain}{\mathsf W}$
 \end_inset
 
- Strictly positive wealth domain 
-\begin_inset Formula $\mathbb{R}_{++}$
-\end_inset
-
-.
- Scope:
- Consumer chapters.
+ Strictly positive wealth domain \begin_inset Formula $\mathbb R_{++}$\end_inset
+. Scope: Consumer chapters.
 \end_layout
 
 \begin_layout Section
@@ -20834,97 +21730,64 @@ Behavioral demand
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{perceived-price}{\widehat{p}}$
+\begin_inset Formula $\notationdef{perceived-price}{\widehat p}$
 \end_inset
 
- Price vector used in the consumer's perceived first-order condition.
- Scope:
- Sparse-max chapter.
+ Price vector used in the consumer's perceived first-order condition. Scope: Sparse-max chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{sparse-demand}{x^{\mathrm{SM}}}$
 \end_inset
 
- Sparse-max demand satisfying perceived-price tangency and the true budget.
- Scope:
- Sparse-max chapter.
+ Sparse-max demand satisfying perceived-price tangency and the true budget. Scope: Sparse-max chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{attention-weights}{a=(a_{1},\ldots,a_{L})}$
+\begin_inset Formula $\notationdef{attention-weights}{a=(a_1,\ldots,a_L)}$
 \end_inset
 
- Coordinatewise attention weights in 
-\begin_inset Formula $[0,1]^{L}$
-\end_inset
-
-.
- Scope:
- Sparse-max chapter.
+ Coordinatewise attention weights in \begin_inset Formula $[0,1]^L$\end_inset
+. Scope: Sparse-max chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{information-cost}{\mathcal{C}}$
+\begin_inset Formula $\notationdef{information-cost}{\mathcal C}$
 \end_inset
 
- Cost of attention or information acquisition.
- Scope:
- Attention chapter.
+ Cost of attention or information acquisition. Scope: Attention chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ri-action-set}{\mathcal{A}}$
+\begin_inset Formula $\notationdef{ri-action-set}{\mathcal A}$
 \end_inset
 
- Finite set of actions available to the rationally inattentive decision maker.
- Scope:
- Rational-inattention section.
+ Finite set of actions available to the rationally inattentive decision maker. Scope: Rational-inattention section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ri-prior}{\mu_{0}}$
+\begin_inset Formula $\notationdef{ri-prior}{\mu_0}$
 \end_inset
 
- Full-support prior distribution over the finite state space 
-\begin_inset Formula $\mathcal{S}$
-\end_inset
-
-.
- Scope:
- Rational-inattention section.
+ Full-support prior distribution over the finite state space \begin_inset Formula $\mathcal S$\end_inset
+. Scope: Rational-inattention section.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{ri-channel}{q(a\mid s)}$
 \end_inset
 
- Conditional probability of action 
-\begin_inset Formula $a$
-\end_inset
-
- in state 
-\begin_inset Formula $s$
-\end_inset
-
-;
- equivalently,
- the direct information-and-decision channel.
- Scope:
- Rational-inattention section.
+ Conditional probability of action \begin_inset Formula $a$\end_inset
+ in state \begin_inset Formula $s$\end_inset
+; equivalently, the direct information-and-decision channel. Scope: Rational-inattention section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{mutual-information}{\mathcal{I}(q)}$
+\begin_inset Formula $\notationdef{mutual-information}{\mathcal I(q)}$
 \end_inset
 
- Shannon mutual information between the state and the action induced by channel 
-\begin_inset Formula $q$
-\end_inset
-
-.
- Scope:
- Rational-inattention section.
+ Shannon mutual information between the state and the action induced by channel \begin_inset Formula $q$\end_inset
+. Scope: Rational-inattention section.
 \end_layout
 
 \begin_layout Section
@@ -20932,144 +21795,99 @@ Choice under uncertainty
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{prize-set}Z$
+\begin_inset Formula $\notationdef{prize-set}{Z}$
 \end_inset
 
- Prize or consequence set;
- finite unless the infinite-outcome section explicitly broadens it.
- Scope:
- Uncertainty chapter.
+ Prize or consequence set; finite unless the infinite-outcome section explicitly broadens it. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{lottery}{\mu,\nu,\eta}$
 \end_inset
 
- Probability mass functions or probability measures over prizes.
- Scope:
- Uncertainty chapter.
+ Probability mass functions or probability measures over prizes. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{lottery-space}{\Delta(Z)}$
 \end_inset
 
- Set of lotteries over 
-\begin_inset Formula $Z$
-\end_inset
-
-;
- for general spaces the measurable structure is stated explicitly.
- Scope:
- Uncertainty chapter.
+ Set of lotteries over \begin_inset Formula $Z$\end_inset
+; for general spaces the measurable structure is stated explicitly. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{degenerate-lottery}{\delta_{z}}$
+\begin_inset Formula $\notationdef{degenerate-lottery}{\delta_z}$
 \end_inset
 
- Lottery assigning probability one to prize 
-\begin_inset Formula $z$
-\end_inset
-
-.
- Scope:
- Uncertainty chapter.
+ Lottery assigning probability one to prize \begin_inset Formula $z$\end_inset
+. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{expected-utility}{U(\mu)}$
 \end_inset
 
- Expected Bernoulli utility of lottery 
-\begin_inset Formula $\mu$
-\end_inset
-
-.
- Scope:
- Uncertainty chapter.
+ Expected Bernoulli utility of lottery \begin_inset Formula $\mu$\end_inset
+. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{lottery-cdf}{F_{\mu}}$
+\begin_inset Formula $\notationdef{lottery-cdf}{F_\mu}$
 \end_inset
 
- Cumulative distribution function of lottery 
-\begin_inset Formula $\mu$
-\end_inset
-
- on an ordered prize space.
- Scope:
- Uncertainty chapter.
+ Cumulative distribution function of lottery \begin_inset Formula $\mu$\end_inset
+ on an ordered prize space. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{fosd}{\succeq^{\mathrm{FOSD}}}$
 \end_inset
 
- First-order stochastic-dominance relation,
- oriented toward the dominating distribution.
- Scope:
- Uncertainty chapter.
+ First-order stochastic-dominance relation, oriented toward the dominating distribution. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{certainty-equivalent}{\operatorname{CE}(\mu;u)}$
 \end_inset
 
- Sure prize with the same utility as lottery 
-\begin_inset Formula $\mu$
-\end_inset
-
-.
- Scope:
- Uncertainty chapter.
+ Sure prize with the same utility as lottery \begin_inset Formula $\mu$\end_inset
+. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{risk-premium}{\operatorname{RP}(\mu;u)}$
 \end_inset
 
- Expected prize minus certainty equivalent.
- Scope:
- Uncertainty chapter.
+ Expected prize minus certainty equivalent. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{probability-premium}{\operatorname{PP}(x,\varepsilon;u)}$
 \end_inset
 
- Probability adjustment making the specified binary risk indifferent to a sure prize.
- Scope:
- Uncertainty chapter.
+ Probability adjustment making the specified binary risk indifferent to a sure prize. Scope: Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{state-probabilities}{\varpi_{s}}$
+\begin_inset Formula $\notationdef{state-probabilities}{\varpi_s}$
 \end_inset
 
- Strictly positive state probabilities summing to one.
- Scope:
- State-contingent chapter.
+ Strictly positive state probabilities summing to one. Scope: State-contingent chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{crra}r$
+\begin_inset Formula $\notationdef{crra}{r}$
 \end_inset
 
- Coefficient of relative risk aversion in the power-utility family.
- Scope:
- Risk-aversion section.
+ Coefficient of relative risk aversion in the power-utility family. Scope: Risk-aversion section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{state-space}{\mathcal{S}}$
+\begin_inset Formula $\notationdef{state-space}{\mathcal S}$
 \end_inset
 
- Finite state space used in the surrounding model,
- including sequential-trade applications.
- Scope:
- Scoped.
+ Finite state space used in the surrounding model, including sequential-trade applications. Scope: Scoped.
 \end_layout
 
 \begin_layout Section
@@ -21080,18 +21898,14 @@ Probability
 \begin_inset Formula $\notationdef{sigma-algebra}{\Sigma}$
 \end_inset
 
- Borel sigma-algebra on the prize space.
- Scope:
- Infinite-outcome section.
+ Borel sigma-algebra on the prize space. Scope: Infinite-outcome section.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{weak-convergence}{\Rightarrow}$
 \end_inset
 
- Weak convergence of probability measures.
- Scope:
- Infinite-outcome section.
+ Weak convergence of probability measures. Scope: Infinite-outcome section.
 \end_layout
 
 \begin_layout Section
@@ -21099,48 +21913,38 @@ Aggregation
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{aggregate-demand}{x^{A}(p,\mathbf{w})}$
+\begin_inset Formula $\notationdef{aggregate-demand}{x^A(p,\mathbf w)}$
 \end_inset
 
- Sum of individual Marshallian demands.
- Scope:
- Aggregate-demand chapter.
+ Sum of individual Marshallian demands. Scope: Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{wealth-distribution}{\mathbf{w}}$
+\begin_inset Formula $\notationdef{wealth-distribution}{\mathbf w}$
 \end_inset
 
- Vector of individual wealth levels.
- Scope:
- Aggregate-demand chapter.
+ Vector of individual wealth levels. Scope: Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{total-wealth}W$
+\begin_inset Formula $\notationdef{total-wealth}{W}$
 \end_inset
 
- Sum of individual wealth levels.
- Scope:
- Aggregate-demand chapter.
+ Sum of individual wealth levels. Scope: Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{gorman-form}{a_{i}(p),b(p)}$
+\begin_inset Formula $\notationdef{gorman-form}{a_i(p),b(p)}$
 \end_inset
 
- Consumer-specific intercept and common wealth coefficient in Gorman indirect utility.
- Scope:
- Aggregate-demand chapter.
+ Consumer-specific intercept and common wealth coefficient in Gorman indirect utility. Scope: Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{social-welfare}{\mathcal{W}}$
+\begin_inset Formula $\notationdef{social-welfare}{\mathcal W}$
 \end_inset
 
- Social welfare function or explicitly stated welfare aggregate.
- Scope:
- Scoped.
+ Social welfare function or explicitly stated welfare aggregate. Scope: Scoped.
 \end_layout
 
 \begin_layout Section
@@ -21148,104 +21952,66 @@ Discrete choice
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{latent-utility}{U^{*}_{ij}}$
+\begin_inset Formula $\notationdef{latent-utility}{U^*_{ij}}$
 \end_inset
 
- Latent utility of chooser 
-\begin_inset Formula $i$
-\end_inset
-
- from alternative 
-\begin_inset Formula $j$
-\end_inset
-
-.
- Scope:
- Discrete-choice chapter.
+ Latent utility of chooser \begin_inset Formula $i$\end_inset
+ from alternative \begin_inset Formula $j$\end_inset
+. Scope: Discrete-choice chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{choice-probability}{P_{ij}}$
 \end_inset
 
- Probability that chooser 
-\begin_inset Formula $i$
-\end_inset
-
- selects alternative 
-\begin_inset Formula $j$
-\end_inset
-
- from the stated menu.
- Scope:
- Discrete-choice chapter.
+ Probability that chooser \begin_inset Formula $i$\end_inset
+ selects alternative \begin_inset Formula $j$\end_inset
+ from the stated menu. Scope: Discrete-choice chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{logit-scale}{\tau}$
 \end_inset
 
- Strictly positive Type-I extreme-value scale parameter.
- Scope:
- Discrete-choice chapter.
+ Strictly positive Type-I extreme-value scale parameter. Scope: Discrete-choice chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{random-utility-space}{(\Omega,\mathcal{F},\mathbb{P})}$
+\begin_inset Formula $\notationdef{random-utility-space}{(\Omega,\mathcal F,\mathbb P)}$
 \end_inset
 
- Probability space supporting random utility.
- Scope:
- Random-utility section.
+ Probability space supporting random utility. Scope: Random-utility section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{random-utility}{\boldsymbol{U}}$
+\begin_inset Formula $\notationdef{random-utility}{\boldsymbol U}$
 \end_inset
 
- Measurable utility vector indexed by alternatives.
- Scope:
- Random-utility section.
+ Measurable utility vector indexed by alternatives. Scope: Random-utility section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{stochastic-choice}{P=\{P_{B}\}_{B\in\mathcal{B}}}$
+\begin_inset Formula $\notationdef{stochastic-choice}{P=\{P_B\}_{B\in\mathcal B}}$
 \end_inset
 
- Family of choice-probability distributions,
- one for each nonempty menu 
-\begin_inset Formula $B$
-\end_inset
-
-.
- Scope:
- Stochastic-choice section.
+ Family of choice-probability distributions, one for each nonempty menu \begin_inset Formula $B$\end_inset
+. Scope: Stochastic-choice section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{order-types}{\mathcal{R}_{Y}}$
+\begin_inset Formula $\notationdef{order-types}{\mathcal R_Y}$
 \end_inset
 
- Finite set of strict linear orders on the alternative universe 
-\begin_inset Formula $Y$
-\end_inset
-
-.
- Scope:
- Random-utility section.
+ Finite set of strict linear orders on the alternative universe \begin_inset Formula $Y$\end_inset
+. Scope: Random-utility section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{expected-maximum}{\mathcal{V}(v)}$
+\begin_inset Formula $\notationdef{expected-maximum}{\mathcal V(v)}$
 \end_inset
 
- Expected maximum random utility as a function of the mean-utility vector 
-\begin_inset Formula $v\in\mathbb{R}^{A}$
-\end_inset
-
-.
- Scope:
- Consumer-surplus section.
+ Expected maximum random utility as a function of the mean-utility vector \begin_inset Formula $v\in\mathbb R^A$\end_inset
+. Scope: Consumer-surplus section.
 \end_layout
 
 \begin_layout Section
@@ -21253,106 +22019,76 @@ Firm theory
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{production-plan}y$
+\begin_inset Formula $\notationdef{production-plan}{y}$
 \end_inset
 
- Net-output vector,
- with positive coordinates denoting outputs and negative coordinates inputs.
- Scope:
- Book-wide default.
+ Net-output vector, with positive coordinates denoting outputs and negative coordinates inputs. Scope: Book-wide default.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{production-set}Y$
+\begin_inset Formula $\notationdef{production-set}{Y}$
 \end_inset
 
- Technologically feasible net-output plans.
- Scope:
- Firm chapter.
+ Technologically feasible net-output plans. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{production-function}f$
+\begin_inset Formula $\notationdef{production-function}{f}$
 \end_inset
 
- Single-output production function.
- Scope:
- Firm chapter.
+ Single-output production function. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{profit-function}{\pi_{Y}(p)}$
+\begin_inset Formula $\notationdef{profit-function}{\pi_Y(p)}$
 \end_inset
 
- Support function of production set 
-\begin_inset Formula $Y$
-\end_inset
-
-.
- Scope:
- Firm chapter.
+ Support function of production set \begin_inset Formula $Y$\end_inset
+. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{supply-correspondence}{\mathcal{Y}_{Y}(p)}$
+\begin_inset Formula $\notationdef{supply-correspondence}{\mathcal Y_Y(p)}$
 \end_inset
 
- Profit-maximizing production plans.
- Scope:
- Firm chapter.
+ Profit-maximizing production plans. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{input-vector}{\boldsymbol{z}}$
+\begin_inset Formula $\notationdef{input-vector}{\boldsymbol z}$
 \end_inset
 
- Nonnegative vector of physical inputs in a single-output technology.
- Scope:
- Firm chapter.
+ Nonnegative vector of physical inputs in a single-output technology. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{input-prices}{\boldsymbol{w}}$
+\begin_inset Formula $\notationdef{input-prices}{\boldsymbol w}$
 \end_inset
 
- Strictly positive vector of input prices.
- Scope:
- Firm chapter.
+ Strictly positive vector of input prices. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{output-price}{p_{q}}$
+\begin_inset Formula $\notationdef{output-price}{p_q}$
 \end_inset
 
- Scalar price of output 
-\begin_inset Formula $q$
-\end_inset
-
-.
- Scope:
- Single-output model.
+ Scalar price of output \begin_inset Formula $q$\end_inset
+. Scope: Single-output model.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{cost-function}{C(\boldsymbol{w},q)}$
+\begin_inset Formula $\notationdef{cost-function}{C(\boldsymbol w,q)}$
 \end_inset
 
- Minimum input expenditure required to produce at least 
-\begin_inset Formula $q$
-\end_inset
-
-.
- Scope:
- Firm chapter.
+ Minimum input expenditure required to produce at least \begin_inset Formula $q$\end_inset
+. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{factor-demand}{\mathcal{Z}(\boldsymbol{w},q)}$
+\begin_inset Formula $\notationdef{factor-demand}{\mathcal Z(\boldsymbol w,q)}$
 \end_inset
 
- Cost-minimizing input correspondence.
- Scope:
- Firm chapter.
+ Cost-minimizing input correspondence. Scope: Firm chapter.
 \end_layout
 
 \begin_layout Section
@@ -21363,40 +22099,24 @@ Equilibrium
 \begin_inset Formula $\notationdef{endowment}{\omega}$
 \end_inset
 
- Endowment vector;
- subscripts identify agents and superscripts identify observations or states when declared.
- Scope:
- Book-wide default.
+ Endowment vector; subscripts identify agents and superscripts identify observations or states when declared. Scope: Book-wide default.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{ownership-shares}{\theta_{ij}}$
 \end_inset
 
- Consumer 
-\begin_inset Formula $i$
-\end_inset
-
-'s ownership share of firm 
-\begin_inset Formula $j$
-\end_inset
-
-.
- Scope:
- Competitive-equilibrium chapter.
+ Consumer \begin_inset Formula $i$\end_inset
+'s ownership share of firm \begin_inset Formula $j$\end_inset
+. Scope: Competitive-equilibrium chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{excess-demand}{z(p)}$
 \end_inset
 
- Aggregate demand minus aggregate resources at prices 
-\begin_inset Formula $p$
-\end_inset
-
-.
- Scope:
- Equilibrium chapters.
+ Aggregate demand minus aggregate resources at prices \begin_inset Formula $p$\end_inset
+. Scope: Equilibrium chapters.
 \end_layout
 
 \begin_layout Section
@@ -21404,34 +22124,25 @@ Sequential trade
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{security-payoffs}R$
+\begin_inset Formula $\notationdef{security-payoffs}{R}$
 \end_inset
 
- Matrix of state-contingent security payoffs.
- Scope:
- Sequential-trade chapter.
+ Matrix of state-contingent security payoffs. Scope: Sequential-trade chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{asset-prices}q$
+\begin_inset Formula $\notationdef{asset-prices}{q}$
 \end_inset
 
- Date-0 security-price vector.
- Scope:
- Sequential-trade chapter.
+ Date-0 security-price vector. Scope: Sequential-trade chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{state-prices}{\psi}$
 \end_inset
 
- Strictly positive state-price vector satisfying 
-\begin_inset Formula $q=R^{\top}\psi$
-\end_inset
-
- when markets are complete.
- Scope:
- Sequential-trade chapter.
+ Strictly positive state-price vector satisfying \begin_inset Formula $q=R^\top\psi$\end_inset
+ when markets are complete. Scope: Sequential-trade chapter.
 \end_layout
 
 \begin_layout Section
@@ -21442,19 +22153,14 @@ Matching
 \begin_inset Formula $\notationdef{matching-sides}{M,W}$
 \end_inset
 
- Two finite sides of the one-to-one matching market.
- Scope:
- Matching chapter.
+ Two finite sides of the one-to-one matching market. Scope: Matching chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{matching-map}{\varphi}$
 \end_inset
 
- Involutive matching map,
- with an unmatched agent mapped to themselves.
- Scope:
- Matching chapter.
+ Involutive matching map, with an unmatched agent mapped to themselves. Scope: Matching chapter.
 \end_layout
 
 \begin_layout Section
@@ -21462,203 +22168,119 @@ Order theory
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{binary-relation}R$
+\begin_inset Formula $\notationdef{binary-relation}{R}$
 \end_inset
 
- Generic binary relation on a nonempty ground set 
-\begin_inset Formula $X$
-\end_inset
-
-.
- Scope:
- Scoped.
+ Generic binary relation on a nonempty ground set \begin_inset Formula $X$\end_inset
+. Scope: Scoped.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{inverse-relation}{R^{-1}}$
 \end_inset
 
- Inverse relation:
- 
-\begin_inset Formula $xR^{-1}y$
-\end_inset
-
- iff 
-\begin_inset Formula $yRx$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Inverse relation: \begin_inset Formula $xR^{-1}y$\end_inset
+ iff \begin_inset Formula $yRx$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{symmetric-part}{I_{R}}$
+\begin_inset Formula $\notationdef{symmetric-part}{I_R}$
 \end_inset
 
- Symmetric part 
-\begin_inset Formula $R\cap R^{-1}$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Symmetric part \begin_inset Formula $R\cap R^{-1}$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{strict-part}{P_{R}}$
+\begin_inset Formula $\notationdef{strict-part}{P_R}$
 \end_inset
 
- Asymmetric part of 
-\begin_inset Formula $R$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Asymmetric part of \begin_inset Formula $R$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{equivalence-class}{[x]_{E}}$
+\begin_inset Formula $\notationdef{equivalence-class}{[x]_E}$
 \end_inset
 
- Equivalence class of 
-\begin_inset Formula $x$
-\end_inset
-
- under 
-\begin_inset Formula $E$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Equivalence class of \begin_inset Formula $x$\end_inset
+ under \begin_inset Formula $E$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{quotient-set}{X/E}$
 \end_inset
 
- Set of equivalence classes of 
-\begin_inset Formula $X$
-\end_inset
-
- under an equivalence relation 
-\begin_inset Formula $E$
-\end_inset
-
-.
- Scope:
- Book-wide.
+ Set of equivalence classes of \begin_inset Formula $X$\end_inset
+ under an equivalence relation \begin_inset Formula $E$\end_inset
+. Scope: Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{quotient-order}{\bar{R}}$
+\begin_inset Formula $\notationdef{quotient-order}{\bar R}$
 \end_inset
 
- Partial order induced by a preorder on its quotient by 
-\begin_inset Formula $I_{R}$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Partial order induced by a preorder on its quotient by \begin_inset Formula $I_R$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{maximal-elements}{\operatorname{Max}(S,R)}$
 \end_inset
 
- Set of 
-\begin_inset Formula $R$
-\end_inset
-
--maximal elements of feasible subset 
-\begin_inset Formula $S$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Set of \begin_inset Formula $R$\end_inset
+-maximal elements of feasible subset \begin_inset Formula $S$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{greatest-elements}{\operatorname{Great}(S,R)}$
 \end_inset
 
- Set of 
-\begin_inset Formula $R$
-\end_inset
-
--greatest elements of feasible subset 
-\begin_inset Formula $S$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Set of \begin_inset Formula $R$\end_inset
+-greatest elements of feasible subset \begin_inset Formula $S$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{identity-relation}{\Delta_{X}}$
+\begin_inset Formula $\notationdef{identity-relation}{\Delta_X}$
 \end_inset
 
- Diagonal or identity relation on 
-\begin_inset Formula $X$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Diagonal or identity relation on \begin_inset Formula $X$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{relation-powers}{R^{n}}$
+\begin_inset Formula $\notationdef{relation-powers}{R^n}$
 \end_inset
 
- 
-\begin_inset Formula $n$
-\end_inset
-
--fold relational composition,
- with composition orientation stated in the text.
- Scope:
- Appendix A.
+ \begin_inset Formula $n$\end_inset
+-fold relational composition, with composition orientation stated in the text. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{transitive-closure}{R^{+}}$
+\begin_inset Formula $\notationdef{transitive-closure}{R^+}$
 \end_inset
 
- Least transitive relation containing 
-\begin_inset Formula $R$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ Least transitive relation containing \begin_inset Formula $R$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{reflexive-transitive-closure}{R^{*}}$
+\begin_inset Formula $\notationdef{reflexive-transitive-closure}{R^*}$
 \end_inset
 
- 
-\begin_inset Formula $\Delta_{X}\cup R^{+}$
-\end_inset
-
-.
- Scope:
- Appendix A.
+ \begin_inset Formula $\Delta_X\cup R^+$\end_inset
+. Scope: Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{order-extension}{R^{\mathrm{ext}}}$
 \end_inset
 
- Complete-preorder extension obtained from a linear extension of the quotient order.
- Scope:
- Appendix A.
+ Complete-preorder extension obtained from a linear extension of the quotient order. Scope: Appendix A.
 \end_layout
 
 \begin_layout Standard
@@ -21673,7 +22295,6 @@ ECON803_NOTATION_GLOSSARY_END
 
 
 \end_layout
-
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex

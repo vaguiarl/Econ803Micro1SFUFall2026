@@ -25,6 +25,13 @@ direct-utility	$u$	Consumer theory	Book-wide default	Direct utility; in uncertai
 indirect-utility	$v(p,w)$	Consumer theory	Book-wide	Maximum attainable utility at prices $p$ and wealth $w$.	Notation and Conventions	linked
 expenditure-function	$e(p,\bar u)$	Consumer theory	Book-wide	Minimum expenditure required to attain utility $\bar u$ at prices $p$.	Notation and Conventions	linked
 money-metric-utility	$\mu_p(x)$	Consumer theory	Welfare-analysis sections	Expenditure at reference prices $p$ required to attain the utility of bundle $x$: $e(p,u(x))$.	Upper Bounds for Welfare Analysis	linked
+product-space	$(\mathcal G,d)$	Consumer theory	Many-product section	Compact metric space of differentiated-product characteristics and its economically specified distance.	The Many-Product Consumer	linked
+ideal-point	$b_i$	Consumer theory	Ideal-point model	Consumer $i$'s bliss or ideal point in product-characteristic space.	The Many-Product Consumer	linked
+product-cell	$C_j(p)$	Consumer theory	Ideal-point model	Types who choose product $j$ at price vector $p$; a generalized Voronoi cell under distance-based utility.	The Many-Product Consumer	linked
+basket-measures	$\mathcal M_+(\mathcal G)$	Consumer theory	Continuum-product model	Finite nonnegative Radon measures on product space; includes atomic finite shopping baskets.	The Many-Product Consumer	linked
+continuum-pairing	$\langle p,x\rangle$	Consumer theory	Continuum-product model	Expenditure pairing $\int_{\mathcal G}p(g)x(dg)$ between a continuous price schedule and a basket measure.	The Many-Product Consumer	linked
+product-neighborhood	$B_r(g)$	Consumer theory	Many-product section	Closed radius-$r$ ball around product point $g$ in the declared product metric.	The Many-Product Consumer	linked
+neighborhood-elasticity	$\mathcal E^H(A;\varphi_B)$	Consumer theory	Continuum-product model	Compensated percentage response of demand mass in region $A$ to the continuous log-price shock profile $\varphi_B$ concentrated near region $B$.	The Many-Product Consumer	linked
 inner-product	$a\cdot b$	Operators	Book-wide	Euclidean inner product.	Notation and Conventions	linked
 euclidean-norm	$\lVert a\rVert_2$	Operators	Book-wide	Euclidean norm of a vector $a$.	Notation and Conventions	linked
 ones-vector	$\mathbf 1_n$	Operators	Book-wide	All-ones column vector in $\mathbb R^n$; the dimension is shown whenever it is not immediate.	Notation and Conventions	linked

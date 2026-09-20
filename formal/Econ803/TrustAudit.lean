@@ -51,3 +51,7 @@ rejected.
 #print axioms Econ803.Equilibrium.priceSupport_rulesOut_strongCoalitionBlock
 
 #print axioms Econ803.BookNarrative.mainMap_dependencies_precede
+#print axioms Econ803.BookNarrative.productSpaceMap_dependencies_precede
+#print axioms Econ803.BookNarrative.productSpaceMap_ids_increase
+#print axioms Econ803.BookNarrative.productSpaceMap_empirical_grounding
+#print axioms Econ803.BookNarrative.productSpaceMap_theory_independent_of_evidence
