@@ -4,8 +4,8 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 
 | Part | Chapter | Definitions | Results | Proofs | Exercises/examples |
 |---|---|---:|---:|---:|---:|
-| The Classical Rational Consumer | Utility Maximization and Consumer Demand | 4 | 4 | 1 | 2 |
-| The Classical Rational Consumer | Duality, Comparative Statics, and Welfare | 1 | 22 | 1 | 8 |
+| The Classical Rational Consumer | Utility Maximization and Consumer Demand | 4 | 4 | 1 | 14 |
+| The Classical Rational Consumer | Duality, Comparative Statics, and Welfare | 1 | 22 | 1 | 14 |
 | The Classical Rational Consumer | Revealed Preference and Recoverability | 10 | 14 | 2 | 8 |
 | The Classical Rational Consumer | Choice Without Budget Geometry | 7 | 4 | 2 | 4 |
 | Risk, Stochastic Choice, and Attention | Expected Utility and Risk | 8 | 10 | 0 | 5 |
@@ -13,7 +13,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Risk, Stochastic Choice, and Attention | Limited Attention and Costly Information | 1 | 3 | 1 | 6 |
 | Aggregation and Markets | Aggregate Demand and Representative Consumers | 4 | 2 | 1 | 3 |
 | Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 4 |
-| Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 3 |
+| Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 4 |
 | Production and Equilibrium | General Equilibrium Theory | 7 | 6 | 0 | 6 |
 | Production and Equilibrium | Positive Theory of Equilibrium | 7 | 6 | 0 | 5 |
 | Advanced Equilibrium Applications | Testable Restrictions on the Equilibrium Manifold | 2 | 0 | 0 | 3 |
@@ -34,6 +34,12 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Demand Correspondences
 - First-Order and KKT Conditions
 - Workhorse Utility Specifications
+  - Homotheticity and Cobb-Douglas Demand
+  - CES: A Family of Substitution Patterns
+  - Limiting Cases: Substitutes and Complements
+  - Subsistence and Stone-Geary Demand
+  - Quasilinearity and Wealth-Dependent Corners
+  - From CES to Flexible Translog Demand
 - Problems
 
 ### Duality, Comparative Statics, and Welfare
@@ -47,6 +53,9 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Curvature of Hicksian Demand
 - Consumer Duality
 - Slutsky Equation
+- Workhorse Demand through Duality
+  - CES Expenditure, Compensation, and Substitution
+  - A Homothetic Translog Expenditure Model
 - What Utility Maximization Implies
 - Welfare Evaluation
 - Problems

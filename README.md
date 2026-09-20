@@ -24,6 +24,7 @@ The Fall 2026 baseline has four commitments:
 - Reader/full theorem architecture and migration record: [`THEOREM_STAR_PLAN.md`](THEOREM_STAR_PLAN.md)
 - Figure, provenance, and rights audit: [`FIGURE_AUDIT.md`](FIGURE_AUDIT.md)
 - Canonical question-only problem bank: [`problems/PROBLEM_BANK.md`](problems/PROBLEM_BANK.md)
+- Artists case study, Problem 10.4: [Music Sales and Concerts (PDF)](problems/case_studies/Artists_Music_and_Concerts.pdf) ([LyX](problems/case_studies/Artists_Music_and_Concerts.lyx))
 - Publication-baseline review: [`EDITORIAL_REVIEW.md`](EDITORIAL_REVIEW.md)
 - Backward editorial and formalization plan: [`EDITORIAL_AUDIT.md`](EDITORIAL_AUDIT.md)
 
@@ -41,7 +42,9 @@ The command rebuilds and preflights all vector figures before exporting LyX, ver
 
 ## Assessment policy
 
-This public edition contains 57 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. The canonical prompts live in `problems/PROBLEM_BANK.md` and are injected reproducibly into the LyX manuscript. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Standalone student sheets will be released one at a time from the same stable problem bank.
+This public edition contains 65 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. The canonical prompts live in `problems/PROBLEM_BANK.md` and are injected reproducibly into the LyX manuscript. The restored Taylor S. case, **The Economics of Superstars: Music Sales and Concerts**, is Problem 10.4 and is also available as the standalone handout linked above. Its fan-demand part uses Chapter 1; the complete case combines consumer demand, production costs, and concert pricing. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Further standalone student sheets will be released one at a time from the same stable problem bank.
+
+The workhorse-demand material now includes CES derivations, elasticities, calibration, limiting cases, and compensated welfare comparisons, plus a translog expenditure model with explicit regularity checks. Eleven worked examples connect those families to Cobb-Douglas, linear, Leontief, Stone-Geary, and quasilinear demand. Problems 1.2--1.5 and 2.4--2.6 provide further practice.
 
 ## Status
 

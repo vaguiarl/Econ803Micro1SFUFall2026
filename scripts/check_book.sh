@@ -42,6 +42,7 @@ bash "$repo_dir/figures_tikz/build_and_check.sh"
 printf '2/10 Checking that generated problem sets match the public bank...\n'
 python3 "$repo_dir/scripts/inject_problem_sets.py" --check \
   "$notes_dir/$stem.lyx" "$repo_dir/problems/PROBLEM_BANK.md"
+python3 "$repo_dir/scripts/build_artists_case.py" --check
 
 printf '3/10 Validating notation ledger and first-use/glossary links...\n'
 python3 "$repo_dir/scripts/validate_notation.py" \
@@ -83,6 +84,7 @@ python3 "$repo_dir/scripts/validate_theorem_pairs.py" \
 python3 "$repo_dir/scripts/polish_front_matter.py" --check
 python3 "$repo_dir/scripts/polish_consumer_release.py" --check
 python3 "$repo_dir/scripts/polish_empirical_evidence.py" --check
+python3 "$repo_dir/scripts/expand_workhorse_models.py" --check
 
 if rg -n '\b(sorry|admit)\b|^\s*axiom\b' "$repo_dir/formal" --glob '*.lean'; then
   printf 'Lean trust check failed.\n' >&2

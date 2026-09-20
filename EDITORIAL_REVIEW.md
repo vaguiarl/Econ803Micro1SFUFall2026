@@ -24,7 +24,7 @@ The principal repository controls are:
 - `formal/theorem_pairs.tsv` gives 24 stable reader/full theorem identifiers, records migration and proof status separately, and forbids completion overclaims.
 - `FIGURE_AUDIT.md` records every live and legacy figure's technical quality, provenance, rights status, and disposition.
 
-Theorem-like environments now use a common counter reset by chapter, and every chapter has a stable label. The bibliography contains 30 primary or standard sources, with citations attached to the relevant representation, duality, equilibrium, revealed-preference, experimental, matching, attention, and extension results.
+Theorem-like environments now use a common counter reset by chapter, and every chapter has a stable label. The bibliography contains 32 primary or standard sources, with citations attached to the relevant representation, duality, equilibrium, revealed-preference, experimental, matching, attention, translog, and extension results.
 
 ## Mathematical and expository revision completed
 
@@ -73,15 +73,15 @@ The release script rejects Lean placeholders and local axioms, builds the pinned
 
 ## Problems and solutions
 
-The canonical public bank contains 57 question-only problems covering every chapter and Appendix A. Stable identifiers and the labels **Core**, **Proof**, and **Applied** permit later syllabus and weekly-release references without renumbering. The alias table in `problems/PROBLEM_ID_ALIASES.tsv` preserves references to pre-restructure identifiers. An idempotent generator inserts the bank into the LyX manuscript, and the release check rejects a manuscript that has drifted from the bank.
+The canonical public bank contains 65 question-only problems covering every chapter and Appendix A. Stable identifiers and the labels **Core**, **Proof**, and **Applied** permit later syllabus and weekly-release references without renumbering. The alias table in `problems/PROBLEM_ID_ALIASES.tsv` preserves references to pre-restructure identifiers. An idempotent generator inserts the bank into the LyX manuscript, and the release check rejects a manuscript that has drifted from the bank. The workhorse extension adds Problems 1.2--1.5 and 2.4--2.6. Problem 10.4 restores the Taylor S. artists case and has a synchronized question-only LyX/PDF handout; a private supplement supplies solutions using the current identifiers.
 
 Solutions are maintained in a separate private instructor handbook and must never enter the public repository or its reachable Git history. Before assigning a set, its public prompt and private solution should be checked together for identical assumptions, notation, subpart order, and numerical data. Weekly standalone sheets may select from the same stable bank; the public textbook remains the question-only source of record.
 
 ## Release inspection completed
 
-The classroom-edition PDF has received a whole-book visual inspection. All 137 pages were rendered and reviewed in order, including every chapter opening, displayed-mathematics spread, problem section, both appendices, the linked glossary, and the bibliography. No clipped text, overlapping objects, malformed equations, broken headings, or unintended blank pages were found. `scripts/check_book.sh` independently rebuilds the five vector figures, compiles the book, and verifies that the final PDF contains no raster images, Type 3 fonts, or unembedded fonts.
+The original 137-page classroom edition received a whole-book visual inspection, including chapter openings, displayed mathematics, problems, appendices, glossary, and bibliography. The workhorse-demand revision adds eleven worked examples and has a separate review of the affected chapters, glossary entries, and artists handout. Adjacent example environments are separated, and problem headings are kept with their opening paragraphs. `scripts/check_book.sh` independently rebuilds the five vector figures, compiles the book, and verifies that the final PDF contains no raster images, Type 3 fonts, or unembedded fonts.
 
-The public-tree assessment check also passes: the release contains the 57 question-only problems but no solutions, answer keys, examinations, or unreleased weekly sets. This inspection establishes a classroom-edition baseline; it does not replace press production review or independent mathematical refereeing.
+The public-tree assessment check also passes: the release contains 65 question-only problems but no solutions, answer keys, examinations, or unreleased weekly sets. This inspection establishes a classroom-edition baseline; it does not replace press production review or independent mathematical refereeing.
 
 ## Remaining publication gates
 

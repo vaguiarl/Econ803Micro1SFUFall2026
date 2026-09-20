@@ -1336,6 +1336,16 @@ ECON803_CONSUMER_RESTRUCTURE_SOURCE:section:consumer-theory-utility-maximization
 Workhorse Utility Specifications
 \end_layout
 
+\begin_layout Standard
+A useful specification gives more than a closed-form answer: it identifies the assumptions behind expenditure shares, substitution, and corner choices. We derive several families from the same budget problem. Throughout, prices are strictly positive and wealth is positive; additional consumption-domain restrictions are stated for each model.
+\end_layout
+
+\begin_layout Subsection
+Homotheticity and Cobb-Douglas Demand
+\end_layout
+
+
+
 \begin_layout Definition
 Homothetic preferences.
  A preference relation is homothetic if \begin_inset Formula $x\succeq y$\end_inset
@@ -1348,6 +1358,342 @@ Homothetic preferences.
 \begin_layout Standard
 The Cobb--Douglas representation \begin_inset Formula $u(x_{1},x_{2})=x_{1}^{\alpha}x_{2}^{1-\alpha}$\end_inset
  is a standard example.
+\end_layout
+
+\begin_layout Standard
+For \begin_inset Formula $L$\end_inset
+ goods, fix positive taste weights \begin_inset Formula $\notationfirst{utility-weights}{a_\ell}$\end_inset
+ with \begin_inset Formula $\sum_{\ell=1}^{L}a_\ell=1$\end_inset
+. Cobb-Douglas utility is \begin_inset Formula $u(x)=\prod_{\ell=1}^{L}x_\ell^{a_\ell}$\end_inset
+. Every boundary bundle has utility zero and a strictly positive affordable bundle has positive utility, so the optimum is interior. Maximizing its logarithm gives \begin_inset Formula $a_\ell/x_\ell=\lambda p_\ell$\end_inset
+. Multiplying by \begin_inset Formula $x_\ell$\end_inset
+ and summing gives \begin_inset Formula $\lambda=1/w$\end_inset
+, hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+x_\ell(p,w)=a_\ell\frac{w}{p_\ell},\qquad \notationfirst{expenditure-shares}{b_\ell(p,w)}:=\frac{p_\ell x_\ell(p,w)}{w}=a_\ell.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+The expenditure share \begin_inset Formula $b_\ell$\end_inset
+ is the fraction of the budget allocated to good \begin_inset Formula $\ell$\end_inset
+; the share vector is \begin_inset Formula $\boldsymbol b=(b_1,\ldots,b_L)^\top$\end_inset
+. Cobb-Douglas shares are constant even though quantities respond to prices. Each wealth elasticity is one, each own-price elasticity is minus one, and each uncompensated cross-price elasticity is zero.
+\end_layout
+
+\begin_layout Example
+A fixed budget share. Let \begin_inset Formula $a=(1/4,3/4)$\end_inset
+, \begin_inset Formula $p=(2,1)$\end_inset
+, and \begin_inset Formula $w=80$\end_inset
+. Demand is \begin_inset Formula $(10,60)$\end_inset
+ and expenditure is \begin_inset Formula $(20,60)$\end_inset
+. Doubling only the first price halves \begin_inset Formula $x_1$\end_inset
+ while leaving \begin_inset Formula $x_2$\end_inset
+ unchanged. Doubling wealth doubles both quantities. A constant share is a restriction on behavior, not a property of all homothetic preferences.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+CES: A Family of Substitution Patterns
+\end_layout
+
+\begin_layout Standard
+The constant-elasticity-of-substitution (CES) family varies substitution while retaining explicit demand. Keep the positive normalized weights above. Let \begin_inset Formula $\notationfirst{ces-curvature}{\rho}<1$\end_inset
+ and define the substitution elasticity \begin_inset Formula $\notationfirst{substitution-elasticity}{\sigma}=1/(1-\rho)>0$\end_inset
+. For \begin_inset Formula $\rho\ne0$\end_inset
+, use
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+u_\rho(x)=\left(\sum_{\ell=1}^{L}a_\ell x_\ell^\rho\right)^{1/\rho}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+For \begin_inset Formula $0<\rho<1$\end_inset
+ this formula is defined on \begin_inset Formula $\mathbb R_+^L$\end_inset
+. For \begin_inset Formula $\rho<0$\end_inset
+, define it first on \begin_inset Formula $\mathbb R_{++}^L$\end_inset
+ and extend it continuously by assigning zero utility to bundles with any zero coordinate. At \begin_inset Formula $\rho=0$\end_inset
+, take the continuous limit \begin_inset Formula $u_0(x)=\prod_\ell x_\ell^{a_\ell}$\end_inset
+. Each representation is homogeneous of degree one. CES preferences are therefore homothetic, including cases in which expenditure shares vary with relative prices.
+\end_layout
+
+\begin_layout Standard
+The optimum is interior. For \begin_inset Formula $\rho\le0$\end_inset
+, a positive bundle dominates every boundary bundle in utility. For \begin_inset Formula $0<\rho<1$\end_inset
+, a small transfer of expenditure toward a missing good is beneficial because its marginal utility becomes arbitrarily large near zero. For \begin_inset Formula $\rho\ne0$\end_inset
+, an equivalent objective on the positive orthant, including the sign needed when \begin_inset Formula $\rho<0$\end_inset
+, is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\widetilde u_\rho(x)=\frac{\sum_\ell a_\ell x_\ell^\rho-1}{\rho},\qquad \partial_{x_\ell x_\ell}^{2}\widetilde u_\rho=a_\ell(\rho-1)x_\ell^{\rho-2}<0.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+At \begin_inset Formula $\rho=0$\end_inset
+, instead use \begin_inset Formula $\widetilde u_0(x)=\sum_\ell a_\ell\log x_\ell$\end_inset
+, with own second derivatives \begin_inset Formula $-a_\ell/x_\ell^2<0$\end_inset
+. In both cases all cross derivatives vanish, so the objective is strictly concave. Its first-order conditions \begin_inset Formula $a_\ell x_\ell^{\rho-1}=\lambda p_\ell$\end_inset
+, together with budget exhaustion, identify the unique maximizer. For negative \begin_inset Formula $\rho$\end_inset
+, maximizing the untransformed sum of powers would reverse the intended ranking. Taking ratios and then imposing the budget gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\frac{x_\ell}{x_k}=\left(\frac{a_\ell/p_\ell}{a_k/p_k}\right)^\sigma,\qquad x_\ell(p,w)=\frac{w a_\ell^\sigma p_\ell^{-\sigma}}{\sum_{k=1}^{L}a_k^\sigma p_k^{1-\sigma}}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+The same demand formula applies at \begin_inset Formula $\sigma=1$\end_inset
+ and gives Cobb-Douglas. It satisfies Walras' law, has degree zero in \begin_inset Formula $(p,w)$\end_inset
+, and scales linearly with wealth. Its shares are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+b_\ell(p)=\frac{a_\ell^\sigma p_\ell^{1-\sigma}}{\sum_k a_k^\sigma p_k^{1-\sigma}}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Except in the Cobb-Douglas case, a taste weight is generally not an expenditure share. Raising a good's price lowers its share if \begin_inset Formula $\sigma>1$\end_inset
+ and raises its share if \begin_inset Formula $0<\sigma<1$\end_inset
+, even though its purchased quantity falls in both cases. The name CES refers to the response of a quantity ratio to a relative price:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+-\frac{d\log(x_\ell/x_k)}{d\log(p_\ell/p_k)}=\sigma.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+This relative-demand elasticity differs from an individual good's own-price elasticity. Differentiating the demand formula at fixed wealth gives, for \begin_inset Formula $k\ne\ell$\end_inset
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\begin{aligned}\frac{\partial\log x_\ell}{\partial\log w}&=1,\\ \frac{\partial\log x_\ell}{\partial\log p_\ell}&=-\sigma(1-b_\ell)-b_\ell,\\ \frac{\partial\log x_\ell}{\partial\log p_k}&=(\sigma-1)b_k.\end{aligned}
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Thus every good is normal. Distinct goods are gross substitutes when \begin_inset Formula $\sigma>1$\end_inset
+ and gross complements when \begin_inset Formula $0<\sigma<1$\end_inset
+: these terms describe the cross-price response at fixed wealth. Chapter 2 separates this response into substitution and purchasing-power effects. In particular, a negative uncompensated cross effect need not imply a negative compensated cross effect.
+\end_layout
+
+\begin_layout Example
+Substitution and relative expenditure. Let \begin_inset Formula $a_1=a_2=1/2$\end_inset
+, \begin_inset Formula $\rho=1/2$\end_inset
+, \begin_inset Formula $p=(1,2)$\end_inset
+, and \begin_inset Formula $w=120$\end_inset
+. Then \begin_inset Formula $\sigma=2$\end_inset
+ and the denominator is \begin_inset Formula $1/4+1/8=3/8$\end_inset
+, giving \begin_inset Formula $x=(80,20)$\end_inset
+. The quantity ratio is four but the expenditure ratio is two. The budget check is \begin_inset Formula $80+2(20)=120$\end_inset
+. The own-price elasticity of good 1 is \begin_inset Formula $-4/3$\end_inset
+, rather than \begin_inset Formula $-2$\end_inset
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Gross complementarity. Let \begin_inset Formula $a_1=a_2=1/2$\end_inset
+, \begin_inset Formula $\rho=-1$\end_inset
+, \begin_inset Formula $p=(1,4)$\end_inset
+, and \begin_inset Formula $w=90$\end_inset
+. Here \begin_inset Formula $\sigma=1/2$\end_inset
+, demand is \begin_inset Formula $(30,15)$\end_inset
+, and shares are \begin_inset Formula $(1/3,2/3)$\end_inset
+. Raising only \begin_inset Formula $p_2$\end_inset
+ to 9 gives \begin_inset Formula $(22.5,7.5)$\end_inset
+. Both quantities fall: the greater purchasing-power burden outweighs the relative-price incentive to consume more of good 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Weights versus shares in three goods. Let \begin_inset Formula $a=(0.5,0.3,0.2)$\end_inset
+, \begin_inset Formula $\sigma=2$\end_inset
+, \begin_inset Formula $p=(1,1,1)$\end_inset
+, and \begin_inset Formula $w=38$\end_inset
+. The denominator is \begin_inset Formula $0.25+0.09+0.04=0.38$\end_inset
+, so \begin_inset Formula $x=(25,9,4)$\end_inset
+. Shares are \begin_inset Formula $(25/38,9/38,4/38)$\end_inset
+, not the taste weights. The same weights under Cobb-Douglas give \begin_inset Formula $(19,11.4,7.6)$\end_inset
+. A change in curvature with weights fixed generally changes the reference allocation as well as price responses.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Calibration makes the distinction operational. Given positive reference shares \begin_inset Formula $b_\ell^0=p_\ell^0x_\ell^0/w^0$\end_inset
+ and a specified \begin_inset Formula $\sigma$\end_inset
+, weights reproducing that observation are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+a_\ell=\frac{(b_\ell^0)^{1/\sigma}(p_\ell^0)^{(\sigma-1)/\sigma}}{\sum_k (b_k^0)^{1/\sigma}(p_k^0)^{(\sigma-1)/\sigma}}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+One positive observation therefore cannot identify the substitution elasticity: each specified \begin_inset Formula $\sigma$\end_inset
+ admits calibrated weights. Different elasticities can fit the same initial allocation and predict different responses to a price change.
+\end_layout
+
+\begin_layout Subsection
+Limiting Cases: Substitutes and Complements
+\end_layout
+
+\begin_layout Standard
+Holding weights fixed, \begin_inset Formula $\rho\to0$\end_inset
+ gives Cobb-Douglas, \begin_inset Formula $\rho\uparrow1$\end_inset
+ gives \begin_inset Formula $u(x)=\sum_\ell a_\ell x_\ell$\end_inset
+, and \begin_inset Formula $\rho\to-\infty$\end_inset
+ gives \begin_inset Formula $u(x)=\min_\ell x_\ell$\end_inset
+. Fixed weights disappear in the last limit. Unequal required proportions instead arise by applying the CES aggregator to \begin_inset Formula $x_\ell/d_\ell$\end_inset
+, with \begin_inset Formula $d_\ell>0$\end_inset
+, before taking that limit. The endpoint models must be solved directly; their solutions need not satisfy the interior CES conditions.
+\end_layout
+
+\begin_layout Example
+Perfect substitutes and a demand correspondence. For \begin_inset Formula $u(x)=3x_1+x_2$\end_inset
+, \begin_inset Formula $p=(2,1)$\end_inset
+, and \begin_inset Formula $w=12$\end_inset
+, utility per dollar is \begin_inset Formula $3/2$\end_inset
+ for good 1 and 1 for good 2, so the unique choice is \begin_inset Formula $(6,0)$\end_inset
+. At \begin_inset Formula $p=(3,1)$\end_inset
+ the two ratios tie: every nonnegative bundle satisfying \begin_inset Formula $3x_1+x_2=12$\end_inset
+ maximizes utility. Reporting a single demand formula would omit valid choices.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Perfect complements and a kink. For \begin_inset Formula $u(x)=\min\{x_1/2,x_2\}$\end_inset
+, the consumer buys \begin_inset Formula $x_1=2x_2$\end_inset
+. At \begin_inset Formula $p=(1,3)$\end_inset
+ and \begin_inset Formula $w=20$\end_inset
+, the chosen bundle is \begin_inset Formula $(8,4)$\end_inset
+ because \begin_inset Formula $2(4)+3(4)=20$\end_inset
+. In general \begin_inset Formula $x_2=w/(2p_1+p_2)$\end_inset
+ and \begin_inset Formula $x_1=2w/(2p_1+p_2)$\end_inset
+. Tangency of differentiable indifference curves is unavailable at the optimum.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Subsistence and Stone-Geary Demand
+\end_layout
+
+\begin_layout Standard
+To allow expenditure shares to vary with wealth, introduce a nonnegative subsistence bundle \begin_inset Formula $\notationfirst{subsistence-bundle}{\gamma}\in\mathbb R_+^L$\end_inset
+. On \begin_inset Formula $X=\gamma+\mathbb R_+^L$\end_inset
+, let \begin_inset Formula $u(x)=\prod_\ell(x_\ell-\gamma_\ell)^{a_\ell}$\end_inset
+ with positive normalized weights. Suppose \begin_inset Formula $w>p\cdot\gamma$\end_inset
+. Setting \begin_inset Formula $z=x-\gamma$\end_inset
+ leaves discretionary wealth \begin_inset Formula $w-p\cdot\gamma$\end_inset
+, so Cobb-Douglas demand in \begin_inset Formula $z$\end_inset
+ gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+x_\ell(p,w)=\gamma_\ell+a_\ell\frac{w-p\cdot\gamma}{p_\ell}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+At \begin_inset Formula $w=p\cdot\gamma$\end_inset
+, the only feasible bundle is \begin_inset Formula $\gamma$\end_inset
+; below that level this subsistence-constrained model has no feasible bundle. It is not a model of behavior below subsistence. Except in special cases, these preferences are not homothetic about the origin and their budget shares depend on wealth.
+\end_layout
+
+\begin_layout Example
+A necessity and discretionary spending. Let \begin_inset Formula $\gamma=(2,1)$\end_inset
+, \begin_inset Formula $a=(1/2,1/2)$\end_inset
+, \begin_inset Formula $p=(2,1)$\end_inset
+, and \begin_inset Formula $w=15$\end_inset
+. Subsistence costs 5, leaving 10 to allocate; demand is \begin_inset Formula $(4.5,6)$\end_inset
+ and shares are \begin_inset Formula $(0.6,0.4)$\end_inset
+. At wealth 25, demand is \begin_inset Formula $(7,11)$\end_inset
+ and shares are \begin_inset Formula $(0.56,0.44)$\end_inset
+. The first good's share falls even though its quantity increases.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Quasilinearity and Wealth-Dependent Corners
 \end_layout
 
 \begin_layout Definition
@@ -1384,6 +1730,64 @@ u(x)=g(x_{1},\ldots,x_{L-1})+x_{L}.
 \end_layout
 
 
+\begin_layout Standard
+A nonnegative numeraire creates a boundary that matters for demand. Let \begin_inset Formula $u(x_1,x_2)=2\sqrt{x_1}+x_2$\end_inset
+ on \begin_inset Formula $\mathbb R_+^2$\end_inset
+, normalize \begin_inset Formula $p_2=1$\end_inset
+, and write \begin_inset Formula $r=p_1>0$\end_inset
+. Substituting the budget gives the strictly concave problem \begin_inset Formula $\max_{0\le x_1\le w/r}\{2\sqrt{x_1}-rx_1+w\}$\end_inset
+. Its unique solution is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+x_1(r,w)=\min\{r^{-2},w/r\},\qquad x_2(r,w)=\max\{w-r^{-1},0\}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Example
+When zero wealth effects stop applying. At \begin_inset Formula $r=2$\end_inset
+ and \begin_inset Formula $w=3$\end_inset
+, demand is \begin_inset Formula $(1/4,5/2)$\end_inset
+: extra wealth is spent entirely on good 2. At \begin_inset Formula $w=1/4$\end_inset
+, demand is \begin_inset Formula $(1/8,0)$\end_inset
+ and all wealth is spent on good 1. The claim that quasilinear demand has no wealth effect for the non-numeraire good requires an interior numeraire choice, here \begin_inset Formula $w>1/r$\end_inset
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+From CES to Flexible Translog Demand
+\end_layout
+
+\begin_layout Standard
+CES imposes one common, constant substitution elasticity. Applied demand analysis often needs substitution patterns that vary with relative prices. A translog specification uses a quadratic polynomial in logarithms, allowing such variation. Direct-utility, indirect-utility, and expenditure translog specifications are different parametric restrictions: the dual of a direct translog utility need not be translog. Chapter 2 develops a homothetic translog expenditure model, derives its demand shares, and checks the price region on which it represents a classical rational consumer. This order lets us explain the model through expenditure minimization rather than present an unexplained demand formula.
+\end_layout
+
+\begin_layout Standard
+For further practice, Problems 1.2-1.5 compare these specifications. The artists case study, Problem 10.4, uses CES fan demand as the first stage of a model of streaming revenue, concert production, and ticket pricing; its consumer part can be completed now.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ECON803_WORKHORSE_EXPANSION:1
+\end_layout
+
+\end_inset
+
+
+\end_layout
 \begin_layout Standard
 \begin_inset Note Note
 status collapsed
@@ -1423,6 +1827,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 1.1 [Core]. Budget scaling and Cobb-Douglas demand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -1449,6 +1864,210 @@ Let \begin_inset Formula $X=\mathbb{R}_{+}^{2}$\end_inset
 (c) For \begin_inset Formula $u(x)=x_{1}^{\alpha}x_{2}^{1-\alpha}$\end_inset
  with \begin_inset Formula $0<\alpha<1$\end_inset
 , derive Marshallian demand and verify both properties directly.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 1.2 [Core]. CES curvature, demand, and expenditure shares.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+For \begin_inset Formula $\rho<1$\end_inset
+ and \begin_inset Formula $\rho\ne0$\end_inset
+, let \begin_inset Formula $u_\rho(x)=(\tfrac12 x_1^\rho+\tfrac12 x_2^\rho)^{1/\rho}$\end_inset
+, with the Cobb-Douglas limit used at \begin_inset Formula $\rho=0$\end_inset
+ and the boundary extension stated in the text. Write \begin_inset Formula $\sigma=1/(1-\rho)$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(a) Derive demand from the first-order conditions. Explain why the optimum is interior for \begin_inset Formula $\rho<1$\end_inset
+ and why maximizing the sum of powers is incorrect when \begin_inset Formula $\rho<0$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(b) At \begin_inset Formula $p=(1,4)$\end_inset
+ and \begin_inset Formula $w=120$\end_inset
+, calculate quantities and expenditure shares for \begin_inset Formula $\sigma\in\{1/2,1,2\}$\end_inset
+. Check budget exhaustion.
+\end_layout
+
+\begin_layout Exercise*
+(c) Raise only the second price to 9. Recalculate the three demands and explain why a smaller quantity can have a larger expenditure share.
+\end_layout
+
+\begin_layout Exercise*
+(d) Derive the own-price, cross-price, and wealth elasticities. Distinguish the elasticity of a quantity ratio from an individual demand elasticity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 1.3 [Applied]. CES calibration and observational equivalence.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+At prices \begin_inset Formula $p^0=(1,2,4)$\end_inset
+, a household with wealth \begin_inset Formula $w^0=120$\end_inset
+ chooses \begin_inset Formula $x^0=(30,25,10)$\end_inset
+. Consider Chapter 1's CES representation with positive normalized weights.
+\end_layout
+
+\begin_layout Exercise*
+(a) For a specified \begin_inset Formula $\sigma>0$\end_inset
+, derive the weights reproducing this observation.
+\end_layout
+
+\begin_layout Exercise*
+(b) Calibrate the weights for \begin_inset Formula $\sigma=1/2$\end_inset
+ and \begin_inset Formula $\sigma=2$\end_inset
+. For each calibration predict demand at \begin_inset Formula $p^1=(2,2,4)$\end_inset
+ and wealth 120.
+\end_layout
+
+\begin_layout Exercise*
+(c) Explain why fitting one observation does not identify substitution. Describe additional observations that could distinguish the models.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 1.4 [Core]. Substitutes, complements, and boundary choices.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Consider separately \begin_inset Formula $u^A(x)=2x_1+x_2$\end_inset
+ and \begin_inset Formula $u^B(x)=\min\{x_1/3,x_2\}$\end_inset
+ on \begin_inset Formula $\mathbb R_+^2$\end_inset
+, at strictly positive prices and wealth.
+\end_layout
+
+\begin_layout Exercise*
+(a) Derive the full demand correspondence for \begin_inset Formula $u^A$\end_inset
+, including the price ratio at which it is set-valued.
+\end_layout
+
+\begin_layout Exercise*
+(b) Derive demand for \begin_inset Formula $u^B$\end_inset
+. At \begin_inset Formula $p=(2,3)$\end_inset
+ and \begin_inset Formula $w=36$\end_inset
+, compute both models' choices.
+\end_layout
+
+\begin_layout Exercise*
+(c) Explain why interior differentiable tangency conditions do not characterize these optima.
+\end_layout
+
+\begin_layout Exercise*
+(d) Obtain the ratio \begin_inset Formula $x_1=3x_2$\end_inset
+ as a CES limit. Explain why holding the usual taste weights fixed does not preserve unequal Leontief proportions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 1.5 [Applied]. Subsistence and quasilinear corners.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+The first of two consumers has \begin_inset Formula $u(x)=(x_1-1)^{1/3}(x_2-2)^{2/3}$\end_inset
+ on \begin_inset Formula $x\ge(1,2)$\end_inset
+. The second has \begin_inset Formula $u(x)=4\sqrt{x_1}+x_2$\end_inset
+ on \begin_inset Formula $\mathbb R_+^2$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(a) Derive the first consumer's demand above subsistence expenditure. State what happens at and below that threshold.
+\end_layout
+
+\begin_layout Exercise*
+(b) At \begin_inset Formula $p=(2,1)$\end_inset
+, compute the first consumer's demands and shares at wealth 10 and 22. Distinguish homotheticity in discretionary consumption from homotheticity in total consumption.
+\end_layout
+
+\begin_layout Exercise*
+(c) Normalize the second consumer's numeraire price to one and write \begin_inset Formula $r=p_1$\end_inset
+. Derive demand for all \begin_inset Formula $r,w>0$\end_inset
+, including the zero-numeraire region.
+\end_layout
+
+\begin_layout Exercise*
+(d) Identify where a zero wealth effect for the non-numeraire good is valid. Compare this restriction with the Stone--Geary model.
 \end_layout
 
 \begin_layout Standard
@@ -2751,6 +3370,269 @@ ECON803_CONSUMER_RESTRUCTURE_SOURCE:section:consumer-theory-utility-maximization
 \end_layout
 
 \begin_layout Section
+Workhorse Demand through Duality
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:workhorse-duality"
+
+\end_inset
+\end_layout
+
+\begin_layout Subsection
+CES Expenditure, Compensation, and Substitution
+\end_layout
+
+\begin_layout Standard
+Keep Chapter 1's degree-one CES normalization. Its unit expenditure index \begin_inset Formula $\notationfirst{unit-expenditure-index}{\mathcal P(p)}:=e(p,1)$\end_inset
+ records the minimum cost of one unit of that utility index. Substituting the CES demand into utility, and then using duality, gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\mathcal P(p)=\begin{cases}\left(\sum_\ell a_\ell^\sigma p_\ell^{1-\sigma}\right)^{1/(1-\sigma)},&\sigma\ne1,\\ \prod_\ell(p_\ell/a_\ell)^{a_\ell},&\sigma=1,\end{cases}
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+v(p,w)=\frac{w}{\mathcal P(p)},\qquad e(p,\bar u)=\bar u\mathcal P(p),\qquad h_\ell(p,\bar u)=\bar u a_\ell^\sigma p_\ell^{-\sigma}\mathcal P(p)^\sigma.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Here \begin_inset Formula $\bar u>0$\end_inset
+. The Cobb-Douglas factors \begin_inset Formula $a_\ell$\end_inset
+ in the unit expenditure formula follow from the chosen utility normalization; omitting them changes the utility units. Marshallian demand itself is unaffected by a positive rescaling of utility. Differentiating Hicksian demand gives own-price elasticity \begin_inset Formula $-\sigma(1-b_\ell)$\end_inset
+ and, for \begin_inset Formula $k\ne\ell$\end_inset
+, cross-price elasticity \begin_inset Formula $\sigma b_k>0$\end_inset
+. CES goods are compensated substitutes even when \begin_inset Formula $\sigma<1$\end_inset
+ makes them gross complements at fixed wealth.
+\end_layout
+
+\begin_layout Example
+Exact compensation after a price increase. With equal weights, \begin_inset Formula $\sigma=2$\end_inset
+, \begin_inset Formula $p^0=(1,2)$\end_inset
+, and \begin_inset Formula $w=120$\end_inset
+, Chapter 1 found \begin_inset Formula $x^0=(80,20)$\end_inset
+. Here \begin_inset Formula $\mathcal P(p^0)=8/3$\end_inset
+ and initial utility is 45. If \begin_inset Formula $p^1=(2,2)$\end_inset
+, then \begin_inset Formula $\mathcal P(p^1)=4$\end_inset
+. Maintaining utility 45 requires wealth 180, so compensation is 60 and the compensated bundle is \begin_inset Formula $(45,45)$\end_inset
+. At unchanged wealth 120, the final bundle is \begin_inset Formula $(30,30)$\end_inset
+. For good 1, the total change \begin_inset Formula $-50$\end_inset
+ is the compensated change \begin_inset Formula $-35$\end_inset
+ plus the remaining wealth effect \begin_inset Formula $-15$\end_inset
+. This is a finite-change Hicks decomposition; the Slutsky equation describes the corresponding local derivative.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A Homothetic Translog Expenditure Model
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:translog-demand"
+
+\end_inset
+\end_layout
+
+\begin_layout Standard
+The translog family provides a flexible quadratic approximation in logarithms. We use a homothetic expenditure specification; richer translog families also permit wealth-dependent shares. Prices are measured relative to fixed reference units, so each logarithm is dimensionless. Write
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\log\mathcal P_{\mathrm{TL}}(p)=\alpha_0+\sum_{\ell=1}^{L}\alpha_\ell\log p_\ell+\frac12\sum_{\ell=1}^{L}\sum_{k=1}^{L}\gamma_{\ell k}\log p_\ell\log p_k.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+The intercept is \begin_inset Formula $\alpha_0$\end_inset
+, the linear coefficients are \begin_inset Formula $\alpha_\ell$\end_inset
+, and the symmetric curvature matrix is \begin_inset Formula $\notationfirst{translog-curvature}{\Gamma}=(\gamma_{\ell k})$\end_inset
+. Impose \begin_inset Formula $\sum_\ell\alpha_\ell=1$\end_inset
+ and \begin_inset Formula $\Gamma\mathbf1_L=0$\end_inset
+. These restrictions make \begin_inset Formula $\mathcal P_{\mathrm{TL}}$\end_inset
+ homogeneous of degree one in prices. The matrix \begin_inset Formula $\Gamma$\end_inset
+ here is unrelated to the subsistence vector \begin_inset Formula $\gamma$\end_inset
+ in Stone-Geary utility. The translog approach originates with Christensen, Jorgenson, and Lau; the expenditure formulation and curvature calculation below also follow Diewert's treatment.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citep
+key "christensenjorgensonlau1975,diewert2023"
+
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Suppose the price region under study is regular, as specified below. With \begin_inset Formula $e(p,\bar u)=\bar u\mathcal P_{\mathrm{TL}}(p)$\end_inset
+ and \begin_inset Formula $v(p,w)=w/\mathcal P_{\mathrm{TL}}(p)$\end_inset
+, Shephard's lemma gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\begin{aligned}b_\ell(p)&=\frac{\partial\log\mathcal P_{\mathrm{TL}}(p)}{\partial\log p_\ell}=\alpha_\ell+\sum_k\gamma_{\ell k}\log p_k,\\ h_\ell(p,\bar u)&=\frac{\bar u\mathcal P_{\mathrm{TL}}(p)}{p_\ell}b_\ell(p),\qquad x_\ell(p,w)=\frac{w}{p_\ell}b_\ell(p).\end{aligned}
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Adding up and homogeneity follow from the coefficient restrictions, but nonnegative demand and substitution restrictions require more. On an open convex cone \begin_inset Formula $\mathcal D\subseteq\mathbb R_{++}^{L}$\end_inset
+, require \begin_inset Formula $b_\ell(p)>0$\end_inset
+ and the following matrix to be negative semidefinite at every price in \begin_inset Formula $\mathcal D$\end_inset
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+H(p):=\Gamma+\boldsymbol b(p)\boldsymbol b(p)^\top-\operatorname{diag}(\boldsymbol b(p)).
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+To see the role of this condition, let \begin_inset Formula $D=\operatorname{diag}(p_1,\ldots,p_L)$\end_inset
+. Differentiating \begin_inset Formula $\partial_{p_\ell}\mathcal P_{\mathrm{TL}}=\mathcal P_{\mathrm{TL}}b_\ell/p_\ell$\end_inset
+ yields
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\nabla_p^2\mathcal P_{\mathrm{TL}}(p)=\mathcal P_{\mathrm{TL}}(p)D^{-1}H(p)D^{-1}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Thus \begin_inset Formula $H(p)\preceq0$\end_inset
+ is exactly the local curvature restriction. Requiring it throughout a convex price domain establishes concavity on that domain. Positive fitted shares alone do not establish rationalizability, and checking curvature at one observation does not justify a distant counterfactual. The Slutsky matrix is \begin_inset Formula $S(p,w)=wD^{-1}H(p)D^{-1}$\end_inset
+, so symmetry, negativity, and the zero price direction are explicit.
+\end_layout
+
+\begin_layout Standard
+There is a direct optimizing model behind these formulas. Define, for \begin_inset Formula $x\in\mathbb R_+^L$\end_inset
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+u_{\mathcal D}(x)=\inf_{r\in\mathcal D}\frac{r\cdot x}{\mathcal P_{\mathrm{TL}}(r)}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+This is a nonnegative, concave, homogeneous, nondecreasing utility. At \begin_inset Formula $p\in\mathcal D$\end_inset
+, concavity and homogeneity of the price index imply \begin_inset Formula $r\cdot\nabla\mathcal P_{\mathrm{TL}}(p)\ge\mathcal P_{\mathrm{TL}}(r)$\end_inset
+ for every \begin_inset Formula $r\in\mathcal D$\end_inset
+, with equality at \begin_inset Formula $r=p$\end_inset
+. Hence \begin_inset Formula $u_{\mathcal D}(\nabla\mathcal P_{\mathrm{TL}}(p))=1$\end_inset
+. Scaling that bundle attains target utility \begin_inset Formula $\bar u>0$\end_inset
+ at expenditure \begin_inset Formula $\bar u\mathcal P_{\mathrm{TL}}(p)$\end_inset
+; any bundle reaching the target costs at least that much. This proves the expenditure formula, and therefore the displayed demand, at prices in \begin_inset Formula $\mathcal D$\end_inset
+. It does not extend the translog formula to prices outside its regular region.
+\end_layout
+
+\begin_layout Standard
+The compensated and uncompensated elasticities make the extra flexibility visible. Let \begin_inset Formula $\delta_{\ell k}$\end_inset
+ equal one when \begin_inset Formula $\ell=k$\end_inset
+ and zero otherwise. Then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\frac{\partial\log x_\ell}{\partial\log p_k}=\frac{\gamma_{\ell k}}{b_\ell}-\delta_{\ell k},\qquad \frac{\partial\log h_\ell}{\partial\log p_k}=\frac{\gamma_{\ell k}}{b_\ell}+b_k-\delta_{\ell k}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Wealth elasticities are one in this homothetic version, while price elasticities vary with the shares. For two goods, the elasticity of substitution is \begin_inset Formula $1+\gamma_{12}/(b_1b_2)$\end_inset
+ on the regular region. With more goods the same expression is the Allen-Uzawa pairwise elasticity, rather than a universal elasticity of every quantity ratio. Setting \begin_inset Formula $\Gamma=0$\end_inset
+ recovers constant shares and a Cobb-Douglas price index. General translog utility models need not be homothetic.
+\end_layout
+
+\begin_layout Example
+A translog model with changing shares. Let \begin_inset Formula $L=2$\end_inset
+, \begin_inset Formula $\alpha_0=0$\end_inset
+, \begin_inset Formula $\alpha_1=\alpha_2=1/2$\end_inset
+, and \begin_inset Formula $\Gamma=\tfrac1{10}\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$\end_inset
+. Writing \begin_inset Formula $r=p_1/p_2$\end_inset
+ gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\mathcal P_{\mathrm{TL}}(p)=\sqrt{p_1p_2}\exp\!\left(\frac{(\log r)^2}{20}\right),\qquad b_1=\frac12+\frac{\log r}{10},\quad b_2=1-b_1.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+At \begin_inset Formula $p=(1,1)$\end_inset
+ and \begin_inset Formula $w=100$\end_inset
+, demand is \begin_inset Formula $(50,50)$\end_inset
+. At \begin_inset Formula $p=(2,1)$\end_inset
+ and the same wealth, shares are approximately \begin_inset Formula $(0.569315,0.430685)$\end_inset
+ and demand is \begin_inset Formula $(28.4657,43.0685)$\end_inset
+. The first quantity falls while its budget share rises. The substitution elasticity changes from \begin_inset Formula $0.6$\end_inset
+ at equal prices to approximately \begin_inset Formula $0.592162$\end_inset
+ at \begin_inset Formula $(2,1)$\end_inset
+; a single CES elasticity cannot reproduce that variation throughout the region.
+\end_layout
+
+\begin_layout Example
+Positive shares can conceal invalid curvature. In the preceding model, \begin_inset Formula $H=(1/10-b_1b_2)\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$\end_inset
+. Shares are positive when \begin_inset Formula $|\log r|<5$\end_inset
+, but curvature holds only when \begin_inset Formula $|\log r|\le\sqrt{15}$\end_inset
+. Thus \begin_inset Formula $|\log r|<\sqrt{15}$\end_inset
+ defines an open convex cone on which the construction above is valid. At \begin_inset Formula $r=\exp(4)$\end_inset
+ the shares \begin_inset Formula $(0.9,0.1)$\end_inset
+ still look admissible, yet \begin_inset Formula $1/10-b_1b_2=0.01>0$\end_inset
+: compensated own-price responses have the wrong sign. This counterfactual must be rejected for this parameterization.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 What Utility Maximization Implies
 \end_layout
 
@@ -3028,6 +3910,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 2.1 [Core]. Cobb-Douglas duality.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -3068,6 +3961,17 @@ For \begin_inset Formula $u(x)=x_{1}^{\alpha}x_{2}^{1-\alpha}$\end_inset
 \series bold
 Problem 2.2 [Proof]. Differential restrictions on demand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -3101,6 +4005,17 @@ Let \begin_inset Formula $x:\mathbb{R}_{++}^{L}\times\mathbb{R}_{++}\to\mathbb{R
 \series bold
 Problem 2.3 [Proof]. The Slutsky matrix for Cobb-Douglas demand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -3122,6 +4037,161 @@ Using the Marshallian demand from Problem 2.1, compute \begin_inset Formula $S(p
 \begin_layout Exercise*
 (c) Find the null space of \begin_inset Formula $S$\end_inset
  and interpret it using homogeneity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 2.4 [Proof]. CES duality and compensated substitution.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Use Chapter 1's CES utility, with positive normalized weights and \begin_inset Formula $\sigma>0$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(a) Derive \begin_inset Formula $\mathcal P(p)$\end_inset
+, expenditure, and Hicksian demand. Treat \begin_inset Formula $\sigma=1$\end_inset
+ separately and retain the constants implied by the utility normalization.
+\end_layout
+
+\begin_layout Exercise*
+(b) Show that the Slutsky matrix has off-diagonal entries \begin_inset Formula $S_{\ell k}=\sigma x_\ell x_k/w$\end_inset
+ and diagonal entries \begin_inset Formula $S_{\ell\ell}=-\sigma x_\ell(1-b_\ell)/p_\ell$\end_inset
+. Prove symmetry and negative semidefiniteness using a weighted-variance argument. Identify its null space for strictly positive demand.
+\end_layout
+
+\begin_layout Exercise*
+(c) Explain how compensated cross-price effects can be positive when uncompensated cross-price effects are negative.
+\end_layout
+
+\begin_layout Exercise*
+(d) For equal weights, \begin_inset Formula $\sigma=2$\end_inset
+, initial prices \begin_inset Formula $(1,3)$\end_inset
+, wealth 90, and final prices \begin_inset Formula $(2,3)$\end_inset
+, calculate compensation to retain initial utility. Decompose the first quantity's change into a compensated change and the remaining wealth effect.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 2.5 [Core]. Translog shares and the regular price region.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Consider a homothetic translog index with \begin_inset Formula $\alpha_0=0$\end_inset
+, \begin_inset Formula $\alpha=(2/5,3/5)$\end_inset
+, and \begin_inset Formula $\Gamma=-\tfrac18\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(a) Derive shares and demands as functions of relative prices and wealth. Find the open interval of \begin_inset Formula $p_1/p_2$\end_inset
+ for which both shares are positive.
+\end_layout
+
+\begin_layout Exercise*
+(b) Compute \begin_inset Formula $H=\Gamma+\boldsymbol b\boldsymbol b^\top-\operatorname{diag}(\boldsymbol b)$\end_inset
+. Prove negative semidefiniteness throughout that interval.
+\end_layout
+
+\begin_layout Exercise*
+(c) At \begin_inset Formula $p=(2,1)$\end_inset
+ and \begin_inset Formula $w=100$\end_inset
+, calculate demand, Marshallian elasticities, and compensated elasticities. Verify adding up and homogeneity.
+\end_layout
+
+\begin_layout Exercise*
+(d) Explain why setting a negative predicted share to zero while retaining the other formula does not generally give a valid extension.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 2.6 [Applied]. A translog approximation to CES demand.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Fix a two-good CES model, a positive reference price vector \begin_inset Formula $p^0$\end_inset
+, and substitution elasticity \begin_inset Formula $\sigma>0$\end_inset
+. Write \begin_inset Formula $b_1^0,b_2^0$\end_inset
+ for the reference shares and use normalized prices \begin_inset Formula $r_\ell=p_\ell/p_\ell^0$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(a) Compute the gradient and Hessian of \begin_inset Formula $\log\mathcal P_{\mathrm{CES}}$\end_inset
+ with respect to log prices at \begin_inset Formula $p^0$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(b) Choose translog coefficients in \begin_inset Formula $\log r$\end_inset
+ so the log price index agrees with CES through second order at \begin_inset Formula $p^0$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(c) Verify the restrictions for homogeneity. Show that demand levels and local price responses agree at the reference observation.
+\end_layout
+
+\begin_layout Exercise*
+(d) Explain why predictions can disagree for a large price change. State the regularity checks needed before making welfare comparisons.
 \end_layout
 
 \begin_layout Standard
@@ -5643,6 +6713,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 3.1 [Core]. A two-observation WARP test.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -5676,6 +6757,17 @@ A consumer chooses \begin_inset Formula $x^{1}=(2,2)$\end_inset
 \series bold
 Problem 3.2 [Core]. Recovering a quasilinear utility.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -5711,6 +6803,17 @@ Normalize \begin_inset Formula $p_{2}=1$\end_inset
 \series bold
 Problem 3.3 [Core]. Afriat inequalities by hand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -5751,6 +6854,17 @@ Consider two observations: \begin_inset Formula $p^{1}=(1,1)$\end_inset
 \series bold
 Problem 3.4 [Applied]. Demand forecasting with Varian's support set.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -5787,6 +6901,17 @@ A finite dataset \begin_inset Formula $\mathcal O=\{(p^{t},x^{t})\}_{t\in\mathbb
 \series bold
 Problem 3.5 [Core]. Classical utility as singleton CMU.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -5822,6 +6947,17 @@ Let \begin_inset Formula $u:X\to\mathbb R$\end_inset
 \series bold
 Problem 3.6 [Proof]. WGARP without GARP.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -6526,6 +7662,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 4.1 [Core]. Incomplete preferences and multiple utilities.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -6566,6 +7713,17 @@ Let \begin_inset Formula $X=\{a,b,c\}$\end_inset
 \series bold
 Problem 4.2 [Core]. Choice cycles on finite menus.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -6601,6 +7759,17 @@ Let \begin_inset Formula $X=\{a,b,c\}$\end_inset
 \series bold
 Problem 4.3 [Proof]. Maximization and WGARP.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -8313,6 +9482,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 5.1 [Core]. Affine expected-utility representations.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -8348,6 +9528,17 @@ Let \begin_inset Formula $Z=\{z_{1},\ldots,z_{n}\}$\end_inset
 \series bold
 Problem 5.2 [Core]. First-order stochastic dominance.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -8382,6 +9573,17 @@ Lotteries \begin_inset Formula $\mu$\end_inset
 \series bold
 Problem 5.3 [Proof]. The Arrow-Pratt approximation.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -8430,6 +9632,17 @@ where \begin_inset Formula $A(w)=-u''(w)/u'(w)$\end_inset
 \series bold
 Problem 5.4 [Applied]. CARA-normal portfolio demand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -8891,6 +10104,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 6.1 [Core]. Logit odds and IIA.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -8923,6 +10147,17 @@ Choice probabilities satisfy \begin_inset Formula $P(j\mid A)=\exp(V_{j}/\tau)/\
 \series bold
 Problem 6.2 [Applied]. The red-bus blue-bus problem.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -8952,6 +10187,17 @@ Walking and a red bus initially have systematic utilities normalized so that eac
 \series bold
 Problem 6.3 [Core]. A finite random-utility mixture.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -9507,6 +10753,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 7.1 [Core]. Sparse-max quasilinear demand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -9541,6 +10798,17 @@ Let \begin_inset Formula $u(x_{1},x_{2})=\sqrt{x_{1}}+x_{2}$\end_inset
 \series bold
 Problem 7.2 [Core]. CES demand under perceived prices.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -9579,6 +10847,17 @@ Let \begin_inset Formula $u(x)=[\alpha x_{1}^{\rho}+(1-\alpha)x_{2}^{\rho}]^{1/\
 \series bold
 Problem 7.3 [Applied]. A binary rational-inattention problem.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -9996,6 +11275,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 8.1 [Core]. Gorman aggregation.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10029,6 +11319,17 @@ Suppose consumer \begin_inset Formula $i$\end_inset
 \series bold
 Problem 8.2 [Core]. Aggregation under common homothetic preferences.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10061,6 +11362,17 @@ All consumers have the same homothetic preferences, strictly positive wealth \be
 \series bold
 Problem 8.3 [Proof]. Why uncompensated aggregate price derivatives need not be symmetric.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10423,6 +11735,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 9.1 [Core]. Cobb-Douglas production and cost.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10458,6 +11781,17 @@ A firm has production function \begin_inset Formula $f(\boldsymbol z)=z_{1}^{\al
 \series bold
 Problem 9.2 [Proof]. Dual properties of the profit function.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10491,6 +11825,17 @@ Let \begin_inset Formula $Y\subseteq\mathbb R^{L}$\end_inset
 \series bold
 Problem 9.3 [Core]. Constant returns and unbounded profit.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10524,6 +11869,17 @@ Assume \begin_inset Formula $Y$\end_inset
 \series bold
 Problem 9.4 [Proof]. Shephard's lemma and substitution.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10833,6 +12189,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 10.1 [Core]. Linear partial equilibrium.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10869,6 +12236,17 @@ Demand and supply are \begin_inset Formula $Q^{d}(p)=a-bp$\end_inset
 \series bold
 Problem 10.2 [Applied]. A per-unit tax.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10905,6 +12283,17 @@ Introduce a per-unit tax \begin_inset Formula $t>0$\end_inset
 \series bold
 Problem 10.3 [Proof]. Planner and competitive allocation.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10924,6 +12313,116 @@ A representative consumer has quasilinear utility \begin_inset Formula $u(q)+m$\
 
 \begin_layout Exercise*
 (c) State the assumptions required for the converse decentralization claim.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 10.4 [Applied]. The Economics of Superstars: Music Sales and Concerts.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Taylor S. is a stylized superstar whose fans consume music services and concerts. This revisits Victor Aguiar's 2023 artists case with explicit preferences, technology, and market assumptions. All numbers are hypothetical; the model is not an empirical description of Taylor Swift's contracts. Quantities are divisible, and the mass of identical fans is one.
+\end_layout
+
+\begin_layout Exercise*
+Part I. Fan demand. Write \begin_inset Formula $q_M,q_C$\end_inset
+ for music and concert services, the two coordinates of consumption. A fan has wealth \begin_inset Formula $w>0$\end_inset
+, prices \begin_inset Formula $p_M,p_C>0$\end_inset
+, and utility \begin_inset Formula $u(q_M,q_C)=(\tfrac12 q_M^\rho+\tfrac12 q_C^\rho)^{1/\rho}$\end_inset
+, where \begin_inset Formula $0<\rho<1$\end_inset
+. The letters \begin_inset Formula $M,C$\end_inset
+ are local commodity labels.
+\end_layout
+
+\begin_layout Exercise*
+(a) Formulate the budget problem and derive demands using \begin_inset Formula $\sigma=1/(1-\rho)$\end_inset
+. For the remaining parts set \begin_inset Formula $\rho=1/2$\end_inset
+, \begin_inset Formula $w=1$\end_inset
+, and \begin_inset Formula $p_M=1$\end_inset
+. Explain why music demand changes when the concert price changes.
+\end_layout
+
+\begin_layout Exercise*
+Part II. Production. For \begin_inset Formula $j\in\{M,C\}$\end_inset
+ the artist's technology is \begin_inset Formula $y_j=A_j\sqrt{n_j}$\end_inset
+, where \begin_inset Formula $n_j\ge0$\end_inset
+ is labor and \begin_inset Formula $A_j>0$\end_inset
+ productivity. Labor costs \begin_inset Formula $\nu>0$\end_inset
+ per hour, distinct from fan wealth \begin_inset Formula $w$\end_inset
+. The processes are independent. This stylized music-service cost does not describe the cost of creating an original recording as a function of its streams.
+\end_layout
+
+\begin_layout Exercise*
+(b) Derive \begin_inset Formula $C_j(\nu,y_j)$\end_inset
+, average cost, and marginal cost. Explain decreasing returns. Set \begin_inset Formula $A_M=A_C=\nu=1$\end_inset
+ in the numerical parts.
+\end_layout
+
+\begin_layout Exercise*
+Part III. A share of volume and receipts. An exogenous \begin_inset Formula $\tau\in(0,1]$\end_inset
+ is the fraction of music consumption attributable to this artist. Her output is \begin_inset Formula $y_M=\tau q_M$\end_inset
+ and her music receipts are \begin_inset Formula $\tau p_Mq_M$\end_inset
+. Concert output is \begin_inset Formula $y_C=q_C$\end_inset
+. She takes \begin_inset Formula $p_M,\tau$\end_inset
+ as given and chooses \begin_inset Formula $p_C>0$\end_inset
+. There is no shared labor constraint or fixed cost.
+\end_layout
+
+\begin_layout Exercise*
+(c) Write total revenue and profit after substituting demand and costs. Distinguish a revenue derivative with respect to ticket price from marginal revenue with respect to output. Account for changes in both revenue streams and production costs.
+\end_layout
+
+\begin_layout Exercise*
+(d) Derive the first-order condition for the optimal concert price. Examine profit as \begin_inset Formula $p_C\downarrow0$\end_inset
+ and \begin_inset Formula $p_C\to\infty$\end_inset
+. Establish global optimality and uniqueness, analytically or with a justified numerical method accounting for every stationary point and boundary.
+\end_layout
+
+\begin_layout Exercise*
+(e) Compare \begin_inset Formula $\tau=1$\end_inset
+ and \begin_inset Formula $\tau=1/2$\end_inset
+. In a table report optimal concert prices, both fan quantities, both delivered outputs, revenues, costs, and profits. State numerical accuracy. Does the concert price rise or fall when the music share falls?
+\end_layout
+
+\begin_layout Exercise*
+(f) Use the first-order condition or implicit differentiation to analyze the price response for \begin_inset Formula $\tau\in[1/2,1]$\end_inset
+. Interpret the roles of substitution and production costs. Do not assume the same sign for every technology or parameter value.
+\end_layout
+
+\begin_layout Exercise*
+Part IV. A royalty share. Now \begin_inset Formula $\tau$\end_inset
+ changes only the fraction of music revenue paid to the artist: music output is \begin_inset Formula $y_M=q_M$\end_inset
+, while receipts remain \begin_inset Formula $\tau p_Mq_M$\end_inset
+. All other assumptions are unchanged.
+\end_layout
+
+\begin_layout Exercise*
+(g) Write the revised profit function and repeat the comparison between \begin_inset Formula $\tau=1$\end_inset
+ and \begin_inset Formula $\tau=1/2$\end_inset
+. Identify the changed cost channel and determine whether the earlier price response survives.
+\end_layout
+
+\begin_layout Exercise*
+(h) Explain what evidence distinguishes a fall in music volume from a fall in the royalty fraction. Discuss the roles of CES substitution, decreasing returns, and control of concert prices. Contrast the artist's decision with price-taking supply in the main chapter.
 \end_layout
 
 \begin_layout Standard
@@ -11376,6 +12875,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 11.1 [Core]. Cobb-Douglas exchange equilibrium.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -11410,6 +12920,17 @@ There are two consumers with common utility \begin_inset Formula $u_{i}(x_{i1},x
 \series bold
 Problem 11.2 [Proof]. First Fundamental Welfare Theorem.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -11439,6 +12960,17 @@ Consider a private-ownership economy with locally nonsatiated preferences and pr
 \series bold
 Problem 11.3 [Proof]. Supporting a Pareto optimum.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -11468,6 +13000,17 @@ Suppose consumption sets and production sets are closed and convex, preferences 
 \series bold
 Problem 11.4 [Applied]. One consumer and one producer.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -11848,6 +13391,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 12.1 [Core]. Differential identities for excess demand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -11880,6 +13434,17 @@ Let aggregate excess demand \begin_inset Formula $z:\mathbb R_{++}^{L}\to\mathbb
 \series bold
 Problem 12.2 [Proof]. Regularity and local uniqueness.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -11912,6 +13477,17 @@ Normalize prices by \begin_inset Formula $p_{L}=1$\end_inset
 \series bold
 Problem 12.3 [Proof]. Gross substitutes and uniqueness.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -11941,6 +13517,17 @@ Assume aggregate excess demand satisfies strict gross substitutes on the relevan
 \series bold
 Problem 12.4 [Core]. Competitive allocations and the strong core.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12179,6 +13766,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 13.1 [Core]. Equilibrium Afriat feasibility.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12215,6 +13813,17 @@ At each observation \begin_inset Formula $t$\end_inset
 \series bold
 Problem 13.2 [Proof]. What equilibrium data identify.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12244,6 +13853,17 @@ Suppose only equilibrium prices and aggregate endowments are observed.
 \series bold
 Problem 13.3 [Applied]. Counterfactual discipline.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12466,6 +14086,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 14.1 [Core]. Spanning contingent consumption.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12505,6 +14136,17 @@ There are \begin_inset Formula $S$\end_inset
 \series bold
 Problem 14.2 [Core]. Incomplete markets.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12538,6 +14180,17 @@ Let \begin_inset Formula $S=3$\end_inset
 \series bold
 Problem 14.3 [Proof]. Arrow-Debreu and sequential equivalence.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12729,6 +14382,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 15.1 [Core]. Deferred acceptance by hand.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12764,6 +14428,17 @@ Three men have rankings \begin_inset Formula $m_{1}:w_{1}\succ w_{2}\succ w_{3}$
 \series bold
 Problem 15.2 [Proof]. Proposer optimality.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12793,6 +14468,17 @@ Consider a finite balanced one-to-one matching market in which every participant
 \series bold
 Problem 15.3 [Core]. Top trading cycles.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -13156,6 +14842,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem 16.1 [Core]. Calibrating a CES technology.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -13196,6 +14893,17 @@ A constant-returns technology is \begin_inset Formula $Q=A[\alpha K^{-\rho}+(1-\
 \series bold
 Problem 16.2 [Core]. Social-accounting consistency.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -13225,6 +14933,17 @@ A two-sector social accounting matrix records sectoral sales, intermediate purch
 \series bold
 Problem 16.3 [Applied]. A tariff counterfactual.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -14256,6 +15975,17 @@ Problems are labelled Core, Proof, or Applied. Core problems consolidate essenti
 \series bold
 Problem A.1 [Core]. Classifying relations.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -14282,6 +16012,17 @@ Give a counterexample for every failed property.
 \series bold
 Problem A.2 [Proof]. Quotienting a preorder.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -14321,6 +16062,17 @@ Let \begin_inset Formula $R$\end_inset
 \series bold
 Problem A.3 [Proof]. Maximal, greatest, and finite existence.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -14355,6 +16107,17 @@ Let \begin_inset Formula $R$\end_inset
 \series bold
 Problem A.4 [Proof]. Order extensions and multiple representation.
 \series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -14986,6 +16749,62 @@ Consumer theory
 \end_inset
 
  Scalar wealth or income available to a consumer. Scope: Book-wide default.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{utility-weights}{a_\ell}$
+\end_inset
+
+ Strictly positive taste weights normalized to sum to one; equal expenditure shares only in the Cobb-Douglas case. Scope: Workhorse demand models.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{expenditure-shares}{b_\ell(p,w),\boldsymbol b}$
+\end_inset
+
+ Expenditure share \begin_inset Formula $p_\ell x_\ell(p,w)/w$\end_inset
+ and its column vector; independent of wealth in the homothetic models considered here. Scope: Workhorse demand models.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{ces-curvature}{\rho}$
+\end_inset
+
+ CES power parameter with \begin_inset Formula $\rho<1$\end_inset
+ and Cobb-Douglas limit at zero; some production parameterizations use a different sign convention. Scope: CES consumer model.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{substitution-elasticity}{\sigma}$
+\end_inset
+
+ Constant substitution elasticity \begin_inset Formula $1/(1-\rho)>0$\end_inset
+; distinguished from Marshallian own-price elasticity. Scope: CES consumer model.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{subsistence-bundle}{\gamma}$
+\end_inset
+
+ Nonnegative subsistence bundle; discretionary wealth is \begin_inset Formula $w-p\cdot\gamma$\end_inset
+. Scope: Stone-Geary model.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{unit-expenditure-index}{\mathcal P(p)}$
+\end_inset
+
+ Unit expenditure \begin_inset Formula $e(p,1)$\end_inset
+ under the specified degree-one utility normalization; subscript TL denotes the translog index. Scope: Workhorse dual models.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\notationdef{translog-curvature}{\Gamma}$
+\end_inset
+
+ Symmetric matrix \begin_inset Formula $(\gamma_{\ell k})$\end_inset
+ of log-price quadratic coefficients, with zero row sums; distinct from the Stone-Geary vector \begin_inset Formula $\gamma$\end_inset
+. Scope: Translog expenditure model.
 \end_layout
 
 \begin_layout Description

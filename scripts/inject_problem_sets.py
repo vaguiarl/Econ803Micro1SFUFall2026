@@ -147,6 +147,9 @@ def problem_block(chapter: ChapterProblems) -> str:
             "\\series bold\n"
             + f"Problem {problem.identifier} [{problem.level}]. {problem.title}.\n"
             + "\\series default"
+            + "\n\\begin_inset ERT\nstatus collapsed\n\n"
+            + "\\begin_layout Plain Layout\n\n\\backslash\npar"
+            + "\\backslash\nnopagebreak[4]\n\\end_layout\n\n\\end_inset\n"
         )
         for paragraph in (heading, *problem.paragraphs):
             parts.append(

@@ -16,6 +16,52 @@ Let $X=\mathbb{R}_{+}^{2}$ and $B(p,w)=\{x\in X:p\cdot x\leq w\}$, where $p\gg0$
 
 (c) For $u(x)=x_{1}^{\alpha}x_{2}^{1-\alpha}$ with $0<\alpha<1$, derive Marshallian demand and verify both properties directly.
 
+## 1.2 | Core | CES curvature, demand, and expenditure shares
+
+For $\rho<1$ and $\rho\ne0$, let $u_\rho(x)=(\tfrac12 x_1^\rho+\tfrac12 x_2^\rho)^{1/\rho}$, with the Cobb-Douglas limit used at $\rho=0$ and the boundary extension stated in the text. Write $\sigma=1/(1-\rho)$.
+
+(a) Derive demand from the first-order conditions. Explain why the optimum is interior for $\rho<1$ and why maximizing the sum of powers is incorrect when $\rho<0$.
+
+(b) At $p=(1,4)$ and $w=120$, calculate quantities and expenditure shares for $\sigma\in\{1/2,1,2\}$. Check budget exhaustion.
+
+(c) Raise only the second price to 9. Recalculate the three demands and explain why a smaller quantity can have a larger expenditure share.
+
+(d) Derive the own-price, cross-price, and wealth elasticities. Distinguish the elasticity of a quantity ratio from an individual demand elasticity.
+
+## 1.3 | Applied | CES calibration and observational equivalence
+
+At prices $p^0=(1,2,4)$, a household with wealth $w^0=120$ chooses $x^0=(30,25,10)$. Consider Chapter 1's CES representation with positive normalized weights.
+
+(a) For a specified $\sigma>0$, derive the weights reproducing this observation.
+
+(b) Calibrate the weights for $\sigma=1/2$ and $\sigma=2$. For each calibration predict demand at $p^1=(2,2,4)$ and wealth 120.
+
+(c) Explain why fitting one observation does not identify substitution. Describe additional observations that could distinguish the models.
+
+## 1.4 | Core | Substitutes, complements, and boundary choices
+
+Consider separately $u^A(x)=2x_1+x_2$ and $u^B(x)=\min\{x_1/3,x_2\}$ on $\mathbb R_+^2$, at strictly positive prices and wealth.
+
+(a) Derive the full demand correspondence for $u^A$, including the price ratio at which it is set-valued.
+
+(b) Derive demand for $u^B$. At $p=(2,3)$ and $w=36$, compute both models' choices.
+
+(c) Explain why interior differentiable tangency conditions do not characterize these optima.
+
+(d) Obtain the ratio $x_1=3x_2$ as a CES limit. Explain why holding the usual taste weights fixed does not preserve unequal Leontief proportions.
+
+## 1.5 | Applied | Subsistence and quasilinear corners
+
+The first of two consumers has $u(x)=(x_1-1)^{1/3}(x_2-2)^{2/3}$ on $x\ge(1,2)$. The second has $u(x)=4\sqrt{x_1}+x_2$ on $\mathbb R_+^2$.
+
+(a) Derive the first consumer's demand above subsistence expenditure. State what happens at and below that threshold.
+
+(b) At $p=(2,1)$, compute the first consumer's demands and shares at wealth 10 and 22. Distinguish homotheticity in discretionary consumption from homotheticity in total consumption.
+
+(c) Normalize the second consumer's numeraire price to one and write $r=p_1$. Derive demand for all $r,w>0$, including the zero-numeraire region.
+
+(d) Identify where a zero wealth effect for the non-numeraire good is valid. Compare this restriction with the Stone--Geary model.
+
 # Duality, Comparative Statics, and Welfare
 
 ## 2.1 | Core | Cobb-Douglas duality
@@ -47,6 +93,42 @@ Using the Marshallian demand from Problem 2.1, compute $S(p,w)=D_{p}x+D_{w}x\,x^
 (b) Show directly that $z^{\top}Sz\leq0$ for every $z\in\mathbb{R}^{2}$.
 
 (c) Find the null space of $S$ and interpret it using homogeneity.
+
+## 2.4 | Proof | CES duality and compensated substitution
+
+Use Chapter 1's CES utility, with positive normalized weights and $\sigma>0$.
+
+(a) Derive $\mathcal P(p)$, expenditure, and Hicksian demand. Treat $\sigma=1$ separately and retain the constants implied by the utility normalization.
+
+(b) Show that the Slutsky matrix has off-diagonal entries $S_{\ell k}=\sigma x_\ell x_k/w$ and diagonal entries $S_{\ell\ell}=-\sigma x_\ell(1-b_\ell)/p_\ell$. Prove symmetry and negative semidefiniteness using a weighted-variance argument. Identify its null space for strictly positive demand.
+
+(c) Explain how compensated cross-price effects can be positive when uncompensated cross-price effects are negative.
+
+(d) For equal weights, $\sigma=2$, initial prices $(1,3)$, wealth 90, and final prices $(2,3)$, calculate compensation to retain initial utility. Decompose the first quantity's change into a compensated change and the remaining wealth effect.
+
+## 2.5 | Core | Translog shares and the regular price region
+
+Consider a homothetic translog index with $\alpha_0=0$, $\alpha=(2/5,3/5)$, and $\Gamma=-\tfrac18\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$.
+
+(a) Derive shares and demands as functions of relative prices and wealth. Find the open interval of $p_1/p_2$ for which both shares are positive.
+
+(b) Compute $H=\Gamma+\boldsymbol b\boldsymbol b^\top-\operatorname{diag}(\boldsymbol b)$. Prove negative semidefiniteness throughout that interval.
+
+(c) At $p=(2,1)$ and $w=100$, calculate demand, Marshallian elasticities, and compensated elasticities. Verify adding up and homogeneity.
+
+(d) Explain why setting a negative predicted share to zero while retaining the other formula does not generally give a valid extension.
+
+## 2.6 | Applied | A translog approximation to CES demand
+
+Fix a two-good CES model, a positive reference price vector $p^0$, and substitution elasticity $\sigma>0$. Write $b_1^0,b_2^0$ for the reference shares and use normalized prices $r_\ell=p_\ell/p_\ell^0$.
+
+(a) Compute the gradient and Hessian of $\log\mathcal P_{\mathrm{CES}}$ with respect to log prices at $p^0$.
+
+(b) Choose translog coefficients in $\log r$ so the log price index agrees with CES through second order at $p^0$.
+
+(c) Verify the restrictions for homogeneity. Show that demand levels and local price responses agree at the reference observation.
+
+(d) Explain why predictions can disagree for a large price change. State the regularity checks needed before making welfare comparisons.
 
 # Revealed Preference and Recoverability
 
@@ -362,6 +444,34 @@ A representative consumer has quasilinear utility $u(q)+m$, with $u$ increasing 
 (b) Show that any interior competitive equilibrium satisfies the same condition.
 
 (c) State the assumptions required for the converse decentralization claim.
+
+## 10.4 | Applied | The Economics of Superstars: Music Sales and Concerts
+
+Taylor S. is a stylized superstar whose fans consume music services and concerts. This revisits Victor Aguiar's 2023 artists case with explicit preferences, technology, and market assumptions. All numbers are hypothetical; the model is not an empirical description of Taylor Swift's contracts. Quantities are divisible, and the mass of identical fans is one.
+
+Part I. Fan demand. Write $q_M,q_C$ for music and concert services, the two coordinates of consumption. A fan has wealth $w>0$, prices $p_M,p_C>0$, and utility $u(q_M,q_C)=(\tfrac12 q_M^\rho+\tfrac12 q_C^\rho)^{1/\rho}$, where $0<\rho<1$. The letters $M,C$ are local commodity labels.
+
+(a) Formulate the budget problem and derive demands using $\sigma=1/(1-\rho)$. For the remaining parts set $\rho=1/2$, $w=1$, and $p_M=1$. Explain why music demand changes when the concert price changes.
+
+Part II. Production. For $j\in\{M,C\}$ the artist's technology is $y_j=A_j\sqrt{n_j}$, where $n_j\ge0$ is labor and $A_j>0$ productivity. Labor costs $\nu>0$ per hour, distinct from fan wealth $w$. The processes are independent. This stylized music-service cost does not describe the cost of creating an original recording as a function of its streams.
+
+(b) Derive $C_j(\nu,y_j)$, average cost, and marginal cost. Explain decreasing returns. Set $A_M=A_C=\nu=1$ in the numerical parts.
+
+Part III. A share of volume and receipts. An exogenous $\tau\in(0,1]$ is the fraction of music consumption attributable to this artist. Her output is $y_M=\tau q_M$ and her music receipts are $\tau p_Mq_M$. Concert output is $y_C=q_C$. She takes $p_M,\tau$ as given and chooses $p_C>0$. There is no shared labor constraint or fixed cost.
+
+(c) Write total revenue and profit after substituting demand and costs. Distinguish a revenue derivative with respect to ticket price from marginal revenue with respect to output. Account for changes in both revenue streams and production costs.
+
+(d) Derive the first-order condition for the optimal concert price. Examine profit as $p_C\downarrow0$ and $p_C\to\infty$. Establish global optimality and uniqueness, analytically or with a justified numerical method accounting for every stationary point and boundary.
+
+(e) Compare $\tau=1$ and $\tau=1/2$. In a table report optimal concert prices, both fan quantities, both delivered outputs, revenues, costs, and profits. State numerical accuracy. Does the concert price rise or fall when the music share falls?
+
+(f) Use the first-order condition or implicit differentiation to analyze the price response for $\tau\in[1/2,1]$. Interpret the roles of substitution and production costs. Do not assume the same sign for every technology or parameter value.
+
+Part IV. A royalty share. Now $\tau$ changes only the fraction of music revenue paid to the artist: music output is $y_M=q_M$, while receipts remain $\tau p_Mq_M$. All other assumptions are unchanged.
+
+(g) Write the revised profit function and repeat the comparison between $\tau=1$ and $\tau=1/2$. Identify the changed cost channel and determine whether the earlier price response survives.
+
+(h) Explain what evidence distinguishes a fall in music volume from a fall in the royalty fraction. Discuss the roles of CES substitution, decreasing returns, and control of concert prices. Contrast the artist's decision with price-taking supply in the main chapter.
 
 # General Equilibrium Theory
 

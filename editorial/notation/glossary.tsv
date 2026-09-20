@@ -11,6 +11,13 @@ production-plan	$y$	Firm theory	Book-wide default	Net-output vector, with positi
 endowment	$\omega$	Equilibrium	Book-wide default	Endowment vector; subscripts identify agents and superscripts identify observations or states when declared.	Notation and Conventions	linked
 price-vector	$p$	Consumer theory	Book-wide default	Commodity-price column vector; normally $p\in\mathbb R_{++}^L$.	Notation and Conventions	linked
 wealth	$w$	Consumer theory	Book-wide default	Scalar wealth or income available to a consumer.	Notation and Conventions	linked
+utility-weights	$a_\ell$	Consumer theory	Workhorse demand models	Strictly positive taste weights normalized to sum to one; equal expenditure shares only in the Cobb-Douglas case.	Homotheticity and Cobb-Douglas Demand	linked
+expenditure-shares	$b_\ell(p,w),\boldsymbol b$	Consumer theory	Workhorse demand models	Expenditure share $p_\ell x_\ell(p,w)/w$ and its column vector; independent of wealth in the homothetic models considered here.	Homotheticity and Cobb-Douglas Demand	linked
+ces-curvature	$\rho$	Consumer theory	CES consumer model	CES power parameter with $\rho<1$ and Cobb-Douglas limit at zero; some production parameterizations use a different sign convention.	CES: A Family of Substitution Patterns	linked
+substitution-elasticity	$\sigma$	Consumer theory	CES consumer model	Constant substitution elasticity $1/(1-\rho)>0$; distinguished from Marshallian own-price elasticity.	CES: A Family of Substitution Patterns	linked
+subsistence-bundle	$\gamma$	Consumer theory	Stone-Geary model	Nonnegative subsistence bundle; discretionary wealth is $w-p\cdot\gamma$.	Subsistence and Stone-Geary Demand	linked
+unit-expenditure-index	$\mathcal P(p)$	Consumer theory	Workhorse dual models	Unit expenditure $e(p,1)$ under the specified degree-one utility normalization; subscript TL denotes the translog index.	CES Expenditure, Compensation, and Substitution	linked
+translog-curvature	$\Gamma$	Consumer theory	Translog expenditure model	Symmetric matrix $(\gamma_{\ell k})$ of log-price quadratic coefficients, with zero row sums; distinct from the Stone-Geary vector $\gamma$.	A Homothetic Translog Expenditure Model	linked
 budget-set	$B(p,w)$	Consumer theory	Book-wide	Bundles affordable at prices $p$ and wealth $w$: $\{x\in X:p\cdot x\leq w\}$.	Notation and Conventions	linked
 marshallian-demand	$x(p,w)$	Consumer theory	Book-wide	Marshallian demand correspondence; treated as a function only when uniqueness is assumed.	Notation and Conventions	linked
 hicksian-demand	$h(p,\bar u)$	Consumer theory	Book-wide	Expenditure-minimizing demand correspondence at prices $p$ and target utility $\bar u$.	Notation and Conventions	linked

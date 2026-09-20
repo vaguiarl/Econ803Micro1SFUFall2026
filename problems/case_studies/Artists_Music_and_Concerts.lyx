@@ -1,0 +1,227 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding default
+\font_roman "cmr" "default"
+\font_sans "cmss" "default"
+\font_typewriter "cmtt" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 2
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.25in
+\topmargin 1.25in
+\rightmargin 1.25in
+\bottommargin 1.25in
+\secnumdepth 0
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+
+\begin_body
+\begin_layout Title
+The Economics of Superstars: Music Sales and Concerts
+\end_layout
+
+\begin_layout Author
+Victor H. Aguiar
+\end_layout
+
+\begin_layout Date
+ECON 803, Fall 2026
+\end_layout
+
+\begin_layout Standard
+Problem 10.4 [Applied]. Questions only. Part I uses consumer theory from Chapter 1; Parts II through IV combine cost minimization and monopoly pricing. This handout uses the same questions as the textbook.
+\end_layout
+
+\begin_layout Standard
+Taylor S. is a stylized superstar whose fans consume music services and concerts. This revisits Victor Aguiar's 2023 artists case with explicit preferences, technology, and market assumptions. All numbers are hypothetical; the model is not an empirical description of Taylor Swift's contracts. Quantities are divisible, and the mass of identical fans is one.
+\end_layout
+
+\begin_layout Section*
+Part I. Fan demand
+\end_layout
+
+\begin_layout Standard
+Write \begin_inset Formula $q_M,q_C$\end_inset
+ for music and concert services, the two coordinates of consumption. A fan has wealth \begin_inset Formula $w>0$\end_inset
+, prices \begin_inset Formula $p_M,p_C>0$\end_inset
+, and utility \begin_inset Formula $u(q_M,q_C)=(\tfrac12 q_M^\rho+\tfrac12 q_C^\rho)^{1/\rho}$\end_inset
+, where \begin_inset Formula $0<\rho<1$\end_inset
+. The letters \begin_inset Formula $M,C$\end_inset
+ are local commodity labels.
+\end_layout
+
+\begin_layout Standard
+(a) Formulate the budget problem and derive demands using \begin_inset Formula $\sigma=1/(1-\rho)$\end_inset
+. For the remaining parts set \begin_inset Formula $\rho=1/2$\end_inset
+, \begin_inset Formula $w=1$\end_inset
+, and \begin_inset Formula $p_M=1$\end_inset
+. Explain why music demand changes when the concert price changes.
+\end_layout
+
+\begin_layout Section*
+Part II. Production
+\end_layout
+
+\begin_layout Standard
+For \begin_inset Formula $j\in\{M,C\}$\end_inset
+ the artist's technology is \begin_inset Formula $y_j=A_j\sqrt{n_j}$\end_inset
+, where \begin_inset Formula $n_j\ge0$\end_inset
+ is labor and \begin_inset Formula $A_j>0$\end_inset
+ productivity. Labor costs \begin_inset Formula $\nu>0$\end_inset
+ per hour, distinct from fan wealth \begin_inset Formula $w$\end_inset
+. The processes are independent. This stylized music-service cost does not describe the cost of creating an original recording as a function of its streams.
+\end_layout
+
+\begin_layout Standard
+(b) Derive \begin_inset Formula $C_j(\nu,y_j)$\end_inset
+, average cost, and marginal cost. Explain decreasing returns. Set \begin_inset Formula $A_M=A_C=\nu=1$\end_inset
+ in the numerical parts.
+\end_layout
+
+\begin_layout Section*
+Part III. A share of volume and receipts
+\end_layout
+
+\begin_layout Standard
+An exogenous \begin_inset Formula $\tau\in(0,1]$\end_inset
+ is the fraction of music consumption attributable to this artist. Her output is \begin_inset Formula $y_M=\tau q_M$\end_inset
+ and her music receipts are \begin_inset Formula $\tau p_Mq_M$\end_inset
+. Concert output is \begin_inset Formula $y_C=q_C$\end_inset
+. She takes \begin_inset Formula $p_M,\tau$\end_inset
+ as given and chooses \begin_inset Formula $p_C>0$\end_inset
+. There is no shared labor constraint or fixed cost.
+\end_layout
+
+\begin_layout Standard
+(c) Write total revenue and profit after substituting demand and costs. Distinguish a revenue derivative with respect to ticket price from marginal revenue with respect to output. Account for changes in both revenue streams and production costs.
+\end_layout
+
+\begin_layout Standard
+(d) Derive the first-order condition for the optimal concert price. Examine profit as \begin_inset Formula $p_C\downarrow0$\end_inset
+ and \begin_inset Formula $p_C\to\infty$\end_inset
+. Establish global optimality and uniqueness, analytically or with a justified numerical method accounting for every stationary point and boundary.
+\end_layout
+
+\begin_layout Standard
+(e) Compare \begin_inset Formula $\tau=1$\end_inset
+ and \begin_inset Formula $\tau=1/2$\end_inset
+. In a table report optimal concert prices, both fan quantities, both delivered outputs, revenues, costs, and profits. State numerical accuracy. Does the concert price rise or fall when the music share falls?
+\end_layout
+
+\begin_layout Standard
+(f) Use the first-order condition or implicit differentiation to analyze the price response for \begin_inset Formula $\tau\in[1/2,1]$\end_inset
+. Interpret the roles of substitution and production costs. Do not assume the same sign for every technology or parameter value.
+\end_layout
+
+\begin_layout Section*
+Part IV. A royalty share
+\end_layout
+
+\begin_layout Standard
+Now \begin_inset Formula $\tau$\end_inset
+ changes only the fraction of music revenue paid to the artist: music output is \begin_inset Formula $y_M=q_M$\end_inset
+, while receipts remain \begin_inset Formula $\tau p_Mq_M$\end_inset
+. All other assumptions are unchanged.
+\end_layout
+
+\begin_layout Standard
+(g) Write the revised profit function and repeat the comparison between \begin_inset Formula $\tau=1$\end_inset
+ and \begin_inset Formula $\tau=1/2$\end_inset
+. Identify the changed cost channel and determine whether the earlier price response survives.
+\end_layout
+
+\begin_layout Standard
+(h) Explain what evidence distinguishes a fall in music volume from a fall in the royalty fraction. Discuss the roles of CES substitution, decreasing returns, and control of concert prices. Contrast the artist's decision with price-taking supply in the main chapter.
+\end_layout
+
+\end_body
+\end_document
