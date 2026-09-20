@@ -251,7 +251,7 @@ Lotteries $\mu$ and $\nu$ on prizes $\{0,1,2\}$ have probabilities $\mu=(0.2,0.3
 
 ## 5.3 | Proof | The Arrow-Pratt approximation
 
-Let $\varepsilon_\sigma=\sigma\xi$, where $\mathbb E\xi=0$, $\mathbb E\xi^2=1$, and $\xi$ is bounded. An agent with wealth $w$ has utility $u$ that is twice continuously differentiable near $w$, with $u'(w)>0$. Define the monetary risk premium $\operatorname{RP}(\sigma)$ by the indifference equation
+Let $\varepsilon_\sigma=\sigma\xi$, where $\mathbb E\xi=0$, $\mathbb E\xi^2=1$, and $\xi$ is bounded. An agent with wealth $w$ has utility $u$ that is twice continuously differentiable near $w$, with $u'(w)>0$. For all sufficiently small $\sigma\ge0$, local invertibility gives a unique solution near zero to the indifference equation below. Define the monetary risk premium $\operatorname{RP}(\sigma)$ to be that local branch, characterized by $\operatorname{RP}(\sigma)\to0$ as $\sigma\downarrow0$:
 
 $u(w-\operatorname{RP}(\sigma))=\mathbb E[u(w+\varepsilon_\sigma)].$
 

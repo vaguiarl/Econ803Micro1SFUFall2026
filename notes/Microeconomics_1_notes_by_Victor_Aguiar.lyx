@@ -10844,8 +10844,11 @@ Let \begin_inset Formula $\varepsilon_\sigma=\sigma\xi$\end_inset
  has utility \begin_inset Formula $u$\end_inset
  that is twice continuously differentiable near \begin_inset Formula $w$\end_inset
 , with \begin_inset Formula $u'(w)>0$\end_inset
-. Define the monetary risk premium \begin_inset Formula $\operatorname{RP}(\sigma)$\end_inset
- by the indifference equation
+. For all sufficiently small \begin_inset Formula $\sigma\ge0$\end_inset
+, local invertibility gives a unique solution near zero to the indifference equation below. Define the monetary risk premium \begin_inset Formula $\operatorname{RP}(\sigma)$\end_inset
+ to be that local branch, characterized by \begin_inset Formula $\operatorname{RP}(\sigma)\to0$\end_inset
+ as \begin_inset Formula $\sigma\downarrow0$\end_inset
+:
 \end_layout
 
 \begin_layout Exercise*
@@ -20016,8 +20019,8 @@ There is a mass \begin_inset Formula $\eta>0$\end_inset
  of consumers with \begin_inset Formula $u(x,m;\alpha)=2\sqrt{\alpha x}+m$\end_inset
  and \begin_inset Formula $\alpha\sim U[0,1]$\end_inset
 . The numeraire is unrestricted, or wealth is sufficient for the interior solution. There is initially a unit mass of firms with \begin_inset Formula $C(q;e)=q^2/(2e)$\end_inset
- and \begin_inset Formula $e\sim U[0,1]$\end_inset
-.
+, where productivity has the uniform law on \begin_inset Formula $e\in(0,1)$\end_inset
+; endpoint conventions are immaterial for aggregation.
 \end_layout
 
 \begin_layout Exercise*

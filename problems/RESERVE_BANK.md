@@ -54,7 +54,7 @@ Firm $j$ has technology $q_j=A_j\ell_j^{a_j}k_j^{b_j}$ with $A_j>0$, $a_j,b_j>0$
 
 ## R006 | Applied | Selection versus capacity destruction in partial equilibrium
 
-There is a mass $\eta>0$ of consumers with $u(x,m;\alpha)=2\sqrt{\alpha x}+m$ and $\alpha\sim U[0,1]$. The numeraire is unrestricted, or wealth is sufficient for the interior solution. There is initially a unit mass of firms with $C(q;e)=q^2/(2e)$ and $e\sim U[0,1]$.
+There is a mass $\eta>0$ of consumers with $u(x,m;\alpha)=2\sqrt{\alpha x}+m$ and $\alpha\sim U[0,1]$. The numeraire is unrestricted, or wealth is sufficient for the interior solution. There is initially a unit mass of firms with $C(q;e)=q^2/(2e)$, where productivity has the uniform law on $e\in(0,1)$; endpoint conventions are immaterial for aggregation.
 
 **Part I — by hand.** Derive individual and aggregate demand, firm supply and profit, and the competitive equilibrium price. Verify Hotelling's lemma. Compare two shocks: (i) the unit mass of firms is replaced by a unit mass with $e\sim U[1/2,1]$; (ii) firms with $e<1/2$ disappear without replacement. Solve for both new prices and explain why selection and capacity destruction have opposite price effects. At the baseline equilibrium, compute the cross-sectional variance of consumption and mean indirect utility when numeraire wealth is constant.
 
