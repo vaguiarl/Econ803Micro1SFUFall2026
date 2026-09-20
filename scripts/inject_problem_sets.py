@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import csv
 import re
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -535,6 +536,27 @@ def validate_generated_source(
     ]
     if sorted(all_headings) != sorted(bank_ids):
         raise ValueError("generated source omits or duplicates a bank problem")
+
+    # The generated blocks may be internally perfect while stale copies of the
+    # same exercises survive elsewhere in a chapter body.  Scan the complete
+    # manuscript so the public bank remains the single question-only source of
+    # record and every stable problem identifier appears exactly once.
+    source_headings = re.findall(
+        r"\\series bold\nProblem ([A-Z0-9]+\.[0-9]+) \[",
+        source,
+    )
+    if Counter(source_headings) != Counter(bank_ids):
+        expected = Counter(bank_ids)
+        actual = Counter(source_headings)
+        discrepancies = [
+            f"{identifier}: expected {expected[identifier]}, found {actual[identifier]}"
+            for identifier in sorted(expected.keys() | actual.keys())
+            if expected[identifier] != actual[identifier]
+        ]
+        raise ValueError(
+            "problem headings outside the generated chapter blocks: "
+            + "; ".join(discrepancies)
+        )
 
 
 def inject(

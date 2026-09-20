@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 
@@ -66,17 +67,33 @@ REPLACEMENTS = (
 )
 
 
+def phrase_pattern(phrase: str) -> re.Pattern[str]:
+    """Match a prose phrase independently of LyX's physical line wrapping."""
+    tokens = phrase.split()
+    if not tokens:
+        raise ValueError("editorial phrase must not be empty")
+    return re.compile(r"[ \t\r\n]+".join(re.escape(token) for token in tokens))
+
+
 def rewrite(source: str) -> str:
     revised = source
     for label, old, new in REPLACEMENTS:
-        if new in revised:
-            if old in revised:
+        old_matches = list(phrase_pattern(old).finditer(revised))
+        new_matches = list(phrase_pattern(new).finditer(revised))
+        if new_matches:
+            if len(new_matches) != 1:
+                raise ValueError(
+                    f"{label}: expected one new match, found {len(new_matches)}"
+                )
+            if old_matches:
                 raise ValueError(f"{label}: both old and new text are present")
             continue
-        count = revised.count(old)
-        if count != 1:
-            raise ValueError(f"{label}: expected one old match, found {count}")
-        revised = revised.replace(old, new, 1)
+        if len(old_matches) != 1:
+            raise ValueError(
+                f"{label}: expected one old match, found {len(old_matches)}"
+            )
+        match = old_matches[0]
+        revised = revised[: match.start()] + new + revised[match.end() :]
     return revised
 
 

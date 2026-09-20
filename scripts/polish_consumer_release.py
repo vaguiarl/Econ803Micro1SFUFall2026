@@ -9,6 +9,7 @@ claims corrected for the Fall 2026 public release.
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 
@@ -755,6 +756,74 @@ FORBIDDEN = [
 ]
 
 
+_FORMULA_INSET = re.compile(
+    r"\\begin_inset Formula(?P<formula>.*?)\\end_inset", re.DOTALL
+)
+_DISPLAY_MATH = re.compile(r"\\\[(?P<formula>.*?)\\\]", re.DOTALL)
+
+
+def _canonicalize_tex(formula: str) -> str:
+    """Canonicalize equivalent one-token TeX argument and script syntax."""
+
+    # LyX 2.5 adds braces to one-token command arguments and scripts.  It may
+    # also serialize a superscript before a subscript although TeX treats the
+    # two orders identically.
+    formula = re.sub(
+        r"\\(mathbf|mathbb|mathcal|overline|widehat|widetilde)"
+        r"(?:\{([A-Za-z])\}|\s+([A-Za-z]))",
+        lambda found: rf"\{found.group(1)}{{{found.group(2) or found.group(3)}}}",
+        formula,
+    )
+    formula = re.sub(
+        r"\\frac([A-Za-z0-9])([A-Za-z0-9])",
+        r"\\frac{\1}{\2}",
+        formula,
+    )
+    script = r"(?:\{(?:[^{}]|\{[^{}]*\})+\}|\\[A-Za-z]+|[A-Za-z0-9+*\-])"
+    formula = re.sub(
+        rf"\^(?P<sup>{script})_(?P<sub>{script})",
+        lambda found: f"_{found.group('sub')}^{found.group('sup')}",
+        formula,
+    )
+    formula = re.sub(
+        r"([_^])\{(\\[A-Za-z]+|[A-Za-z0-9+*\-])\}", r"\1\2", formula
+    )
+    return formula
+
+
+def _canonicalize_formula(match: re.Match[str]) -> str:
+    """Erase only LyX/TeX serialization choices that preserve a formula."""
+
+    formula = _canonicalize_tex(match.group("formula"))
+
+    # Line wrapping and spacing inside a Formula inset are LyX serialization,
+    # not manuscript content.  Command arguments above are braced first so
+    # removing this whitespace cannot join a command to its argument.
+    formula = re.sub(r"\s+", "", formula)
+    return rf"\begin_inset Formula{formula}\end_inset"
+
+
+def _canonicalize_display(match: re.Match[str]) -> str:
+    formula = _canonicalize_tex(match.group("formula"))
+    return rf"\[{re.sub(r'\s+', '', formula)}\]"
+
+
+def canonicalize_for_check(text: str) -> str:
+    """Return a comparison form shared by compact and LyX 2.5 sources.
+
+    The release assertions below still compare every complete replacement
+    block.  This function only ignores line reflow, formula whitespace, and
+    equivalent one-token TeX script serialization.
+    """
+
+    text = _canonicalize_tex(text)
+    text = _FORMULA_INSET.sub(_canonicalize_formula, text)
+    text = _DISPLAY_MATH.sub(_canonicalize_display, text)
+    text = re.sub(r"(\\[A-Za-z]+)\s+(?=[A-Za-z\\])", r"\1", text)
+    text = re.sub(r"\s*(\\\])\s*(?=\\end_inset)", r"\1", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
 def apply_replacements(text: str) -> tuple[str, list[str]]:
     changed: list[str] = []
     for name, old, new in REPLACEMENTS:
@@ -775,11 +844,20 @@ def apply_replacements(text: str) -> tuple[str, list[str]]:
 
 
 def validate(text: str) -> None:
-    missing = [name for name, _old, new in REPLACEMENTS if new not in text]
+    checked = canonicalize_for_check(text)
+    canonical_replacements = [
+        (name, canonicalize_for_check(old), canonicalize_for_check(new))
+        for name, old, new in REPLACEMENTS
+    ]
+    missing = [
+        name for name, _old, new in canonical_replacements if new not in checked
+    ]
     if missing:
         raise SystemExit("missing release fixes: " + ", ".join(missing))
     superseded = [
-        name for name, old, new in REPLACEMENTS if old not in new and old in text
+        name
+        for name, old, new in canonical_replacements
+        if old not in new and old in checked
     ]
     if superseded:
         raise SystemExit("superseded source blocks remain: " + ", ".join(superseded))
