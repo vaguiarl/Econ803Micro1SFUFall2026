@@ -167,6 +167,24 @@ for (my $i = 0; $i < @blocks; $i++) {
         next;
     }
 
+    if ($kind eq 'Chapter*') {
+        my $title = excerpt_from_blocks($block);
+        if ($title eq 'Additional Practice Reserve') {
+            $chapter = $title;
+            $section = '';
+        } elsif ($title eq 'Weekly Problem Sets: Fall 2026') {
+            # Do not leave later formal records attached to the reserve.
+            $chapter = '';
+            $section = '';
+        }
+        next;
+    }
+
+    if ($kind eq 'Section*' && $chapter eq 'Additional Practice Reserve') {
+        $section = excerpt_from_blocks($block);
+        next;
+    }
+
     if (contains_ert_proof_start($block)) {
         my @proof_blocks = ($block);
         while (!contains_ert_proof_end($proof_blocks[-1])) {

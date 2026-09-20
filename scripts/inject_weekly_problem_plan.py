@@ -20,6 +20,8 @@ PLAN = ROOT / "problemsets" / "WEEKLY_RELEASE_PLAN.tsv"
 BOOK = ROOT / "notes" / "Microeconomics_1_notes_by_Victor_Aguiar.lyx"
 BANK = ROOT / "problems" / "PROBLEM_BANK.md"
 PATHWAYS = ROOT / "problems" / "CHAPTER_PATHWAYS.tsv"
+RESERVE_BANK = ROOT / "problems" / "RESERVE_BANK.md"
+RESERVE_MAP = ROOT / "problemsets" / "RESERVE_WEEKLY_MAP.tsv"
 START = "ECON803_WEEKLY_PLAN_START"
 END = "ECON803_WEEKLY_PLAN_END"
 
@@ -57,7 +59,45 @@ def schedule_pdf_metadata() -> str:
     )
 
 
-def read_plan() -> list[dict[str, str]]:
+def read_reserve_map() -> dict[str, tuple[str, str]]:
+    reserve_ids = set(
+        re.findall(
+            r"^##\s+(R[0-9]{3})\s+\|",
+            RESERVE_BANK.read_text(encoding="utf-8"),
+            flags=re.MULTILINE,
+        )
+    )
+    with RESERVE_MAP.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t")
+        expected = ["set", "required_reserve_ids", "optional_reserve_ids"]
+        if reader.fieldnames != expected:
+            raise ValueError("unexpected reserve-map columns")
+        rows = list(reader)
+    if [row["set"] for row in rows] != [f"PS{i:02d}" for i in range(1, 14)]:
+        raise ValueError("reserve map must contain consecutive PS01-PS13 rows")
+    assigned: list[str] = []
+    result: dict[str, tuple[str, str]] = {}
+    for row in rows:
+        required = row["required_reserve_ids"].strip()
+        optional = row["optional_reserve_ids"].strip()
+        result[row["set"]] = (required, optional)
+        for value in (required, optional):
+            assigned.extend(item.strip() for item in value.split(",") if item.strip())
+    if len(assigned) != len(set(assigned)):
+        raise ValueError("a reserve problem is assigned more than once")
+    if set(assigned) != reserve_ids:
+        missing = sorted(reserve_ids - set(assigned))
+        extra = sorted(set(assigned) - reserve_ids)
+        detail = []
+        if missing:
+            detail.append("missing " + ", ".join(missing))
+        if extra:
+            detail.append("unknown " + ", ".join(extra))
+        raise ValueError("reserve-map mismatch: " + "; ".join(detail))
+    return result
+
+
+def read_plan() -> tuple[list[dict[str, str]], dict[str, tuple[str, str]]]:
     with PLAN.open(encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle, delimiter="\t")
         expected = [
@@ -107,10 +147,12 @@ def read_plan() -> list[dict[str, str]]:
     missing = sorted(expected - set(assigned))
     if missing:
         raise ValueError("unassigned non-case problem IDs: " + ", ".join(missing))
-    return rows
+    return rows, read_reserve_map()
 
 
-def render(rows: list[dict[str, str]]) -> str:
+def render(
+    rows: list[dict[str, str]], reserve: dict[str, tuple[str, str]]
+) -> str:
     parts = [
         layout("Chapter*", "Weekly Problem Sets: Fall 2026"),
         marker(START),
@@ -134,6 +176,11 @@ def render(rows: list[dict[str, str]]) -> str:
         parts.append(
             layout("Description", f"Extension {row['extension_ids'] or 'None'}")
         )
+        reserve_required, reserve_optional = reserve[row["set"]]
+        if reserve_required:
+            parts.append(layout("Description", f"Reserve required {reserve_required}"))
+        if reserve_optional:
+            parts.append(layout("Description", f"Reserve optional {reserve_optional}"))
     parts.extend(
         [
             layout(
@@ -194,9 +241,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    rows = read_plan()
+    rows, reserve = read_plan()
     source = BOOK.read_text(encoding="utf-8")
-    revised = replace_or_insert(source, render(rows))
+    revised = replace_or_insert(source, render(rows, reserve))
     if args.check:
         if source != revised:
             raise SystemExit("weekly problem-set plan is not synchronized")

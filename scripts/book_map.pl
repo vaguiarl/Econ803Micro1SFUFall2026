@@ -50,6 +50,29 @@ for (my $i = 0; $i < @lines; $i++) {
         }
         next;
     }
+    if ($lines[$i] =~ /^\\begin_layout Chapter\*$/) {
+        my $title = layout_text($i);
+        if ($title eq 'Additional Practice Reserve') {
+            $chapter = $title;
+            if (!$seen_chapter{$chapter}++) {
+                push @chapters, $chapter;
+                $part_for{$chapter} = 'Supplemental material';
+            }
+        } elsif ($title eq 'Weekly Problem Sets: Fall 2026') {
+            # This is a schedule, not a book chapter.  Clear the current
+            # chapter so its unnumbered weekly headings are not attributed to
+            # the assessment reserve.
+            $chapter = '';
+        }
+        next;
+    }
+    if ($chapter eq 'Additional Practice Reserve' &&
+        $lines[$i] =~ /^\\begin_layout Section\*$/) {
+        my $title = layout_text($i);
+        push @{$sections{$chapter}}, ['Section', $title];
+        $section_count{$title}++;
+        next;
+    }
     if ($chapter ne '' && $lines[$i] =~ /^\\begin_layout ([\w*]+)$/ && $formal{$1}) {
         my $kind = $1;
         # Consecutive LyX Exercise layouts are exported as one theorem

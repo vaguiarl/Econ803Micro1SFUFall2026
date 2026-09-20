@@ -1,0 +1,14 @@
+set	required_reserve_ids	optional_reserve_ids
+PS01	""	""
+PS02	""	""
+PS03	""	R001
+PS04	""	R002, R004
+PS05	""	""
+PS06	""	R003
+PS07	""	""
+PS08	""	R005
+PS09	""	R006
+PS10	""	R008, R009
+PS11	""	R007, R010
+PS12	""	""
+PS13	""	""

@@ -20,6 +20,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Advanced Equilibrium Applications | Sequential Trade | 3 | 1 | 0 | 3 |
 | Advanced Equilibrium Applications | Matching | 1 | 2 | 0 | 3 |
 | Advanced Equilibrium Applications | Computable General Equilibrium | 1 | 0 | 0 | 3 |
+| Supplemental material | Additional Practice Reserve | 0 | 0 | 0 | 10 |
 | Mathematical appendices | Order Theory | 7 | 6 | 6 | 9 |
 | Mathematical appendices | Technical Theorem Records | 0 | 2 | 0 | 0 |
 | Mathematical appendices | Glossary of Symbols | 0 | 0 | 0 | 0 |
@@ -202,6 +203,13 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Equilibrium closure
 - Counterfactual policies
 - Problems
+
+### Additional Practice Reserve
+
+- Revealed Preference and Recoverability
+- Abstract Choice and Order Foundations
+- Production and Competitive Markets
+- Equilibrium, Trade, and Computation
 
 ### Order Theory
 

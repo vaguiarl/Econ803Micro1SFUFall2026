@@ -19586,6 +19586,725 @@ ECON803_PROBLEMS_END:computable-general-equilibrium
 \end_layout
 
 \begin_layout Chapter*
+Additional Practice Reserve
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ECON803_RESERVE_START
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+markboth{ADDITIONAL PRACTICE RESERVE}{ADDITIONAL PRACTICE RESERVE}
+\backslash
+addcontentsline{toc}{chapter}{Additional Practice Reserve}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These question-only problems are cleaned and independently checked descendants of older Western/UWO and SFU assessments. Each begins with hand-solvable work and then supplies a controlled formal or computational scale-up. They supplement, rather than replace, the end-of-chapter problem sets. Solutions and source provenance are kept in the private instructor handbook.
+\end_layout
+
+\begin_layout Section*
+Revealed Preference and Recoverability
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R001 [Proof]. Quasilinear Afriat inequalities and welfare bounds.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS03.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+Let \begin_inset Formula $\mathcal O=\{(p^t,x^t)\}_{t=1}^T$\end_inset
+, where \begin_inset Formula $p^t\gg 0$\end_inset
+ and \begin_inset Formula $x^t\in\mathbb R_+^L$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Prove that the observations can satisfy \begin_inset Formula $x^t\in\arg\max_{x\in\mathbb R_+^L}\{u(x)-p^t\cdot x\}$\end_inset
+ only if there are numbers \begin_inset Formula $v^1,\ldots,v^T$\end_inset
+ such that \begin_inset Formula $v^t-v^s\ge p^t\cdot(x^t-x^s)$\end_inset
+ for every \begin_inset Formula $s,t$\end_inset
+. Prove the converse by studying \begin_inset Formula $u(x)=\min_t\{v^t+p^t\cdot(x-x^t)\}$\end_inset
+. Establish continuity, concavity, strict monotonicity, and rationalization rather than merely citing Afriat's theorem.
+\end_layout
+
+\begin_layout Exercise*
+For \begin_inset Formula $V(p)=\max_{x\in\mathbb R_+^L}\{u(x)-p\cdot x\}$\end_inset
+, suppose optimizers \begin_inset Formula $x(p)$\end_inset
+ and \begin_inset Formula $x(q)$\end_inset
+ exist. Derive upper and lower bounds on \begin_inset Formula $V(p)-V(q)$\end_inset
+ using the two observed demands. Extend the argument to a finite path of price vectors and state precisely when a componentwise price increase gives a strict welfare loss.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Express the inequalities as a difference-constraints graph. With Codex and Python, implement a feasibility test for arbitrary \begin_inset Formula $T$\end_inset
+ and \begin_inset Formula $L$\end_inset
+, return one normalized vector \begin_inset Formula $v$\end_inset
+, and report a violating positive cycle when the system is infeasible. Unit-test the code on a small rationalizable data set and on a perturbed data set. Verify every returned inequality directly. As an optional Lean task, formalize the telescoping path bound conditional on the finite system of inequalities.
+\end_layout
+
+\begin_layout Section*
+Abstract Choice and Order Foundations
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R002 [Proof]. Sequential satisficing with a default rule.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS04.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+Let \begin_inset Formula $X$\end_inset
+ be finite, let \begin_inset Formula $\triangleright$\end_inset
+ be a strict linear (total) search order, and let \begin_inset Formula $S=\{x:u(x)\ge\bar u\}$\end_inset
+. From a nonempty menu \begin_inset Formula $A$\end_inset
+, inspect alternatives in the order \begin_inset Formula $\triangleright$\end_inset
+ and choose the first member of \begin_inset Formula $A\cap S$\end_inset
+. If \begin_inset Formula $A\cap S$\end_inset
+ is empty, choose the \begin_inset Formula $\triangleright$\end_inset
+-first member of \begin_inset Formula $A$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Construct a single strict priority order \begin_inset Formula $\succ^*$\end_inset
+ whose maximal element agrees with this procedure on every nonempty menu. Use that representation to prove WARP and SARP. Explain exactly why the fallback clause is necessary for a full-domain choice function. Give a three-alternative example and list the choice from every nonempty menu.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Encode finite menus, the search order, the threshold set, and the fallback choice. Ask Codex to generate either a Lean proof or an exhaustive checker establishing equality between sequential choice and \begin_inset Formula $\succ^*$\end_inset
+-maximization. Scale from three alternatives to all menus of a user-chosen finite set, and include a deliberately broken implementation without the fallback to exhibit its failure of full-domain nonemptiness.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R003 [Applied]. Choice overload and attraction through menu-dependent attention.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS06.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+An outside option \begin_inset Formula $o$\end_inset
+ is always considered. In a menu with \begin_inset Formula $n$\end_inset
+ active products, each active product is independently considered with baseline probability \begin_inset Formula $q_n=1/n^2$\end_inset
+; the consumer chooses the highest-\begin_inset Formula $u$\end_inset
+ considered item, or \begin_inset Formula $o$\end_inset
+ if none is considered. Utilities are strict. When a target \begin_inset Formula $b$\end_inset
+ and its dominated decoy \begin_inset Formula $b^-$\end_inset
+ are both offered, the consideration probability of \begin_inset Formula $b$\end_inset
+ rises by \begin_inset Formula $\delta=1/3$\end_inset
+, while all other baseline probabilities remain unchanged.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Compare \begin_inset Formula $A_2=\{a,c,o\}$\end_inset
+ with \begin_inset Formula $A_3=\{a,c,d,o\}$\end_inset
+ and calculate the probability of choosing \begin_inset Formula $o$\end_inset
+. Next let \begin_inset Formula $u(b)>u(c)>u(b^-)>u(o)$\end_inset
+ and compare \begin_inset Formula $A=\{b,c,o\}$\end_inset
+ with \begin_inset Formula $B=\{b,b^-,c,o\}$\end_inset
+. Calculate the probability of choosing \begin_inset Formula $b$\end_inset
+ in both menus. Prove that the resulting attraction inequality cannot be generated by any menu-independent random-utility model.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Build an exact enumerator over consideration sets and a Monte Carlo simulation. Confirm the hand calculations, then vary \begin_inset Formula $n$\end_inset
+, \begin_inset Formula $\delta$\end_inset
+, and the ranking. Ask Codex to produce automated checks for probability adding-up, the parameter domain, regularity violations, and convergence of the simulation to the exact probabilities. Report which changes generate overload, attraction, both, or neither.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R004 [Proof]. Maximal choice under incompleteness and a GARP failure.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS04.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+Let \begin_inset Formula $X=\{a,b,c\}$\end_inset
+. Define an incomplete preorder \begin_inset Formula $R$\end_inset
+ by reflexivity together with \begin_inset Formula $bPa$\end_inset
+; alternative \begin_inset Formula $c$\end_inset
+ is incomparable with both \begin_inset Formula $a$\end_inset
+ and \begin_inset Formula $b$\end_inset
+. From each nonempty menu \begin_inset Formula $A$\end_inset
+, let \begin_inset Formula $C(A)$\end_inset
+ contain all \begin_inset Formula $R$\end_inset
+-maximal elements.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Compute \begin_inset Formula $C(A)$\end_inset
+ for every nonempty menu. Define direct revealed preference by \begin_inset Formula $xR^Dy$\end_inset
+ when some menu chooses \begin_inset Formula $x$\end_inset
+ while making \begin_inset Formula $y$\end_inset
+ feasible, and define \begin_inset Formula $xP^Dy$\end_inset
+ when that menu rejects \begin_inset Formula $y$\end_inset
+. Show that the transitive closure \begin_inset Formula $(R^D)^*$\end_inset
+, together with \begin_inset Formula $P^D$\end_inset
+, violates the standard GARP test; identify an explicit witness. Explain why this does not contradict maximality under an incomplete preorder.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Represent finite preorders and maximal-choice correspondences in Lean or Python. Verify reflexivity and transitivity of the primitive relation, compute all maximal sets, and mechanically exhibit the revealed-preference path. Then enumerate all three-alternative preorders and classify which induced maximal-choice data satisfy GARP. Distinguish a failure of the data test from a failure of the primitive preorder axioms.
+\end_layout
+
+\begin_layout Section*
+Production and Competitive Markets
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R005 [Proof]. Aggregating heterogeneous Cobb–Douglas firms.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS08.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+Firm \begin_inset Formula $j$\end_inset
+ has technology \begin_inset Formula $q_j=A_j\ell_j^{a_j}k_j^{b_j}$\end_inset
+ with \begin_inset Formula $A_j>0$\end_inset
+, \begin_inset Formula $a_j,b_j>0$\end_inset
+, and \begin_inset Formula $a_j+b_j<1$\end_inset
+. Its net-output set is \begin_inset Formula $Y_j=\{(-\ell,-k,q):q\le A_j\ell^{a_j}k^{b_j},\ \ell,k\ge0\}$\end_inset
+. Output price is \begin_inset Formula $p>0$\end_inset
+ and input prices are \begin_inset Formula $w_\ell,w_k>0$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Derive the unique profit-maximizing output, both input demands, and profit. State where decreasing returns are used. Prove that the aggregate technology is the Minkowski sum \begin_inset Formula $Y=Y_1+\cdots+Y_J$\end_inset
+ and that its profit function is the sum of the firm profit functions. State the corresponding Hotelling result both at differentiable prices and in subdifferential form, using derivatives \begin_inset Formula $(q_j,-\ell_j,-k_j)$\end_inset
+ with respect to \begin_inset Formula $(p,w_\ell,w_k)$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Generate a heterogeneous population of firms and compute aggregate supply and factor demands. Verify numerically that direct maximization over firm-level allocations agrees with the sum of closed-form firm solutions. Use automatic or symbolic differentiation to check Hotelling's lemma, and test how the aggregate elasticity changes with the distribution of returns-to-scale parameters.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R006 [Applied]. Selection versus capacity destruction in partial equilibrium.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS09.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+There is a mass \begin_inset Formula $\eta>0$\end_inset
+ of consumers with \begin_inset Formula $u(x,m;\alpha)=2\sqrt{\alpha x}+m$\end_inset
+ and \begin_inset Formula $\alpha\sim U[0,1]$\end_inset
+. The numeraire is unrestricted, or wealth is sufficient for the interior solution. There is initially a unit mass of firms with \begin_inset Formula $C(q;e)=q^2/(2e)$\end_inset
+ and \begin_inset Formula $e\sim U[0,1]$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Derive individual and aggregate demand, firm supply and profit, and the competitive equilibrium price. Verify Hotelling's lemma. Compare two shocks: (i) the unit mass of firms is replaced by a unit mass with \begin_inset Formula $e\sim U[1/2,1]$\end_inset
+; (ii) firms with \begin_inset Formula $e<1/2$\end_inset
+ disappear without replacement. Solve for both new prices and explain why selection and capacity destruction have opposite price effects. At the baseline equilibrium, compute the cross-sectional variance of consumption and mean indirect utility when numeraire wealth is constant.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Replace the uniform type distributions by beta distributions and allow an arbitrary survival cutoff. Derive the market-clearing equation, solve it numerically over a parameter grid, and separate the effect of changing the conditional productivity distribution from changing producer mass. Include monotonicity checks and compare numerical integration with the uniform closed form.
+\end_layout
+
+\begin_layout Section*
+Equilibrium, Trade, and Computation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R007 [Applied]. CES structural gravity and multilateral resistance.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS11.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+Destination \begin_inset Formula $j$\end_inset
+ has CES utility \begin_inset Formula $U_j=[\sum_i a_i^{1/\sigma}c_{ij}^{(\sigma-1)/\sigma}]^{\sigma/(\sigma-1)}$\end_inset
+ with \begin_inset Formula $\sigma>1$\end_inset
+ and \begin_inset Formula $a_i,p_i,\tau_{ij},y_j>0$\end_inset
+. Delivered prices are \begin_inset Formula $p_{ij}=p_i\tau_{ij}$\end_inset
+ and bilateral expenditure is \begin_inset Formula $x_{ij}:=p_i\tau_{ij}c_{ij}$\end_inset
+. Total income is \begin_inset Formula $Y=\sum_jy_j$\end_inset
+, and balanced expenditure and income impose market clearing \begin_inset Formula $y_i=\sum_jx_{ij}$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Derive the CES price index, bilateral quantities, and bilateral expenditure. With \begin_inset Formula $\theta_j=y_j/Y$\end_inset
+, define an outward multilateral-resistance index and derive the structural-gravity equation together with the inward-index system. Take logs and identify the exporter effect, importer effect, and trade-cost coefficient. Explain the reciprocal scale freedom and state a normalization; do not claim that symmetric trade costs alone pin down every unnormalized inward and outward index as equal.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. For a synthetic economy with at least ten countries, solve the normalized multilateral-resistance system in log variables. Verify market clearing, bilateral adding-up, positivity, and invariance to the discarded scale normalization. Compare fixed-point iteration with a root solver and report convergence diagnostics. Recover the trade-cost coefficient from a regression with exporter and importer fixed effects.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R008 [Proof]. Why a Banach argument fails even when existence and uniqueness hold.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS10.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+On \begin_inset Formula $K=[1/2,2]^2$\end_inset
+, consider \begin_inset Formula $g:K\to\mathbb R^2$\end_inset
+ with identical components \begin_inset Formula $g_j(P)=[(P_1^{-1/2}+P_2^{-1/2})/2]^2$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Prove that \begin_inset Formula $g$\end_inset
+ is a continuous self-map of \begin_inset Formula $K$\end_inset
+ and use the appropriate fixed-point theorem to establish existence. Compute \begin_inset Formula $Dg(1,1)$\end_inset
+, its eigenvalues, and its Euclidean operator norm. Explain why no contraction proof in any induced norm can follow from the stated map. Nevertheless, prove directly that the positive fixed point is unique. Exhibit a two-cycle of the un-damped Picard iteration.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Use interval arithmetic or Lean-supported inequalities to certify invariance of \begin_inset Formula $K$\end_inset
+ and the derivative calculation. Compare plain iteration, the damped rule \begin_inset Formula $P^{n+1}=(1-\lambda)P^n+\lambda g(P^n)$\end_inset
+ for \begin_inset Formula $\lambda=1/2$\end_inset
+, and a root solver from multiple starting values. Ask Codex to create tests that distinguish existence, uniqueness, local stability, and global contraction; the report must not infer one property from another.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R009 [Proof]. A regular two-good economy with three equilibria.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS10.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+Normalize prices to \begin_inset Formula $(q,1)$\end_inset
+. Consumer 1 chooses \begin_inset Formula $a\ge0,b>0$\end_inset
+, has \begin_inset Formula $u_1(a,b)=a-\tfrac18b^{-8}$\end_inset
+, and owns \begin_inset Formula $(2,r)$\end_inset
+. Consumer 2 chooses \begin_inset Formula $c>0,d\ge0$\end_inset
+, has \begin_inset Formula $u_2(c,d)=-\tfrac18c^{-8}+d$\end_inset
+, and owns \begin_inset Formula $(r,2)$\end_inset
+, where \begin_inset Formula $r=2^{8/9}-2^{1/9}$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Derive both consumers' interior demands and prove that \begin_inset Formula $a(q),d(q)>0$\end_inset
+ for every \begin_inset Formula $q>0$\end_inset
+, so boundary demand cannot create an omitted equilibrium. Derive the good-2 excess-demand function. Show that \begin_inset Formula $q\in\{1/2,1,2\}$\end_inset
+ are equilibria and that there are no other positive normalized equilibria. Verify that each equilibrium is regular and locally isolated. Compute \begin_inset Formula $z_2'(1)$\end_inset
+ and compare it with the gross-substitutes requirement \begin_inset Formula $z_2'(1)\ge0$\end_inset
+. Explain why regularity does not imply uniqueness.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Put \begin_inset Formula $t=q^{1/9}$\end_inset
+ and use a computer algebra system to certify the positive-root count without relying only on a plot. Check all equilibrium residuals and derivatives at high precision. Choose one scalar endowment perturbation, initialize continuation at each baseline equilibrium, and trace each local branch only until regularity fails or the declared small parameter interval ends. Connect the local numerical result to the implicit-function theorem. Optionally formalize the exact three roots and their nonzero derivatives in Lean.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem R010 [Applied]. A complete-markets Radner equilibrium by hand.
+\series default
+\end_layout
+
+\begin_layout Exercise*
+Suggested weekly placement: PS11.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+There are two consumers, two states \begin_inset Formula $A,B$\end_inset
+, and two goods in each state. Both consumers have equal state probabilities and state utility \begin_inset Formula $\log c_1+\log c_2$\end_inset
+. Each owns \begin_inset Formula $\omega>0$\end_inset
+ units of good 2 in each state. Consumer 1's good-1 endowment is \begin_inset Formula $(\omega/2,3\omega/2)$\end_inset
+ across states, and consumer 2's is reversed. Good 1 is the state numeraire and \begin_inset Formula $r_s$\end_inset
+ is the state-\begin_inset Formula $s$\end_inset
+ price of good 2. Arrow security \begin_inset Formula $s$\end_inset
+ pays one unit of good 1 in state \begin_inset Formula $s$\end_inset
+. Consumer \begin_inset Formula $i$\end_inset
+ holds \begin_inset Formula $\theta_{is}$\end_inset
+, securities are in zero net supply, and the date-0 asset budget is \begin_inset Formula $Q_A\theta_{iA}+Q_B\theta_{iB}=0$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+Part I — by hand. Normalize the state-\begin_inset Formula $B$\end_inset
+ security price to \begin_inset Formula $Q_B=1$\end_inset
+ and write \begin_inset Formula $q=Q_A$\end_inset
+. Derive individual security demands as functions of \begin_inset Formula $q,r_A,r_B$\end_inset
+. Show that commodity clearing under equal spot prices requires \begin_inset Formula $r_A=r_B=1$\end_inset
+ and that the equilibrium security-price ratio is one. Calculate portfolios and state consumption, and verify both commodity and security clearing. Explain the role of strict concavity and price normalization in the uniqueness statement.
+\end_layout
+
+\begin_layout Exercise*
+Part II — verified scale-up. Generalize the computation to \begin_inset Formula $S$\end_inset
+ states and a full set of Arrow securities. Build the sequential budget matrix, solve the equilibrium numerically, and verify state-by-state feasibility and zero net security supply. Ask Codex or Lean to check the linear identity mapping sequential budgets into the Arrow–Debreu present-value budget, clearly separating the algebraic equivalence from equilibrium existence.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ECON803_RESERVE_END
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
 Weekly Problem Sets: Fall 2026
 \end_layout
 
@@ -19671,6 +20390,10 @@ Required 3.1, 3.3, 3.6
 Extension 3.2, 3.5
 \end_layout
 
+\begin_layout Description
+Reserve optional R001
+\end_layout
+
 \begin_layout Section*
 PS04: Abstract choice and order foundations
 \end_layout
@@ -19685,6 +20408,10 @@ Required 4.1, 4.3, A.1
 
 \begin_layout Description
 Extension A.2
+\end_layout
+
+\begin_layout Description
+Reserve optional R002, R004
 \end_layout
 
 \begin_layout Section*
@@ -19719,6 +20446,10 @@ Required 6.1, 6.3, 7.1
 Extension 7.2
 \end_layout
 
+\begin_layout Description
+Reserve optional R003
+\end_layout
+
 \begin_layout Section*
 PS07: Aggregation
 \end_layout
@@ -19751,6 +20482,10 @@ Required 9.1, 9.3
 Extension 9.2
 \end_layout
 
+\begin_layout Description
+Reserve optional R005
+\end_layout
+
 \begin_layout Section*
 PS09: Competitive markets and exchange
 \end_layout
@@ -19765,6 +20500,10 @@ Required 10.1, 10.2, 11.1
 
 \begin_layout Description
 Extension 10.3
+\end_layout
+
+\begin_layout Description
+Reserve optional R006
 \end_layout
 
 \begin_layout Section*
@@ -19783,6 +20522,10 @@ Required 11.2, 12.1, 12.2
 Extension 11.3, 12.3
 \end_layout
 
+\begin_layout Description
+Reserve optional R008, R009
+\end_layout
+
 \begin_layout Section*
 PS11: Empirical equilibrium and asset markets
 \end_layout
@@ -19797,6 +20540,10 @@ Required 13.1, 14.1, 14.2
 
 \begin_layout Description
 Extension 13.2
+\end_layout
+
+\begin_layout Description
+Reserve optional R007, R010
 \end_layout
 
 \begin_layout Section*
