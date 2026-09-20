@@ -24,6 +24,7 @@ The Fall 2026 baseline has four commitments:
 - Reader/full theorem architecture and migration record: [`THEOREM_STAR_PLAN.md`](THEOREM_STAR_PLAN.md)
 - Figure, provenance, and rights audit: [`FIGURE_AUDIT.md`](FIGURE_AUDIT.md)
 - Canonical question-only problem bank: [`problems/PROBLEM_BANK.md`](problems/PROBLEM_BANK.md)
+- Two-part weekly problem sets: [`problemsets/README.md`](problemsets/README.md)
 - Artists case study, Problem 10.4: [Music Sales and Concerts (PDF)](problems/case_studies/Artists_Music_and_Concerts.pdf) ([LyX](problems/case_studies/Artists_Music_and_Concerts.lyx))
 - Publication-baseline review: [`EDITORIAL_REVIEW.md`](EDITORIAL_REVIEW.md)
 - Backward editorial and formalization plan: [`EDITORIAL_AUDIT.md`](EDITORIAL_AUDIT.md)
