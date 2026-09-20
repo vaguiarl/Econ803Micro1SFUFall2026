@@ -125,7 +125,7 @@ name "app:notation-glossary"
 \\end_layout
 
 \\begin_layout Standard
-This appendix records the book's persistent notation.  Each blue symbol links back to its first substantive use in the text.  There, the blue first use links here.  A symbol described as scoped may be reused only after the new local meaning is stated explicitly.
+This glossary records the book's persistent notation.  Each blue symbol links back to its first substantive use in the text.  There, the blue first use links here.  A symbol described as scoped may be reused only after the new local meaning is stated explicitly.
 \\end_layout
 
 """,

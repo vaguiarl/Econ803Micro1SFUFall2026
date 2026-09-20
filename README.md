@@ -2,6 +2,8 @@
 
 This repository contains the public, student-facing first edition of Victor Aguiar's graduate microeconomic theory text for Simon Fraser University. The book is designed for the role that *Microeconomic Theory* by Mas-Colell, Whinston, and Green has traditionally played: a rigorous common language for graduate theory, complemented by modern revealed-preference, behavioral, random-choice, and computational material.
 
+The Fall 2026 course runs from September 9 through December 7. Class meets Fridays from 9:30 a.m. to 12:20 p.m. in WMC 4602.
+
 The Fall 2026 baseline has four commitments:
 
 1. every mathematical statement is written with its objects and hypotheses visible;
@@ -19,7 +21,7 @@ The Fall 2026 baseline has four commitments:
 - Notation link-validation ledger: [`editorial/notation/glossary.tsv`](editorial/notation/glossary.tsv)
 - Mathematical verification ledger: [`formal/COVERAGE.md`](formal/COVERAGE.md)
 - Lean proof architecture: [`formal/ARCHITECTURE.md`](formal/ARCHITECTURE.md)
-- Reader/full theorem-pair plan: [`THEOREM_STAR_PLAN.md`](THEOREM_STAR_PLAN.md)
+- Reader/full theorem architecture and migration record: [`THEOREM_STAR_PLAN.md`](THEOREM_STAR_PLAN.md)
 - Figure, provenance, and rights audit: [`FIGURE_AUDIT.md`](FIGURE_AUDIT.md)
 - Canonical question-only problem bank: [`problems/PROBLEM_BANK.md`](problems/PROBLEM_BANK.md)
 - Publication-baseline review: [`EDITORIAL_REVIEW.md`](EDITORIAL_REVIEW.md)
@@ -39,8 +41,8 @@ The command rebuilds and preflights all vector figures before exporting LyX, ver
 
 ## Assessment policy
 
-This public edition contains 55 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. The canonical prompts live in `problems/PROBLEM_BANK.md` and are injected reproducibly into the LyX manuscript. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Standalone student sheets will be released one at a time from the same stable problem bank.
+This public edition contains 57 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. The canonical prompts live in `problems/PROBLEM_BANK.md` and are injected reproducibly into the LyX manuscript. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Standalone student sheets will be released one at a time from the same stable problem bank.
 
 ## Status
 
-This is the Fall 2026 public baseline: a complete, buildable textbook manuscript with unified notation, references, end-of-chapter problems, vector artwork, and a reproducible Lean verification layer. The proposed starred reader-theorem/full-appendix architecture is mapped and mechanically validated, but the 22 theorem pairs have not yet been migrated into the LyX manuscript. Later releases should preserve stable problem and theorem identifiers and must not change the book's notation or logical spine silently.
+This is the Fall 2026 public baseline: a complete, buildable textbook manuscript with unified notation, references, end-of-chapter problems, vector artwork, and a reproducible Lean verification layer. The book now begins with utility maximization, develops duality and welfare, and then treats revealed preference as the observable content and extension of the benchmark model. Abstract choice, risk, stochastic choice, costly attention, and aggregation follow in that order. The theorem-pair ledger tracks 24 reader/full pairs: the WGARP and WARP coalitional multi-utility pairs are migrated, 19 pairs remain planned, and 3 remain source-gated. The WGARP pair has a checked wrapper around the pinned external theorem; the WARP strict-CMU result is cited only and carries no Lean-verification claim. Later releases should preserve stable problem and theorem identifiers and must not change the book's notation or logical spine silently.

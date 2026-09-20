@@ -23,6 +23,8 @@ EXPECTED_PAIR_IDS = (
     "TS-C03-DEMAND-CONTINUITY",
     "TS-C03-CONSUMER-DUALITY",
     "TS-C03-AFRIAT",
+    "TS-C03-WGARP-CMU",
+    "TS-C03-WARP-CMU",
     "TS-C05-EU-FINITE",
     "TS-C05-FOSD",
     "TS-C05-RISK-DATA",
@@ -40,6 +42,37 @@ EXPECTED_PAIR_IDS = (
     "TS-C14-GALE-SHAPLEY",
     "TS-C14-TTC",
 )
+
+# Pair IDs are stable public identifiers.  Their embedded Cxx segments record
+# the chapter in which the pair was first registered and are not renumbered
+# when the book architecture changes.  This separate map is the authoritative
+# current placement and prevents a move from silently changing an identifier.
+CURRENT_CHAPTER_BY_PAIR = {
+    "TS-C01-WARP-CLD": "3",
+    "TS-C02-RATIONAL-WARP": "4",
+    "TS-C03-CONTINUOUS-UTILITY": "4",
+    "TS-C03-DEMAND-CONTINUITY": "1",
+    "TS-C03-CONSUMER-DUALITY": "2",
+    "TS-C03-AFRIAT": "3",
+    "TS-C03-WGARP-CMU": "3",
+    "TS-C03-WARP-CMU": "3",
+    "TS-C05-EU-FINITE": "5",
+    "TS-C05-FOSD": "5",
+    "TS-C05-RISK-DATA": "5",
+    "TS-C06-GORMAN": "8",
+    "TS-C07-SURPLUS-ENVELOPE": "6",
+    "TS-C08-FIRM-DUALITY": "9",
+    "TS-C09-PARTIAL-EQUILIBRIUM": "10",
+    "TS-C10-FIRST-WELFARE": "11",
+    "TS-C10-SECOND-WELFARE": "11",
+    "TS-C11-EXISTENCE": "12",
+    "TS-C11-GROSS-SUBSTITUTES": "12",
+    "TS-C11-SMD": "12",
+    "TS-C12-BROWN-MATZKIN": "13",
+    "TS-C13-ARROW-RADNER": "14",
+    "TS-C14-GALE-SHAPLEY": "15",
+    "TS-C14-TTC": "15",
+}
 
 REQUIRED_COLUMNS = (
     "pair_id",
@@ -143,6 +176,9 @@ def read_ledger(path: Path, errors: list[str]) -> list[dict[str, str]]:
 
 
 def validate_identity(rows: list[dict[str, str]], errors: list[str]) -> None:
+    if set(CURRENT_CHAPTER_BY_PAIR) != set(EXPECTED_PAIR_IDS):
+        errors.append("current-chapter map must cover exactly the expected pair IDs")
+
     ids = [row["pair_id"] for row in rows]
     duplicates = sorted(key for key, count in Counter(ids).items() if count > 1)
     if duplicates:
@@ -193,10 +229,11 @@ def validate_rows(rows: list[dict[str, str]], errors: list[str]) -> None:
             if not row[field]:
                 errors.append(f"{pair_id}: {field} must not be blank")
 
-        chapter_match = re.match(r"^TS-C(\d{2})-", row["pair_id"])
-        if chapter_match and row["chapter"] != str(int(chapter_match.group(1))):
+        expected_chapter = CURRENT_CHAPTER_BY_PAIR.get(row["pair_id"])
+        if expected_chapter is not None and row["chapter"] != expected_chapter:
             errors.append(
-                f"{pair_id}: chapter {row['chapter']!r} disagrees with the pair ID"
+                f"{pair_id}: chapter {row['chapter']!r} disagrees with the "
+                f"current architecture ({expected_chapter})"
             )
         if row["reader_label"] and not row["reader_label"].startswith("thmstar:"):
             errors.append(f"{pair_id}: reader_label must begin with 'thmstar:'")
@@ -364,7 +401,7 @@ def validate_migration(
     text = lyx_path.read_text(encoding="utf-8")
     for row in migrated:
         for role, field, permitted in (
-            ("reader", "reader_label", {"ReaderTheorem", "Theorem*"}),
+            ("reader", "reader_label", {"ReaderTheorem", "Theorem*", "Theorem"}),
             ("full", "full_label", {"FullTheorem", "Theorem"}),
         ):
             label = row[field]
@@ -381,6 +418,15 @@ def validate_migration(
                 errors.append(
                     f"{row['pair_id']}: {role} label is in {layout!r}, expected {expected}"
                 )
+            elif role == "reader" and layout == "Theorem":
+                layout_start = text.rfind("\\begin_layout Theorem", 0, matches[0].start())
+                layout_end = text.find("\\end_layout", matches[0].end())
+                layout_text = text[layout_start:layout_end]
+                if "Reader theorem" not in layout_text or "\\star" not in layout_text:
+                    errors.append(
+                        f"{row['pair_id']}: reader label in a numbered Theorem layout "
+                        "must explicitly identify itself as a reader theorem with a star"
+                    )
 
 
 def main() -> int:

@@ -12,7 +12,7 @@ The intended identity is clear and defensible: a modern graduate microeconomics 
 
 ## Architecture and editorial control
 
-The book has five parts, fifteen substantive chapters, and a mathematical appendix on order theory. The physical reading order begins with observable choice and demand; the logical dependency map correctly treats order theory as foundational even though it is placed in Appendix A. `BOOK_MAP.md` records the full sequence and currently reports no exact duplicate section titles. Material that legitimately recurs—WARP, GARP, Slutsky restrictions, aggregation, and equilibrium—is now separated by purpose and level of abstraction rather than repeated as parallel introductions.
+The book has five parts, sixteen substantive chapters, an order-theory appendix, a technical theorem-record appendix, and a linked glossary of symbols. The physical reading order now begins with utility maximization and consumer demand, proceeds through duality and welfare, and then treats revealed preference as the observable content and extension of the benchmark model. Abstract choice, risk, stochastic choice, attention, and aggregation follow without restarting the consumer theory. The logical dependency map correctly treats order theory as foundational even though it is placed in Appendix A. `BOOK_MAP.md` records the full sequence and identifies repeated section titles. Material that legitimately recurs—WARP, GARP, Slutsky restrictions, aggregation, and equilibrium—is separated by purpose and level of abstraction rather than repeated as parallel introductions.
 
 The principal repository controls are:
 
@@ -21,10 +21,10 @@ The principal repository controls are:
 - `BOOK_MAP.md` records chapter architecture, formal-block counts, and duplicate headings.
 - `formal/COVERAGE.md` states the verification level of each major topic.
 - `formal/theorem_inventory.tsv` indexes the manuscript's definitions, results, proofs, and examples.
-- `formal/theorem_pairs.tsv` gives 22 stable reader/full theorem identifiers and forbids completion overclaims.
+- `formal/theorem_pairs.tsv` gives 24 stable reader/full theorem identifiers, records migration and proof status separately, and forbids completion overclaims.
 - `FIGURE_AUDIT.md` records every live and legacy figure's technical quality, provenance, rights status, and disposition.
 
-Theorem-like environments now use a common counter reset by chapter, and every chapter has a stable label. The bibliography contains 25 primary or standard sources, with citations attached to the relevant representation, duality, equilibrium, revealed-preference, experimental, matching, and extension results.
+Theorem-like environments now use a common counter reset by chapter, and every chapter has a stable label. The bibliography contains 30 primary or standard sources, with citations attached to the relevant representation, duality, equilibrium, revealed-preference, experimental, matching, attention, and extension results.
 
 ## Mathematical and expository revision completed
 
@@ -62,34 +62,40 @@ The book is **not** fully Lean verified, and no release language should imply th
 | Relation parts, finite greatest elements, transitive closure, and order extension | Local Lean proof plus textbook exposition |
 | Rational choice, set-valued WARP, and strict dominance | Local Lean proof plus textbook exposition |
 | GARP, Afriat inequalities, budget exhaustion, and compensated demand | Exact wrappers around a pinned WGARP commit, compiled in the same Lake build |
+| Finite WGARP and coherent CMU | Checked wrapper around the pinned six-way finite characterization; the bridge to the book's broader compact-coalition formulation remains explicit |
+| WARP and strict coherent CMU | Cited theorem only; the pinned project has no WARP/strict-star-concavity certificate, so no Lean verification is claimed |
 | Consumer/firm value-function algebra, finite stochastic dominance, and welfare/core price arguments | Delimited local Lean cores; the coverage ledger names each missing analytic or model-encoding bridge |
 | Narrative dependency order | Lean-checked structural map only; it does not prove the economic claims |
 | Standard analysis, representation, equilibrium, and matching results | Audited textbook proof or an explicit citation, as recorded in `formal/COVERAGE.md` |
 | Calibrations and model applications | Algebraic/expository verification |
 
-The release script rejects Lean placeholders and local axioms, builds the pinned local and WGARP libraries, prints the kernel assumptions of every public certificate, and validates a 30-target machine-readable coverage ledger. This transparent, result-level ledger is preferable to a blanket verification claim.
+The release script rejects Lean placeholders and local axioms, builds the pinned local and WGARP libraries, prints the kernel assumptions of every public certificate, and validates a 32-target machine-readable coverage ledger. The theorem-pair ledger currently records 24 pairs: 2 migrated, 19 planned, and 3 source-gated. This transparent, result-level ledger is preferable to a blanket verification claim.
 
 ## Problems and solutions
 
-The canonical public bank contains 55 question-only problems covering every chapter and Appendix A. Stable identifiers and the labels **Core**, **Proof**, and **Applied** permit later syllabus and weekly-release references without renumbering. An idempotent generator inserts the bank into the LyX manuscript, and the release check rejects a manuscript that has drifted from the bank.
+The canonical public bank contains 57 question-only problems covering every chapter and Appendix A. Stable identifiers and the labels **Core**, **Proof**, and **Applied** permit later syllabus and weekly-release references without renumbering. The alias table in `problems/PROBLEM_ID_ALIASES.tsv` preserves references to pre-restructure identifiers. An idempotent generator inserts the bank into the LyX manuscript, and the release check rejects a manuscript that has drifted from the bank.
 
 Solutions are maintained in a separate private instructor handbook and must never enter the public repository or its reachable Git history. Before assigning a set, its public prompt and private solution should be checked together for identical assumptions, notation, subpart order, and numerical data. Weekly standalone sheets may select from the same stable bank; the public textbook remains the question-only source of record.
 
+## Release inspection completed
+
+The classroom-edition PDF has received a whole-book visual inspection. All 137 pages were rendered and reviewed in order, including every chapter opening, displayed-mathematics spread, problem section, both appendices, the linked glossary, and the bibliography. No clipped text, overlapping objects, malformed equations, broken headings, or unintended blank pages were found. `scripts/check_book.sh` independently rebuilds the five vector figures, compiles the book, and verifies that the final PDF contains no raster images, Type 3 fonts, or unembedded fonts.
+
+The public-tree assessment check also passes: the release contains the 57 question-only problems but no solutions, answer keys, examinations, or unreleased weekly sets. This inspection establishes a classroom-edition baseline; it does not replace press production review or independent mathematical refereeing.
+
 ## Remaining publication gates
 
-### Required before a public versioned release
+### Required before wide commercial circulation
 
-1. **Complete the whole-book visual inspection.** `scripts/check_book.sh` now rebuilds the five vector figures, compiles the book, and verifies that the final PDF contains no raster images, Type 3 fonts, or unembedded fonts. A human still must inspect every chapter opening, dense equation, problem section, bibliography page, and the end of Appendix A for page breaks and typographic rhythm.
-2. **Close the remaining figure-rights record.** All five live PNG/screenshot figures have been replaced by reproducible vector artwork with self-contained captions and primary citations. The two plots reconstructed from Quah's vector slides still require permission for wide commercial circulation or a fresh reconstruction from licensed experimental data. Unreferenced scan-like legacy assets should remain outside the production tree and be retained only in a private provenance archive.
-3. **Protect assessment separation.** Confirm that the public Git tree and reachable release history contain no solutions, answer keys, examinations, or unreleased weekly sets.
-4. **Obtain an independent mathematical sign-off.** At minimum, assign separate reviewers to consumer/revealed-preference material; production and equilibrium; and risk, random choice, matching, and the mathematical appendix. Track each correction against the theorem inventory.
+1. **Close the remaining figure-rights record.** All five live PNG/screenshot figures have been replaced by reproducible vector artwork with self-contained captions and primary citations. The two plots reconstructed from Quah's vector slides still require permission for wide commercial circulation or a fresh reconstruction from licensed experimental data. Unreferenced scan-like legacy assets should remain outside the production tree and be retained only in a private provenance archive.
+2. **Obtain an independent mathematical sign-off.** At minimum, assign separate reviewers to consumer/revealed-preference material; production and equilibrium; and risk, random choice, matching, and the mathematical appendix. Track each correction against the theorem inventory.
 
 ### Required before submission to an academic press
 
-5. **Commission a professional copyedit.** Apply one publisher style consistently to capitalization, punctuation, displayed equations, theorem names, hyphenation, terminology, citations, and bibliography. The copyeditor should work from LyX and return a change log rather than flattening the source into a one-off PDF.
-6. **Complete publisher-facing apparatus.** Add a preface defining prerequisites and scope, a reader's guide, chapter objectives and summaries, a subject index, and acknowledgments; retain and polish the linked notation glossary. Audit every cross-reference and bibliography entry against the original publication.
-7. **Make the book accessible and reproducible.** Provide meaningful figure descriptions, selectable mathematical text, embedded fonts, bookmarks, and reproducible source data or code for redrawn figures. Pin the Lean and WGARP toolchain versions used for any formal-verification statement attached to a release.
-8. **Independently test the assessment system.** Have a second solver complete every problem without the handbook, then reconcile the solution, difficulty label, prerequisites, expected time, and any admissible alternative answer.
+3. **Commission a professional copyedit.** Apply one publisher style consistently to capitalization, punctuation, displayed equations, theorem names, hyphenation, terminology, citations, and bibliography. The copyeditor should work from LyX and return a change log rather than flattening the source into a one-off PDF.
+4. **Complete publisher-facing apparatus.** Add a preface defining prerequisites and scope, a reader's guide, chapter objectives and summaries, a subject index, and acknowledgments; retain and polish the linked notation glossary. Audit every cross-reference and bibliography entry against the original publication.
+5. **Make the book accessible and reproducible.** Provide meaningful figure descriptions, selectable mathematical text, embedded fonts, bookmarks, and reproducible source data or code for redrawn figures. Pin the Lean and WGARP toolchain versions used for any formal-verification statement attached to a release.
+6. **Independently test the assessment system.** Have a second solver complete every problem without the handbook, then reconcile the solution, difficulty label, prerequisites, expected time, and any admissible alternative answer.
 
 ## Release recommendation
 

@@ -28,6 +28,7 @@ rejected.
 #print axioms Econ803.Consumer.finite_Afriat_theorem
 #print axioms Econ803.Consumer.finite_Afriat_constructive
 #print axioms Econ803.Consumer.compensated_law_of_demand
+#print axioms Econ803.Consumer.finite_wgarp_cmu_characterization
 #check Econ803.Consumer.IsExpenditureValue
 #check Econ803.Consumer.IsSupergradientOn
 #print axioms Econ803.Consumer.expenditure_homogeneous

@@ -17,7 +17,7 @@ The [formatted course outline](course/ECON_803_Fall_2026_Course_Outline.docx) is
 
 ## Description
 
-ECON 803 is a first-year PhD core course in microeconomic theory. It develops a common language for modern theory from individual choice and demand through uncertainty, production, competitive equilibrium, matching, random utility, behavioral economics, and computable general equilibrium. The course emphasizes explicit assumptions, proof strategy, logical dependencies, and testable implications.
+ECON 803 is a first-year PhD core course in microeconomic theory. It develops a common language for modern theory from utility maximization and demand through revealed preference, abstract and stochastic choice, costly attention, production, competitive equilibrium, matching, and computable general equilibrium. The course emphasizes explicit assumptions, proof strategy, logical dependencies, and testable implications.
 
 ## Learning goals
 
@@ -35,25 +35,25 @@ Problem sets count for 10%, the midterm examination for 40%, and the final exami
 
 ## Reading
 
-The required text is Victor H. Aguiar, *Microeconomic Theory I*, Fall 2026 course notes, available as the [student PDF](notes/Microeconomics_1_notes_by_Victor_Aguiar.pdf) with its [editable LyX source](notes/Microeconomics_1_notes_by_Victor_Aguiar.lyx). The primary reference is Mas-Colell, Whinston, and Green, *Microeconomic Theory* (Oxford University Press, 1995). Jehle and Reny, Debreu, and Varian are supplementary references.
+The required text is Victor H. Aguiar, *Microeconomic Theory I*, Fall 2026 course notes, available as the [student PDF](notes/Microeconomics_1_notes_by_Victor_Aguiar.pdf). The [editable LyX file](notes/Microeconomics_1_notes_by_Victor_Aguiar.lyx) is the authoritative source for the live book. The primary reference is Mas-Colell, Whinston, and Green, *Microeconomic Theory* (Oxford University Press, 1995). Jehle and Reny, Debreu, and Varian are supplementary references.
 
 ## Tentative sequence
 
 | Meeting | Theme | Topics |
 |---:|---|---|
-| 1 | Choice data and demand | Budget sets, Walrasian demand, comparative statics, WARP |
-| 2 | Preferences and choice | Preference relations, choice correspondences, rationalization, utility representation |
-| 3 | Utility maximization and duality | UMP and EMP, Roy’s identity, Hicksian demand, Shephard’s lemma, Slutsky |
-| 4 | Integrability and revealed preference | GARP, SARP, Afriat’s theorem, welfare bounds, measurement |
-| 5 | Behavioral consumer theory | Sparse-max demand, perceived prices, limited attention, rational inattention |
-| 6 | Choice under uncertainty | Expected utility, risk attitudes, dominance, experimental evidence |
-| 7 | Aggregation and random choice | Gorman aggregation, aggregate restrictions, random utility, logit |
+| 1 | Utility maximization and demand | Consumption sets, budgets, ordinal utility, existence, Marshallian demand, indirect utility |
+| 2 | Duality, comparative statics, and welfare | Expenditure minimization, Hicksian demand, Roy’s identity, Shephard’s lemma, Slutsky, welfare variation |
+| 3 | Revealed preference and recoverability | WARP, integrability, GARP, Afriat’s theorem, WGARP, coalitional multi-utility, welfare bounds |
+| 4 | Choice without budget geometry | Preference relations, utility representation, choice correspondences, rationalization |
+| 5 | Expected utility and risk | Expected-utility representation, stochastic dominance, risk attitudes, applications and evidence |
+| 6 | Stochastic choice and attention | Random utility, logit and IIA, random expected utility, sparse-max demand, rational inattention |
+| 7 | Aggregation | Gorman aggregation, representative consumers, restrictions on aggregate demand |
 | 8 | Theory of the firm | Production sets, returns to scale, profit and cost minimization, efficiency |
-| 9 | Markets and welfare | Partial equilibrium, general equilibrium, Pareto efficiency, welfare theorems |
+| 9 | Competitive markets and welfare | Partial equilibrium, general equilibrium, Pareto efficiency, welfare theorems |
 | 10 | Positive equilibrium theory | Excess demand, existence, regularity, uniqueness, the core |
-| 11 | Equilibrium with uncertainty | Revealed equilibrium, Arrow–Debreu allocations, sequential trade, Radner markets |
+| 11 | Empirical and sequential equilibrium | Testable equilibrium restrictions, Arrow–Debreu allocations, sequential trade, Radner markets |
 | 12 | Matching | Deferred acceptance, stability, housing-market cores, top trading cycles |
-| 13 | Quantitative applications | CGE calibration, counterfactuals, behavioral general equilibrium |
+| 13 | Computable equilibrium | CGE calibration, model closure, replication, counterfactuals, behavioral general equilibrium |
 
 ## Policies and support
 

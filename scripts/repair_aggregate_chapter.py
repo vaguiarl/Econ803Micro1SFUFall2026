@@ -12,7 +12,7 @@ Aggregate Demand
 \end_layout
 
 \begin_layout Section
-Three questions about aggregation
+Three Questions About Aggregation
 \end_layout
 
 \begin_layout Itemize
@@ -74,7 +74,7 @@ Let consumers be indexed by
 \end_layout
 
 \begin_layout Section
-Gorman aggregation
+Gorman Aggregation
 \end_layout
 
 \begin_layout Definition
@@ -142,7 +142,7 @@ Under the usual differentiability and integrability conditions,
 \end_layout
 
 \begin_layout Section
-Aggregate demand and WARP
+Aggregate Demand and WARP
 \end_layout
 
 \begin_layout Standard
@@ -218,7 +218,7 @@ The proof is additive: sum the individual inequalities at the common wealth shar
 \end_layout
 
 \begin_layout Section
-Representative consumers and welfare
+Representative Consumers and Welfare
 \end_layout
 
 \begin_layout Definition

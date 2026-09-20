@@ -2,6 +2,7 @@ import Econ803.Foundations.Relations
 import Econ803.Choice.WARP
 import Econ803.Consumer.Demand
 import Econ803.Consumer.RevealedPreference
+import Econ803.Consumer.CoalitionalMultiUtility
 import Econ803.Consumer.Duality
 import Econ803.Uncertainty.FiniteDominance
 import Econ803.DiscreteChoice.Logit

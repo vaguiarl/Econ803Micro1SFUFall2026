@@ -1,6 +1,6 @@
 # Consumer block restructuring plan
 
-**Status:** proposed architecture; no manuscript moves have been made.
+**Status:** implemented in the Fall 2026 manuscript. This file preserves the design rationale and migration acceptance criteria; `BOOK_MAP.md` is the current chapter map.
 
 **Authoritative manuscript:** `notes/Microeconomics_1_notes_by_Victor_Aguiar.lyx`
 
@@ -31,9 +31,9 @@ when a preference-first model admits such an ordinal index. A short opening box
 must state that utility is ordinal and point forward to the full representation
 result.
 
-## Why the current opening is not tight
+## Why the former opening was not tight
 
-The current opening offers three competing primitives before relating them:
+The former opening offered three competing primitives before relating them:
 
 1. Chapter 1 takes observable demand as primitive and develops WARP and the
    Slutsky matrix.

@@ -1,0 +1,56 @@
+old_id	new_id	old_chapter	new_chapter	note
+1.1	1.1	Basics of Consumer Theory	Utility Maximization and Consumer Demand	unchanged
+3.1	2.1	Consumer Theory: Utility Maximization	Duality, Comparative Statics, and Welfare	renumbered after consumer-block restructure
+1.3	2.2	Basics of Consumer Theory	Duality, Comparative Statics, and Welfare	renumbered after consumer-block restructure
+3.4	2.3	Consumer Theory: Utility Maximization	Duality, Comparative Statics, and Welfare	renumbered after consumer-block restructure
+1.2	3.1	Basics of Consumer Theory	Revealed Preference and Recoverability	renumbered after consumer-block restructure
+3.2	3.2	Consumer Theory: Utility Maximization	Revealed Preference and Recoverability	unchanged
+3.3	3.3	Consumer Theory: Utility Maximization	Revealed Preference and Recoverability	unchanged
+3.5	3.4	Consumer Theory: Utility Maximization	Revealed Preference and Recoverability	renumbered after consumer-block restructure
+2.1	4.1	Preference and Choice	Choice Without Budget Geometry	renumbered after consumer-block restructure
+2.2	4.2	Preference and Choice	Choice Without Budget Geometry	renumbered after consumer-block restructure
+2.3	4.3	Preference and Choice	Choice Without Budget Geometry	renumbered after consumer-block restructure
+5.1	5.1	Choice under Uncertainty	Expected Utility and Risk	unchanged
+5.2	5.2	Choice under Uncertainty	Expected Utility and Risk	unchanged
+5.3	5.3	Choice under Uncertainty	Expected Utility and Risk	unchanged
+5.4	5.4	Choice under Uncertainty	Expected Utility and Risk	unchanged
+7.1	6.1	Discrete Choice and Random Utility	Stochastic Choice and Random Utility	renumbered after consumer-block restructure
+7.2	6.2	Discrete Choice and Random Utility	Stochastic Choice and Random Utility	renumbered after consumer-block restructure
+7.3	6.3	Discrete Choice and Random Utility	Stochastic Choice and Random Utility	renumbered after consumer-block restructure
+4.1	7.1	Behavioral Economics: Sparse-Max and Rational Inattention	Limited Attention and Costly Information	renumbered after consumer-block restructure
+4.2	7.2	Behavioral Economics: Sparse-Max and Rational Inattention	Limited Attention and Costly Information	renumbered after consumer-block restructure
+4.3	7.3	Behavioral Economics: Sparse-Max and Rational Inattention	Limited Attention and Costly Information	renumbered after consumer-block restructure
+6.1	8.1	Aggregate Demand	Aggregate Demand and Representative Consumers	renumbered after consumer-block restructure
+6.2	8.2	Aggregate Demand	Aggregate Demand and Representative Consumers	renumbered after consumer-block restructure
+6.3	8.3	Aggregate Demand	Aggregate Demand and Representative Consumers	renumbered after consumer-block restructure
+8.1	9.1	Theory of the Firm	Theory of the Firm	renumbered after consumer-block restructure
+8.2	9.2	Theory of the Firm	Theory of the Firm	renumbered after consumer-block restructure
+8.3	9.3	Theory of the Firm	Theory of the Firm	renumbered after consumer-block restructure
+8.4	9.4	Theory of the Firm	Theory of the Firm	renumbered after consumer-block restructure
+9.1	10.1	Competitive Markets and Partial Equilibrium	Competitive Markets and Partial Equilibrium	renumbered after consumer-block restructure
+9.2	10.2	Competitive Markets and Partial Equilibrium	Competitive Markets and Partial Equilibrium	renumbered after consumer-block restructure
+9.3	10.3	Competitive Markets and Partial Equilibrium	Competitive Markets and Partial Equilibrium	renumbered after consumer-block restructure
+10.1	11.1	General Equilibrium Theory	General Equilibrium Theory	renumbered after consumer-block restructure
+10.2	11.2	General Equilibrium Theory	General Equilibrium Theory	renumbered after consumer-block restructure
+10.3	11.3	General Equilibrium Theory	General Equilibrium Theory	renumbered after consumer-block restructure
+10.4	11.4	General Equilibrium Theory	General Equilibrium Theory	renumbered after consumer-block restructure
+11.1	12.1	Positive Theory of Equilibrium	Positive Theory of Equilibrium	renumbered after consumer-block restructure
+11.2	12.2	Positive Theory of Equilibrium	Positive Theory of Equilibrium	renumbered after consumer-block restructure
+11.3	12.3	Positive Theory of Equilibrium	Positive Theory of Equilibrium	renumbered after consumer-block restructure
+11.4	12.4	Positive Theory of Equilibrium	Positive Theory of Equilibrium	renumbered after consumer-block restructure
+12.1	13.1	Testable Restrictions on the Equilibrium Manifold	Testable Restrictions on the Equilibrium Manifold	renumbered after consumer-block restructure
+12.2	13.2	Testable Restrictions on the Equilibrium Manifold	Testable Restrictions on the Equilibrium Manifold	renumbered after consumer-block restructure
+12.3	13.3	Testable Restrictions on the Equilibrium Manifold	Testable Restrictions on the Equilibrium Manifold	renumbered after consumer-block restructure
+13.1	14.1	Sequential Trade	Sequential Trade	renumbered after consumer-block restructure
+13.2	14.2	Sequential Trade	Sequential Trade	renumbered after consumer-block restructure
+13.3	14.3	Sequential Trade	Sequential Trade	renumbered after consumer-block restructure
+14.1	15.1	Matching	Matching	renumbered after consumer-block restructure
+14.2	15.2	Matching	Matching	renumbered after consumer-block restructure
+14.3	15.3	Matching	Matching	renumbered after consumer-block restructure
+15.1	16.1	Computable General Equilibrium	Computable General Equilibrium	renumbered after consumer-block restructure
+15.2	16.2	Computable General Equilibrium	Computable General Equilibrium	renumbered after consumer-block restructure
+15.3	16.3	Computable General Equilibrium	Computable General Equilibrium	renumbered after consumer-block restructure
+A.1	A.1	Order Theory	Order Theory	unchanged
+A.2	A.2	Order Theory	Order Theory	unchanged
+A.3	A.3	Order Theory	Order Theory	unchanged
+A.4	A.4	Order Theory	Order Theory	unchanged

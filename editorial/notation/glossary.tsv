@@ -80,8 +80,8 @@ choice-probability	$P_{ij}$	Discrete choice	Discrete-choice chapter	Probability 
 logit-scale	$\tau$	Discrete choice	Discrete-choice chapter	Strictly positive Type-I extreme-value scale parameter.	Multinomial logit and IIA	linked
 random-utility-space	$(\Omega,\mathcal F,\mathbb P)$	Discrete choice	Random-utility section	Probability space supporting random utility.	Random utility	linked
 random-utility	$\boldsymbol U$	Discrete choice	Random-utility section	Measurable utility vector indexed by alternatives.	Random utility	linked
-stochastic-choice	$P_A(a)$	Discrete choice	Random-utility section	Probability of choosing alternative $a$ from menu $A$.	Random utility	linked
-order-types	$\mathcal R_A$	Discrete choice	Random-utility section	Finite set of strict linear orders on alternatives in $A$.	Random utility	linked
+stochastic-choice	$P=\{P_B\}_{B\in\mathcal B}$	Discrete choice	Stochastic-choice section	Family of choice-probability distributions, one for each nonempty menu $B$.	Stochastic choice	linked
+order-types	$\mathcal R_Y$	Discrete choice	Random-utility section	Finite set of strict linear orders on the alternative universe $Y$.	Random utility	linked
 expected-maximum	$\mathcal V(v)$	Discrete choice	Consumer-surplus section	Expected maximum random utility as a function of the mean-utility vector $v\in\mathbb R^A$.	Attributes and consumer surplus	linked
 production-set	$Y$	Firm theory	Firm chapter	Technologically feasible net-output plans.	Production sets	linked
 production-function	$f$	Firm theory	Firm chapter	Single-output production function.	Production functions and input substitution	linked
@@ -114,3 +114,12 @@ relation-powers	$R^n$	Order theory	Appendix A	$n$-fold relational composition, w
 transitive-closure	$R^+$	Order theory	Appendix A	Least transitive relation containing $R$.	Transitive Closure	linked
 reflexive-transitive-closure	$R^*$	Order theory	Appendix A	$\Delta_X\cup R^+$.	Transitive Closure	linked
 order-extension	$R^{\mathrm{ext}}$	Order theory	Appendix A	Complete-preorder extension obtained from a linear extension of the quotient order.	Order Extensions	linked
+ri-action-set	$\mathcal A$	Behavioral demand	Rational-inattention section	Finite set of actions available to the rationally inattentive decision maker.	Rational Inattention: Choosing an Information Structure	linked
+ri-prior	$\mu_0$	Behavioral demand	Rational-inattention section	Full-support prior distribution over the finite state space $\mathcal S$.	Rational Inattention: Choosing an Information Structure	linked
+ri-channel	$q(a\mid s)$	Behavioral demand	Rational-inattention section	Conditional probability of action $a$ in state $s$; equivalently, the direct information-and-decision channel.	Rational Inattention: Choosing an Information Structure	linked
+mutual-information	$\mathcal I(q)$	Behavioral demand	Rational-inattention section	Shannon mutual information between the state and the action induced by channel $q$.	Rational Inattention: Choosing an Information Structure	linked
+preference-function	$r:X\times X\to\mathbb R$	Revealed preference	CMU section	Two-argument numerical comparison rule used to define maximal demand.	WGARP and Coalitional Multi-Utility	linked
+preference-demand	$x_r(p,w)$	Revealed preference	CMU section	Bundles in $B(p,w)$ that weakly defeat every feasible alternative under preference function $r$.	WGARP and Coalitional Multi-Utility	linked
+cmu-coalition-structure	$\Omega$	Revealed preference	CMU section	Compact collection of nonempty compact coalitions of continuous utility functions.	WGARP and Coalitional Multi-Utility	linked
+cmu-coalition	$U$	Revealed preference	CMU section	A nonempty compact set of continuous utility functions whose members evaluate a comparison unanimously.	WGARP and Coalitional Multi-Utility	linked
+cmu-preference-function	$r_\Omega(x,y)$	Revealed preference	CMU section	Coalitional multi-utility preference function $\max_{U\in\Omega}\min_{u\in U}[u(x)-u(y)]$.	WGARP and Coalitional Multi-Utility	linked

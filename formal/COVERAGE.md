@@ -4,6 +4,10 @@ This is a verification ledger, not a claim that the entire textbook has been
 re-proved in Lean. The authoritative machine-readable record is
 `coverage.json`; this page summarizes it for readers.
 
+Coverage and theorem-pair IDs remain stable across chapter moves. An embedded
+`Cxx` segment may therefore record the chapter where an item was first
+registered; the `book_ref` and `chapter` fields record its current location.
+
 ## Status meanings
 
 | Status | Meaning |
@@ -24,6 +28,8 @@ re-proved in Lean. The authoritative machine-readable record is
 | Budget exhaustion | Verified through a pinned import | `demanded_bundle_exhausts_budget` consumes `WGARP.utilityDemand_expenditure_eq_wealth` |
 | Compensated demand | Verified through a pinned import | `compensated_law_of_demand` requires positivity only of the original price vector; positivity of the compensated/new price is not used. The manuscript's strict single-valued WARP form still needs an encoding bridge. |
 | Finite GARP and Afriat | Verified through a pinned import | `finite_GARP_iff_Afriat_inequalities`, `finite_Afriat_theorem`, `finite_Afriat_constructive` |
+| Finite WGARP and coherent CMU | Verified through a pinned import | `finite_wgarp_cmu_characterization` consumes the pinned six-statement Theorem 1 using explicit finite and matrix/simplex CMU normal forms. Connecting those types to the book's broader compact-coalition hyperspace formulation remains an explicit bridge. |
+| WARP and strict coherent CMU | Cited only | The pinned dependency has no WARP/strict-star-concavity theorem; no Lean verification is claimed. |
 | Expenditure duality | Core verified | On a nonempty explicit admissible price set `P`, `expenditure_homogeneous`, `expenditure_concave`, and `hicksian_bundle_is_supergradient` require attainment only at prices in `P`; scaled-price or mixture membership is assumed only where used. Analytic attainment and smooth Roy/Slutsky bridges remain. |
 | Finite stochastic dominance | Core verified | `monotoneCoupling_implies_expectedUtility_order`; CDF dominance to monotone coupling and general-measure FOSD remain |
 | Multinomial logit | Verified locally | `logit_odds_ratio` is the economic statement and requires `0 < μ`; `logit_odds_ratio_algebraic` records the underlying identity separately |
@@ -41,6 +47,7 @@ include:
 |---|---|
 | GARP and Afriat inequalities | `WGARP.garp_iff_exists_afriatInequalities` |
 | Constructive regular Afriat utility | `WGARP.garp_iff_hasRegularUtilityRationalization` and `WGARP.garp_iff_exists_afriatCertificate_and_regularUtility` |
+| Six-way finite WGARP--CMU characterization | `WGARP.theorem_one` |
 | Budget exhaustion | `WGARP.utilityDemand_expenditure_eq_wealth` |
 | Compensated law of demand | `WGARP.demand_cross_expenditure`, followed by local algebra |
 
@@ -52,7 +59,8 @@ recorded source.
 
 No Lean-complete claim is made for continuous utility representation, Berge
 demand continuity, the full smooth consumer-duality chain, finite expected
-utility, general-distribution FOSD, Gorman aggregation, the expected-surplus
+utility, the WARP--strict-CMU characterization, general-distribution FOSD,
+Gorman aggregation, the expected-surplus
 envelope, partial-equilibrium existence, the second welfare theorem,
 Walrasian existence, regularity and gross-substitutes uniqueness,
 Sonnenschein--Mantel--Debreu, Brown--Matzkin, Arrow--Radner equivalence,

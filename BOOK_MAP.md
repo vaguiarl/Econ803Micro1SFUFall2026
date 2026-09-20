@@ -4,13 +4,14 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 
 | Part | Chapter | Definitions | Results | Proofs | Exercises/examples |
 |---|---|---:|---:|---:|---:|
-| Foundations of Choice and Demand | Basics of Consumer Theory | 1 | 4 | 0 | 4 |
-| Foundations of Choice and Demand | Preference and Choice | 6 | 3 | 0 | 4 |
-| Foundations of Choice and Demand | Consumer Theory: Utility Maximization | 14 | 33 | 2 | 11 |
-| Choice Beyond the Benchmark Model | Behavioral Economics: Sparse-Max and Rational Inattention | 0 | 2 | 0 | 6 |
-| Choice Beyond the Benchmark Model | Choice under Uncertainty | 8 | 10 | 0 | 5 |
-| Aggregation and Random Choice | Aggregate Demand | 4 | 2 | 0 | 3 |
-| Aggregation and Random Choice | Discrete Choice and Random Utility | 3 | 2 | 0 | 4 |
+| The Benchmark Consumer | Utility Maximization and Consumer Demand | 4 | 4 | 1 | 2 |
+| The Benchmark Consumer | Duality, Comparative Statics, and Welfare | 1 | 22 | 1 | 8 |
+| The Benchmark Consumer | Revealed Preference and Recoverability | 10 | 14 | 2 | 8 |
+| The Benchmark Consumer | Choice Without Budget Geometry | 7 | 4 | 2 | 4 |
+| Risk, Stochastic Choice, and Attention | Expected Utility and Risk | 8 | 10 | 0 | 5 |
+| Risk, Stochastic Choice, and Attention | Stochastic Choice and Random Utility | 3 | 2 | 0 | 4 |
+| Risk, Stochastic Choice, and Attention | Limited Attention and Costly Information | 1 | 3 | 1 | 6 |
+| Aggregation and Markets | Aggregate Demand and Representative Consumers | 4 | 2 | 1 | 3 |
 | Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 4 |
 | Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 3 |
 | Production and Equilibrium | General Equilibrium Theory | 7 | 6 | 0 | 6 |
@@ -20,100 +21,107 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Advanced Equilibrium Applications | Matching | 1 | 2 | 0 | 3 |
 | Advanced Equilibrium Applications | Computable General Equilibrium | 1 | 0 | 0 | 3 |
 | Mathematical appendices | Order Theory | 7 | 6 | 6 | 9 |
+| Mathematical appendices | Technical Theorem Records | 0 | 2 | 0 | 0 |
 | Mathematical appendices | Glossary of Symbols | 0 | 0 | 0 | 0 |
 
 ## Detailed sequence
 
-### Basics of Consumer Theory
+### Utility Maximization and Consumer Demand
 
-- Preliminaries
-- Environment: Commodities and Budget Set
-- Demand Functions
-- Consistency in Consumption
-- Comparative Statics and Slutsky Matrix
-- Problems
-
-### Preference and Choice
-
-- From Choice Data to Preference
-- Choice environments
-- Preference relations
-- Revealed choice and WGARP
-- GARP on finite data
-- Problems
-
-### Consumer Theory: Utility Maximization
-
+- The Benchmark Model
+- Commodity Space and Budget Sets
+- Utility Maximization
 - Demand Correspondences
-- Utility Representation
-- The Utility Maximization Problem
-- KKT Conditions for the UMP
-- Properties of the Indirect Utility Function
+- First-Order and KKT Conditions
+- Workhorse Utility Specifications
+- Problems
+
+### Duality, Comparative Statics, and Welfare
+
+- Indirect Utility
 - Roy's Identity
-- Expenditure Minimization Problem (EMP)
+- Expenditure Minimization
 - Hicksian Compensated Demand
-- KKT Conditions for the EMP
+- KKT Conditions for Expenditure Minimization
 - Shephard's Lemma
-- Additional Properties
-- Summary of Relationships between the EMP and UMP
+- Curvature of Hicksian Demand
+- Consumer Duality
 - Slutsky Equation
-- Summary of the Implications of Utility Maximization
+- What Utility Maximization Implies
+- Welfare Evaluation
+- Problems
+
+### Revealed Preference and Recoverability
+
+- Observed Demand and the Testing Question
+- Walras' Law, Homogeneity, and WARP
+- Local Implications of WARP
 - Integrability
 - Examples and Applications of Demand Integrability
-- Generalized Axiom of Revealed Preference (GARP)
-- Revealed Preference and the Strong Axiom
+- GARP and Afriat's Theorem
+- WGARP and Coalitional Multi-Utility
+- SARP and Strict Rationalization
 - Forecasting with Varian's Support Set
 - Upper Bounds for Welfare Analysis
-- Experiments about Testing Rationality
-- Results
-- Afriat's Cost-Efficiency Index
-- Measurement Error
-- Welfare Evaluation
-- Homothetic and Quasilinear Utility Functions
+- Experimental Tests of GARP
+- The Critical Cost-Efficiency Index
+- Measurement Error and Statistical Revealed Preference
 - Problems
 
-### Behavioral Economics: Sparse-Max and Rational Inattention
+### Choice Without Budget Geometry
+
+- From Choice Data to Preference
+- Choice Environments
+- Preference Relations
+- Utility Representation
+- Revealed Choice and WGARP
+- GARP in Abstract Choice and the Budget-Data Specialization
+- Problems
+
+### Expected Utility and Risk
+
+- Primitives
+- Expected-Utility Representation
+- Independence
+- The Finite Expected-Utility Theorem
+- Affine Uniqueness and Recoverability
+- The Allais Paradox
+- Attitudes towards Risk
+- First-Order Stochastic Dominance: Finite Support
+- Portfolio Choice: Demand for a Risky Asset
+- Revealed Expected Utility under Risk Aversion
+- Experimental Evidence on Expected Utility
+- Measuring Risk Aversion in the Lab
+- Expected Utility on Infinite Outcome Spaces
+- First-Order Stochastic Dominance: General Distributions
+- Problems
+
+### Stochastic Choice and Random Utility
+
+- Stochastic Choice on a Finite Universe
+- Random Utility Representation
+- A Parametric Discrete-Choice Specification
+- Multinomial Logit and IIA
+- Random Expected Utility
+- Attributes, Choice Probabilities, and Consumer Surplus
+- Problems
+
+### Limited Attention and Costly Information
 
 - The Sparse-Max Decision Rule
 - Cobb--Douglas Sparse-Max Demand
 - Perceived Prices and Limited Attention
-- Endogenizing Attention
-- Discrimination with Rational Inattention
+- Rational Inattention: Choosing an Information Structure
+- A Gaussian Precision-Choice Illustration
+- Group Thresholds under Noisy Signals
 - Problems
 
-### Choice under Uncertainty
+### Aggregate Demand and Representative Consumers
 
-- Primitives
-- Stochastic dominance on a finite prize set
-- Model and expected utility
-- Independence Axiom
-- Representation Theorem
-- Recoverability
-- Attitudes towards Risk
-- Expected Utility for Infinite Sets
-- Application: Demand for a Risky Asset
-- Stochastic dominance for general distributions
-- The Allais Paradox
-- Revealed Preference of Expected Utility under Concavity
-- Experimental Evidence
-- Measuring Risk Aversion in the Lab
-- Problems
-
-### Aggregate Demand
-
-- Three questions about aggregation
-- Gorman aggregation
-- Aggregate demand and WARP
-- Representative consumers and welfare
-- Problems
-
-### Discrete Choice and Random Utility
-
-- Choice from a finite menu
-- Multinomial logit and IIA
-- Random utility
-- Random expected utility
-- Attributes and consumer surplus
+- Three Questions About Aggregation
+- Gorman Aggregation
+- Aggregate Demand and WARP
+- Representative Consumers and Welfare
 - Problems
 
 ### Theory of the Firm
@@ -193,6 +201,12 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Checklist for Economic Applications
 - Problems
 
+### Technical Theorem Records
+
+- WGARP and Coherent CMU
+- WARP and Strict Coherent CMU
+- Formalization Record and Boundaries
+
 ### Glossary of Symbols
 
 - Sets and indices
@@ -216,4 +230,4 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 
 | Section title | Occurrences |
 |---|---:|
-| Problems | 16 |
+| Problems | 17 |

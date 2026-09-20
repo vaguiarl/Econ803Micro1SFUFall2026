@@ -160,8 +160,18 @@ def problem_block(chapter: ChapterProblems) -> str:
 
 
 def strip_generated_blocks(source: str, chapters: list[ChapterProblems]) -> str:
-    for chapter in chapters:
-        chapter_slug = slug(chapter.chapter)
+    # Strip every generated block already present, including legacy chapter
+    # slugs left by a chapter reorganization.  The paired marker format makes
+    # this safe and lets one canonical bank migration replace old blocks
+    # without duplicating them.
+    existing_slugs = re.findall(
+        r"ECON803_PROBLEMS_START:([a-z0-9-]+)", source
+    )
+    if len(existing_slugs) != len(set(existing_slugs)):
+        raise ValueError("duplicate generated problem START markers")
+    current_slugs = [slug(chapter.chapter) for chapter in chapters]
+    chapter_slugs = list(dict.fromkeys([*existing_slugs, *current_slugs]))
+    for chapter_slug in chapter_slugs:
         start_marker = marker(f"ECON803_PROBLEMS_START:{chapter_slug}")
         end_marker = marker(f"ECON803_PROBLEMS_END:{chapter_slug}")
         start = source.find(start_marker)
@@ -169,7 +179,7 @@ def strip_generated_blocks(source: str, chapters: list[ChapterProblems]) -> str:
             continue
         end = source.find(end_marker, start)
         if end < 0:
-            raise ValueError(f"missing end marker for {chapter.chapter}")
+            raise ValueError(f"missing end marker for generated block {chapter_slug}")
         # Canonicalize the whitespace at the insertion boundary.  Without this,
         # the wrapper newlines added by ``inject`` accumulate on every run and
         # make an otherwise unchanged generated block fail ``--check``.

@@ -80,6 +80,9 @@ python3 "$repo_dir/scripts/validate_theorem_pairs.py" \
   --lyx "$notes_dir/$stem.lyx" \
   --bib "$notes_dir/references.bib" \
   --formal-dir "$repo_dir/formal"
+python3 "$repo_dir/scripts/polish_front_matter.py" --check
+python3 "$repo_dir/scripts/polish_consumer_release.py" --check
+python3 "$repo_dir/scripts/polish_empirical_evidence.py" --check
 
 if rg -n '\b(sorry|admit)\b|^\s*axiom\b' "$repo_dir/formal" --glob '*.lean'; then
   printf 'Lean trust check failed.\n' >&2
