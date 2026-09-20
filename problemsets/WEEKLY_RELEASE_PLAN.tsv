@@ -1,0 +1,14 @@
+set	meeting_date	due_date	topic	required_ids	extension_ids	archive_sources	status
+PS01	2026-09-11	2026-09-18	Utility maximization and demand	1.1, 1.2, 1.4	1.3	Western summer PS1; SFU 2024 consumer review	draft
+PS02	2026-09-18	2026-09-25	Duality and welfare	2.1, 2.3, 2.5	2.2, 2.4	Western PS2-PS3; SFU 2024 PS2	draft
+PS03	2026-09-25	2026-10-02	Revealed preference and recoverability	3.1, 3.3, 3.6	3.2, 3.5	Western PS2-PS3; SFU 2024 PS2	draft
+PS04	2026-10-02	2026-10-09	Abstract choice and order foundations	4.1, 4.3, A.1	A.2	Western PS1; SFU 2024 PS1	draft
+PS05	2026-10-09	2026-10-16	Expected utility and risk	5.1, 5.2	5.3	Western PS4; SFU 2024 PS4	draft
+PS06	2026-10-16	2026-10-23	Stochastic choice and attention	6.1, 6.3, 7.1	7.2	Western PS5; SFU 2024 PS3 and PS5	draft
+PS07	2026-10-23	2026-10-30	Aggregation	8.1, 8.2		Western PS5; SFU 2024 PS5	draft
+PS08	2026-10-30	2026-11-06	Production and cost	9.1, 9.3	9.2	Western PS6; SFU 2024 PS6	draft
+PS09	2026-11-06	2026-11-13	Competitive markets and exchange	10.1, 10.2, 11.1	10.3	Western PS7-PS8; SFU 2024 PS7-PS8	draft
+PS10	2026-11-13	2026-11-20	Welfare and positive equilibrium	11.2, 12.1, 12.2	11.3, 12.3	Western PS8-PS9; SFU 2024 PS8-PS9	draft
+PS11	2026-11-20	2026-11-27	Empirical equilibrium and asset markets	13.1, 14.1, 14.2	13.2	Western PS7 and PS10; SFU 2024 PS7	draft
+PS12	2026-11-27	2026-12-04	Matching	15.1, 15.2, A.3		Western PS11	draft
+PS13	2026-12-04	2026-12-07	Computable equilibrium	16.1, 16.2		New Fall 2026 material	draft

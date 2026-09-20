@@ -11,6 +11,8 @@ The canonical prompts live in [`../problems/PROBLEM_BANK.md`](../problems/PROBLE
 
 The [chapter pathway plan](PAIRING_PLAN.md) presents the same metadata in a reader-facing table. It is a release roadmap, not a schedule of due dates.
 
+The [Fall 2026 weekly release plan](WEEKLY_RELEASE_PLAN.md) assigns every non-case problem exactly once across the thirteen meetings. It keeps chapter case studies on their own release stream and records the same schedule in machine-readable form in `WEEKLY_RELEASE_PLAN.tsv`.
+
 - [Problem Set 1: From Two-Good Demand to Verified General Demand](ps01_consumer_demand/README.md)
 
 Solutions, answer keys, examinations, and unreleased sets are maintained in the private Fall 2024 repository and are intentionally absent from the public branch. A release may add a starter file or select only the benchmark work needed for one class meeting. When it releases a chapter capstone, it must retain the book's stable IDs, assumptions, case identity, scale axis, and verification boundary.

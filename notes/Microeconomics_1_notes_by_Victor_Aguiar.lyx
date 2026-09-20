@@ -19564,6 +19564,269 @@ ECON803_PROBLEMS_END:computable-general-equilibrium
 
 \end_layout
 
+\begin_layout Chapter*
+Weekly Problem Sets: Fall 2026
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ECON803_WEEKLY_PLAN_START
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+markboth{WEEKLY PROBLEM SETS: FALL 2026}{WEEKLY PROBLEM SETS: FALL 2026}
+\backslash
+addcontentsline{toc}{chapter}{Weekly Problem Sets: Fall 2026}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The end-of-chapter questions are the source of record. The weekly sets below are question-only release views for ECON 803; chapter case studies are assigned separately. Required problems are the board-scale core, while extensions supply a proof or formal/computational bridge. Solutions are not included in the public book.
+\end_layout
+
+\begin_layout Section*
+PS01: Utility maximization and demand
+\end_layout
+
+\begin_layout Standard
+Meeting September 11, 2026; due September 18, 2026.
+\end_layout
+
+\begin_layout Description
+Required 1.1, 1.2, 1.4
+\end_layout
+
+\begin_layout Description
+Extension 1.3
+\end_layout
+
+\begin_layout Section*
+PS02: Duality and welfare
+\end_layout
+
+\begin_layout Standard
+Meeting September 18, 2026; due September 25, 2026.
+\end_layout
+
+\begin_layout Description
+Required 2.1, 2.3, 2.5
+\end_layout
+
+\begin_layout Description
+Extension 2.2, 2.4
+\end_layout
+
+\begin_layout Section*
+PS03: Revealed preference and recoverability
+\end_layout
+
+\begin_layout Standard
+Meeting September 25, 2026; due October 2, 2026.
+\end_layout
+
+\begin_layout Description
+Required 3.1, 3.3, 3.6
+\end_layout
+
+\begin_layout Description
+Extension 3.2, 3.5
+\end_layout
+
+\begin_layout Section*
+PS04: Abstract choice and order foundations
+\end_layout
+
+\begin_layout Standard
+Meeting October 2, 2026; due October 9, 2026.
+\end_layout
+
+\begin_layout Description
+Required 4.1, 4.3, A.1
+\end_layout
+
+\begin_layout Description
+Extension A.2
+\end_layout
+
+\begin_layout Section*
+PS05: Expected utility and risk
+\end_layout
+
+\begin_layout Standard
+Meeting October 9, 2026; due October 16, 2026.
+\end_layout
+
+\begin_layout Description
+Required 5.1, 5.2
+\end_layout
+
+\begin_layout Description
+Extension 5.3
+\end_layout
+
+\begin_layout Section*
+PS06: Stochastic choice and attention
+\end_layout
+
+\begin_layout Standard
+Meeting October 16, 2026; due October 23, 2026.
+\end_layout
+
+\begin_layout Description
+Required 6.1, 6.3, 7.1
+\end_layout
+
+\begin_layout Description
+Extension 7.2
+\end_layout
+
+\begin_layout Section*
+PS07: Aggregation
+\end_layout
+
+\begin_layout Standard
+Meeting October 23, 2026; due October 30, 2026.
+\end_layout
+
+\begin_layout Description
+Required 8.1, 8.2
+\end_layout
+
+\begin_layout Description
+Extension None
+\end_layout
+
+\begin_layout Section*
+PS08: Production and cost
+\end_layout
+
+\begin_layout Standard
+Meeting October 30, 2026; due November 6, 2026.
+\end_layout
+
+\begin_layout Description
+Required 9.1, 9.3
+\end_layout
+
+\begin_layout Description
+Extension 9.2
+\end_layout
+
+\begin_layout Section*
+PS09: Competitive markets and exchange
+\end_layout
+
+\begin_layout Standard
+Meeting November 6, 2026; due November 13, 2026.
+\end_layout
+
+\begin_layout Description
+Required 10.1, 10.2, 11.1
+\end_layout
+
+\begin_layout Description
+Extension 10.3
+\end_layout
+
+\begin_layout Section*
+PS10: Welfare and positive equilibrium
+\end_layout
+
+\begin_layout Standard
+Meeting November 13, 2026; due November 20, 2026.
+\end_layout
+
+\begin_layout Description
+Required 11.2, 12.1, 12.2
+\end_layout
+
+\begin_layout Description
+Extension 11.3, 12.3
+\end_layout
+
+\begin_layout Section*
+PS11: Empirical equilibrium and asset markets
+\end_layout
+
+\begin_layout Standard
+Meeting November 20, 2026; due November 27, 2026.
+\end_layout
+
+\begin_layout Description
+Required 13.1, 14.1, 14.2
+\end_layout
+
+\begin_layout Description
+Extension 13.2
+\end_layout
+
+\begin_layout Section*
+PS12: Matching
+\end_layout
+
+\begin_layout Standard
+Meeting November 27, 2026; due December 4, 2026.
+\end_layout
+
+\begin_layout Description
+Required 15.1, 15.2, A.3
+\end_layout
+
+\begin_layout Description
+Extension None
+\end_layout
+
+\begin_layout Section*
+PS13: Computable equilibrium
+\end_layout
+
+\begin_layout Standard
+Meeting December 4, 2026; due December 7, 2026.
+\end_layout
+
+\begin_layout Description
+Required 16.1, 16.2
+\end_layout
+
+\begin_layout Description
+Extension None
+\end_layout
+
+\begin_layout Standard
+PS13 is formative because classes end on December 7. Order-theory exercises are referenced where useful but remain in the mathematical appendix.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ECON803_WEEKLY_PLAN_END
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open

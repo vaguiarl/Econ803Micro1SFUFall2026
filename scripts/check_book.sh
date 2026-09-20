@@ -43,6 +43,7 @@ printf '2/10 Checking that generated problem sets match the public bank...\n'
 python3 "$repo_dir/scripts/inject_problem_sets.py" --check \
   "$notes_dir/$stem.lyx" "$repo_dir/problems/PROBLEM_BANK.md" \
   --pathways "$repo_dir/problems/CHAPTER_PATHWAYS.tsv"
+python3 "$repo_dir/scripts/inject_weekly_problem_plan.py" --check
 python3 "$repo_dir/scripts/build_artists_case.py" --check
 bash "$repo_dir/scripts/check_problem_sets.sh"
 
