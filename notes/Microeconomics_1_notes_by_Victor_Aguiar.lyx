@@ -495,7 +495,7 @@ ECON803_CONSUMER_RESTRUCTURE_FORMAL_COUNTS:Axiom=6,Claim=1,Corollary=2,Definitio
 \end_layout
 
 \begin_layout Part
-The Benchmark Consumer
+The Classical Rational Consumer
 \end_layout
 
 \begin_layout Chapter
@@ -549,7 +549,7 @@ ECON803_CONSUMER_RESTRUCTURE_SOURCE:prologue:consumer-theory-utility-maximizatio
 \end_layout
 
 \begin_layout Standard
-The benchmark consumer chooses a feasible bundle to maximize a utility function.  This chapter states that model, proves existence of demand, and develops its first-order characterization.  Duality and welfare are treated in the next chapter.
+The classical rational consumer chooses a feasible bundle to maximize a utility function.  This chapter states that model, proves existence of demand, and develops its first-order characterization.  Duality and welfare are treated in the next chapter.
  Throughout,
  
 \begin_inset Formula $X=\mathbb{R}_{+}^{L}$
@@ -1509,7 +1509,7 @@ Question: How do we compute the model's price responses and welfare implications
 \end_layout
 
 \begin_layout Standard
-Chapter 1 tells us which bundle the benchmark consumer chooses.
+Chapter 1 tells us which bundle the classical rational consumer chooses.
  This chapter studies the same problem from its value functions.
  Indirect utility and expenditure minimization yield demand identities, comparative statics, and money-metric welfare measures.
  Set-valued duality is stated first; differentiability and uniqueness are added only for envelope formulas such as Roy's identity and Shephard's lemma.

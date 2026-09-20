@@ -83,7 +83,7 @@ CH1_OVERVIEW_OLD = (
     "duality between utility maximization and expenditure minimization."
 )
 CH1_OVERVIEW_NEW = (
-    "The benchmark consumer chooses a feasible bundle to maximize a utility "
+    "The classical rational consumer chooses a feasible bundle to maximize a utility "
     "function.  This chapter states that model, proves existence of demand, and "
     "develops its first-order characterization.  Duality and welfare are treated "
     "in the next chapter."
@@ -115,7 +115,7 @@ Utility is ordinal in the deterministic benchmark: if \begin_inset Formula $\phi
 \end_layout'''
 
 CH2_INTRO = r'''\begin_layout Standard
-Chapter 1 tells us which bundle the benchmark consumer chooses.
+Chapter 1 tells us which bundle the classical rational consumer chooses.
  This chapter studies the same problem from its value functions.
  Indirect utility and expenditure minimization yield demand identities, comparative statics, and money-metric welfare measures.
  Set-valued duality is stated first; differentiability and uniqueness are added only for envelope formulas such as Roy's identity and Shephard's lemma.

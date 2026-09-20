@@ -72,7 +72,7 @@ FORMAL_MARKER_PREFIX = f"{MARKER_PREFIX}_FORMAL_COUNTS:"
 SOURCE_MARKER_PREFIX = f"{MARKER_PREFIX}_SOURCE"
 
 LEGACY_PART = "Foundations of Choice and Demand"
-TARGET_PART = "The Benchmark Consumer"
+TARGET_PART = "The Classical Rational Consumer"
 # The extensions pass renames the following part before this migration runs.
 NEXT_PART = "Risk, Stochastic Choice, and Attention"
 

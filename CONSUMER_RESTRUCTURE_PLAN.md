@@ -75,7 +75,7 @@ second theorem.
 
 ## Proposed table of contents
 
-## Part I. The Benchmark Consumer
+## Part I. The Classical Rational Consumer
 
 ### Chapter 1. Utility Maximization and Consumer Demand
 

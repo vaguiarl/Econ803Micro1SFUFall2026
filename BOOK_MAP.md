@@ -4,10 +4,10 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 
 | Part | Chapter | Definitions | Results | Proofs | Exercises/examples |
 |---|---|---:|---:|---:|---:|
-| The Benchmark Consumer | Utility Maximization and Consumer Demand | 4 | 4 | 1 | 2 |
-| The Benchmark Consumer | Duality, Comparative Statics, and Welfare | 1 | 22 | 1 | 8 |
-| The Benchmark Consumer | Revealed Preference and Recoverability | 10 | 14 | 2 | 8 |
-| The Benchmark Consumer | Choice Without Budget Geometry | 7 | 4 | 2 | 4 |
+| The Classical Rational Consumer | Utility Maximization and Consumer Demand | 4 | 4 | 1 | 2 |
+| The Classical Rational Consumer | Duality, Comparative Statics, and Welfare | 1 | 22 | 1 | 8 |
+| The Classical Rational Consumer | Revealed Preference and Recoverability | 10 | 14 | 2 | 8 |
+| The Classical Rational Consumer | Choice Without Budget Geometry | 7 | 4 | 2 | 4 |
 | Risk, Stochastic Choice, and Attention | Expected Utility and Risk | 8 | 10 | 0 | 5 |
 | Risk, Stochastic Choice, and Attention | Stochastic Choice and Random Utility | 3 | 2 | 0 | 4 |
 | Risk, Stochastic Choice, and Attention | Limited Attention and Costly Information | 1 | 3 | 1 | 6 |
