@@ -51,3 +51,7 @@ A historical item enters the public bank only when all four conditions hold:
 4. the stable public identifier appears in the private solution-coverage check before a weekly packet can be approved.
 
 Items failing one of these tests remain in the archive rather than being silently repaired in a released handout.
+
+## Fall 2026 weekly-pool status
+
+The 48 non-case problems were rechecked against the current private instructor derivations on 2026-09-20. All thirteen weekly sets now pass the admission rule. The review also tightened the public prompts where a correct answer had previously depended on an unstated condition: small-risk asymptotics, positive-price and interior domains, Roy regularity, free disposal and closed aggregate requirement sets, global regularity for equilibrium finiteness, and unrestricted portfolios for asset spanning. This status applies to the canonical Fall 2026 formulations, not to the historical files listed above.

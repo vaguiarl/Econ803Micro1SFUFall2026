@@ -45,9 +45,15 @@ printf 'figure\tpages\tfonts\ttype3\tunembedded\traster_images\tstatus\n' > "${B
 status=0
 for source in "${SOURCE_DIR}"/*.tex; do
   name="$(basename "${source}" .tex)"
+  figure_epoch="${SOURCE_DATE_EPOCH:-$(git -C "${ROOT_DIR}/.." log -1 --format=%ct -- "figures_tikz/src/${name}.tex")}"
+  if [[ -z "${figure_epoch}" ]]; then
+    figure_epoch=0
+  fi
   (
     cd "${SOURCE_DIR}"
-    "${LATEXMK}" -pdf -silent -interaction=nonstopmode -halt-on-error -outdir="${BUILD_DIR}" "${name}.tex"
+    export SOURCE_DATE_EPOCH="${figure_epoch}"
+    export FORCE_SOURCE_DATE=1
+    "${LATEXMK}" -g -pdf -silent -interaction=nonstopmode -halt-on-error -outdir="${BUILD_DIR}" "${name}.tex"
   )
   pdf="${BUILD_DIR}/${name}.pdf"
   pages="$(${PDFINFO} "${pdf}" | awk '/^Pages:/ {print $2}')"

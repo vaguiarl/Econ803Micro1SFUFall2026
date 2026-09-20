@@ -4547,6 +4547,8 @@ nopagebreak[4]
 
 \begin_layout Exercise*
 Use Chapter 1's CES utility, with positive normalized weights and \begin_inset Formula $\sigma>0$\end_inset
+. For \begin_inset Formula $\sigma\ne1$\end_inset
+, put \begin_inset Formula $D(p):=\sum_k a_k^\sigma p_k^{1-\sigma}$\end_inset
 .
 \end_layout
 
@@ -10834,16 +10836,20 @@ nopagebreak[4]
 \end_layout
 
 \begin_layout Exercise*
-An agent with twice continuously differentiable utility \begin_inset Formula $u$\end_inset
- and wealth \begin_inset Formula $w$\end_inset
- faces a zero-mean risk \begin_inset Formula $\varepsilon$\end_inset
- with variance \begin_inset Formula $\sigma^{2}$\end_inset
-. Define the monetary risk premium \begin_inset Formula $\operatorname{RP}$\end_inset
+Let \begin_inset Formula $\varepsilon_\sigma=\sigma\xi$\end_inset
+, where \begin_inset Formula $\mathbb E\xi=0$\end_inset
+, \begin_inset Formula $\mathbb E\xi^2=1$\end_inset
+, and \begin_inset Formula $\xi$\end_inset
+ is bounded. An agent with wealth \begin_inset Formula $w$\end_inset
+ has utility \begin_inset Formula $u$\end_inset
+ that is twice continuously differentiable near \begin_inset Formula $w$\end_inset
+, with \begin_inset Formula $u'(w)>0$\end_inset
+. Define the monetary risk premium \begin_inset Formula $\operatorname{RP}(\sigma)$\end_inset
  by the indifference equation
 \end_layout
 
 \begin_layout Exercise*
-\begin_inset Formula $u(w-\operatorname{RP})=\mathbb E[u(w+\varepsilon)].$\end_inset
+\begin_inset Formula $u(w-\operatorname{RP}(\sigma))=\mathbb E[u(w+\varepsilon_\sigma)].$\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -10851,7 +10857,7 @@ An agent with twice continuously differentiable utility \begin_inset Formula $u$
 \end_layout
 
 \begin_layout Exercise*
-\begin_inset Formula $\operatorname{RP}\approx\tfrac12A(w)\sigma^{2},$\end_inset
+\begin_inset Formula $\operatorname{RP}(\sigma)=\tfrac12A(w)\sigma^{2}+o(\sigma^2),$\end_inset
 \end_layout
 
 \begin_layout Exercise*
@@ -12452,8 +12458,11 @@ nopagebreak[4]
 
 \begin_layout Exercise*
 Let \begin_inset Formula $u(x_{1},x_{2})=\sqrt{x_{1}}+x_{2}$\end_inset
-. The consumer uses perceived prices \begin_inset Formula $\widehat p\gg0$\end_inset
- in the first-order condition but must satisfy the actual budget \begin_inset Formula $p\cdot x=w$\end_inset
+. The consumer chooses \begin_inset Formula $x\in\mathbb R_+^2$\end_inset
+, uses perceived prices \begin_inset Formula $\widehat p\gg0$\end_inset
+ in the first-order condition, and must satisfy the actual budget \begin_inset Formula $p\cdot x=w$\end_inset
+, where \begin_inset Formula $p\gg0$\end_inset
+ and \begin_inset Formula $w>0$\end_inset
 .
 \end_layout
 
@@ -12468,7 +12477,7 @@ Let \begin_inset Formula $u(x_{1},x_{2})=\sqrt{x_{1}}+x_{2}$\end_inset
 
 \begin_layout Exercise*
 (c) Show that ordinary Marshallian demand is recovered when \begin_inset Formula $\widehat p=p$\end_inset
-.
+, including the corner when the interior condition fails.
 \end_layout
 
 \begin_layout Standard
@@ -12500,6 +12509,10 @@ Let \begin_inset Formula $u(x)=[\alpha x_{1}^{\rho}+(1-\alpha)x_{2}^{\rho}]^{1/\
 , where \begin_inset Formula $0<\alpha<1$\end_inset
  and \begin_inset Formula $\rho<1$\end_inset
 , \begin_inset Formula $\rho\ne0$\end_inset
+. Consider an interior choice \begin_inset Formula $x\in\mathbb R_{++}^2$\end_inset
+ with perceived prices \begin_inset Formula $\widehat p\gg0$\end_inset
+, actual prices \begin_inset Formula $p\gg0$\end_inset
+, and wealth \begin_inset Formula $w>0$\end_inset
 .
 \end_layout
 
@@ -14163,7 +14176,9 @@ nopagebreak[4]
 Suppose consumer \begin_inset Formula $i$\end_inset
  has indirect utility \begin_inset Formula $v_{i}(p,w_{i})=a_{i}(p)+b(p)w_{i}$\end_inset
 , with the same positive function \begin_inset Formula $b$\end_inset
- for every consumer.
+ for every consumer. Assume \begin_inset Formula $a_i$\end_inset
+ and \begin_inset Formula $b$\end_inset
+ are differentiable on the relevant positive-price domain and that each indirect utility satisfies the regularity conditions for Roy's identity.
 \end_layout
 
 \begin_layout Exercise*
@@ -15717,9 +15732,14 @@ nopagebreak[4]
 
 \begin_layout Exercise*
 A representative consumer has quasilinear utility \begin_inset Formula $u(q)+m$\end_inset
-, with \begin_inset Formula $u$\end_inset
- increasing and strictly concave, and production cost \begin_inset Formula $C(q)$\end_inset
- is increasing and convex.
+, with enough transferable numeraire that the optimum is not constrained by a lower bound on \begin_inset Formula $m$\end_inset
+. The functions \begin_inset Formula $u$\end_inset
+ and \begin_inset Formula $C$\end_inset
+ are differentiable on \begin_inset Formula $(0,\infty)$\end_inset
+, have the required right derivatives at zero, \begin_inset Formula $u$\end_inset
+ is increasing and strictly concave, and \begin_inset Formula $C$\end_inset
+ is increasing and convex. Assume the surplus maximum over \begin_inset Formula $q\ge0$\end_inset
+ is attained.
 \end_layout
 
 \begin_layout Exercise*
@@ -16780,7 +16800,7 @@ nopagebreak[4]
 \end_layout
 
 \begin_layout Exercise*
-Suppose consumption sets and production sets are closed and convex, preferences are continuous, convex, and locally nonsatiated, and a feasible allocation is Pareto efficient. Assume the separation hypotheses stated in the chapter.
+Suppose consumption sets and production sets are closed and convex, preferences are continuous, convex, and locally nonsatiated, and a feasible allocation is Pareto efficient. Assume free disposal and that the aggregate net-resource-requirement set used below is closed, convex, and upward comprehensive. Assume the remaining separation hypotheses stated in the chapter.
 \end_layout
 
 \begin_layout Exercise*
@@ -17646,7 +17666,7 @@ Normalize prices by \begin_inset Formula $p_{L}=1$\end_inset
 \end_layout
 
 \begin_layout Exercise*
-(c) Explain why local isolation implies finitely many equilibria only after compactness and boundary conditions are added.
+(c) Suppose every normalized equilibrium is regular. Explain why compactness and boundary conditions then imply that there are only finitely many equilibria.
 \end_layout
 
 \begin_layout Standard
@@ -18469,7 +18489,8 @@ There are \begin_inset Formula $S$\end_inset
  states tomorrow and \begin_inset Formula $K$\end_inset
  traded assets with payoff matrix \begin_inset Formula $R\in\mathbb R^{S\times K}$\end_inset
  and date-zero asset-price vector \begin_inset Formula $q\in\mathbb R^{K}$\end_inset
-. Assume no arbitrage.
+. Portfolios are unrestricted, \begin_inset Formula $\theta\in\mathbb R^K$\end_inset
+, so short sales are allowed. Assume no arbitrage.
 \end_layout
 
 \begin_layout Exercise*

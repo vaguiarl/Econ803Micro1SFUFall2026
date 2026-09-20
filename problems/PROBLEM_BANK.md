@@ -96,7 +96,7 @@ Using the Marshallian demand from Problem 2.1, compute $S(p,w)=D_{p}x+D_{w}x\,x^
 
 ## 2.4 | Proof | CES duality and compensated substitution
 
-Use Chapter 1's CES utility, with positive normalized weights and $\sigma>0$.
+Use Chapter 1's CES utility, with positive normalized weights and $\sigma>0$. For $\sigma\ne1$, put $D(p):=\sum_k a_k^\sigma p_k^{1-\sigma}$.
 
 (a) Derive $\mathcal P(p)$, expenditure, and Hicksian demand. Treat $\sigma=1$ separately and retain the constants implied by the utility normalization.
 
@@ -251,13 +251,13 @@ Lotteries $\mu$ and $\nu$ on prizes $\{0,1,2\}$ have probabilities $\mu=(0.2,0.3
 
 ## 5.3 | Proof | The Arrow-Pratt approximation
 
-An agent with twice continuously differentiable utility $u$ and wealth $w$ faces a zero-mean risk $\varepsilon$ with variance $\sigma^{2}$. Define the monetary risk premium $\operatorname{RP}$ by the indifference equation
+Let $\varepsilon_\sigma=\sigma\xi$, where $\mathbb E\xi=0$, $\mathbb E\xi^2=1$, and $\xi$ is bounded. An agent with wealth $w$ has utility $u$ that is twice continuously differentiable near $w$, with $u'(w)>0$. Define the monetary risk premium $\operatorname{RP}(\sigma)$ by the indifference equation
 
-$u(w-\operatorname{RP})=\mathbb E[u(w+\varepsilon)].$
+$u(w-\operatorname{RP}(\sigma))=\mathbb E[u(w+\varepsilon_\sigma)].$
 
 (a) Use second-order Taylor expansions to derive the approximation
 
-$\operatorname{RP}\approx\tfrac12A(w)\sigma^{2},$
+$\operatorname{RP}(\sigma)=\tfrac12A(w)\sigma^{2}+o(\sigma^2),$
 
 where $A(w)=-u''(w)/u'(w)$.
 
@@ -311,17 +311,17 @@ There are alternatives $a,b,c$. A population consists of three strict preference
 
 ## 7.1 | Core | Sparse-max quasilinear demand
 
-Let $u(x_{1},x_{2})=\sqrt{x_{1}}+x_{2}$. The consumer uses perceived prices $\widehat p\gg0$ in the first-order condition but must satisfy the actual budget $p\cdot x=w$.
+Let $u(x_{1},x_{2})=\sqrt{x_{1}}+x_{2}$. The consumer chooses $x\in\mathbb R_+^2$, uses perceived prices $\widehat p\gg0$ in the first-order condition, and must satisfy the actual budget $p\cdot x=w$, where $p\gg0$ and $w>0$.
 
 (a) Derive the interior sparse-max choice.
 
 (b) State the condition under which the implied $x_{2}$ is nonnegative.
 
-(c) Show that ordinary Marshallian demand is recovered when $\widehat p=p$.
+(c) Show that ordinary Marshallian demand is recovered when $\widehat p=p$, including the corner when the interior condition fails.
 
 ## 7.2 | Core | CES demand under perceived prices
 
-Let $u(x)=[\alpha x_{1}^{\rho}+(1-\alpha)x_{2}^{\rho}]^{1/\rho}$, where $0<\alpha<1$ and $\rho<1$, $\rho\ne0$.
+Let $u(x)=[\alpha x_{1}^{\rho}+(1-\alpha)x_{2}^{\rho}]^{1/\rho}$, where $0<\alpha<1$ and $\rho<1$, $\rho\ne0$. Consider an interior choice $x\in\mathbb R_{++}^2$ with perceived prices $\widehat p\gg0$, actual prices $p\gg0$, and wealth $w>0$.
 
 (a) Use perceived prices $\widehat p$ to derive the chosen ratio $x_{1}/x_{2}$.
 
@@ -343,7 +343,7 @@ There are two equally likely states and two actions. The decision maker receives
 
 ## 8.1 | Core | Gorman aggregation
 
-Suppose consumer $i$ has indirect utility $v_{i}(p,w_{i})=a_{i}(p)+b(p)w_{i}$, with the same positive function $b$ for every consumer.
+Suppose consumer $i$ has indirect utility $v_{i}(p,w_{i})=a_{i}(p)+b(p)w_{i}$, with the same positive function $b$ for every consumer. Assume $a_i$ and $b$ are differentiable on the relevant positive-price domain and that each indirect utility satisfies the regularity conditions for Roy's identity.
 
 (a) Apply Roy's identity to derive individual demand.
 
@@ -437,7 +437,7 @@ Introduce a per-unit tax $t>0$ paid by sellers into the market of Problem 10.1, 
 
 ## 10.3 | Proof | Planner and competitive allocation
 
-A representative consumer has quasilinear utility $u(q)+m$, with $u$ increasing and strictly concave, and production cost $C(q)$ is increasing and convex.
+A representative consumer has quasilinear utility $u(q)+m$, with enough transferable numeraire that the optimum is not constrained by a lower bound on $m$. The functions $u$ and $C$ are differentiable on $(0,\infty)$, have the required right derivatives at zero, $u$ is increasing and strictly concave, and $C$ is increasing and convex. Assume the surplus maximum over $q\ge0$ is attained.
 
 (a) State and solve the planner's problem using Kuhn-Tucker conditions.
 
@@ -497,7 +497,7 @@ Consider a private-ownership economy with locally nonsatiated preferences and pr
 
 ## 11.3 | Proof | Supporting a Pareto optimum
 
-Suppose consumption sets and production sets are closed and convex, preferences are continuous, convex, and locally nonsatiated, and a feasible allocation is Pareto efficient. Assume the separation hypotheses stated in the chapter.
+Suppose consumption sets and production sets are closed and convex, preferences are continuous, convex, and locally nonsatiated, and a feasible allocation is Pareto efficient. Assume free disposal and that the aggregate net-resource-requirement set used below is closed, convex, and upward comprehensive. Assume the remaining separation hypotheses stated in the chapter.
 
 (a) Formulate the aggregate set-separation argument and show how it supports the allocation as a price quasi-equilibrium with transfers.
 
@@ -535,7 +535,7 @@ Normalize prices by $p_{L}=1$ and let $\widehat z$ be the first $L-1$ excess-dem
 
 (b) Use the inverse function theorem to prove that a regular equilibrium is locally isolated.
 
-(c) Explain why local isolation implies finitely many equilibria only after compactness and boundary conditions are added.
+(c) Suppose every normalized equilibrium is regular. Explain why compactness and boundary conditions then imply that there are only finitely many equilibria.
 
 ## 12.3 | Proof | Gross substitutes and uniqueness
 
@@ -593,7 +593,7 @@ A dataset passes a revealed-equilibrium feasibility test under a maintained clas
 
 ## 14.1 | Core | Spanning contingent consumption
 
-There are $S$ states tomorrow and $K$ traded assets with payoff matrix $R\in\mathbb R^{S\times K}$ and date-zero asset-price vector $q\in\mathbb R^{K}$. Assume no arbitrage.
+There are $S$ states tomorrow and $K$ traded assets with payoff matrix $R\in\mathbb R^{S\times K}$ and date-zero asset-price vector $q\in\mathbb R^{K}$. Portfolios are unrestricted, $\theta\in\mathbb R^K$, so short sales are allowed. Assume no arbitrage.
 
 (a) State the rank condition under which every contingent net trade can be implemented by an asset portfolio.
 
