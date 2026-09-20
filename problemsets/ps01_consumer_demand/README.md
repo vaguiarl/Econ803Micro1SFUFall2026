@@ -1,6 +1,6 @@
 # Problem Set 1: From Two-Good Demand to Verified General Demand
 
-This is the first release using the two-part ECON 803 format.
+This is the first classroom release using the two-part ECON 803 format. It is a benchmark workshop based on Book Problems 1.1, 1.2, and 1.4; the authoritative Chapter 1 section remains in the textbook and culminates in Problem 1.5, the household-demand use case.
 
 - [Student handout (PDF)](PS01_Consumer_Demand.pdf)
 - [Authoritative editable LyX source](PS01_Consumer_Demand.lyx)

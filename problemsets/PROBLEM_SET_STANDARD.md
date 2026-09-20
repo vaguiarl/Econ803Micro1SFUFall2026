@@ -1,8 +1,8 @@
-# ECON 803 two-part problem-set standard
+# ECON 803 two-part chapter and problem-set standard
 
 ## Purpose
 
-Every weekly problem set begins with a model that can be solved and discussed by hand, then scales that model with Codex, Lean, or a small transparent program. The second part is not a request to outsource the first part. It is an exercise in stating a generalization, constructing a verifiable artifact, and separating mathematical verification from economic interpretation.
+Every chapter ends with a model that can be solved and discussed by hand, then one named use case that scales the model with Codex, Lean, or a small transparent program. The end-of-chapter section is authoritative; a weekly packet is a synchronized release view. The second part is not a request to outsource the first part. It is an exercise in stating a generalization, constructing a verifiable artifact, and separating mathematical verification from economic interpretation.
 
 ## Part I: By hand
 
@@ -29,7 +29,9 @@ Before using a tool, students complete this four-line bridge:
 
 This dependency order is mandatory: economic premise and model assumptions precede the scaled claim; the verified artifact precedes its interpretation. A program or Lean proof can check a stated implication, but it cannot establish that the assumptions are economically appropriate.
 
-## Part II: Verified scale-up
+## Part II: Chapter use case and verified scale-up
+
+Proof and Applied problems may provide intermediate bridges, but the final problem in every chapter is the designated use case. Its public pathway must name the hand benchmark, exactly one scale axis, the primary tool, the deterministic checks, and the boundary of current Lean coverage.
 
 Every scale-up names one primary tool.
 
@@ -60,6 +62,10 @@ Students should adapt the following, rather than asking for an answer in one sen
 > Read the named Part I problem and the referenced source files. First restate the economic assumptions and propose a dependency-ordered plan. Do not change the model. Implement only the stated scale-up, add the required checks and one boundary test, run the validation command, and report any assumption or statement that must be clarified. Leave the economic interpretation for me to write.
 
 Repository-local instructions in `problemsets/AGENTS.md` give Codex the same verification rules whenever it is launched from this directory.
+
+## Source-of-record rule
+
+`problems/PROBLEM_BANK.md` owns the question text and stable identifiers. `problems/CHAPTER_PATHWAYS.tsv` owns the chapter capstone, seed list, scale axis, tool, and verification contract. A released packet may add a due date, workspace, or starter artifact; it may not silently change those mathematical assumptions or introduce an unrelated scale-up.
 
 ## Instructor design test
 

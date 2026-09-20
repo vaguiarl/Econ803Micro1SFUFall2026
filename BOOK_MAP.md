@@ -15,7 +15,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 4 |
 | Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 4 |
 | Production and Equilibrium | General Equilibrium Theory | 7 | 6 | 0 | 6 |
-| Production and Equilibrium | Positive Theory of Equilibrium | 7 | 6 | 0 | 5 |
+| Production and Equilibrium | Positive Theory of Equilibrium | 6 | 6 | 0 | 5 |
 | Advanced Equilibrium Applications | Testable Restrictions on the Equilibrium Manifold | 2 | 0 | 0 | 3 |
 | Advanced Equilibrium Applications | Sequential Trade | 3 | 1 | 0 | 3 |
 | Advanced Equilibrium Applications | Matching | 1 | 2 | 0 | 3 |

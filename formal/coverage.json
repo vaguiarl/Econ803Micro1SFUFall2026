@@ -341,11 +341,11 @@
       "topic": "General equilibrium",
       "book_ref": "Chapter 12, Walrasian allocations in the core",
       "status": "verified-core",
-      "scope": "No finite coalition can finance strict improvements from its own aggregate endowment at supporting prices.",
-      "weakest_assumptions": "Finite consumers, individual budget equalities, strict support inequalities, coalition resource equality.",
+      "scope": "Under the strong-blocking convention, no finite coalition can exactly redistribute its own aggregate endowment so that every member weakly improves and at least one strictly improves at a common weak/strict supporting price.",
+      "weakest_assumptions": "Finite consumers, individual equilibrium-budget equalities, common weak and strict price-support inequalities, exact coalition resource equality, weak improvement of every coalition member, and one strict-improvement witness.",
       "module": "Econ803.Equilibrium.Welfare",
-      "declaration": "Econ803.Equilibrium.priceSupport_rulesOut_coalitionBlock",
-      "missing_bridge": "Map the book's selected blocking/core convention to the strict-part predicate."
+      "declaration": "Econ803.Equilibrium.priceSupport_rulesOut_strongCoalitionBlock",
+      "missing_bridge": "Derive the common weak/strict price-support inequalities from Walrasian optimization and local nonsatiation; the finite coalition summation argument and the book's strong-blocking quantifiers are verified here."
     },
     {
       "id": "C12-BROWN-MATZKIN",

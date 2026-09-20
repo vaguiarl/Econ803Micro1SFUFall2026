@@ -24,7 +24,8 @@ The Fall 2026 baseline has four commitments:
 - Reader/full theorem architecture and migration record: [`THEOREM_STAR_PLAN.md`](THEOREM_STAR_PLAN.md)
 - Figure, provenance, and rights audit: [`FIGURE_AUDIT.md`](FIGURE_AUDIT.md)
 - Canonical question-only problem bank: [`problems/PROBLEM_BANK.md`](problems/PROBLEM_BANK.md)
-- Two-part weekly problem sets: [`problemsets/README.md`](problemsets/README.md)
+- Chapter use-case and verification map: [`problems/CHAPTER_PATHWAYS.tsv`](problems/CHAPTER_PATHWAYS.tsv)
+- Two-part chapter release views: [`problemsets/README.md`](problemsets/README.md)
 - Artists case study, Problem 10.4: [Music Sales and Concerts (PDF)](problems/case_studies/Artists_Music_and_Concerts.pdf) ([LyX](problems/case_studies/Artists_Music_and_Concerts.lyx))
 - Publication-baseline review: [`EDITORIAL_REVIEW.md`](EDITORIAL_REVIEW.md)
 - Backward editorial and formalization plan: [`EDITORIAL_AUDIT.md`](EDITORIAL_AUDIT.md)
@@ -43,7 +44,7 @@ The command rebuilds and preflights all vector figures before exporting LyX, ver
 
 ## Assessment policy
 
-This public edition contains 65 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. The canonical prompts live in `problems/PROBLEM_BANK.md` and are injected reproducibly into the LyX manuscript. The restored Taylor S. case, **The Economics of Superstars: Music Sales and Concerts**, is Problem 10.4 and is also available as the standalone handout linked above. Its fan-demand part uses Chapter 1; the complete case combines consumer demand, production costs, and concert pricing. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Further standalone student sheets will be released one at a time from the same stable problem bank.
+This public edition contains 65 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. Every chapter closes with **Part I: By hand** and **Part II: a named chapter use case and verified scale-up**; the designated case is always the final problem. The canonical prompts live in `problems/PROBLEM_BANK.md`, the 17 case pathways live in `problems/CHAPTER_PATHWAYS.tsv`, and both are injected reproducibly into the LyX manuscript. The music-and-concerts case is Problem 10.4 and is also available as the standalone handout linked above. Its fan-demand part uses Chapter 1; the complete case combines consumer demand, production costs, and concert pricing. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Standalone student sheets are released as teaching views of the same stable chapter architecture.
 
 The workhorse-demand material now includes CES derivations, elasticities, calibration, limiting cases, and compensated welfare comparisons, plus a translog expenditure model with explicit regularity checks. Eleven worked examples connect those families to Cobb-Douglas, linear, Leontief, Stone-Geary, and quasilinear demand. Problems 1.2--1.5 and 2.4--2.6 provide further practice.
 

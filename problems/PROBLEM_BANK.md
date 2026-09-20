@@ -1,6 +1,6 @@
 # Publication problem bank
 
-This file is the editable source for the end-of-chapter problems in the Fall 2026 textbook. Each problem has a stable current identifier and one of three labels: Core, Proof, or Applied. The public book contains questions only; solutions are maintained in the private instructor repository. Legacy Fall 2024/Fall 2026-baseline numbers are recorded in `PROBLEM_ID_ALIASES.tsv`.
+This file is the editable source for the end-of-chapter problems in the Fall 2026 textbook. Each problem has a stable current identifier and one of three labels: Core, Proof, or Applied. `CHAPTER_PATHWAYS.tsv` gives every chapter one named capstone case, a single scale axis, and an honest verification contract. The generator places Core benchmarks in Part I, formal and applied bridges in Part II, and the designated use case last. The public book contains questions only; solutions are maintained in the private instructor repository. Legacy Fall 2024/Fall 2026-baseline numbers are recorded in `PROBLEM_ID_ALIASES.tsv`.
 
 <!-- ECON803_PROBLEM_RESTRUCTURE:1 -->
 
@@ -549,7 +549,7 @@ Assume aggregate excess demand satisfies strict gross substitutes on the relevan
 
 ## 12.4 | Core | Competitive allocations and the strong core
 
-Use the strong-blocking convention in a finite pure-exchange economy with locally nonsatiated preferences: a coalition blocks when all its members can be made weakly better off using their own aggregate endowment and at least one member is made strictly better off. Define the associated strong core.
+Use the strong-blocking convention in a finite pure-exchange economy with locally nonsatiated preferences. A nonempty coalition $S$ strongly blocks $x$ when it can choose $(y_i)_{i\in S}$ such that $\sum_{i\in S}y_i=\sum_{i\in S}\omega_i$, $y_i\succeq_i x_i$ for every $i\in S$, and $y_j\succ_j x_j$ for at least one $j\in S$. Define the associated strong core.
 
 (a) Prove that every Walrasian allocation belongs to the strong core.
 

@@ -48,5 +48,6 @@ rejected.
 
 #print axioms Econ803.Equilibrium.priceSupport_rulesOut_paretoImprovement
 #print axioms Econ803.Equilibrium.priceSupport_rulesOut_coalitionBlock
+#print axioms Econ803.Equilibrium.priceSupport_rulesOut_strongCoalitionBlock
 
 #print axioms Econ803.BookNarrative.mainMap_dependencies_precede

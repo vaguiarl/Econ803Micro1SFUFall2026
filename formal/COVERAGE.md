@@ -35,7 +35,7 @@ registered; the `book_ref` and `chapter` fields record its current location.
 | Multinomial logit | Verified locally | `logit_odds_ratio` is the economic statement and requires `0 < μ`; `logit_odds_ratio_algebraic` records the underlying identity separately |
 | Firm duality | Core verified | On a nonempty explicit admissible price set `P`, `profit_homogeneous`, `profit_convex`, and `profit_maximizer_is_subgradient` require maximization only at prices in `P`; `profit_maximizer_is_efficient` separately uses a positive price. Existence and differentiable envelope bridges remain. |
 | First welfare theorem | Core verified | `priceSupport_rulesOut_paretoImprovement` proves only the price-support summation contradiction; deriving support from equilibrium optimization and local nonsatiation remains |
-| Walrasian allocation and core | Core verified | `priceSupport_rulesOut_coalitionBlock` proves only the coalition price-summing contradiction under exact budget, support, and resource equalities |
+| Walrasian allocation and strong core | Core verified | `priceSupport_rulesOut_strongCoalitionBlock` proves the exact finite-coalition summation contradiction for Problem 12.4: all coalition members weakly improve, at least one strictly improves, coalition resources balance exactly, individual equilibrium budgets hold, and one common price supports weak and strict improvements. Deriving that support from Walrasian optimization and local nonsatiation remains. |
 
 ## Pinned WGARP certificates
 

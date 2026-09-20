@@ -121,6 +121,10 @@ Student edition - questions only
 The set has two parts. Complete Part I by hand before using a coding or formal-proof assistant. In Part II, you may use Codex, but you must inspect and validate the resulting artifacts. No due date is stated in this source; use the date announced in class.
 \end_layout
 
+\begin_layout Standard
+This benchmark workshop draws from textbook Problems 1.1, 1.2, and 1.4. The authoritative Chapter 1 problem section remains in the book and ends with Problem 1.5, the household-demand use case.
+\end_layout
+
 \begin_layout Section*
 Part I. By hand
 \end_layout

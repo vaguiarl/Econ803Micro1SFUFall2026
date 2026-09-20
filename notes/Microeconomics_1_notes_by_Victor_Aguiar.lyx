@@ -439,6 +439,22 @@ Probability and expectation are written
  denotes the natural logarithm.
 \end_layout
 
+\begin_layout Chapter*
+Using the Chapter Problems
+\end_layout
+
+\begin_layout Standard
+Every chapter ends with a two-part problem section. Part I contains Core benchmarks to work without software: show the derivation, check feasibility or the defining identity, and state the economic point. Part II uses Proof and Applied problems as bridges to one named chapter case, which always appears last. Problem identifiers are stable across the book, course outline, and released handouts.
+\end_layout
+
+\begin_layout Standard
+Before using Codex, Python, or Lean, write four lines: Seed identifies the hand result being extended; Fixed records the assumptions that do not change; Scaled names the single enlarged dimension or strengthened claim; Risk states the new failure mode. A verified artifact must reproduce the seed, include a boundary or deliberately failing test, report the validation command, and separate the checked mathematical statement from the economic interpretation.
+\end_layout
+
+\begin_layout Standard
+Weekly handouts are release views of this architecture. The chapter problem section is the question-only source of record; solutions and instructor notes are maintained separately.
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -1819,8 +1835,8 @@ ECON803_PROBLEMS_START:utility-maximization-and-consumer-demand
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -1929,53 +1945,6 @@ For \begin_inset Formula $\rho<1$\end_inset
 
 \begin_layout Exercise*
 \series bold
-Problem 1.3 [Applied]. CES calibration and observational equivalence.
-\series default
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-par\backslash
-nopagebreak[4]
-\end_layout
-
-\end_inset
-\end_layout
-
-\begin_layout Exercise*
-At prices \begin_inset Formula $p^0=(1,2,4)$\end_inset
-, a household with wealth \begin_inset Formula $w^0=120$\end_inset
- chooses \begin_inset Formula $x^0=(30,25,10)$\end_inset
-. Consider Chapter 1's CES representation with positive normalized weights.
-\end_layout
-
-\begin_layout Exercise*
-(a) For a specified \begin_inset Formula $\sigma>0$\end_inset
-, derive the weights reproducing this observation.
-\end_layout
-
-\begin_layout Exercise*
-(b) Calibrate the weights for \begin_inset Formula $\sigma=1/2$\end_inset
- and \begin_inset Formula $\sigma=2$\end_inset
-. For each calibration predict demand at \begin_inset Formula $p^1=(2,2,4)$\end_inset
- and wealth 120.
-\end_layout
-
-\begin_layout Exercise*
-(c) Explain why fitting one observation does not identify substitution. Describe additional observations that could distinguish the models.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Exercise*
-\series bold
 Problem 1.4 [Core]. Substitutes, complements, and boundary choices.
 \series default
 \begin_inset ERT
@@ -2024,6 +1993,65 @@ Consider separately \begin_inset Formula $u^A(x)=2x_1+x_2$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: Household demand across subsistence and discretionary regimes — chapter use case and verified scale-up
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 1.3 [Applied]. CES calibration and observational equivalence.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+At prices \begin_inset Formula $p^0=(1,2,4)$\end_inset
+, a household with wealth \begin_inset Formula $w^0=120$\end_inset
+ chooses \begin_inset Formula $x^0=(30,25,10)$\end_inset
+. Consider Chapter 1's CES representation with positive normalized weights.
+\end_layout
+
+\begin_layout Exercise*
+(a) For a specified \begin_inset Formula $\sigma>0$\end_inset
+, derive the weights reproducing this observation.
+\end_layout
+
+\begin_layout Exercise*
+(b) Calibrate the weights for \begin_inset Formula $\sigma=1/2$\end_inset
+ and \begin_inset Formula $\sigma=2$\end_inset
+. For each calibration predict demand at \begin_inset Formula $p^1=(2,2,4)$\end_inset
+ and wealth 120.
+\end_layout
+
+\begin_layout Exercise*
+(c) Explain why fitting one observation does not identify substitution. Describe additional observations that could distinguish the models.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 1.1, 1.4. Fixed: all unlisted primitives and assumptions. Scaled: wealth from two hand calculations to a grid, with preferences and prices fixed. Tool: Codex + Python. Verification: Reproduce both hand wealth levels; classify infeasible, boundary, and interior regimes separately for each model; check feasibility, budget exhaustion, and continuity at every valid threshold.
 \end_layout
 
 \begin_layout Exercise*
@@ -3902,8 +3930,8 @@ ECON803_PROBLEMS_START:duality-comparative-statics-and-welfare
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -3955,6 +3983,61 @@ For \begin_inset Formula $u(x)=x_{1}^{\alpha}x_{2}^{1-\alpha}$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 2.5 [Core]. Translog shares and the regular price region.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Consider a homothetic translog index with \begin_inset Formula $\alpha_0=0$\end_inset
+, \begin_inset Formula $\alpha=(2/5,3/5)$\end_inset
+, and \begin_inset Formula $\Gamma=-\tfrac18\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(a) Derive shares and demands as functions of relative prices and wealth. Find the open interval of \begin_inset Formula $p_1/p_2$\end_inset
+ for which both shares are positive.
+\end_layout
+
+\begin_layout Exercise*
+(b) Compute \begin_inset Formula $H=\Gamma+\boldsymbol b\boldsymbol b^\top-\operatorname{diag}(\boldsymbol b)$\end_inset
+. Prove negative semidefiniteness throughout that interval.
+\end_layout
+
+\begin_layout Exercise*
+(c) At \begin_inset Formula $p=(2,1)$\end_inset
+ and \begin_inset Formula $w=100$\end_inset
+, calculate demand, Marshallian elasticities, and compensated elasticities. Verify adding up and homogeneity.
+\end_layout
+
+\begin_layout Exercise*
+(d) Explain why setting a negative predicted share to zero while retaining the other formula does not generally give a valid extension.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part II: Local CES and translog welfare approximation — chapter use case and verified scale-up
 \end_layout
 
 \begin_layout Exercise*
@@ -4098,55 +4181,12 @@ Use Chapter 1's CES utility, with positive normalized weights and \begin_inset F
 
 \end_layout
 
-\begin_layout Exercise*
-\series bold
-Problem 2.5 [Core]. Translog shares and the regular price region.
-\series default
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-par\backslash
-nopagebreak[4]
-\end_layout
-
-\end_inset
-\end_layout
-
-\begin_layout Exercise*
-Consider a homothetic translog index with \begin_inset Formula $\alpha_0=0$\end_inset
-, \begin_inset Formula $\alpha=(2/5,3/5)$\end_inset
-, and \begin_inset Formula $\Gamma=-\tfrac18\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$\end_inset
-.
-\end_layout
-
-\begin_layout Exercise*
-(a) Derive shares and demands as functions of relative prices and wealth. Find the open interval of \begin_inset Formula $p_1/p_2$\end_inset
- for which both shares are positive.
-\end_layout
-
-\begin_layout Exercise*
-(b) Compute \begin_inset Formula $H=\Gamma+\boldsymbol b\boldsymbol b^\top-\operatorname{diag}(\boldsymbol b)$\end_inset
-. Prove negative semidefiniteness throughout that interval.
-\end_layout
-
-\begin_layout Exercise*
-(c) At \begin_inset Formula $p=(2,1)$\end_inset
- and \begin_inset Formula $w=100$\end_inset
-, calculate demand, Marshallian elasticities, and compensated elasticities. Verify adding up and homogeneity.
-\end_layout
-
-\begin_layout Exercise*
-(d) Explain why setting a negative predicted share to zero while retaining the other formula does not generally give a valid extension.
+\begin_layout Subsubsection*
+Chapter use case
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
+Seed: Problems 2.4, 2.5. Fixed: all unlisted primitives and assumptions. Scaled: log relative-price distance from one reference price. Tool: Codex + Python. Verification: Match the CES value, gradient, and Hessian at the reference price; enforce positive shares and negative semidefiniteness on the translog regular region; report welfare comparisons only on that region.
 \end_layout
 
 \begin_layout Exercise*
@@ -6705,8 +6745,8 @@ ECON803_PROBLEMS_START:revealed-preference-and-recoverability
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -6852,53 +6892,6 @@ Consider two observations: \begin_inset Formula $p^{1}=(1,1)$\end_inset
 
 \begin_layout Exercise*
 \series bold
-Problem 3.4 [Applied]. Demand forecasting with Varian's support set.
-\series default
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-par\backslash
-nopagebreak[4]
-\end_layout
-
-\end_inset
-\end_layout
-
-\begin_layout Exercise*
-A finite dataset \begin_inset Formula $\mathcal O=\{(p^{t},x^{t})\}_{t\in\mathbb T}$\end_inset
- satisfies GARP. Fix a counterfactual budget \begin_inset Formula $(p^{0},w^{0})$\end_inset
- with \begin_inset Formula $p^{0}\gg0$\end_inset
-, and define \begin_inset Formula $\mathcal S_{\mathcal O}(p^{0},w^{0})=\{x^{0}:p^{0}\cdot x^{0}=w^{0},\ \mathcal O\cup\{(p^{0},x^{0})\}\text{ satisfies GARP}\}$\end_inset
-.
-\end_layout
-
-\begin_layout Exercise*
-(a) State a revealed-preference condition under which the augmented data imply \begin_inset Formula $x^{t}\succeq^R x^{0}$\end_inset
-.
-\end_layout
-
-\begin_layout Exercise*
-(b) Derive the associated linear restriction on \begin_inset Formula $p^{0}\cdot x^{0}$\end_inset
-.
-\end_layout
-
-\begin_layout Exercise*
-(c) Explain why the restrictions in parts (a)--(b) are necessary but must be combined with every revealed-preference path into and out of the candidate observation to characterize \begin_inset Formula $\mathcal S_{\mathcal O}(p^{0},w^{0})$\end_inset
-. Explain why this set gives bounds rather than point identification.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Exercise*
-\series bold
 Problem 3.5 [Core]. Classical utility as singleton CMU.
 \series default
 \begin_inset ERT
@@ -6941,6 +6934,10 @@ Let \begin_inset Formula $u:X\to\mathbb R$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: A counterfactual demand support set — chapter use case and verified scale-up
 \end_layout
 
 \begin_layout Exercise*
@@ -6987,6 +6984,62 @@ Consider prices \begin_inset Formula $p^1=(4,1,5)$\end_inset
  and \begin_inset Formula $x'\in x_r(p',p'\cdot x)$\end_inset
 . Prove the compensated law of demand \begin_inset Formula $(p'-p)\cdot(x'-x)\leq0$\end_inset
 . State where nonemptiness of demand is used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 3.1, 3.3. Fixed: all unlisted primitives and assumptions. Scaled: the number of observed budgets from two to \begin_inset Formula $T$\end_inset
+, with two goods and the counterfactual budget fixed. Tool: Codex + Python; Lean for candidate certificates. Verification: Recover the hand support interval and verify that added observations can only shrink it. Lean may check GARP or Afriat certificates for candidates; it does not yet certify the full support-set characterization.
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 3.4 [Applied]. Demand forecasting with Varian's support set.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+A finite dataset \begin_inset Formula $\mathcal O=\{(p^{t},x^{t})\}_{t\in\mathbb T}$\end_inset
+ satisfies GARP. Fix a counterfactual budget \begin_inset Formula $(p^{0},w^{0})$\end_inset
+ with \begin_inset Formula $p^{0}\gg0$\end_inset
+, and define \begin_inset Formula $\mathcal S_{\mathcal O}(p^{0},w^{0})=\{x^{0}:p^{0}\cdot x^{0}=w^{0},\ \mathcal O\cup\{(p^{0},x^{0})\}\text{ satisfies GARP}\}$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(a) State a revealed-preference condition under which the augmented data imply \begin_inset Formula $x^{t}\succeq^R x^{0}$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(b) Derive the associated linear restriction on \begin_inset Formula $p^{0}\cdot x^{0}$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(c) Explain why the restrictions in parts (a)--(b) are necessary but must be combined with every revealed-preference path into and out of the candidate observation to characterize \begin_inset Formula $\mathcal S_{\mathcal O}(p^{0},w^{0})$\end_inset
+. Explain why this set gives bounds rather than point identification.
 \end_layout
 
 \begin_layout Standard
@@ -7654,8 +7707,8 @@ ECON803_PROBLEMS_START:choice-without-budget-geometry
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -7709,50 +7762,8 @@ Let \begin_inset Formula $X=\{a,b,c\}$\end_inset
 
 \end_layout
 
-\begin_layout Exercise*
-\series bold
-Problem 4.2 [Core]. Choice cycles on finite menus.
-\series default
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-par\backslash
-nopagebreak[4]
-\end_layout
-
-\end_inset
-\end_layout
-
-\begin_layout Exercise*
-Let \begin_inset Formula $X=\{a,b,c\}$\end_inset
- and suppose a single-valued choice function satisfies \begin_inset Formula $c(\{a,b\})=a$\end_inset
-, \begin_inset Formula $c(\{b,c\})=b$\end_inset
-, and \begin_inset Formula $c(\{a,c\})=c$\end_inset
-. Say that a preference relation \begin_inset Formula $R$\end_inset
- rationalizes these data when the observed alternative is the unique \begin_inset Formula $R$\end_inset
--greatest element of each observed menu.
-\end_layout
-
-\begin_layout Exercise*
-(a) Write the direct revealed-preference comparisons generated by these choices.
-\end_layout
-
-\begin_layout Exercise*
-(b) Show that no transitive preference relation can rationalize the data.
-\end_layout
-
-\begin_layout Exercise*
-(c) State the smallest change to one observation that restores acyclicity, and exhibit a complete and transitive rationalization of the revised data.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
+\begin_layout Subsection*
+Part II: A menu-design rationality audit — chapter use case and verified scale-up
 \end_layout
 
 \begin_layout Exercise*
@@ -7800,6 +7811,61 @@ Let \begin_inset Formula $R$\end_inset
 
 \begin_layout Exercise*
 (c) Explain why this conclusion is WGARP, the appropriate weak axiom for a set-valued choice correspondence, and distinguish it from WARP for single-valued demand.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problem 4.2. Fixed: all unlisted primitives and assumptions. Scaled: the number of observed menus on the fixed set \begin_inset Formula $X=\{a,b,c\}$\end_inset
+. Tool: Codex + Lean. Verification: Recover the three-menu cycle and the one-observation repair; return an exact cycle certificate or a complete transitive rationalization. The current pairwise-WARP theorem does not exclude this three-cycle; the general checker theorem is a new target.
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 4.2 [Core]. Choice cycles on finite menus.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Let \begin_inset Formula $X=\{a,b,c\}$\end_inset
+ and suppose a single-valued choice function satisfies \begin_inset Formula $c(\{a,b\})=a$\end_inset
+, \begin_inset Formula $c(\{b,c\})=b$\end_inset
+, and \begin_inset Formula $c(\{a,c\})=c$\end_inset
+. Say that a preference relation \begin_inset Formula $R$\end_inset
+ rationalizes these data when the observed alternative is the unique \begin_inset Formula $R$\end_inset
+-greatest element of each observed menu.
+\end_layout
+
+\begin_layout Exercise*
+(a) Write the direct revealed-preference comparisons generated by these choices.
+\end_layout
+
+\begin_layout Exercise*
+(b) Show that no transitive preference relation can rationalize the data.
+\end_layout
+
+\begin_layout Exercise*
+(c) State the smallest change to one observation that restores acyclicity, and exhibit a complete and transitive rationalization of the revised data.
 \end_layout
 
 \begin_layout Standard
@@ -9474,8 +9540,8 @@ ECON803_PROBLEMS_START:expected-utility-and-risk
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -9569,6 +9635,10 @@ Lotteries \begin_inset Formula $\mu$\end_inset
 
 \end_layout
 
+\begin_layout Subsection*
+Part II: A multi-asset portfolio under risk — chapter use case and verified scale-up
+\end_layout
+
 \begin_layout Exercise*
 \series bold
 Problem 5.3 [Proof]. The Arrow-Pratt approximation.
@@ -9626,6 +9696,15 @@ where \begin_inset Formula $A(w)=-u''(w)/u'(w)$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 5.3, 5.4. Fixed: all unlisted primitives and assumptions. Scaled: the number of jointly normal risky assets from one to \begin_inset Formula $K$\end_inset
+, retaining CARA utility and unconstrained positions. Tool: Codex + Python. Verification: Recover the one-asset formula; verify the first-order condition and concavity using the covariance matrix; report singular-covariance cases explicitly and do not add portfolio constraints silently.
 \end_layout
 
 \begin_layout Exercise*
@@ -10096,8 +10175,8 @@ ECON803_PROBLEMS_START:stochastic-choice-and-random-utility
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -10134,46 +10213,6 @@ Choice probabilities satisfy \begin_inset Formula $P(j\mid A)=\exp(V_{j}/\tau)/\
 
 \begin_layout Exercise*
 (c) Explain precisely which part of IIA is an empirical restriction and which part is an algebraic implication of the model.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Exercise*
-\series bold
-Problem 6.2 [Applied]. The red-bus blue-bus problem.
-\series default
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-par\backslash
-nopagebreak[4]
-\end_layout
-
-\end_inset
-\end_layout
-
-\begin_layout Exercise*
-Walking and a red bus initially have systematic utilities normalized so that each has probability one half under logit. A blue bus with the same systematic utility as the red bus is added.
-\end_layout
-
-\begin_layout Exercise*
-(a) Compute the new logit probabilities.
-\end_layout
-
-\begin_layout Exercise*
-(b) Compare the total bus share before and after entry.
-\end_layout
-
-\begin_layout Exercise*
-(c) Explain why a model with highly correlated bus-specific shocks would predict a different substitution pattern.
 \end_layout
 
 \begin_layout Standard
@@ -10229,6 +10268,54 @@ There are alternatives \begin_inset Formula $a,b,c$\end_inset
 (c) Explain why nonnegativity of \begin_inset Formula $\lambda$\end_inset
  and \begin_inset Formula $\mathbf 1_6^{\top}\lambda=1$\end_inset
  are the central finite random-utility feasibility restrictions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part II: Red bus, blue bus, and duplicated products — chapter use case and verified scale-up
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 6.1, 6.2. Fixed: all unlisted primitives and assumptions. Scaled: the number of observationally identical bus labels under independent-logit shocks. Tool: Codex + Python; Lean for the IIA core. Verification: Recover the one-bus and two-bus probabilities, verify that probabilities sum to one, and separate the verified logit odds result from any shared-shock comparison model.
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 6.2 [Applied]. The red-bus blue-bus problem.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Walking and a red bus initially have systematic utilities normalized so that each has probability one half under logit. A blue bus with the same systematic utility as the red bus is added.
+\end_layout
+
+\begin_layout Exercise*
+(a) Compute the new logit probabilities.
+\end_layout
+
+\begin_layout Exercise*
+(b) Compare the total bus share before and after entry.
+\end_layout
+
+\begin_layout Exercise*
+(c) Explain why a model with highly correlated bus-specific shocks would predict a different substitution pattern.
 \end_layout
 
 \begin_layout Standard
@@ -10745,8 +10832,8 @@ ECON803_PROBLEMS_START:limited-attention-and-costly-information
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -10841,6 +10928,17 @@ Let \begin_inset Formula $u(x)=[\alpha x_{1}^{\rho}+(1-\alpha)x_{2}^{\rho}]^{1/\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: Paying for information before choosing — chapter use case and verified scale-up
+\end_layout
+
+\begin_layout Standard
+Seed: Problem 7.3. Fixed: all unlisted primitives and assumptions. Scaled: the common number \begin_inset Formula $N$\end_inset
+ of equally likely states and matching actions, beginning at \begin_inset Formula $N=2$\end_inset
+. Tool: Codex + Python. Verification: Recover the binary optimum, enforce conditional-probability and information-cost identities, and label any symmetry restriction used in the \begin_inset Formula $N$\end_inset
+-state extension. Problems 7.1 and 7.2 are comparison models, not derivations of rational inattention.
 \end_layout
 
 \begin_layout Exercise*
@@ -11267,8 +11365,8 @@ ECON803_PROBLEMS_START:aggregate-demand-and-representative-consumers
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -11356,6 +11454,14 @@ All consumers have the same homothetic preferences, strictly positive wealth \be
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: Aggregation when household wealth moves with prices — chapter use case and verified scale-up
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 8.1, 8.2. Fixed: all unlisted primitives and assumptions. Scaled: the number of consumers, with each wealth rule and preference class fixed. Tool: Codex + Python; Lean for the finite-sum core. Verification: Verify the finite aggregation identity and isolate every wealth-revaluation term. Do not describe the derivative or Slutsky bridge as Lean verified.
 \end_layout
 
 \begin_layout Exercise*
@@ -11727,8 +11833,8 @@ ECON803_PROBLEMS_START:theory-of-the-firm
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -11768,50 +11874,6 @@ A firm has production function \begin_inset Formula $f(\boldsymbol z)=z_{1}^{\al
 \begin_layout Exercise*
 (c) Verify that cost is homogeneous of degree one and concave in \begin_inset Formula $\boldsymbol w$\end_inset
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Exercise*
-\series bold
-Problem 9.2 [Proof]. Dual properties of the profit function.
-\series default
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-par\backslash
-nopagebreak[4]
-\end_layout
-
-\end_inset
-\end_layout
-
-\begin_layout Exercise*
-Let \begin_inset Formula $Y\subseteq\mathbb R^{L}$\end_inset
- be nonempty, closed, and convex. Assume that profit \begin_inset Formula $\pi_Y(p)=\sup_{y\in Y}p\cdot y$\end_inset
- is finite on a neighborhood of the price under study and that the supremum is attained.
-\end_layout
-
-\begin_layout Exercise*
-(a) Prove that \begin_inset Formula $\pi_Y$\end_inset
- is convex and homogeneous of degree one in prices.
-\end_layout
-
-\begin_layout Exercise*
-(b) If supply is unique at \begin_inset Formula $p$\end_inset
-, use a subgradient argument to prove Hotelling's lemma and explain why the profit function is differentiable there.
-\end_layout
-
-\begin_layout Exercise*
-(c) State what changes when supply is set-valued.
 \end_layout
 
 \begin_layout Standard
@@ -11863,6 +11925,63 @@ Assume \begin_inset Formula $Y$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: Input substitution in a multi-input firm — chapter use case and verified scale-up
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 9.2 [Proof]. Dual properties of the profit function.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Let \begin_inset Formula $Y\subseteq\mathbb R^{L}$\end_inset
+ be nonempty, closed, and convex. Assume that profit \begin_inset Formula $\pi_Y(p)=\sup_{y\in Y}p\cdot y$\end_inset
+ is finite on a neighborhood of the price under study and that the supremum is attained.
+\end_layout
+
+\begin_layout Exercise*
+(a) Prove that \begin_inset Formula $\pi_Y$\end_inset
+ is convex and homogeneous of degree one in prices.
+\end_layout
+
+\begin_layout Exercise*
+(b) If supply is unique at \begin_inset Formula $p$\end_inset
+, use a subgradient argument to prove Hotelling's lemma and explain why the profit function is differentiable there.
+\end_layout
+
+\begin_layout Exercise*
+(c) State what changes when supply is set-valued.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problem 9.1. Fixed: all unlisted primitives and assumptions. Scaled: the input dimension from two to \begin_inset Formula $L$\end_inset
+, with the output target and technology family fixed. Tool: Codex + Python; Lean for finite algebra. Verification: Recover the two-input cost benchmark; check Shephard derivatives, Hessian symmetry, negative semidefiniteness, and the homogeneity null direction; state the analytic assumptions not encoded in Lean.
 \end_layout
 
 \begin_layout Exercise*
@@ -12181,8 +12300,8 @@ ECON803_PROBLEMS_START:competitive-markets-and-partial-equilibrium
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -12230,6 +12349,10 @@ Demand and supply are \begin_inset Formula $Q^{d}(p)=a-bp$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: Music sales and concerts — chapter use case and verified scale-up
 \end_layout
 
 \begin_layout Exercise*
@@ -12320,6 +12443,15 @@ A representative consumer has quasilinear utility \begin_inset Formula $u(q)+m$\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 1.2, 9.1, 10.1, 10.3. Fixed: all unlisted primitives and assumptions. Scaled: the music-volume or royalty share \begin_inset Formula $\tau$\end_inset
+ from the two benchmark values to a grid. Tool: Codex + Python. Verification: Reproduce the demand and cost formulas and both endpoint comparisons; bracket every stationary point, check both price boundaries, establish the global maximizer, and keep the volume-share and royalty-share scenarios distinct.
 \end_layout
 
 \begin_layout Exercise*
@@ -12867,8 +12999,8 @@ ECON803_PROBLEMS_START:general-equilibrium-theory
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -12914,6 +13046,10 @@ There are two consumers with common utility \begin_inset Formula $u_{i}(x_{i1},x
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: A consumer-owned firm — chapter use case and verified scale-up
 \end_layout
 
 \begin_layout Exercise*
@@ -12994,6 +13130,16 @@ Suppose consumption sets and production sets are closed and convex, preferences 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 11.1, 11.4. Fixed: all unlisted primitives and assumptions. Scaled: the production exponent from one-half to \begin_inset Formula $\beta\in(0,1)$\end_inset
+. Tool: Codex + Python. Verification: Recover the square-root economy; verify planner and decentralized allocations coincide; check second-order conditions, profit finiteness, both market-clearing equations, and limiting behavior in \begin_inset Formula $\beta$\end_inset
+.
 \end_layout
 
 \begin_layout Exercise*
@@ -13313,28 +13459,32 @@ The core
 For clarity, define the core first in a pure-exchange economy.  There are \begin_inset Formula $I$\end_inset
  consumers, endowments \begin_inset Formula $\omega_i\in\mathbb{R}_{+}^{L}$\end_inset
 , and a feasible allocation satisfies \begin_inset Formula $\sum_i x_i=\sum_i\omega_i$\end_inset
- (free disposal can replace equality by \begin_inset Formula $\leq$\end_inset
-).  A nonempty coalition \begin_inset Formula $S\subseteq\{1,\ldots,I\}$\end_inset
- can use only \begin_inset Formula $\sum_{i\in S}\omega_i$\end_inset
+.  We use exact feasibility for blocking coalitions.  Under free disposal and monotone preferences, one may replace equality by \begin_inset Formula $\leq$\end_inset
+ without changing the economic conclusion.  A nonempty coalition \begin_inset Formula $S\subseteq\{1,\ldots,I\}$\end_inset
+ can redistribute exactly its own aggregate endowment \begin_inset Formula $\sum_{i\in S}\omega_i$\end_inset
 .
 \end_layout
 
 \begin_layout Definition
-Blocking coalition.  Coalition \begin_inset Formula $S$\end_inset
+Blocking, core, strong blocking, and strong core.  Coalition \begin_inset Formula $S$\end_inset
  blocks a feasible allocation \begin_inset Formula $x$\end_inset
  if there are \begin_inset Formula $\{x_i'\}_{i\in S}$\end_inset
  with \begin_inset Formula $x_i'\succ_i x_i$\end_inset
  for every \begin_inset Formula $i\in S$\end_inset
- and \begin_inset Formula $\sum_{i\in S}x_i'\leq\sum_{i\in S}\omega_i$\end_inset
-.
-\end_layout
-
-\begin_layout Definition
-The core is the set of feasible allocations blocked by no coalition.
+ and \begin_inset Formula $\sum_{i\in S}x_i'=\sum_{i\in S}\omega_i$\end_inset
+.  The core is the set of feasible allocations blocked by no coalition.  Coalition \begin_inset Formula $S$\end_inset
+ strongly blocks a feasible allocation \begin_inset Formula $x$\end_inset
+ if there are \begin_inset Formula $\{x_i'\}_{i\in S}$\end_inset
+ satisfying \begin_inset Formula $\sum_{i\in S}x_i'=\sum_{i\in S}\omega_i$\end_inset
+, \begin_inset Formula $x_i'\succeq_i x_i$\end_inset
+ for every \begin_inset Formula $i\in S$\end_inset
+, and \begin_inset Formula $x_j'\succ_j x_j$\end_inset
+ for at least one \begin_inset Formula $j\in S$\end_inset
+.  The strong core is the set of feasible allocations with no strong block.  Every ordinary block is a strong block, so the strong core is contained in the core.
 \end_layout
 
 \begin_layout Proposition
-Walrasian allocations are in the core.
+Walrasian allocations are in the strong core, and hence in the core.
  See
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -13345,8 +13495,10 @@ literal "false"
 .
  Suppose preferences are locally nonsatiated and \begin_inset Formula $(p^*,x^*)$\end_inset
  is a Walrasian equilibrium with \begin_inset Formula $p^*\gg0$\end_inset
-.  If a coalition made every member strictly better off, each member would need a bundle with strictly greater value than \begin_inset Formula $p^*\cdot\omega_i$\end_inset
-.  Summing over the coalition contradicts its resource constraint.  Thus no coalition blocks \begin_inset Formula $x^*$\end_inset
+.  Suppose a coalition strongly blocks \begin_inset Formula $x^*$\end_inset
+.  Consumer optimality and local nonsatiation imply \begin_inset Formula $p^*\cdot x_i'\geq p^*\cdot\omega_i$\end_inset
+ for every weakly improved member; the inequality is strict for the member who strictly improves.  Summing over the coalition therefore gives \begin_inset Formula $p^*\cdot\sum_{i\in S}x_i'>p^*\cdot\sum_{i\in S}\omega_i$\end_inset
+, contradicting exact coalition feasibility.  Thus no coalition strongly blocks \begin_inset Formula $x^*$\end_inset
 .
 \end_layout
 
@@ -13383,8 +13535,8 @@ ECON803_PROBLEMS_START:positive-theory-of-equilibrium
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -13428,6 +13580,10 @@ Let aggregate excess demand \begin_inset Formula $z:\mathbb R_{++}^{L}\to\mathbb
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: A coalition challenges a competitive allocation — chapter use case and verified scale-up
 \end_layout
 
 \begin_layout Exercise*
@@ -13513,6 +13669,14 @@ Assume aggregate excess demand satisfies strict gross substitutes on the relevan
 
 \end_layout
 
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problem 12.4. Fixed: all unlisted primitives and assumptions. Scaled: the blocking predicate from all-strict improvement to weak improvement for all members and strict improvement for one witness. Tool: Codex + Lean. Verification: Compile the Lean strong-coalition price-support declaration and match each hypothesis to the economic proof. Lean verifies the finite price-summing contradiction, not the derivation of price support from Walrasian optimization or the replica-economy convergence claim. This case closes the price-support and core thread; Problems 12.2 and 12.3 are separate regularity and uniqueness extensions.
+\end_layout
+
 \begin_layout Exercise*
 \series bold
 Problem 12.4 [Core]. Competitive allocations and the strong core.
@@ -13531,7 +13695,15 @@ nopagebreak[4]
 \end_layout
 
 \begin_layout Exercise*
-Use the strong-blocking convention in a finite pure-exchange economy with locally nonsatiated preferences: a coalition blocks when all its members can be made weakly better off using their own aggregate endowment and at least one member is made strictly better off. Define the associated strong core.
+Use the strong-blocking convention in a finite pure-exchange economy with locally nonsatiated preferences. A nonempty coalition \begin_inset Formula $S$\end_inset
+ strongly blocks \begin_inset Formula $x$\end_inset
+ when it can choose \begin_inset Formula $(y_i)_{i\in S}$\end_inset
+ such that \begin_inset Formula $\sum_{i\in S}y_i=\sum_{i\in S}\omega_i$\end_inset
+, \begin_inset Formula $y_i\succeq_i x_i$\end_inset
+ for every \begin_inset Formula $i\in S$\end_inset
+, and \begin_inset Formula $y_j\succ_j x_j$\end_inset
+ for at least one \begin_inset Formula $j\in S$\end_inset
+. Define the associated strong core.
 \end_layout
 
 \begin_layout Exercise*
@@ -13758,8 +13930,8 @@ ECON803_PROBLEMS_START:testable-restrictions-on-the-equilibrium-manifold
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -13809,6 +13981,10 @@ At each observation \begin_inset Formula $t$\end_inset
 
 \end_layout
 
+\begin_layout Subsection*
+Part II: A counterfactual equilibrium identified set — chapter use case and verified scale-up
+\end_layout
+
 \begin_layout Exercise*
 \series bold
 Problem 13.2 [Proof]. What equilibrium data identify.
@@ -13847,6 +14023,15 @@ Suppose only equilibrium prices and aggregate endowments are observed.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 13.1, 13.3. Fixed: all unlisted primitives and assumptions. Scaled: the number of equilibrium observations from two to \begin_inset Formula $T$\end_inset
+, with the maintained preference class and counterfactual fixed. Tool: Codex + Python. Verification: Verify feasibility and market clearing for every retained candidate, show how each added observation changes the bounds, and never replace set identification by a point estimate.
 \end_layout
 
 \begin_layout Exercise*
@@ -14078,8 +14263,8 @@ ECON803_PROBLEMS_START:sequential-trade
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -14174,6 +14359,16 @@ Let \begin_inset Formula $S=3$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: Complete versus incomplete sequential markets — chapter use case and verified scale-up
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 14.1, 14.2. Fixed: all unlisted primitives and assumptions. Scaled: the asset span from rank \begin_inset Formula $S-1$\end_inset
+ to rank \begin_inset Formula $S$\end_inset
+ at a fixed number of states. Tool: Codex + Python; Lean target. Verification: Check portfolio replication, the state-price units map, and present-value budgets; include a rank-deficient claim that cannot be implemented. Arrow-Radner equivalence remains a future Lean target.
 \end_layout
 
 \begin_layout Exercise*
@@ -14374,8 +14569,8 @@ ECON803_PROBLEMS_START:matching
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -14424,6 +14619,10 @@ Three men have rankings \begin_inset Formula $m_{1}:w_{1}\succ w_{2}\succ w_{3}$
 
 \end_layout
 
+\begin_layout Subsection*
+Part II: Housing allocation and coalitional stability — chapter use case and verified scale-up
+\end_layout
+
 \begin_layout Exercise*
 \series bold
 Problem 15.2 [Proof]. Proposer optimality.
@@ -14462,6 +14661,15 @@ Consider a finite balanced one-to-one matching market in which every participant
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problem 15.3. Fixed: all unlisted primitives and assumptions. Scaled: the number of agents and houses from three to \begin_inset Formula $n$\end_inset
+. Tool: Codex + Python; Lean target. Verification: Recover the three-agent top-trading-cycles allocation; check permutation, individual rationality, Pareto comparisons, and coalition blocking by enumeration. Top trading cycles and housing-core claims remain future Lean targets.
 \end_layout
 
 \begin_layout Exercise*
@@ -14834,8 +15042,8 @@ ECON803_PROBLEMS_START:computable-general-equilibrium
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -14927,6 +15135,14 @@ A two-sector social accounting matrix records sectoral sales, intermediate purch
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: A tariff counterfactual from partial to general equilibrium — chapter use case and verified scale-up
+\end_layout
+
+\begin_layout Standard
+Seed: Problems 16.1, 16.2, 16.3. Fixed: all unlisted primitives and assumptions. Scaled: model closure from fixed factor prices to one endogenous shared labor market linking import-competing and export sectors. Tool: Codex + Python. Verification: Replicate the partial-equilibrium benchmark, then report factor-market, goods-market, trade-balance, government-budget, and welfare residuals. Identify which change comes from the single added general-equilibrium channel.
 \end_layout
 
 \begin_layout Exercise*
@@ -15967,8 +16183,8 @@ ECON803_PROBLEMS_START:order-theory
 Problems
 \end_layout
 
-\begin_layout Standard
-Problems are labelled Core, Proof, or Applied. Core problems consolidate essential techniques; Proof problems develop formal arguments; Applied problems connect the theory to measurement or policy.
+\begin_layout Subsection*
+Part I: By hand
 \end_layout
 
 \begin_layout Exercise*
@@ -16006,6 +16222,10 @@ Give a counterexample for every failed property.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Part II: Finite preference completion and multiple utilities — chapter use case and verified scale-up
 \end_layout
 
 \begin_layout Exercise*
@@ -16101,6 +16321,15 @@ Let \begin_inset Formula $R$\end_inset
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Chapter use case
+\end_layout
+
+\begin_layout Standard
+Seed: Problems A.1, A.2, A.3. Fixed: all unlisted primitives and assumptions. Scaled: the number \begin_inset Formula $|X|$\end_inset
+ of alternatives in a finite preorder, beginning with the hand example. Tool: Codex + Lean. Verification: Verify the preorder, quotient construction, and each proposed linear extension. Szpilrajn extension is currently verified; quotient pullback, intersection of all extensions, and the finite multiple-utility corollary remain explicit formal targets.
 \end_layout
 
 \begin_layout Exercise*

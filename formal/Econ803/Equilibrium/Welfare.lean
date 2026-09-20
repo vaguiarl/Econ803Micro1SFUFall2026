@@ -114,4 +114,43 @@ theorem priceSupport_rulesOut_coalitionBlock
     rw [← expenditure_aggregateOn, hresources, expenditure_aggregateOn]
   linarith
 
+/-- A finite coalition cannot exactly redistribute its own aggregate endowment
+so that every member is weakly better off and at least one member is strictly
+better off when the equilibrium allocation satisfies individual budget
+equalities and a common price supports both weak and strict improvements.
+
+This is the price-summing argument for the strong-blocking convention used in
+Problem 12.4. The explicit strict witness makes the coalition nonempty; the
+`S.Nonempty` field is retained to match the economic definition of a
+coalition. -/
+theorem priceSupport_rulesOut_strongCoalitionBlock
+    [Fintype I] {L : ℕ}
+    (r : I → Bundle L → Bundle L → Prop)
+    (p : Bundle L) (endowment x : I → Bundle L)
+    (hbudget : ∀ i, expenditure p (x i) = expenditure p (endowment i))
+    (hsupport : PriceSupportsAt r p x) :
+    ¬ ∃ (S : Finset I) (_hS : S.Nonempty) (y : I → Bundle L),
+      aggregateOn S y = aggregateOn S endowment ∧
+        (∀ i ∈ S, r i (y i) (x i)) ∧
+        ∃ j ∈ S, StrictPart (r j) (y j) (x j) := by
+  rintro ⟨S, _hS, y, hresources, hweakBetter, j, hjS, hjStrict⟩
+  have hall : ∀ i ∈ S,
+      expenditure p (endowment i) ≤ expenditure p (y i) := by
+    intro i hi
+    rw [← hbudget i]
+    exact hsupport.1 i (y i) (hweakBetter i hi)
+  have hj : expenditure p (endowment j) < expenditure p (y j) := by
+    rw [← hbudget j]
+    exact hsupport.2 j (y j) hjStrict
+  have hsum : (∑ i ∈ S, expenditure p (endowment i)) <
+      ∑ i ∈ S, expenditure p (y i) := by
+    apply Finset.sum_lt_sum
+    · intro i hi
+      exact hall i hi
+    · exact ⟨j, hjS, hj⟩
+  have heq : (∑ i ∈ S, expenditure p (y i)) =
+      ∑ i ∈ S, expenditure p (endowment i) := by
+    rw [← expenditure_aggregateOn, hresources, expenditure_aggregateOn]
+  linarith
+
 end Econ803.Equilibrium
