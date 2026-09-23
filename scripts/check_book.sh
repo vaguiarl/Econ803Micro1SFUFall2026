@@ -46,6 +46,7 @@ python3 "$repo_dir/scripts/inject_problem_sets.py" --check \
 python3 "$repo_dir/scripts/inject_reserve_bank.py" --check
 python3 "$repo_dir/scripts/inject_weekly_problem_plan.py" --check
 python3 "$repo_dir/scripts/build_artists_case.py" --check
+python3 "$repo_dir/scripts/build_practice_book.py" --check
 bash "$repo_dir/scripts/check_problem_sets.sh"
 
 printf '3/10 Validating notation ledger and first-use/glossary links...\n'
@@ -75,6 +76,7 @@ fi
 python3 "$repo_dir/scripts/check_pdf_notation_links.py" \
   --pdf "$pdf_path" \
   --ledger "$repo_dir/editorial/notation/glossary.tsv"
+bash "$repo_dir/scripts/build_practice_book.sh"
 
 printf '7/10 Building the pinned Lean project and auditing kernel trust...\n'
 bash "$repo_dir/formal/scripts/check.sh"
