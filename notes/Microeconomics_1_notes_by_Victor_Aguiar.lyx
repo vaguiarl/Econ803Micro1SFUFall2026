@@ -151,15 +151,37 @@ Using the Chapter Problems
 \end_layout
 
 \begin_layout Standard
-Every chapter ends with a two-part problem section. Part I contains Core benchmarks to work without software: show the derivation, check feasibility or the defining identity, and state the economic point. Part II uses Proof and Applied problems as bridges to one named chapter case, which always appears last. Problem identifiers are stable across the book, course outline, and released handouts.
+Every chapter ends with a two-part problem section.
+ Part I contains Core benchmarks to work without software:
+ show the derivation,
+ check feasibility or the defining identity,
+ and state the economic point.
+ Part II uses Proof and Applied problems as bridges to one named chapter case,
+ which always appears last.
+ Problem identifiers are stable across the book,
+ course outline,
+ and released handouts.
 \end_layout
 
 \begin_layout Standard
-Before using Codex, Python, or Lean, write four lines: Seed identifies the hand result being extended; Fixed records the assumptions that do not change; Scaled names the single enlarged dimension or strengthened claim; Risk states the new failure mode. A verified artifact must reproduce the seed, include a boundary or deliberately failing test, report the validation command, and separate the checked mathematical statement from the economic interpretation.
+Before using Codex,
+ Python,
+ or Lean,
+ write four lines:
+ Seed identifies the hand result being extended;
+ Fixed records the assumptions that do not change;
+ Scaled names the single enlarged dimension or strengthened claim;
+ Risk states the new failure mode.
+ A verified artifact must reproduce the seed,
+ include a boundary or deliberately failing test,
+ report the validation command,
+ and separate the checked mathematical statement from the economic interpretation.
 \end_layout
 
 \begin_layout Standard
-Weekly handouts are release views of this architecture. The chapter problem section is the question-only source of record; solutions and instructor notes are maintained separately.
+Weekly handouts are release views of this architecture.
+ The chapter problem section is the question-only source of record;
+ solutions and instructor notes are maintained separately.
 \end_layout
 
 \begin_layout Standard
@@ -1481,6 +1503,20 @@ Note that for
 \end_layout
 
 \begin_layout Standard
+Problem 1.6 applies these conditions to the fertility--education household block in Unified Growth Theory 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "galor2005,galorweil2000"
+literal "false"
+
+\end_inset
+
+.
+ The problem uses a closed-form child-human-capital technology for teaching;
+ it does not reproduce the full dynamic growth model.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
@@ -1493,19 +1529,244 @@ ECON803_CONSUMER_RESTRUCTURE_SOURCE:section:consumer-theory-utility-maximization
 
 \end_layout
 
+\begin_layout Subsection
+Expenditure-Augmented Utility
+\end_layout
+
+\begin_layout Standard
+The Marshallian problem treats 
+\begin_inset Formula $x$
+\end_inset
+
+ as the complete consumption bundle and wealth 
+\begin_inset Formula $w$
+\end_inset
+
+ as observed.
+ In many applications,
+ however,
+ the data record only the goods in one market.
+ Spending 
+\begin_inset Formula $p\cdot x$
+\end_inset
+
+ on those goods reduces what remains for outside consumption,
+ saving,
+ or other financial decisions.
+ Expenditure-augmented utility represents this opportunity cost directly 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "debkitamuraquahstoye2023"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Expenditure-augmented utility.
+ Fix a consumption set 
+\begin_inset Formula $\;X\subseteq\mathbb{R}_{+}^{L}$
+\end_inset
+
+.
+ An expenditure-augmented utility function is 
+\begin_inset Formula $U^{A}:X\times\mathbb{R}_{-}\to\mathbb{R}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $U^{A}(x,m)$
+\end_inset
+
+ is strictly increasing in 
+\begin_inset Formula $m=-e$
+\end_inset
+
+;
+ equivalently,
+ holding the bundle fixed,
+ utility strictly decreases as spending rises.
+ At 
+\begin_inset Formula $p\gg0$
+\end_inset
+
+,
+ define augmented demand and the value of the price environment by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D^{A}(p):=\arg\max_{x\in X}U^{A}(x,-p\cdot x),
+\qquad
+V^{A}(p):=\sup_{x\in X}U^{A}(x,-p\cdot x).
+\]
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+Unlike Marshallian demand 
+\begin_inset Formula $x(p,w)$
+\end_inset
+
+,
+ choice is over all of 
+\begin_inset Formula $X$
+\end_inset
+
+ and expenditure is endogenous.
+ A maximizer must therefore be assumed or established.
+\end_layout
+
+\begin_layout Standard
+Quasilinear utility is the special case,
+ not another name for the general model:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U^{A}(x,m)=\widetilde{u}(x)+m
+\quad\Longrightarrow\quad
+D^{A}(p)=\arg\max_{x\in X}\{\widetilde{u}(x)-p\cdot x\}.
+\]
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+This objective follows from overall utility 
+\begin_inset Formula $\widetilde{u}(x)+z$
+\end_inset
+
+ with an outside numeraire 
+\begin_inset Formula $z$
+\end_inset
+
+ priced at one,
+ provided wealth is high enough that the optimizer leaves 
+\begin_inset Formula $z=M-p\cdot x\geq0$
+\end_inset
+
+.
+ A general 
+\begin_inset Formula $U^{A}$
+\end_inset
+
+ instead allows both the marginal value of outside resources and substitution among the observed goods to vary with total spending.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $X=\mathbb{R}_{+}^{L}$
+\end_inset
+
+,
+ suppose 
+\begin_inset Formula $U^{A}$
+\end_inset
+
+ is differentiable and concave and that 
+\begin_inset Formula $x^{*}\in D^{A}(p)$
+\end_inset
+
+ exists.
+ The KKT conditions are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}
+U^{A}_{x_{\ell}}(x^{*},-p\cdot x^{*})
+-p_{\ell}U^{A}_{m}(x^{*},-p\cdot x^{*})&\leq0,\\
+x^{*}_{\ell}\bigl[U^{A}_{x_{\ell}}(x^{*},-p\cdot x^{*})
+-p_{\ell}U^{A}_{m}(x^{*},-p\cdot x^{*})\bigr]&=0,
+\qquad \ell=1,\ldots,L.
+\end{aligned}
+\]
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+Concavity makes these conditions sufficient.
+ If 
+\begin_inset Formula $x^{*}_{\ell}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $U^{A}_{m}>0$
+\end_inset
+
+,
+ then 
+\begin_inset Formula $U^{A}_{x_{\ell}}/U^{A}_{m}=p_{\ell}$
+\end_inset
+
+.
+ In the quasilinear case 
+\begin_inset Formula $U^{A}_{m}=1$
+\end_inset
+
+,
+ recovering 
+\begin_inset Formula $\partial_{x_{\ell}}\widetilde{u}(x^{*})=p_{\ell}$
+\end_inset
+
+ for every consumed good.
+ For finite data 
+\begin_inset Formula $\{(p^{t},x^{t})\}_{t=1}^{T}$
+\end_inset
+
+,
+ the corresponding revealed-price test is GAPP:
+ 
+\begin_inset Formula $p^{s}$
+\end_inset
+
+ is directly revealed preferred to 
+\begin_inset Formula $p^{t}$
+\end_inset
+
+ when 
+\begin_inset Formula $p^{s}\cdot x^{t}\leq p^{t}\cdot x^{t}$
+\end_inset
+
+,
+ and the transitive closure may contain no cycle with a strict comparison.
+ Deb,
+ Kitamura,
+ Quah,
+ and Stoye prove that GAPP is equivalent to finite-data rationalization by an augmented utility function.
+ This price-ranking condition is distinct from GARP and WGARP,
+ which compare bundles on observed budget sets.
+\end_layout
+
 \begin_layout Section
 Workhorse Utility Specifications
 \end_layout
 
 \begin_layout Standard
-A useful specification gives more than a closed-form answer: it identifies the assumptions behind expenditure shares, substitution, and corner choices. We derive several families from the same budget problem. Throughout, prices are strictly positive and wealth is positive; additional consumption-domain restrictions are stated for each model.
+A useful specification gives more than a closed-form answer:
+ it identifies the assumptions behind expenditure shares,
+ substitution,
+ and corner choices.
+ We derive several families from the same budget problem.
+ Throughout,
+ prices are strictly positive and wealth is positive;
+ additional consumption-domain restrictions are stated for each model.
 \end_layout
 
 \begin_layout Subsection
 Homotheticity and Cobb-Douglas Demand
 \end_layout
-
-
 
 \begin_layout Definition
 Homothetic preferences.
@@ -1536,40 +1797,114 @@ The Cobb--Douglas representation
 \end_layout
 
 \begin_layout Standard
-For \begin_inset Formula $L$\end_inset
- goods, fix positive taste weights \begin_inset Formula $\notationfirst{utility-weights}{a_\ell}$\end_inset
- with \begin_inset Formula $\sum_{\ell=1}^{L}a_\ell=1$\end_inset
-. Cobb-Douglas utility is \begin_inset Formula $u(x)=\prod_{\ell=1}^{L}x_\ell^{a_\ell}$\end_inset
-. Every boundary bundle has utility zero and a strictly positive affordable bundle has positive utility, so the optimum is interior. Maximizing its logarithm gives \begin_inset Formula $a_\ell/x_\ell=\lambda p_\ell$\end_inset
-. Multiplying by \begin_inset Formula $x_\ell$\end_inset
- and summing gives \begin_inset Formula $\lambda=1/w$\end_inset
-, hence
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-x_\ell(p,w)=a_\ell\frac{w}{p_\ell},\qquad \notationfirst{expenditure-shares}{b_\ell(p,w)}:=\frac{p_\ell x_\ell(p,w)}{w}=a_\ell.
-\]
+For 
+\begin_inset Formula $L$
 \end_inset
+
+ goods,
+ fix positive taste weights 
+\begin_inset Formula $\notationfirst{utility-weights}{a_{\ell}}$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum^{L}_{\ell=1}a_{\ell}=1$
+\end_inset
+
+.
+ Cobb-Douglas utility is 
+\begin_inset Formula $u(x)=\prod^{L}_{\ell=1}x^{a_{\ell}}_{\ell}$
+\end_inset
+
+.
+ Every boundary bundle has utility zero and a strictly positive affordable bundle has positive utility,
+ so the optimum is interior.
+ Maximizing its logarithm gives 
+\begin_inset Formula $a_{\ell}/x_{\ell}=\lambda p_{\ell}$
+\end_inset
+
+.
+ Multiplying by 
+\begin_inset Formula $x_{\ell}$
+\end_inset
+
+ and summing gives 
+\begin_inset Formula $\lambda=1/w$
+\end_inset
+
+,
+ hence
 \end_layout
 
 \begin_layout Standard
-The expenditure share \begin_inset Formula $b_\ell$\end_inset
- is the fraction of the budget allocated to good \begin_inset Formula $\ell$\end_inset
-; the share vector is \begin_inset Formula $\boldsymbol b=(b_1,\ldots,b_L)^\top$\end_inset
-. Cobb-Douglas shares are constant even though quantities respond to prices. Each wealth elasticity is one, each own-price elasticity is minus one, and each uncompensated cross-price elasticity is zero.
+\begin_inset Formula 
+\[
+x_{\ell}(p,w)=a_{\ell}\frac{w}{p_{\ell}},\qquad\notationfirst{expenditure-shares}{b_{\ell}(p,w)}:=\frac{p_{\ell}x_{\ell}(p,w)}{w}=a_{\ell}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The expenditure share 
+\begin_inset Formula $b_{\ell}$
+\end_inset
+
+ is the fraction of the budget allocated to good 
+\begin_inset Formula $\ell$
+\end_inset
+
+;
+ the share vector is 
+\begin_inset Formula $\boldsymbol{b}=(b_{1},\ldots,b_{L})^{\top}$
+\end_inset
+
+.
+ Cobb-Douglas shares are constant even though quantities respond to prices.
+ Each wealth elasticity is one,
+ each own-price elasticity is minus one,
+ and each uncompensated cross-price elasticity is zero.
 \end_layout
 
 \begin_layout Example
-A fixed budget share. Let \begin_inset Formula $a=(1/4,3/4)$\end_inset
-, \begin_inset Formula $p=(2,1)$\end_inset
-, and \begin_inset Formula $w=80$\end_inset
-. Demand is \begin_inset Formula $(10,60)$\end_inset
- and expenditure is \begin_inset Formula $(20,60)$\end_inset
-. Doubling only the first price halves \begin_inset Formula $x_1$\end_inset
- while leaving \begin_inset Formula $x_2$\end_inset
- unchanged. Doubling wealth doubles both quantities. A constant share is a restriction on behavior, not a property of all homothetic preferences.
+A fixed budget share.
+ Let 
+\begin_inset Formula $a=(1/4,3/4)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p=(2,1)$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $w=80$
+\end_inset
+
+.
+ Demand is 
+\begin_inset Formula $(10,60)$
+\end_inset
+
+ and expenditure is 
+\begin_inset Formula $(20,60)$
+\end_inset
+
+.
+ Doubling only the first price halves 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ while leaving 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ unchanged.
+ Doubling wealth doubles both quantities.
+ A constant share is a restriction on behavior,
+ not a property of all homothetic preferences.
 \end_layout
 
 \begin_layout Standard
@@ -1580,125 +1915,306 @@ A fixed budget share. Let \begin_inset Formula $a=(1/4,3/4)$\end_inset
 \end_layout
 
 \begin_layout Subsection
-CES: A Family of Substitution Patterns
+CES:
+ A Family of Substitution Patterns
 \end_layout
 
 \begin_layout Standard
-The constant-elasticity-of-substitution (CES) family varies substitution while retaining explicit demand. Keep the positive normalized weights above. Let \begin_inset Formula $\notationfirst{ces-curvature}{\rho}<1$\end_inset
- and define the substitution elasticity \begin_inset Formula $\notationfirst{substitution-elasticity}{\sigma}=1/(1-\rho)>0$\end_inset
-. For \begin_inset Formula $\rho\ne0$\end_inset
-, use
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-u_\rho(x)=\left(\sum_{\ell=1}^{L}a_\ell x_\ell^\rho\right)^{1/\rho}.
-\]
+The constant-elasticity-of-substitution (CES) family varies substitution while retaining explicit demand.
+ Keep the positive normalized weights above.
+ Let 
+\begin_inset Formula $\notationfirst{ces-curvature}{\rho}<1$
 \end_inset
-\end_layout
 
-\begin_layout Standard
-For \begin_inset Formula $0<\rho<1$\end_inset
- this formula is defined on \begin_inset Formula $\mathbb R_+^L$\end_inset
-. For \begin_inset Formula $\rho<0$\end_inset
-, define it first on \begin_inset Formula $\mathbb R_{++}^L$\end_inset
- and extend it continuously by assigning zero utility to bundles with any zero coordinate. At \begin_inset Formula $\rho=0$\end_inset
-, take the continuous limit \begin_inset Formula $u_0(x)=\prod_\ell x_\ell^{a_\ell}$\end_inset
-. Each representation is homogeneous of degree one. CES preferences are therefore homothetic, including cases in which expenditure shares vary with relative prices.
-\end_layout
-
-\begin_layout Standard
-The optimum is interior. For \begin_inset Formula $\rho\le0$\end_inset
-, a positive bundle dominates every boundary bundle in utility. For \begin_inset Formula $0<\rho<1$\end_inset
-, a small transfer of expenditure toward a missing good is beneficial because its marginal utility becomes arbitrarily large near zero. For \begin_inset Formula $\rho\ne0$\end_inset
-, an equivalent objective on the positive orthant, including the sign needed when \begin_inset Formula $\rho<0$\end_inset
-, is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-\widetilde u_\rho(x)=\frac{\sum_\ell a_\ell x_\ell^\rho-1}{\rho},\qquad \partial_{x_\ell x_\ell}^{2}\widetilde u_\rho=a_\ell(\rho-1)x_\ell^{\rho-2}<0.
-\]
+ and define the substitution elasticity 
+\begin_inset Formula $\notationfirst{substitution-elasticity}{\sigma}=1/(1-\rho)>0$
 \end_inset
-\end_layout
 
-\begin_layout Standard
-At \begin_inset Formula $\rho=0$\end_inset
-, instead use \begin_inset Formula $\widetilde u_0(x)=\sum_\ell a_\ell\log x_\ell$\end_inset
-, with own second derivatives \begin_inset Formula $-a_\ell/x_\ell^2<0$\end_inset
-. In both cases all cross derivatives vanish, so the objective is strictly concave. Its first-order conditions \begin_inset Formula $a_\ell x_\ell^{\rho-1}=\lambda p_\ell$\end_inset
-, together with budget exhaustion, identify the unique maximizer. For negative \begin_inset Formula $\rho$\end_inset
-, maximizing the untransformed sum of powers would reverse the intended ranking. Taking ratios and then imposing the budget gives
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-\frac{x_\ell}{x_k}=\left(\frac{a_\ell/p_\ell}{a_k/p_k}\right)^\sigma,\qquad x_\ell(p,w)=\frac{w a_\ell^\sigma p_\ell^{-\sigma}}{\sum_{k=1}^{L}a_k^\sigma p_k^{1-\sigma}}.
-\]
+.
+ For 
+\begin_inset Formula $\rho\ne0$
 \end_inset
+
+,
+ use
 \end_layout
 
 \begin_layout Standard
-The same demand formula applies at \begin_inset Formula $\sigma=1$\end_inset
- and gives Cobb-Douglas. It satisfies Walras' law, has degree zero in \begin_inset Formula $(p,w)$\end_inset
-, and scales linearly with wealth. Its shares are
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-b_\ell(p)=\frac{a_\ell^\sigma p_\ell^{1-\sigma}}{\sum_k a_k^\sigma p_k^{1-\sigma}}.
+u_{\rho}(x)=\left(\sum^{L}_{\ell=1}a_{\ell}x^{\rho}_{\ell}\right)^{1/\rho}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Except in the Cobb-Douglas case, a taste weight is generally not an expenditure share. Raising a good's price lowers its share if \begin_inset Formula $\sigma>1$\end_inset
- and raises its share if \begin_inset Formula $0<\sigma<1$\end_inset
-, even though its purchased quantity falls in both cases. The name CES refers to the response of a quantity ratio to a relative price:
+For 
+\begin_inset Formula $0<\rho<1$
+\end_inset
+
+ this formula is defined on 
+\begin_inset Formula $\mathbb{R}^{L}_{+}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\rho<0$
+\end_inset
+
+,
+ define it first on 
+\begin_inset Formula $\mathbb{R}^{L}_{++}$
+\end_inset
+
+ and extend it continuously by assigning zero utility to bundles with any zero coordinate.
+ At 
+\begin_inset Formula $\rho=0$
+\end_inset
+
+,
+ take the continuous limit 
+\begin_inset Formula $u_{0}(x)=\prod_{\ell}x^{a_{\ell}}_{\ell}$
+\end_inset
+
+.
+ Each representation is homogeneous of degree one.
+ CES preferences are therefore homothetic,
+ including cases in which expenditure shares vary with relative prices.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+The optimum is interior.
+ For 
+\begin_inset Formula $\rho\le0$
+\end_inset
+
+,
+ a positive bundle dominates every boundary bundle in utility.
+ For 
+\begin_inset Formula $0<\rho<1$
+\end_inset
+
+,
+ a small transfer of expenditure toward a missing good is beneficial because its marginal utility becomes arbitrarily large near zero.
+ For 
+\begin_inset Formula $\rho\ne0$
+\end_inset
+
+,
+ an equivalent objective on the positive orthant,
+ including the sign needed when 
+\begin_inset Formula $\rho<0$
+\end_inset
+
+,
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
 \[
--\frac{d\log(x_\ell/x_k)}{d\log(p_\ell/p_k)}=\sigma.
+\widetilde{u}_{\rho}(x)=\frac{\sum_{\ell}a_{\ell}x^{\rho}_{\ell}-1}{\rho},\qquad\partial^{2}_{x_{\ell}x_{\ell}}\widetilde{u}_{\rho}=a_{\ell}(\rho-1)x^{\rho-2}_{\ell}<0.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-This relative-demand elasticity differs from an individual good's own-price elasticity. Differentiating the demand formula at fixed wealth gives, for \begin_inset Formula $k\ne\ell$\end_inset
+At 
+\begin_inset Formula $\rho=0$
+\end_inset
+
+,
+ instead use 
+\begin_inset Formula $\widetilde{u}_{0}(x)=\sum_{\ell}a_{\ell}\log x_{\ell}$
+\end_inset
+
+,
+ with own second derivatives 
+\begin_inset Formula $-a_{\ell}/x^{2}_{\ell}<0$
+\end_inset
+
+.
+ In both cases all cross derivatives vanish,
+ so the objective is strictly concave.
+ Its first-order conditions 
+\begin_inset Formula $a_{\ell}x^{\rho-1}_{\ell}=\lambda p_{\ell}$
+\end_inset
+
+,
+ together with budget exhaustion,
+ identify the unique maximizer.
+ For negative 
+\begin_inset Formula $\rho$
+\end_inset
+
+,
+ maximizing the untransformed sum of powers would reverse the intended ranking.
+ Taking ratios and then imposing the budget gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{x_{\ell}}{x_{k}}=\left(\frac{a_{\ell}/p_{\ell}}{a_{k}/p_{k}}\right)^{\sigma},\qquad x_{\ell}(p,w)=\frac{wa^{\sigma}_{\ell}p^{-\sigma}_{\ell}}{\sum^{L}_{k=1}a^{\sigma}_{k}p^{1-\sigma}_{k}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The same demand formula applies at 
+\begin_inset Formula $\sigma=1$
+\end_inset
+
+ and gives Cobb-Douglas.
+ It satisfies Walras' law,
+ has degree zero in 
+\begin_inset Formula $(p,w)$
+\end_inset
+
+,
+ and scales linearly with wealth.
+ Its shares are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+b_{\ell}(p)=\frac{a^{\sigma}_{\ell}p^{1-\sigma}_{\ell}}{\sum_{k}a^{\sigma}_{k}p^{1-\sigma}_{k}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Except in the Cobb-Douglas case,
+ a taste weight is generally not an expenditure share.
+ Raising a good's price lowers its share if 
+\begin_inset Formula $\sigma>1$
+\end_inset
+
+ and raises its share if 
+\begin_inset Formula $0<\sigma<1$
+\end_inset
+
+,
+ even though its purchased quantity falls in both cases.
+ The name CES refers to the response of a quantity ratio to a relative price:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{d\log(x_{\ell}/x_{k})}{d\log(p_{\ell}/p_{k})}=\sigma.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This relative-demand elasticity differs from an individual good's own-price elasticity.
+ Differentiating the demand formula at fixed wealth gives,
+ for 
+\begin_inset Formula $k\ne\ell$
+\end_inset
+
 ,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-\begin{aligned}\frac{\partial\log x_\ell}{\partial\log w}&=1,\\ \frac{\partial\log x_\ell}{\partial\log p_\ell}&=-\sigma(1-b_\ell)-b_\ell,\\ \frac{\partial\log x_\ell}{\partial\log p_k}&=(\sigma-1)b_k.\end{aligned}
+\begin{aligned}\frac{\partial\log x_{\ell}}{\partial\log w} & =1,\\
+\frac{\partial\log x_{\ell}}{\partial\log p_{\ell}} & =-\sigma(1-b_{\ell})-b_{\ell},\\
+\frac{\partial\log x_{\ell}}{\partial\log p_{k}} & =(\sigma-1)b_{k}.
+\end{aligned}
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Thus every good is normal. Distinct goods are gross substitutes when \begin_inset Formula $\sigma>1$\end_inset
- and gross complements when \begin_inset Formula $0<\sigma<1$\end_inset
-: these terms describe the cross-price response at fixed wealth. Chapter 2 separates this response into substitution and purchasing-power effects. In particular, a negative uncompensated cross effect need not imply a negative compensated cross effect.
+Thus every good is normal.
+ Distinct goods are gross substitutes when 
+\begin_inset Formula $\sigma>1$
+\end_inset
+
+ and gross complements when 
+\begin_inset Formula $0<\sigma<1$
+\end_inset
+
+:
+ these terms describe the cross-price response at fixed wealth.
+ Chapter 2 separates this response into substitution and purchasing-power effects.
+ In particular,
+ a negative uncompensated cross effect need not imply a negative compensated cross effect.
 \end_layout
 
 \begin_layout Example
-Substitution and relative expenditure. Let \begin_inset Formula $a_1=a_2=1/2$\end_inset
-, \begin_inset Formula $\rho=1/2$\end_inset
-, \begin_inset Formula $p=(1,2)$\end_inset
-, and \begin_inset Formula $w=120$\end_inset
-. Then \begin_inset Formula $\sigma=2$\end_inset
- and the denominator is \begin_inset Formula $1/4+1/8=3/8$\end_inset
-, giving \begin_inset Formula $x=(80,20)$\end_inset
-. The quantity ratio is four but the expenditure ratio is two. The budget check is \begin_inset Formula $80+2(20)=120$\end_inset
-. The own-price elasticity of good 1 is \begin_inset Formula $-4/3$\end_inset
-, rather than \begin_inset Formula $-2$\end_inset
+Substitution and relative expenditure.
+ Let 
+\begin_inset Formula $a_{1}=a_{2}=1/2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\rho=1/2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p=(1,2)$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $w=120$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\sigma=2$
+\end_inset
+
+ and the denominator is 
+\begin_inset Formula $1/4+1/8=3/8$
+\end_inset
+
+,
+ giving 
+\begin_inset Formula $x=(80,20)$
+\end_inset
+
+.
+ The quantity ratio is four but the expenditure ratio is two.
+ The budget check is 
+\begin_inset Formula $80+2(20)=120$
+\end_inset
+
+.
+ The own-price elasticity of good 1 is 
+\begin_inset Formula $-4/3$
+\end_inset
+
+,
+ rather than 
+\begin_inset Formula $-2$
+\end_inset
+
 .
 \end_layout
 
@@ -1710,16 +2226,53 @@ Substitution and relative expenditure. Let \begin_inset Formula $a_1=a_2=1/2$\en
 \end_layout
 
 \begin_layout Example
-Gross complementarity. Let \begin_inset Formula $a_1=a_2=1/2$\end_inset
-, \begin_inset Formula $\rho=-1$\end_inset
-, \begin_inset Formula $p=(1,4)$\end_inset
-, and \begin_inset Formula $w=90$\end_inset
-. Here \begin_inset Formula $\sigma=1/2$\end_inset
-, demand is \begin_inset Formula $(30,15)$\end_inset
-, and shares are \begin_inset Formula $(1/3,2/3)$\end_inset
-. Raising only \begin_inset Formula $p_2$\end_inset
- to 9 gives \begin_inset Formula $(22.5,7.5)$\end_inset
-. Both quantities fall: the greater purchasing-power burden outweighs the relative-price incentive to consume more of good 1.
+Gross complementarity.
+ Let 
+\begin_inset Formula $a_{1}=a_{2}=1/2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\rho=-1$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p=(1,4)$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $w=90$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $\sigma=1/2$
+\end_inset
+
+,
+ demand is 
+\begin_inset Formula $(30,15)$
+\end_inset
+
+,
+ and shares are 
+\begin_inset Formula $(1/3,2/3)$
+\end_inset
+
+.
+ Raising only 
+\begin_inset Formula $p_{2}$
+\end_inset
+
+ to 9 gives 
+\begin_inset Formula $(22.5,7.5)$
+\end_inset
+
+.
+ Both quantities fall:
+ the greater purchasing-power burden outweighs the relative-price incentive to consume more of good 1.
 \end_layout
 
 \begin_layout Standard
@@ -1730,15 +2283,49 @@ Gross complementarity. Let \begin_inset Formula $a_1=a_2=1/2$\end_inset
 \end_layout
 
 \begin_layout Example
-Weights versus shares in three goods. Let \begin_inset Formula $a=(0.5,0.3,0.2)$\end_inset
-, \begin_inset Formula $\sigma=2$\end_inset
-, \begin_inset Formula $p=(1,1,1)$\end_inset
-, and \begin_inset Formula $w=38$\end_inset
-. The denominator is \begin_inset Formula $0.25+0.09+0.04=0.38$\end_inset
-, so \begin_inset Formula $x=(25,9,4)$\end_inset
-. Shares are \begin_inset Formula $(25/38,9/38,4/38)$\end_inset
-, not the taste weights. The same weights under Cobb-Douglas give \begin_inset Formula $(19,11.4,7.6)$\end_inset
-. A change in curvature with weights fixed generally changes the reference allocation as well as price responses.
+Weights versus shares in three goods.
+ Let 
+\begin_inset Formula $a=(0.5,0.3,0.2)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\sigma=2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p=(1,1,1)$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $w=38$
+\end_inset
+
+.
+ The denominator is 
+\begin_inset Formula $0.25+0.09+0.04=0.38$
+\end_inset
+
+,
+ so 
+\begin_inset Formula $x=(25,9,4)$
+\end_inset
+
+.
+ Shares are 
+\begin_inset Formula $(25/38,9/38,4/38)$
+\end_inset
+
+,
+ not the taste weights.
+ The same weights under Cobb-Douglas give 
+\begin_inset Formula $(19,11.4,7.6)$
+\end_inset
+
+.
+ A change in curvature with weights fixed generally changes the reference allocation as well as price responses.
 \end_layout
 
 \begin_layout Standard
@@ -1749,48 +2336,124 @@ Weights versus shares in three goods. Let \begin_inset Formula $a=(0.5,0.3,0.2)$
 \end_layout
 
 \begin_layout Standard
-Calibration makes the distinction operational. Given positive reference shares \begin_inset Formula $b_\ell^0=p_\ell^0x_\ell^0/w^0$\end_inset
- and a specified \begin_inset Formula $\sigma$\end_inset
-, weights reproducing that observation are
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-a_\ell=\frac{(b_\ell^0)^{1/\sigma}(p_\ell^0)^{(\sigma-1)/\sigma}}{\sum_k (b_k^0)^{1/\sigma}(p_k^0)^{(\sigma-1)/\sigma}}.
-\]
+Calibration makes the distinction operational.
+ Given positive reference shares 
+\begin_inset Formula $b^{0}_{\ell}=p^{0}_{\ell}x^{0}_{\ell}/w^{0}$
 \end_inset
+
+ and a specified 
+\begin_inset Formula $\sigma$
+\end_inset
+
+,
+ weights reproducing that observation are
 \end_layout
 
 \begin_layout Standard
-One positive observation therefore cannot identify the substitution elasticity: each specified \begin_inset Formula $\sigma$\end_inset
- admits calibrated weights. Different elasticities can fit the same initial allocation and predict different responses to a price change.
+\begin_inset Formula 
+\[
+a_{\ell}=\frac{(b^{0}_{\ell})^{1/\sigma}(p^{0}_{\ell})^{(\sigma-1)/\sigma}}{\sum_{k}(b^{0}_{k})^{1/\sigma}(p^{0}_{k})^{(\sigma-1)/\sigma}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One positive observation therefore cannot identify the substitution elasticity:
+ each specified 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ admits calibrated weights.
+ Different elasticities can fit the same initial allocation and predict different responses to a price change.
 \end_layout
 
 \begin_layout Subsection
-Limiting Cases: Substitutes and Complements
+Limiting Cases:
+ Substitutes and Complements
 \end_layout
 
 \begin_layout Standard
-Holding weights fixed, \begin_inset Formula $\rho\to0$\end_inset
- gives Cobb-Douglas, \begin_inset Formula $\rho\uparrow1$\end_inset
- gives \begin_inset Formula $u(x)=\sum_\ell a_\ell x_\ell$\end_inset
-, and \begin_inset Formula $\rho\to-\infty$\end_inset
- gives \begin_inset Formula $u(x)=\min_\ell x_\ell$\end_inset
-. Fixed weights disappear in the last limit. Unequal required proportions instead arise by applying the CES aggregator to \begin_inset Formula $x_\ell/d_\ell$\end_inset
-, with \begin_inset Formula $d_\ell>0$\end_inset
-, before taking that limit. The endpoint models must be solved directly; their solutions need not satisfy the interior CES conditions.
+Holding weights fixed,
+ 
+\begin_inset Formula $\rho\to0$
+\end_inset
+
+ gives Cobb-Douglas,
+ 
+\begin_inset Formula $\rho\uparrow1$
+\end_inset
+
+ gives 
+\begin_inset Formula $u(x)=\sum_{\ell}a_{\ell}x_{\ell}$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $\rho\to-\infty$
+\end_inset
+
+ gives 
+\begin_inset Formula $u(x)=\min_{\ell}x_{\ell}$
+\end_inset
+
+.
+ Fixed weights disappear in the last limit.
+ Unequal required proportions instead arise by applying the CES aggregator to 
+\begin_inset Formula $x_{\ell}/d_{\ell}$
+\end_inset
+
+,
+ with 
+\begin_inset Formula $d_{\ell}>0$
+\end_inset
+
+,
+ before taking that limit.
+ The endpoint models must be solved directly;
+ their solutions need not satisfy the interior CES conditions.
 \end_layout
 
 \begin_layout Example
-Perfect substitutes and a demand correspondence. For \begin_inset Formula $u(x)=3x_1+x_2$\end_inset
-, \begin_inset Formula $p=(2,1)$\end_inset
-, and \begin_inset Formula $w=12$\end_inset
-, utility per dollar is \begin_inset Formula $3/2$\end_inset
- for good 1 and 1 for good 2, so the unique choice is \begin_inset Formula $(6,0)$\end_inset
-. At \begin_inset Formula $p=(3,1)$\end_inset
- the two ratios tie: every nonnegative bundle satisfying \begin_inset Formula $3x_1+x_2=12$\end_inset
- maximizes utility. Reporting a single demand formula would omit valid choices.
+Perfect substitutes and a demand correspondence.
+ For 
+\begin_inset Formula $u(x)=3x_{1}+x_{2}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p=(2,1)$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $w=12$
+\end_inset
+
+,
+ utility per dollar is 
+\begin_inset Formula $3/2$
+\end_inset
+
+ for good 1 and 1 for good 2,
+ so the unique choice is 
+\begin_inset Formula $(6,0)$
+\end_inset
+
+.
+ At 
+\begin_inset Formula $p=(3,1)$
+\end_inset
+
+ the two ratios tie:
+ every nonnegative bundle satisfying 
+\begin_inset Formula $3x_{1}+x_{2}=12$
+\end_inset
+
+ maximizes utility.
+ Reporting a single demand formula would omit valid choices.
 \end_layout
 
 \begin_layout Standard
@@ -1801,15 +2464,45 @@ Perfect substitutes and a demand correspondence. For \begin_inset Formula $u(x)=
 \end_layout
 
 \begin_layout Example
-Perfect complements and a kink. For \begin_inset Formula $u(x)=\min\{x_1/2,x_2\}$\end_inset
-, the consumer buys \begin_inset Formula $x_1=2x_2$\end_inset
-. At \begin_inset Formula $p=(1,3)$\end_inset
- and \begin_inset Formula $w=20$\end_inset
-, the chosen bundle is \begin_inset Formula $(8,4)$\end_inset
- because \begin_inset Formula $2(4)+3(4)=20$\end_inset
-. In general \begin_inset Formula $x_2=w/(2p_1+p_2)$\end_inset
- and \begin_inset Formula $x_1=2w/(2p_1+p_2)$\end_inset
-. Tangency of differentiable indifference curves is unavailable at the optimum.
+Perfect complements and a kink.
+ For 
+\begin_inset Formula $u(x)=\min\{x_{1}/2,x_{2}\}$
+\end_inset
+
+,
+ the consumer buys 
+\begin_inset Formula $x_{1}=2x_{2}$
+\end_inset
+
+.
+ At 
+\begin_inset Formula $p=(1,3)$
+\end_inset
+
+ and 
+\begin_inset Formula $w=20$
+\end_inset
+
+,
+ the chosen bundle is 
+\begin_inset Formula $(8,4)$
+\end_inset
+
+ because 
+\begin_inset Formula $2(4)+3(4)=20$
+\end_inset
+
+.
+ In general 
+\begin_inset Formula $x_{2}=w/(2p_{1}+p_{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{1}=2w/(2p_{1}+p_{2})$
+\end_inset
+
+.
+ Tangency of differentiable indifference curves is unavailable at the optimum.
 \end_layout
 
 \begin_layout Standard
@@ -1824,40 +2517,115 @@ Subsistence and Stone-Geary Demand
 \end_layout
 
 \begin_layout Standard
-To allow expenditure shares to vary with wealth, introduce a nonnegative subsistence bundle \begin_inset Formula $\notationfirst{subsistence-bundle}{\gamma}\in\mathbb R_+^L$\end_inset
-. On \begin_inset Formula $X=\gamma+\mathbb R_+^L$\end_inset
-, let \begin_inset Formula $u(x)=\prod_\ell(x_\ell-\gamma_\ell)^{a_\ell}$\end_inset
- with positive normalized weights. Suppose \begin_inset Formula $w>p\cdot\gamma$\end_inset
-. Setting \begin_inset Formula $z=x-\gamma$\end_inset
- leaves discretionary wealth \begin_inset Formula $w-p\cdot\gamma$\end_inset
-, so Cobb-Douglas demand in \begin_inset Formula $z$\end_inset
+To allow expenditure shares to vary with wealth,
+ introduce a nonnegative subsistence bundle 
+\begin_inset Formula $\notationfirst{subsistence-bundle}{\gamma}\in\mathbb{R}^{L}_{+}$
+\end_inset
+
+.
+ On 
+\begin_inset Formula $X=\gamma+\mathbb{R}^{L}_{+}$
+\end_inset
+
+,
+ let 
+\begin_inset Formula $u(x)=\prod_{\ell}(x_{\ell}-\gamma_{\ell})^{a_{\ell}}$
+\end_inset
+
+ with positive normalized weights.
+ Suppose 
+\begin_inset Formula $w>p\cdot\gamma$
+\end_inset
+
+.
+ Setting 
+\begin_inset Formula $z=x-\gamma$
+\end_inset
+
+ leaves discretionary wealth 
+\begin_inset Formula $w-p\cdot\gamma$
+\end_inset
+
+,
+ so Cobb-Douglas demand in 
+\begin_inset Formula $z$
+\end_inset
+
  gives
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-x_\ell(p,w)=\gamma_\ell+a_\ell\frac{w-p\cdot\gamma}{p_\ell}.
+x_{\ell}(p,w)=\gamma_{\ell}+a_{\ell}\frac{w-p\cdot\gamma}{p_{\ell}}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-At \begin_inset Formula $w=p\cdot\gamma$\end_inset
-, the only feasible bundle is \begin_inset Formula $\gamma$\end_inset
-; below that level this subsistence-constrained model has no feasible bundle. It is not a model of behavior below subsistence. Except in special cases, these preferences are not homothetic about the origin and their budget shares depend on wealth.
+At 
+\begin_inset Formula $w=p\cdot\gamma$
+\end_inset
+
+,
+ the only feasible bundle is 
+\begin_inset Formula $\gamma$
+\end_inset
+
+;
+ below that level this subsistence-constrained model has no feasible bundle.
+ It is not a model of behavior below subsistence.
+ Except in special cases,
+ these preferences are not homothetic about the origin and their budget shares depend on wealth.
 \end_layout
 
 \begin_layout Example
-A necessity and discretionary spending. Let \begin_inset Formula $\gamma=(2,1)$\end_inset
-, \begin_inset Formula $a=(1/2,1/2)$\end_inset
-, \begin_inset Formula $p=(2,1)$\end_inset
-, and \begin_inset Formula $w=15$\end_inset
-. Subsistence costs 5, leaving 10 to allocate; demand is \begin_inset Formula $(4.5,6)$\end_inset
- and shares are \begin_inset Formula $(0.6,0.4)$\end_inset
-. At wealth 25, demand is \begin_inset Formula $(7,11)$\end_inset
- and shares are \begin_inset Formula $(0.56,0.44)$\end_inset
-. The first good's share falls even though its quantity increases.
+A necessity and discretionary spending.
+ Let 
+\begin_inset Formula $\gamma=(2,1)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $a=(1/2,1/2)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p=(2,1)$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $w=15$
+\end_inset
+
+.
+ Subsistence costs 5,
+ leaving 10 to allocate;
+ demand is 
+\begin_inset Formula $(4.5,6)$
+\end_inset
+
+ and shares are 
+\begin_inset Formula $(0.6,0.4)$
+\end_inset
+
+.
+ At wealth 25,
+ demand is 
+\begin_inset Formula $(7,11)$
+\end_inset
+
+ and shares are 
+\begin_inset Formula $(0.56,0.44)$
+\end_inset
+
+.
+ The first good's share falls even though its quantity increases.
 \end_layout
 
 \begin_layout Standard
@@ -1920,29 +2688,77 @@ u(x)=g(x_{1},\ldots,x_{L-1})+x_{L}.
 \end_layout
 
 \begin_layout Standard
-A nonnegative numeraire creates a boundary that matters for demand. Let \begin_inset Formula $u(x_1,x_2)=2\sqrt{x_1}+x_2$\end_inset
- on \begin_inset Formula $\mathbb R_+^2$\end_inset
-, normalize \begin_inset Formula $p_2=1$\end_inset
-, and write \begin_inset Formula $r=p_1>0$\end_inset
-. Substituting the budget gives the strictly concave problem \begin_inset Formula $\max_{0\le x_1\le w/r}\{2\sqrt{x_1}-rx_1+w\}$\end_inset
-. Its unique solution is
+A nonnegative numeraire creates a boundary that matters for demand.
+ Let 
+\begin_inset Formula $u(x_{1},x_{2})=2\sqrt{x_{1}}+x_{2}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathbb{R}^{2}_{+}$
+\end_inset
+
+,
+ normalize 
+\begin_inset Formula $p_{2}=1$
+\end_inset
+
+,
+ and write 
+\begin_inset Formula $r=p_{1}>0$
+\end_inset
+
+.
+ Substituting the budget gives the strictly concave problem 
+\begin_inset Formula $\max_{0\le x_{1}\le w/r}\{2\sqrt{x_{1}}-rx_{1}+w\}$
+\end_inset
+
+.
+ Its unique solution is
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-x_1(r,w)=\min\{r^{-2},w/r\},\qquad x_2(r,w)=\max\{w-r^{-1},0\}.
+x_{1}(r,w)=\min\{r^{-2},w/r\},\qquad x_{2}(r,w)=\max\{w-r^{-1},0\}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Example
-When zero wealth effects stop applying. At \begin_inset Formula $r=2$\end_inset
- and \begin_inset Formula $w=3$\end_inset
-, demand is \begin_inset Formula $(1/4,5/2)$\end_inset
-: extra wealth is spent entirely on good 2. At \begin_inset Formula $w=1/4$\end_inset
-, demand is \begin_inset Formula $(1/8,0)$\end_inset
- and all wealth is spent on good 1. The claim that quasilinear demand has no wealth effect for the non-numeraire good requires an interior numeraire choice, here \begin_inset Formula $w>1/r$\end_inset
+When zero wealth effects stop applying.
+ At 
+\begin_inset Formula $r=2$
+\end_inset
+
+ and 
+\begin_inset Formula $w=3$
+\end_inset
+
+,
+ demand is 
+\begin_inset Formula $(1/4,5/2)$
+\end_inset
+
+:
+ extra wealth is spent entirely on good 2.
+ At 
+\begin_inset Formula $w=1/4$
+\end_inset
+
+,
+ demand is 
+\begin_inset Formula $(1/8,0)$
+\end_inset
+
+ and all wealth is spent on good 1.
+ The claim that quasilinear demand has no wealth effect for the non-numeraire good requires an interior numeraire choice,
+ here 
+\begin_inset Formula $w>1/r$
+\end_inset
+
 .
 \end_layout
 
@@ -1958,11 +2774,30 @@ From CES to Flexible Translog Demand
 \end_layout
 
 \begin_layout Standard
-CES imposes one common, constant substitution elasticity. Applied demand analysis often needs substitution patterns that vary with relative prices. A translog specification uses a quadratic polynomial in logarithms, allowing such variation. Direct-utility, indirect-utility, and expenditure translog specifications are different parametric restrictions: the dual of a direct translog utility need not be translog. Chapter 2 develops a homothetic translog expenditure model, derives its demand shares, and checks the price region on which it represents a classical rational consumer. This order lets us explain the model through expenditure minimization rather than present an unexplained demand formula.
+CES imposes one common,
+ constant substitution elasticity.
+ Applied demand analysis often needs substitution patterns that vary with relative prices.
+ A translog specification uses a quadratic polynomial in logarithms,
+ allowing such variation.
+ Direct-utility,
+ indirect-utility,
+ and expenditure translog specifications are different parametric restrictions:
+ the dual of a direct translog utility need not be translog.
+ Chapter 2 develops a homothetic translog expenditure model,
+ derives its demand shares,
+ and checks the price region on which it represents a classical rational consumer.
+ This order lets us explain the model through expenditure minimization rather than present an unexplained demand formula.
 \end_layout
 
 \begin_layout Standard
-For further practice, Problems 1.2-1.5 compare these specifications. The artists case study, Problem 10.4, uses CES fan demand as the first stage of a model of streaming revenue, concert production, and ticket pricing; its consumer part can be completed now.
+For further practice,
+ Problems 1.2-1.6 compare these specifications.
+ The artists case study,
+ Problem 10.4,
+ uses CES fan demand as the first stage of a model of streaming revenue,
+ concert production,
+ and ticket pricing;
+ its consumer part can be completed now.
 \end_layout
 
 \begin_layout Standard
@@ -1977,6 +2812,7 @@ ECON803_WORKHORSE_EXPANSION:1
 
 
 \end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status collapsed
@@ -1990,6 +2826,12 @@ ECON803_CONSUMER_RESTRUCTURE_SOURCE:section:basics-of-consumer-theory:06:problem
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
 
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -1998,22 +2840,12 @@ ECON803_CONSUMER_RESTRUCTURE_SOURCE:section:basics-of-consumer-theory:06:problem
 
 \end_layout
 
-
 \begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
 
 
 \end_layout
-
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
 
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -2242,6 +3074,113 @@ At prices \begin_inset Formula $p^0=(1,2,4)$\end_inset
 
 \begin_layout Exercise*
 (c) Explain why fitting one observation does not identify substitution. Describe additional observations that could distinguish the models.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 1.6 [Applied]. KKT regimes and the quantity--quality tradeoff.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+\end_layout
+
+\begin_layout Exercise*
+Unified Growth Theory links the demographic transition to a shift from child quantity toward education and child quality. This exercise isolates a stylized household block from Galor (2005); it is not the complete dynamic growth model. A parent with potential income \begin_inset Formula $y>\overline c$\end_inset
+ chooses consumption \begin_inset Formula $c>0$\end_inset
+, fertility \begin_inset Formula $n>0$\end_inset
+, and education time per child \begin_inset Formula $e\geq0$\end_inset
+ to maximize \begin_inset Formula $(1-\gamma)\log c+\gamma\log\!\left[n h_a(e)\right]$\end_inset
+, where \begin_inset Formula $h_a(e)=1+ae/(\tau+e)$\end_inset
+, \begin_inset Formula $0<\gamma<1$\end_inset
+, \begin_inset Formula $\tau>0$\end_inset
+ is baseline time per child, \begin_inset Formula $a>0$\end_inset
+ indexes the return to education, and \begin_inset Formula $\overline c>0$\end_inset
+ is subsistence consumption. The resource and subsistence constraints are \begin_inset Formula $c+yn(\tau+e)\leq y$\end_inset
+ and \begin_inset Formula $c\geq\overline c$\end_inset
+. The function \begin_inset Formula $h_a$\end_inset
+ is a closed-form teaching specialization of Galor's general child-human-capital technology; the normalization makes one unit of \begin_inset Formula $e$\end_inset
+ one unit of parental time.
+\end_layout
+
+\begin_layout Exercise*
+Part I. By hand. (a) Write the complete KKT system in \begin_inset Formula $(c,n,e)$\end_inset
+, including feasibility, multiplier signs, and complementary slackness. Prove that the resource constraint binds.
+\end_layout
+
+\begin_layout Exercise*
+(b) Define total child-rearing time \begin_inset Formula $t=n(\tau+e)$\end_inset
+. Eliminate \begin_inset Formula $c$\end_inset
+ and \begin_inset Formula $n$\end_inset
+, state the feasible set for \begin_inset Formula $(t,e)$\end_inset
+, and show that the transformed objective is additively separable in \begin_inset Formula $t$\end_inset
+ and \begin_inset Formula $e$\end_inset
+. Write its KKT system. Explain why an inequality can be active with a zero multiplier at a threshold.
+\end_layout
+
+\begin_layout Exercise*
+(c) Solve globally for \begin_inset Formula $(t^*,e^*)$\end_inset
+, then recover \begin_inset Formula $(c^*,n^*)$\end_inset
+. Divide the answer into all parameter regions, including the equality cases. A stationary-point calculation alone is not sufficient. Hint: determine the sign of \begin_inset Formula $h_a'(e)(\tau+e)-h_a(e)$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(d) Let \begin_inset Formula $\tau=1/4$\end_inset
+, \begin_inset Formula $\gamma=1/2$\end_inset
+, and \begin_inset Formula $\overline c=4$\end_inset
+. Calculate \begin_inset Formula $(c^*,n^*,e^*,h_a(e^*))$\end_inset
+ for every combination \begin_inset Formula $a\in\{1/2,3\}$\end_inset
+ and \begin_inset Formula $y\in\{6,12\}$\end_inset
+. Identify the active inequalities, calculate their transformed-problem multipliers, and verify feasibility and complementary slackness.
+\end_layout
+
+\begin_layout Exercise*
+(e) Explain the income mechanism while subsistence binds, the quantity--quality response when \begin_inset Formula $a$\end_inset
+ rises, and which dynamic elements of Unified Growth Theory this static exercise deliberately leaves out.
+\end_layout
+
+\begin_layout Exercise*
+Part II. Verified scale-up with Codex and Python. (f) Record four lines before coding: Seed: the four hand calculations; Fixed: preferences, \begin_inset Formula $h_a$\end_inset
+, continuous fertility, and \begin_inset Formula $(\tau,\gamma,\overline c)$\end_inset
+; Scaled: only the number of \begin_inset Formula $(a,y)$\end_inset
+ configurations; Risk: threshold misclassification, invalid parameter domains, or mistaking finite computation for proof.
+\end_layout
+
+\begin_layout Exercise*
+(g) Create a file named work/ugt_kkt.py. On a deterministic rectangular grid containing \begin_inset Formula $a=1$\end_inset
+ and \begin_inset Formula $y=\overline c/(1-\gamma)$\end_inset
+, compute the closed-form candidate and the transformed-problem KKT multipliers. Reject \begin_inset Formula $a\leq0$\end_inset
+, \begin_inset Formula $\tau\leq0$\end_inset
+, \begin_inset Formula $\overline c\leq0$\end_inset
+, \begin_inset Formula $\gamma\notin(0,1)$\end_inset
+, and \begin_inset Formula $y\leq\overline c$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(h) At every grid point, check the resource identity, subsistence feasibility, nonnegativity, stationarity, complementary slackness, and agreement with an independently implemented bounded numerical maximization. State the numerical tolerances. Plot \begin_inset Formula $e^*$\end_inset
+ and \begin_inset Formula $n^*$\end_inset
+ and mark the two analytic threshold lines.
+\end_layout
+
+\begin_layout Exercise*
+(i) Include tests immediately below, at, and above both thresholds. Report separately what the hand argument proves for every admissible parameter vector, what the program checks only on its finite grid, and what remains an empirical or dynamic modeling claim.
 \end_layout
 
 \begin_layout Standard
@@ -3801,57 +4740,154 @@ LatexCommand label
 name "sec:workhorse-duality"
 
 \end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
-CES Expenditure, Compensation, and Substitution
+CES Expenditure,
+ Compensation,
+ and Substitution
 \end_layout
 
 \begin_layout Standard
-Keep Chapter 1's degree-one CES normalization. Its unit expenditure index \begin_inset Formula $\notationfirst{unit-expenditure-index}{\mathcal P(p)}:=e(p,1)$\end_inset
- records the minimum cost of one unit of that utility index. Substituting the CES demand into utility, and then using duality, gives
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-\mathcal P(p)=\begin{cases}\left(\sum_\ell a_\ell^\sigma p_\ell^{1-\sigma}\right)^{1/(1-\sigma)},&\sigma\ne1,\\ \prod_\ell(p_\ell/a_\ell)^{a_\ell},&\sigma=1,\end{cases}
-\]
+Keep Chapter 1's degree-one CES normalization.
+ Its unit expenditure index 
+\begin_inset Formula $\notationfirst{unit-expenditure-index}{\mathcal{P}(p)}:=e(p,1)$
 \end_inset
+
+ records the minimum cost of one unit of that utility index.
+ Substituting the CES demand into utility,
+ and then using duality,
+ gives
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-v(p,w)=\frac{w}{\mathcal P(p)},\qquad e(p,\bar u)=\bar u\mathcal P(p),\qquad h_\ell(p,\bar u)=\bar u a_\ell^\sigma p_\ell^{-\sigma}\mathcal P(p)^\sigma.
+\mathcal{P}(p)=\begin{cases}
+\left(\sum_{\ell}a^{\sigma}_{\ell}p^{1-\sigma}_{\ell}\right)^{1/(1-\sigma)}, & \sigma\ne1,\\
+\prod_{\ell}(p_{\ell}/a_{\ell})^{a_{\ell}}, & \sigma=1,
+\end{cases}
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Here \begin_inset Formula $\bar u>0$\end_inset
-. The Cobb-Douglas factors \begin_inset Formula $a_\ell$\end_inset
- in the unit expenditure formula follow from the chosen utility normalization; omitting them changes the utility units. Marshallian demand itself is unaffected by a positive rescaling of utility. Differentiating Hicksian demand gives own-price elasticity \begin_inset Formula $-\sigma(1-b_\ell)$\end_inset
- and, for \begin_inset Formula $k\ne\ell$\end_inset
-, cross-price elasticity \begin_inset Formula $\sigma b_k>0$\end_inset
-. CES goods are compensated substitutes even when \begin_inset Formula $\sigma<1$\end_inset
+\begin_inset Formula 
+\[
+v(p,w)=\frac{w}{\mathcal{P}(p)},\qquad e(p,\bar{u})=\bar{u}\mathcal{P}(p),\qquad h_{\ell}(p,\bar{u})=\bar{u}a^{\sigma}_{\ell}p^{-\sigma}_{\ell}\mathcal{P}(p)^{\sigma}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $\bar{u}>0$
+\end_inset
+
+.
+ The Cobb-Douglas factors 
+\begin_inset Formula $a_{\ell}$
+\end_inset
+
+ in the unit expenditure formula follow from the chosen utility normalization;
+ omitting them changes the utility units.
+ Marshallian demand itself is unaffected by a positive rescaling of utility.
+ Differentiating Hicksian demand gives own-price elasticity 
+\begin_inset Formula $-\sigma(1-b_{\ell})$
+\end_inset
+
+ and,
+ for 
+\begin_inset Formula $k\ne\ell$
+\end_inset
+
+,
+ cross-price elasticity 
+\begin_inset Formula $\sigma b_{k}>0$
+\end_inset
+
+.
+ CES goods are compensated substitutes even when 
+\begin_inset Formula $\sigma<1$
+\end_inset
+
  makes them gross complements at fixed wealth.
 \end_layout
 
 \begin_layout Example
-Exact compensation after a price increase. With equal weights, \begin_inset Formula $\sigma=2$\end_inset
-, \begin_inset Formula $p^0=(1,2)$\end_inset
-, and \begin_inset Formula $w=120$\end_inset
-, Chapter 1 found \begin_inset Formula $x^0=(80,20)$\end_inset
-. Here \begin_inset Formula $\mathcal P(p^0)=8/3$\end_inset
- and initial utility is 45. If \begin_inset Formula $p^1=(2,2)$\end_inset
-, then \begin_inset Formula $\mathcal P(p^1)=4$\end_inset
-. Maintaining utility 45 requires wealth 180, so compensation is 60 and the compensated bundle is \begin_inset Formula $(45,45)$\end_inset
-. At unchanged wealth 120, the final bundle is \begin_inset Formula $(30,30)$\end_inset
-. For good 1, the total change \begin_inset Formula $-50$\end_inset
- is the compensated change \begin_inset Formula $-35$\end_inset
- plus the remaining wealth effect \begin_inset Formula $-15$\end_inset
-. This is a finite-change Hicks decomposition; the Slutsky equation describes the corresponding local derivative.
+Exact compensation after a price increase.
+ With equal weights,
+ 
+\begin_inset Formula $\sigma=2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p^{0}=(1,2)$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $w=120$
+\end_inset
+
+,
+ Chapter 1 found 
+\begin_inset Formula $x^{0}=(80,20)$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $\mathcal{P}(p^{0})=8/3$
+\end_inset
+
+ and initial utility is 45.
+ If 
+\begin_inset Formula $p^{1}=(2,2)$
+\end_inset
+
+,
+ then 
+\begin_inset Formula $\mathcal{P}(p^{1})=4$
+\end_inset
+
+.
+ Maintaining utility 45 requires wealth 180,
+ so compensation is 60 and the compensated bundle is 
+\begin_inset Formula $(45,45)$
+\end_inset
+
+.
+ At unchanged wealth 120,
+ the final bundle is 
+\begin_inset Formula $(30,30)$
+\end_inset
+
+.
+ For good 1,
+ the total change 
+\begin_inset Formula $-50$
+\end_inset
+
+ is the compensated change 
+\begin_inset Formula $-35$
+\end_inset
+
+ plus the remaining wealth effect 
+\begin_inset Formula $-15$
+\end_inset
+
+.
+ This is a finite-change Hicks decomposition;
+ the Slutsky equation describes the corresponding local derivative.
 \end_layout
 
 \begin_layout Standard
@@ -3871,30 +4907,73 @@ LatexCommand label
 name "sec:translog-demand"
 
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The translog family provides a flexible quadratic approximation in logarithms. We use a homothetic expenditure specification; richer translog families also permit wealth-dependent shares. Prices are measured relative to fixed reference units, so each logarithm is dimensionless. Write
+The translog family provides a flexible quadratic approximation in logarithms.
+ We use a homothetic expenditure specification;
+ richer translog families also permit wealth-dependent shares.
+ Prices are measured relative to fixed reference units,
+ so each logarithm is dimensionless.
+ Write
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-\log\mathcal P_{\mathrm{TL}}(p)=\alpha_0+\sum_{\ell=1}^{L}\alpha_\ell\log p_\ell+\frac12\sum_{\ell=1}^{L}\sum_{k=1}^{L}\gamma_{\ell k}\log p_\ell\log p_k.
+\log\mathcal{P}_{\mathrm{TL}}(p)=\alpha_{0}+\sum^{L}_{\ell=1}\alpha_{\ell}\log p_{\ell}+\frac{1}{2}\sum^{L}_{\ell=1}\sum^{L}_{k=1}\gamma_{\ell k}\log p_{\ell}\log p_{k}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The intercept is \begin_inset Formula $\alpha_0$\end_inset
-, the linear coefficients are \begin_inset Formula $\alpha_\ell$\end_inset
-, and the symmetric curvature matrix is \begin_inset Formula $\notationfirst{translog-curvature}{\Gamma}=(\gamma_{\ell k})$\end_inset
-. Impose \begin_inset Formula $\sum_\ell\alpha_\ell=1$\end_inset
- and \begin_inset Formula $\Gamma\mathbf1_L=0$\end_inset
-. These restrictions make \begin_inset Formula $\mathcal P_{\mathrm{TL}}$\end_inset
- homogeneous of degree one in prices. The matrix \begin_inset Formula $\Gamma$\end_inset
- here is unrelated to the subsistence vector \begin_inset Formula $\gamma$\end_inset
- in Stone-Geary utility. The translog approach originates with Christensen, Jorgenson, and Lau; the expenditure formulation and curvature calculation below also follow Diewert's treatment.
+The intercept is 
+\begin_inset Formula $\alpha_{0}$
+\end_inset
+
+,
+ the linear coefficients are 
+\begin_inset Formula $\alpha_{\ell}$
+\end_inset
+
+,
+ and the symmetric curvature matrix is 
+\begin_inset Formula $\notationfirst{translog-curvature}{\Gamma}=(\gamma_{\ell k})$
+\end_inset
+
+.
+ Impose 
+\begin_inset Formula $\sum_{\ell}\alpha_{\ell}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma\mathbf{1}_{L}=0$
+\end_inset
+
+.
+ These restrictions make 
+\begin_inset Formula $\mathcal{P}_{\mathrm{TL}}$
+\end_inset
+
+ homogeneous of degree one in prices.
+ The matrix 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ here is unrelated to the subsistence vector 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ in Stone-Geary utility.
+ The translog approach originates with Christensen,
+ Jorgenson,
+ and Lau;
+ the expenditure formulation and curvature calculation below also follow Diewert's treatment.
 \end_layout
 
 \begin_layout Standard
@@ -3903,108 +4982,254 @@ LatexCommand citep
 key "christensenjorgensonlau1975,diewert2023"
 
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Suppose the price region under study is regular, as specified below. With \begin_inset Formula $e(p,\bar u)=\bar u\mathcal P_{\mathrm{TL}}(p)$\end_inset
- and \begin_inset Formula $v(p,w)=w/\mathcal P_{\mathrm{TL}}(p)$\end_inset
-, Shephard's lemma gives
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-\begin{aligned}b_\ell(p)&=\frac{\partial\log\mathcal P_{\mathrm{TL}}(p)}{\partial\log p_\ell}=\alpha_\ell+\sum_k\gamma_{\ell k}\log p_k,\\ h_\ell(p,\bar u)&=\frac{\bar u\mathcal P_{\mathrm{TL}}(p)}{p_\ell}b_\ell(p),\qquad x_\ell(p,w)=\frac{w}{p_\ell}b_\ell(p).\end{aligned}
-\]
+Suppose the price region under study is regular,
+ as specified below.
+ With 
+\begin_inset Formula $e(p,\bar{u})=\bar{u}\mathcal{P}_{\mathrm{TL}}(p)$
 \end_inset
+
+ and 
+\begin_inset Formula $v(p,w)=w/\mathcal{P}_{\mathrm{TL}}(p)$
+\end_inset
+
+,
+ Shephard's lemma gives
 \end_layout
 
 \begin_layout Standard
-Adding up and homogeneity follow from the coefficient restrictions, but nonnegative demand and substitution restrictions require more. On an open convex cone \begin_inset Formula $\mathcal D\subseteq\mathbb R_{++}^{L}$\end_inset
-, require \begin_inset Formula $b_\ell(p)>0$\end_inset
- and the following matrix to be negative semidefinite at every price in \begin_inset Formula $\mathcal D$\end_inset
+\begin_inset Formula 
+\[
+\begin{aligned}b_{\ell}(p) & =\frac{\partial\log\mathcal{P}_{\mathrm{TL}}(p)}{\partial\log p_{\ell}}=\alpha_{\ell}+\sum_{k}\gamma_{\ell k}\log p_{k},\\
+h_{\ell}(p,\bar{u}) & =\frac{\bar{u}\mathcal{P}_{\mathrm{TL}}(p)}{p_{\ell}}b_{\ell}(p),\qquad x_{\ell}(p,w)=\frac{w}{p_{\ell}}b_{\ell}(p).
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Adding up and homogeneity follow from the coefficient restrictions,
+ but nonnegative demand and substitution restrictions require more.
+ On an open convex cone 
+\begin_inset Formula $\mathcal{D}\subseteq\mathbb{R}^{L}_{++}$
+\end_inset
+
+,
+ require 
+\begin_inset Formula $b_{\ell}(p)>0$
+\end_inset
+
+ and the following matrix to be negative semidefinite at every price in 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
 :
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-H(p):=\Gamma+\boldsymbol b(p)\boldsymbol b(p)^\top-\operatorname{diag}(\boldsymbol b(p)).
+H(p):=\Gamma+\boldsymbol{b}(p)\boldsymbol{b}(p)^{\top}-\operatorname{diag}(\boldsymbol{b}(p)).
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-To see the role of this condition, let \begin_inset Formula $D=\operatorname{diag}(p_1,\ldots,p_L)$\end_inset
-. Differentiating \begin_inset Formula $\partial_{p_\ell}\mathcal P_{\mathrm{TL}}=\mathcal P_{\mathrm{TL}}b_\ell/p_\ell$\end_inset
+To see the role of this condition,
+ let 
+\begin_inset Formula $D=\operatorname{diag}(p_{1},\ldots,p_{L})$
+\end_inset
+
+.
+ Differentiating 
+\begin_inset Formula $\partial_{p_{\ell}}\mathcal{P}_{\mathrm{TL}}=\mathcal{P}_{\mathrm{TL}}b_{\ell}/p_{\ell}$
+\end_inset
+
  yields
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-\nabla_p^2\mathcal P_{\mathrm{TL}}(p)=\mathcal P_{\mathrm{TL}}(p)D^{-1}H(p)D^{-1}.
+\nabla^{2}_{p}\mathcal{P}_{\mathrm{TL}}(p)=\mathcal{P}_{\mathrm{TL}}(p)D^{-1}H(p)D^{-1}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Thus \begin_inset Formula $H(p)\preceq0$\end_inset
- is exactly the local curvature restriction. Requiring it throughout a convex price domain establishes concavity on that domain. Positive fitted shares alone do not establish rationalizability, and checking curvature at one observation does not justify a distant counterfactual. The Slutsky matrix is \begin_inset Formula $S(p,w)=wD^{-1}H(p)D^{-1}$\end_inset
-, so symmetry, negativity, and the zero price direction are explicit.
+Thus 
+\begin_inset Formula $H(p)\preceq0$
+\end_inset
+
+ is exactly the local curvature restriction.
+ Requiring it throughout a convex price domain establishes concavity on that domain.
+ Positive fitted shares alone do not establish rationalizability,
+ and checking curvature at one observation does not justify a distant counterfactual.
+ The Slutsky matrix is 
+\begin_inset Formula $S(p,w)=wD^{-1}H(p)D^{-1}$
+\end_inset
+
+,
+ so symmetry,
+ negativity,
+ and the zero price direction are explicit.
 \end_layout
 
 \begin_layout Standard
-There is a direct optimizing model behind these formulas. Define, for \begin_inset Formula $x\in\mathbb R_+^L$\end_inset
+There is a direct optimizing model behind these formulas.
+ Define,
+ for 
+\begin_inset Formula $x\in\mathbb{R}^{L}_{+}$
+\end_inset
+
 ,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-u_{\mathcal D}(x)=\inf_{r\in\mathcal D}\frac{r\cdot x}{\mathcal P_{\mathrm{TL}}(r)}.
+u_{\mathcal{D}}(x)=\inf_{r\in\mathcal{D}}\frac{r\cdot x}{\mathcal{P}_{\mathrm{TL}}(r)}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-This is a nonnegative, concave, homogeneous, nondecreasing utility. At \begin_inset Formula $p\in\mathcal D$\end_inset
-, concavity and homogeneity of the price index imply \begin_inset Formula $r\cdot\nabla\mathcal P_{\mathrm{TL}}(p)\ge\mathcal P_{\mathrm{TL}}(r)$\end_inset
- for every \begin_inset Formula $r\in\mathcal D$\end_inset
-, with equality at \begin_inset Formula $r=p$\end_inset
-. Hence \begin_inset Formula $u_{\mathcal D}(\nabla\mathcal P_{\mathrm{TL}}(p))=1$\end_inset
-. Scaling that bundle attains target utility \begin_inset Formula $\bar u>0$\end_inset
- at expenditure \begin_inset Formula $\bar u\mathcal P_{\mathrm{TL}}(p)$\end_inset
-; any bundle reaching the target costs at least that much. This proves the expenditure formula, and therefore the displayed demand, at prices in \begin_inset Formula $\mathcal D$\end_inset
-. It does not extend the translog formula to prices outside its regular region.
+This is a nonnegative,
+ concave,
+ homogeneous,
+ nondecreasing utility.
+ At 
+\begin_inset Formula $p\in\mathcal{D}$
+\end_inset
+
+,
+ concavity and homogeneity of the price index imply 
+\begin_inset Formula $r\cdot\nabla\mathcal{P}_{\mathrm{TL}}(p)\ge\mathcal{P}_{\mathrm{TL}}(r)$
+\end_inset
+
+ for every 
+\begin_inset Formula $r\in\mathcal{D}$
+\end_inset
+
+,
+ with equality at 
+\begin_inset Formula $r=p$
+\end_inset
+
+.
+ Hence 
+\begin_inset Formula $u_{\mathcal{D}}(\nabla\mathcal{P}_{\mathrm{TL}}(p))=1$
+\end_inset
+
+.
+ Scaling that bundle attains target utility 
+\begin_inset Formula $\bar{u}>0$
+\end_inset
+
+ at expenditure 
+\begin_inset Formula $\bar{u}\mathcal{P}_{\mathrm{TL}}(p)$
+\end_inset
+
+;
+ any bundle reaching the target costs at least that much.
+ This proves the expenditure formula,
+ and therefore the displayed demand,
+ at prices in 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+.
+ It does not extend the translog formula to prices outside its regular region.
 \end_layout
 
 \begin_layout Standard
-The compensated and uncompensated elasticities make the extra flexibility visible. Let \begin_inset Formula $\delta_{\ell k}$\end_inset
- equal one when \begin_inset Formula $\ell=k$\end_inset
- and zero otherwise. Then
+The compensated and uncompensated elasticities make the extra flexibility visible.
+ Let 
+\begin_inset Formula $\delta_{\ell k}$
+\end_inset
+
+ equal one when 
+\begin_inset Formula $\ell=k$
+\end_inset
+
+ and zero otherwise.
+ Then
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-\frac{\partial\log x_\ell}{\partial\log p_k}=\frac{\gamma_{\ell k}}{b_\ell}-\delta_{\ell k},\qquad \frac{\partial\log h_\ell}{\partial\log p_k}=\frac{\gamma_{\ell k}}{b_\ell}+b_k-\delta_{\ell k}.
+\frac{\partial\log x_{\ell}}{\partial\log p_{k}}=\frac{\gamma_{\ell k}}{b_{\ell}}-\delta_{\ell k},\qquad\frac{\partial\log h_{\ell}}{\partial\log p_{k}}=\frac{\gamma_{\ell k}}{b_{\ell}}+b_{k}-\delta_{\ell k}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Wealth elasticities are one in this homothetic version, while price elasticities vary with the shares. For two goods, the elasticity of substitution is \begin_inset Formula $1+\gamma_{12}/(b_1b_2)$\end_inset
- on the regular region. With more goods the same expression is the Allen-Uzawa pairwise elasticity, rather than a universal elasticity of every quantity ratio. Setting \begin_inset Formula $\Gamma=0$\end_inset
- recovers constant shares and a Cobb-Douglas price index. General translog utility models need not be homothetic.
+Wealth elasticities are one in this homothetic version,
+ while price elasticities vary with the shares.
+ For two goods,
+ the elasticity of substitution is 
+\begin_inset Formula $1+\gamma_{12}/(b_{1}b_{2})$
+\end_inset
+
+ on the regular region.
+ With more goods the same expression is the Allen-Uzawa pairwise elasticity,
+ rather than a universal elasticity of every quantity ratio.
+ Setting 
+\begin_inset Formula $\Gamma=0$
+\end_inset
+
+ recovers constant shares and a Cobb-Douglas price index.
+ General translog utility models need not be homothetic.
 \end_layout
 
 \begin_layout Example
-A translog model with changing shares. Let \begin_inset Formula $L=2$\end_inset
-, \begin_inset Formula $\alpha_0=0$\end_inset
-, \begin_inset Formula $\alpha_1=\alpha_2=1/2$\end_inset
-, and \begin_inset Formula $\Gamma=\tfrac1{10}\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$\end_inset
-. Writing \begin_inset Formula $r=p_1/p_2$\end_inset
+A translog model with changing shares.
+ Let 
+\begin_inset Formula $L=2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\alpha_{0}=0$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\alpha_{1}=\alpha_{2}=1/2$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $\Gamma=\tfrac{1}{10}\left(\begin{smallmatrix}1 & -1\\
+-1 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+.
+ Writing 
+\begin_inset Formula $r=p_{1}/p_{2}$
+\end_inset
+
  gives
 \end_layout
 
@@ -4016,35 +5241,103 @@ A translog model with changing shares. Let \begin_inset Formula $L=2$\end_inset
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \[
-\mathcal P_{\mathrm{TL}}(p)=\sqrt{p_1p_2}\exp\!\left(\frac{(\log r)^2}{20}\right),\qquad b_1=\frac12+\frac{\log r}{10},\quad b_2=1-b_1.
+\mathcal{P}_{\mathrm{TL}}(p)=\sqrt{p_{1}p_{2}}\exp\!\left(\frac{(\log r)^{2}}{20}\right),\qquad b_{1}=\frac{1}{2}+\frac{\log r}{10},\quad b_{2}=1-b_{1}.
 \]
+
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-At \begin_inset Formula $p=(1,1)$\end_inset
- and \begin_inset Formula $w=100$\end_inset
-, demand is \begin_inset Formula $(50,50)$\end_inset
-. At \begin_inset Formula $p=(2,1)$\end_inset
- and the same wealth, shares are approximately \begin_inset Formula $(0.569315,0.430685)$\end_inset
- and demand is \begin_inset Formula $(28.4657,43.0685)$\end_inset
-. The first quantity falls while its budget share rises. The substitution elasticity changes from \begin_inset Formula $0.6$\end_inset
- at equal prices to approximately \begin_inset Formula $0.592162$\end_inset
- at \begin_inset Formula $(2,1)$\end_inset
-; a single CES elasticity cannot reproduce that variation throughout the region.
+At 
+\begin_inset Formula $p=(1,1)$
+\end_inset
+
+ and 
+\begin_inset Formula $w=100$
+\end_inset
+
+,
+ demand is 
+\begin_inset Formula $(50,50)$
+\end_inset
+
+.
+ At 
+\begin_inset Formula $p=(2,1)$
+\end_inset
+
+ and the same wealth,
+ shares are approximately 
+\begin_inset Formula $(0.569315,0.430685)$
+\end_inset
+
+ and demand is 
+\begin_inset Formula $(28.4657,43.0685)$
+\end_inset
+
+.
+ The first quantity falls while its budget share rises.
+ The substitution elasticity changes from 
+\begin_inset Formula $0.6$
+\end_inset
+
+ at equal prices to approximately 
+\begin_inset Formula $0.592162$
+\end_inset
+
+ at 
+\begin_inset Formula $(2,1)$
+\end_inset
+
+;
+ a single CES elasticity cannot reproduce that variation throughout the region.
 \end_layout
 
 \begin_layout Example
-Positive shares can conceal invalid curvature. In the preceding model, \begin_inset Formula $H=(1/10-b_1b_2)\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$\end_inset
-. Shares are positive when \begin_inset Formula $|\log r|<5$\end_inset
-, but curvature holds only when \begin_inset Formula $|\log r|\le\sqrt{15}$\end_inset
-. Thus \begin_inset Formula $|\log r|<\sqrt{15}$\end_inset
- defines an open convex cone on which the construction above is valid. At \begin_inset Formula $r=\exp(4)$\end_inset
- the shares \begin_inset Formula $(0.9,0.1)$\end_inset
- still look admissible, yet \begin_inset Formula $1/10-b_1b_2=0.01>0$\end_inset
-: compensated own-price responses have the wrong sign. This counterfactual must be rejected for this parameterization.
+Positive shares can conceal invalid curvature.
+ In the preceding model,
+ 
+\begin_inset Formula $H=(1/10-b_{1}b_{2})\left(\begin{smallmatrix}1 & -1\\
+-1 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+.
+ Shares are positive when 
+\begin_inset Formula $|\log r|<5$
+\end_inset
+
+,
+ but curvature holds only when 
+\begin_inset Formula $|\log r|\le\sqrt{15}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $|\log r|<\sqrt{15}$
+\end_inset
+
+ defines an open convex cone on which the construction above is valid.
+ At 
+\begin_inset Formula $r=\exp(4)$
+\end_inset
+
+ the shares 
+\begin_inset Formula $(0.9,0.1)$
+\end_inset
+
+ still look admissible,
+ yet 
+\begin_inset Formula $1/10-b_{1}b_{2}=0.01>0$
+\end_inset
+
+:
+ compensated own-price responses have the wrong sign.
+ This counterfactual must be rejected for this parameterization.
 \end_layout
 
 \begin_layout Standard
@@ -4669,14 +5962,12 @@ name "chap:revealed-preference-recoverability"
 
 \end_layout
 
-
 \begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
 
 
 \end_layout
-
 
 \begin_layout Standard
 \begin_inset Note Note
@@ -6365,7 +7656,6 @@ end{proof}
 
 
 \end_layout
-
 
 \begin_layout Standard
 \begin_inset Note Note
@@ -13034,6 +14324,7 @@ The fixed commodity vector
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "amazonstore2026"
@@ -13080,6 +14371,7 @@ Let characteristics live in a compact metric product space
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "abaluckadamsprassl2021"
@@ -13094,6 +14386,7 @@ literal "false"
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gandhilushi2023"
@@ -13105,7 +14398,8 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-One item: ideal points and local diversion
+One item:
+ ideal points and local diversion
 \end_layout
 
 \begin_layout Standard
@@ -13152,7 +14446,7 @@ To isolate product-space geometry,
  A quadratic mismatch specification is
 \begin_inset Formula 
 \[
-U^{*}_{ij}=\delta_{j}-p_{j}-\kappa_{d}d(b_{i},g_{j})^{2},\qquad \kappa_{d}>0.
+U^{*}_{ij}=\delta_{j}-p_{j}-\kappa_{d}d(b_{i},g_{j})^{2},\qquad\kappa_{d}>0.
 \]
 
 \end_inset
@@ -13164,9 +14458,7 @@ The types choosing product
  form the cell
 \begin_inset Formula 
 \[
-\notationfirst{product-cell}{C_{j}(p)}=
-\left\{b\in\mathcal{G}:\delta_{j}-p_{j}-\kappa_{d}d(b,g_{j})^{2}
-\geq \delta_{k}-p_{k}-\kappa_{d}d(b,g_{k})^{2}\ \text{for every }k\right\}.
+\notationfirst{product-cell}{C_{j}(p)}=\left\{ b\in\mathcal{G}:\delta_{j}-p_{j}-\kappa_{d}d(b,g_{j})^{2}\geq\delta_{k}-p_{k}-\kappa_{d}d(b,g_{k})^{2}\ \text{for every }k\right\} .
 \]
 
 \end_inset
@@ -13197,6 +14489,7 @@ Demand share is
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hotelling1929,lancaster1966,andersondepalmathisse1989,mcfadden1981"
@@ -13210,7 +14503,7 @@ literal "false"
 \begin_layout Proposition
 Local diversion on a line.
  Let 
-\begin_inset Formula $\mathcal{G}=[\underline g,\overline g]\subset\mathbb{R}$
+\begin_inset Formula $\mathcal{G}=[\underline{g},\overline{g}]\subset\mathbb{R}$
 \end_inset
 
  with Euclidean metric 
@@ -13258,10 +14551,7 @@ Local diversion on a line.
  is
 \begin_inset Formula 
 \[
-\overline b_{j,j+1}
-=\frac{g_{j}+g_{j+1}}{2}
-+\frac{\delta_{j}-\delta_{j+1}-p_{j}+p_{j+1}}
-{2\kappa_{d}(g_{j+1}-g_{j})},
+\overline{b}_{j,j+1}=\frac{g_{j}+g_{j+1}}{2}+\frac{\delta_{j}-\delta_{j+1}-p_{j}+p_{j+1}}{2\kappa_{d}(g_{j+1}-g_{j})},
 \]
 
 \end_inset
@@ -13269,7 +14559,7 @@ Local diversion on a line.
 and
 \begin_inset Formula 
 \[
-s_{j}=F(\overline b_{j,j+1})-F(\overline b_{j-1,j}).
+s_{j}=F(\overline{b}_{j,j+1})-F(\overline{b}_{j-1,j}).
 \]
 
 \end_inset
@@ -13277,14 +14567,9 @@ s_{j}=F(\overline b_{j,j+1})-F(\overline b_{j-1,j}).
 At every price vector preserving this active adjacency,
 \begin_inset Formula 
 \[
-\begin{aligned}
-\frac{\partial s_{j}}{\partial p_{j+1}}
-&=\frac{f(\overline b_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})}>0,\\
-\frac{\partial s_{j}}{\partial p_{j-1}}
-&=\frac{f(\overline b_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})}>0,\\
-\frac{\partial s_{j}}{\partial p_{j}}
-&=-\frac{f(\overline b_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})}
--\frac{f(\overline b_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})}<0,
+\begin{aligned}\frac{\partial s_{j}}{\partial p_{j+1}} & =\frac{f(\overline{b}_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})}>0,\\
+\frac{\partial s_{j}}{\partial p_{j-1}} & =\frac{f(\overline{b}_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})}>0,\\
+\frac{\partial s_{j}}{\partial p_{j}} & =-\frac{f(\overline{b}_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})}-\frac{f(\overline{b}_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})}<0,
 \end{aligned}
 \]
 
@@ -13307,11 +14592,7 @@ whereas
  diverts the lost share only to the two active neighbors:
 \begin_inset Formula 
 \[
-\frac{\partial s_{j+1}}{\partial p_{j}}
-=\frac{f(\overline b_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})},
-\qquad
-\frac{\partial s_{j-1}}{\partial p_{j}}
-=\frac{f(\overline b_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})},
+\frac{\partial s_{j+1}}{\partial p_{j}}=\frac{f(\overline{b}_{j,j+1})}{2\kappa_{d}(g_{j+1}-g_{j})},\qquad\frac{\partial s_{j-1}}{\partial p_{j}}=\frac{f(\overline{b}_{j-1,j})}{2\kappa_{d}(g_{j}-g_{j-1})},
 \]
 
 \end_inset
@@ -13367,10 +14648,7 @@ The proposition is local and conditional:
  satisfies
 \begin_inset Formula 
 \[
-s_{j}=\frac{\exp(\delta_{j}-\alpha_{p}p_{j})}
-{\sum_{k}\exp(\delta_{k}-\alpha_{p}p_{k})},
-\qquad
-\frac{\partial s_{j}}{\partial p_{k}}=\alpha_{p}s_{j}s_{k}>0\quad(j\neq k),
+s_{j}=\frac{\exp(\delta_{j}-\alpha_{p}p_{j})}{\sum_{k}\exp(\delta_{k}-\alpha_{p}p_{k})},\qquad\frac{\partial s_{j}}{\partial p_{k}}=\alpha_{p}s_{j}s_{k}>0\quad(j\neq k),
 \]
 
 \end_inset
@@ -13380,6 +14658,7 @@ so every product substitutes for every other product regardless of distance.
  but distance decay is still a restriction to be modeled and tested rather than a theorem of discrete choice
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -13392,7 +14671,8 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-Many items: bundles over product space
+Many items:
+ bundles over product space
 \end_layout
 
 \begin_layout Standard
@@ -13420,8 +14700,7 @@ A continuum of alternatives is not the same object as a bundle drawn from a cont
  and expenditure is the dual pairing
 \begin_inset Formula 
 \[
-\notationfirst{continuum-pairing}{\langle p,x\rangle}
-:=\int_{\mathcal{G}}p(g)\,x(dg).
+\notationfirst{continuum-pairing}{\langle p,x\rangle}:=\int_{\mathcal{G}}p(g)\,x(dg).
 \]
 
 \end_inset
@@ -13432,7 +14711,7 @@ The budget is
 
 .
  An observed finite basket is included exactly as the atomic measure 
-\begin_inset Formula $x=\sum_{j=1}^{J}q_{j}\delta_{g_{j}}$
+\begin_inset Formula $x=\sum^{J}_{j=1}q_{j}\delta_{g_{j}}$
 \end_inset
 
 ,
@@ -13458,6 +14737,7 @@ The budget is
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mascolell1975,bewley1972"
@@ -13478,6 +14758,7 @@ Neiman and Vavra use a continuum of products for tractability,
  not a theorem that a price change diverts demand to nearby products
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -13509,7 +14790,7 @@ Neighborhood compensated elasticity.
 
 Let locally unique Hicksian demand be a measure,
  and let 
-\begin_inset Formula $h(A;p,\overline u)>0$
+\begin_inset Formula $h(A;p,\overline{u})>0$
 \end_inset
 
  denote its mass in measurable region 
@@ -13550,15 +14831,14 @@ Let locally unique Hicksian demand be a measure,
 
 .
  If the scalar path 
-\begin_inset Formula $\varepsilon\mapsto h(A;p_{\varepsilon},\overline u)$
+\begin_inset Formula $\varepsilon\mapsto h(A;p_{\varepsilon},\overline{u})$
 \end_inset
 
  is differentiable at zero,
  define
 \begin_inset Formula 
 \[
-\notationfirst{neighborhood-elasticity}{\mathcal{E}^{H}(A;\varphi_{B})}
-:=\left.\frac{d\log h(A;p_{\varepsilon},\overline u)}{d\varepsilon}\right|_{\varepsilon=0}.
+\notationfirst{neighborhood-elasticity}{\mathcal{E}^{H}(A;\varphi_{B})}:=\left.\frac{d\log h(A;p_{\varepsilon},\overline{u})}{d\varepsilon}\right|_{\varepsilon=0}.
 \]
 
 \end_inset
@@ -13584,8 +14864,7 @@ This statistic replaces an unmanageable product-by-product elasticity matrix wit
  satisfying
 \begin_inset Formula 
 \[
-\left|\mathcal{E}^{H}(A;\varphi_{B})\right|
-\leq\Psi\!\left(d(A,\operatorname{supp}\varphi_{B})\right).
+\left|\mathcal{E}^{H}(A;\varphi_{B})\right|\leq\Psi\!\left(d(A,\operatorname{supp}\varphi_{B})\right).
 \]
 
 \end_inset
@@ -13650,14 +14929,13 @@ Afriat rationalization over a continuum product space.
 
 .
  Suppose the finite dataset 
-\begin_inset Formula $\mathcal{O}=\{(p^{t},x^{t})\}_{t=1}^{T}$
+\begin_inset Formula $\mathcal{O}=\{(p^{t},x^{t})\}^{T}_{t=1}$
 \end_inset
 
  has through-observation budget
 \begin_inset Formula 
 \[
-B_{t}:=\{x\in\mathcal{M}_{+}(\mathcal{G}):
-\langle p^{t},x\rangle\leq\langle p^{t},x^{t}\rangle\}.
+B_{t}:=\{x\in\mathcal{M}_{+}(\mathcal{G}):\langle p^{t},x\rangle\leq\langle p^{t},x^{t}\rangle\}.
 \]
 
 \end_inset
@@ -13698,6 +14976,7 @@ Define
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset Formula $x^{t}\mathrel{R}x^{s}$
 \end_inset
 
@@ -13707,15 +14986,13 @@ Define
 
 .
  GARP holds if and only if there exist numbers 
-\begin_inset Formula $(U^{t},\lambda^{t})_{t=1}^{T}$
+\begin_inset Formula $(U^{t},\lambda^{t})^{T}_{t=1}$
 \end_inset
 
  satisfying the Afriat inequalities
 \begin_inset Formula 
 \[
-U^{s}\leq U^{t}+\lambda^{t}\langle p^{t},x^{s}-x^{t}\rangle,
-\qquad \lambda^{t}>0,
-\qquad s,t=1,\ldots,T.
+U^{s}\leq U^{t}+\lambda^{t}\langle p^{t},x^{s}-x^{t}\rangle,\qquad\lambda^{t}>0,\qquad s,t=1,\ldots,T.
 \]
 
 \end_inset
@@ -13723,8 +15000,7 @@ U^{s}\leq U^{t}+\lambda^{t}\langle p^{t},x^{s}-x^{t}\rangle,
 For any such certificate,
 \begin_inset Formula 
 \[
-U(x):=\min_{1\leq t\leq T}
-\left\{U^{t}+\lambda^{t}\langle p^{t},x-x^{t}\rangle\right\}
+U(x):=\min_{1\leq t\leq T}\left\{ U^{t}+\lambda^{t}\langle p^{t},x-x^{t}\rangle\right\} 
 \]
 
 \end_inset
@@ -13826,8 +15102,7 @@ Apply the finite-expenditure-matrix form of Afriat's lemma to
  is finite,
 \begin_inset Formula 
 \[
-\delta:=\min_{1\leq t\leq T}
-\lambda^{t}\langle p^{t},y-x\rangle>0.
+\delta:=\min_{1\leq t\leq T}\lambda^{t}\langle p^{t},y-x\rangle>0.
 \]
 
 \end_inset
@@ -13879,6 +15154,7 @@ The proposition is a dimension-free corollary of the ordinary Afriat constructio
  or differentiable Slutsky operators require separate arguments
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -13962,6 +15238,7 @@ Compactness and continuity give existence.
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "chiapporimccannnesheim2010"
@@ -13998,7 +15275,7 @@ Neiman and Vavra's Nielsen Homescan evidence covers 2004--2016.
 \end_inset
 
  and effective variety 
-\begin_inset Formula $\widetilde N=N\alpha/(1-\alpha)$
+\begin_inset Formula $\widetilde{N}=N\alpha/(1-\alpha)$
 \end_inset
 
 ,
@@ -14010,8 +15287,10 @@ Neiman and Vavra's Nielsen Homescan evidence covers 2004--2016.
 \begin_inset Formula $\alpha$
 \end_inset
 
+
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -14033,6 +15312,7 @@ Characteristics and ideal points explain how a dense catalog acquires geometry;
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "lancaster1966,berrypakes2007,feenstralevinsohn1995,pinksesladebrett2002"
@@ -14047,6 +15327,7 @@ literal "false"
 Random-coefficients demand estimates heterogeneous tastes and flexible diversion among a large but finite set of products
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -14065,6 +15346,7 @@ Variety and long-tail models distinguish ordinary love of variety,
 \begin_inset space ~
 \end_inset
 
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "brynjolfssonhusmith2003,brynjolfssonhusimester2011,brodaweinstein2010,li2021,neimanvavra2023"
@@ -14079,6 +15361,7 @@ literal "false"
 Consideration-set methods distinguish products that are available from products that enter the consumer's consideration set
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -14095,6 +15378,7 @@ Zero-share methods address available products that receive zero observed empiric
  they do not by themselves identify whether a consumer saw the product
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -14113,6 +15397,7 @@ Hedonic matching and optimal transport add capacity,
  endogenous quality design additionally requires producer technology and costs
 \begin_inset space ~
 \end_inset
+
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -17426,7 +18711,10 @@ For clarity,
 \end_layout
 
 \begin_layout Definition
-Blocking, core, strong blocking, and strong core.
+Blocking,
+ core,
+ strong blocking,
+ and strong core.
   Coalition 
 \begin_inset Formula $S$
 \end_inset
@@ -20358,7 +21646,7 @@ Required 1.1, 1.2, 1.4
 \end_layout
 
 \begin_layout Description
-Extension 1.3
+Extension 1.3, 1.6
 \end_layout
 
 \begin_layout Section*
@@ -22169,17 +23457,23 @@ ECON803_NOTATION_GLOSSARY_START
 
 
 \end_layout
-\begin_layout Standard
 
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "app:notation-glossary"
 
 \end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-This glossary records the book's persistent notation.  Each blue symbol links back to its first substantive use in the text.  There, the blue first use links here.  A symbol described as scoped may be reused only after the new local meaning is stated explicitly.
+This glossary records the book's persistent notation.
+  Each blue symbol links back to its first substantive use in the text.
+  There,
+ the blue first use links here.
+  A symbol described as scoped may be reused only after the new local meaning is stated explicitly.
 \end_layout
 
 \begin_layout Section
@@ -22187,58 +23481,95 @@ Sets and indices
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{commodity-count}{L}$
+\begin_inset Formula $\notationdef{commodity-count}L$
 \end_inset
 
- Number of commodities; \begin_inset Formula $L\in\mathbb N_{>0}$\end_inset
-. Scope: Book-wide.
+ Number of commodities;
+ 
+\begin_inset Formula $L\in\mathbb{N}_{>0}$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{commodity-index}{\ell,k}$
 \end_inset
 
- Commodity-coordinate indices in \begin_inset Formula $\{1,\ldots,L\}$\end_inset
-. Scope: Book-wide.
+ Commodity-coordinate indices in 
+\begin_inset Formula $\{1,\ldots,L\}$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{nonnegative-orthant}{\mathbb R_+^n}$
+\begin_inset Formula $\notationdef{nonnegative-orthant}{\mathbb{R}^{n}_{+}}$
 \end_inset
 
- Vectors in \begin_inset Formula $\mathbb R^n$\end_inset
- whose coordinates are all nonnegative. Scope: Book-wide.
+ Vectors in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ whose coordinates are all nonnegative.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{positive-orthant}{\mathbb R_{++}^n}$
+\begin_inset Formula $\notationdef{positive-orthant}{\mathbb{R}^{n}_{++}}$
 \end_inset
 
- Vectors in \begin_inset Formula $\mathbb R^n$\end_inset
- whose coordinates are all strictly positive; equivalently \begin_inset Formula $x\gg0$\end_inset
-. Scope: Book-wide.
+ Vectors in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ whose coordinates are all strictly positive;
+ equivalently 
+\begin_inset Formula $x\gg0$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{feasible-set}{X}$
+\begin_inset Formula $\notationdef{feasible-set}X$
 \end_inset
 
- Ambient feasible set; in consumer chapters, the consumption set, normally \begin_inset Formula $\mathbb R_+^L$\end_inset
-. Scope: Scoped.
+ Ambient feasible set;
+ in consumer chapters,
+ the consumption set,
+ normally 
+\begin_inset Formula $\mathbb{R}^{L}_{+}$
+\end_inset
+
+.
+ Scope:
+ Scoped.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{consumer-index}{i=1,\ldots,I}$
 \end_inset
 
- Consumer index and number of consumers. Scope: Book-wide.
+ Consumer index and number of consumers.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{firm-index}{j=1,\ldots,J}$
 \end_inset
 
- Firm index and number of firms. Scope: Book-wide.
+ Firm index and number of firms.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Section
@@ -22249,117 +23580,189 @@ Operators
 \begin_inset Formula $\notationdef{inner-product}{a\cdot b}$
 \end_inset
 
- Euclidean inner product. Scope: Book-wide.
+ Euclidean inner product.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{euclidean-norm}{\lVert a\rVert_2}$
+\begin_inset Formula $\notationdef{euclidean-norm}{\lVert a\rVert_{2}}$
 \end_inset
 
- Euclidean norm of a vector \begin_inset Formula $a$\end_inset
-. Scope: Book-wide.
+ Euclidean norm of a vector 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ones-vector}{\mathbf 1_n}$
+\begin_inset Formula $\notationdef{ones-vector}{\mathbf{1}_{n}}$
 \end_inset
 
- All-ones column vector in \begin_inset Formula $\mathbb R^n$\end_inset
-; the dimension is shown whenever it is not immediate. Scope: Book-wide.
+ All-ones column vector in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+;
+ the dimension is shown whenever it is not immediate.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{identity-matrix}{I_n}$
+\begin_inset Formula $\notationdef{identity-matrix}{I_{n}}$
 \end_inset
 
- \begin_inset Formula $n\times n$\end_inset
- identity matrix; the subscript records its dimension. Scope: Book-wide.
+ 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ identity matrix;
+ the subscript records its dimension.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{transpose}{a^\top}$
+\begin_inset Formula $\notationdef{transpose}{a^{\top}}$
 \end_inset
 
- Transpose of a vector or matrix; primes never denote transpose. Scope: Book-wide.
+ Transpose of a vector or matrix;
+ primes never denote transpose.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{alternative-prime}{a'}$
 \end_inset
 
- Alternative observation or object of the same type as \begin_inset Formula $a$\end_inset
-. Scope: Book-wide.
+ Alternative observation or object of the same type as 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{set-difference}{A\setminus B}$
 \end_inset
 
- Elements of \begin_inset Formula $A$\end_inset
- that do not belong to \begin_inset Formula $B$\end_inset
-. Scope: Book-wide.
+ Elements of 
+\begin_inset Formula $A$
+\end_inset
+
+ that do not belong to 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{jacobian}{D_zf}$
+\begin_inset Formula $\notationdef{jacobian}{D_{z}f}$
 \end_inset
 
- Jacobian of a vector-valued map \begin_inset Formula $f$\end_inset
- with respect to \begin_inset Formula $z$\end_inset
-. Scope: Book-wide.
+ Jacobian of a vector-valued map 
+\begin_inset Formula $f$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{gradient}{\nabla_zf}$
+\begin_inset Formula $\notationdef{gradient}{\nabla_{z}f}$
 \end_inset
 
- Column gradient of a scalar-valued function \begin_inset Formula $f$\end_inset
- with respect to \begin_inset Formula $z$\end_inset
-. Scope: Book-wide.
+ Column gradient of a scalar-valued function 
+\begin_inset Formula $f$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{componentwise-order}{\leq,\geq,\gg}$
 \end_inset
 
- Vector inequalities are componentwise; \begin_inset Formula $x\gg0$\end_inset
- means every coordinate is strictly positive. Scope: Book-wide.
+ Vector inequalities are componentwise;
+ 
+\begin_inset Formula $x\gg0$
+\end_inset
+
+ means every coordinate is strictly positive.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{powerset}{2^X}$
+\begin_inset Formula $\notationdef{powerset}{2^{X}}$
 \end_inset
 
- Power set of \begin_inset Formula $X$\end_inset
-. Scope: Book-wide.
+ Power set of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{argmax-argmin}{\arg\max,\arg\min}$
 \end_inset
 
- Sets of maximizers and minimizers; a singleton selection is identified explicitly. Scope: Book-wide.
+ Sets of maximizers and minimizers;
+ a singleton selection is identified explicitly.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{probability-expectation}{\Pr,\mathbb P,\mathbb E}$
+\begin_inset Formula $\notationdef{probability-expectation}{\Pr,\mathbb{P},\mathbb{E}}$
 \end_inset
 
- Probability and expectation under the probability space declared in the surrounding model. Scope: Book-wide.
+ Probability and expectation under the probability space declared in the surrounding model.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{indicator}{\mathbb I\{\cdot\}}$
+\begin_inset Formula $\notationdef{indicator}{\mathbb{I}\{\cdot\}}$
 \end_inset
 
- Indicator of the event inside braces. Scope: Book-wide.
+ Indicator of the event inside braces.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{natural-log}{\log}$
 \end_inset
 
- Natural logarithm; information quantities are therefore measured in nats. Scope: Book-wide.
+ Natural logarithm;
+ information quantities are therefore measured in nats.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Section
@@ -22367,10 +23770,12 @@ Optimization
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{lagrangian}{\mathcal L}$
+\begin_inset Formula $\notationdef{lagrangian}{\mathcal{L}}$
 \end_inset
 
- Lagrangian of the optimization problem currently under study. Scope: Scoped.
+ Lagrangian of the optimization problem currently under study.
+ Scope:
+ Scoped.
 \end_layout
 
 \begin_layout Section
@@ -22381,40 +23786,67 @@ Choice and preference
 \begin_inset Formula $\notationdef{preference-relations}{\succeq,\succ,\sim}$
 \end_inset
 
- Weak preference and its asymmetric and symmetric parts. Scope: Book-wide.
+ Weak preference and its asymmetric and symmetric parts.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{choice-correspondence}{c:\mathcal A\rightrightarrows X}$
+\begin_inset Formula $\notationdef{choice-correspondence}{c:\mathcal{A}\rightrightarrows X}$
 \end_inset
 
- Nonempty-valued choice correspondence on a family of feasible menus. Scope: Book-wide.
+ Nonempty-valued choice correspondence on a family of feasible menus.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{choice-direct-revealed}{\succeq^C}$
+\begin_inset Formula $\notationdef{choice-direct-revealed}{\succeq^{C}}$
 \end_inset
 
- Direct weak revealed choice: \begin_inset Formula $x\succeq^C y$\end_inset
- when some menu contains both and selects \begin_inset Formula $x$\end_inset
-. Scope: Abstract-choice chapter.
+ Direct weak revealed choice:
+ 
+\begin_inset Formula $x\succeq^{C}y$
+\end_inset
+
+ when some menu contains both and selects 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Scope:
+ Abstract-choice chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{choice-strict-revealed}{\succ^C}$
+\begin_inset Formula $\notationdef{choice-strict-revealed}{\succ^{C}}$
 \end_inset
 
- Direct strict revealed choice: some menu selects \begin_inset Formula $x$\end_inset
- and rejects available \begin_inset Formula $y$\end_inset
-. Scope: Abstract-choice chapter.
+ Direct strict revealed choice:
+ some menu selects 
+\begin_inset Formula $x$
+\end_inset
+
+ and rejects available 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Scope:
+ Abstract-choice chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{choice-revealed-closure}{\succeq^{C*}}$
 \end_inset
 
- Reflexive-transitive closure of direct weak revealed choice \begin_inset Formula $\succeq^C$\end_inset
-. Scope: Abstract-choice chapter.
+ Reflexive-transitive closure of direct weak revealed choice 
+\begin_inset Formula $\succeq^{C}$
+\end_inset
+
+.
+ Scope:
+ Abstract-choice chapter.
 \end_layout
 
 \begin_layout Section
@@ -22422,115 +23854,169 @@ Revealed preference
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{observation-index}{\mathbb T=\{1,\ldots,T\}}$
+\begin_inset Formula $\notationdef{observation-index}{\mathbb{T}=\{1,\ldots,T\}}$
 \end_inset
 
- Finite set of observation indices. Scope: Revealed-preference chapters.
+ Finite set of observation indices.
+ Scope:
+ Revealed-preference chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{observation-data}{\mathcal O=\{(p^t,x^t)\}_{t\in\mathbb T}}$
+\begin_inset Formula $\notationdef{observation-data}{\mathcal{O}=\{(p^{t},x^{t})\}_{t\in\mathbb{T}}}$
 \end_inset
 
- Dataset of price-choice observations indexed by \begin_inset Formula $\mathbb T$\end_inset
-. Scope: Book-wide.
+ Dataset of price-choice observations indexed by 
+\begin_inset Formula $\mathbb{T}$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{observed-expenditure}{w^t=p^t\cdot x^t}$
+\begin_inset Formula $\notationdef{observed-expenditure}{w^{t}=p^{t}\cdot x^{t}}$
 \end_inset
 
- Observed expenditure, equal to wealth under budget exhaustion. Scope: Revealed-preference chapters.
+ Observed expenditure,
+ equal to wealth under budget exhaustion.
+ Scope:
+ Revealed-preference chapters.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{direct-revealed}{\succeq^{R,D}}$
 \end_inset
 
- Direct weak revealed preference generated by affordability. Scope: Budget-demand chapters.
+ Direct weak revealed preference generated by affordability.
+ Scope:
+ Budget-demand chapters.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{strict-direct-revealed}{\succ^{R,D}}$
 \end_inset
 
- Strict direct revealed preference generated by strict affordability. Scope: Budget-demand chapters.
+ Strict direct revealed preference generated by strict affordability.
+ Scope:
+ Budget-demand chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{revealed-closure}{\succeq^R}$
+\begin_inset Formula $\notationdef{revealed-closure}{\succeq^{R}}$
 \end_inset
 
- Reflexive-transitive closure of budget-based \begin_inset Formula $\succeq^{R,D}$\end_inset
-. Scope: Budget-demand chapters.
+ Reflexive-transitive closure of budget-based 
+\begin_inset Formula $\succeq^{R,D}$
+\end_inset
+
+.
+ Scope:
+ Budget-demand chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{afriat-certificates}{(U^t,\lambda^t)}$
+\begin_inset Formula $\notationdef{afriat-certificates}{(U^{t},\lambda^{t})}$
 \end_inset
 
- Utility-level and positive marginal-utility-of-wealth certificates satisfying the Afriat inequalities. Scope: Afriat theorem.
+ Utility-level and positive marginal-utility-of-wealth certificates satisfying the Afriat inequalities.
+ Scope:
+ Afriat theorem.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{efficiency-relations}{\succeq_\alpha^{R,D},\succ_\alpha^{R,D},\succeq_\alpha^R}$
+\begin_inset Formula $\notationdef{efficiency-relations}{\succeq^{R,D}_{\alpha},\succ^{R,D}_{\alpha},\succeq^{R}_{\alpha}}$
 \end_inset
 
- Efficiency-adjusted direct weak, direct strict, and revealed-closure relations at expenditure fraction \begin_inset Formula $\alpha$\end_inset
-. Scope: CCEI section.
+ Efficiency-adjusted direct weak,
+ direct strict,
+ and revealed-closure relations at expenditure fraction 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Scope:
+ CCEI section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{varian-support}{\mathcal S_{\mathcal O}(p,w)}$
+\begin_inset Formula $\notationdef{varian-support}{\mathcal{S}_{\mathcal{O}}(p,w)}$
 \end_inset
 
- Bundles consistent with GARP when appended to dataset \begin_inset Formula $\mathcal O$\end_inset
- at a new budget. Scope: Consumer chapter.
+ Bundles consistent with GARP when appended to dataset 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ at a new budget.
+ Scope:
+ Consumer chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ccei}{\operatorname{CCEI}(\mathcal O)}$
+\begin_inset Formula $\notationdef{ccei}{\operatorname{CCEI}(\mathcal{O})}$
 \end_inset
 
- Largest common expenditure fraction for which the adjusted dataset satisfies GARP. Scope: Consumer chapter.
+ Largest common expenditure fraction for which the adjusted dataset satisfies GARP.
+ Scope:
+ Consumer chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{preference-function}{r:X\times X\to\mathbb R}$
+\begin_inset Formula $\notationdef{preference-function}{r:X\times X\to\mathbb{R}}$
 \end_inset
 
- Two-argument numerical comparison rule used to define maximal demand. Scope: CMU section.
+ Two-argument numerical comparison rule used to define maximal demand.
+ Scope:
+ CMU section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{preference-demand}{x_r(p,w)}$
+\begin_inset Formula $\notationdef{preference-demand}{x_{r}(p,w)}$
 \end_inset
 
- Bundles in \begin_inset Formula $B(p,w)$\end_inset
- that weakly defeat every feasible alternative under preference function \begin_inset Formula $r$\end_inset
-. Scope: CMU section.
+ Bundles in 
+\begin_inset Formula $B(p,w)$
+\end_inset
+
+ that weakly defeat every feasible alternative under preference function 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ Scope:
+ CMU section.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{cmu-coalition-structure}{\Omega}$
 \end_inset
 
- Compact collection of nonempty compact coalitions of continuous utility functions. Scope: CMU section.
+ Compact collection of nonempty compact coalitions of continuous utility functions.
+ Scope:
+ CMU section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{cmu-coalition}{U}$
+\begin_inset Formula $\notationdef{cmu-coalition}U$
 \end_inset
 
- A nonempty compact set of continuous utility functions whose members evaluate a comparison unanimously. Scope: CMU section.
+ A nonempty compact set of continuous utility functions whose members evaluate a comparison unanimously.
+ Scope:
+ CMU section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{cmu-preference-function}{r_\Omega(x,y)}$
+\begin_inset Formula $\notationdef{cmu-preference-function}{r_{\Omega}(x,y)}$
 \end_inset
 
- Coalitional multi-utility preference function \begin_inset Formula $\max_{U\in\Omega}\min_{u\in U}[u(x)-u(y)]$\end_inset
-. Scope: CMU section.
+ Coalitional multi-utility preference function 
+\begin_inset Formula $\max_{U\in\Omega}\min_{u\in U}[u(x)-u(y)]$
+\end_inset
+
+.
+ Scope:
+ CMU section.
 \end_layout
 
 \begin_layout Section
@@ -22538,225 +24024,394 @@ Consumer theory
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{bundle}{x}$
+\begin_inset Formula $\notationdef{bundle}x$
 \end_inset
 
- Consumption bundle; arguments such as \begin_inset Formula $x(p,w)$\end_inset
- distinguish demand from a generic bundle. Scope: Book-wide default.
+ Consumption bundle;
+ arguments such as 
+\begin_inset Formula $x(p,w)$
+\end_inset
+
+ distinguish demand from a generic bundle.
+ Scope:
+ Book-wide default.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{price-vector}{p}$
+\begin_inset Formula $\notationdef{price-vector}p$
 \end_inset
 
- Commodity-price column vector; normally \begin_inset Formula $p\in\mathbb R_{++}^L$\end_inset
-. Scope: Book-wide default.
+ Commodity-price column vector;
+ normally 
+\begin_inset Formula $p\in\mathbb{R}^{L}_{++}$
+\end_inset
+
+.
+ Scope:
+ Book-wide default.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{wealth}{w}$
+\begin_inset Formula $\notationdef{wealth}w$
 \end_inset
 
- Scalar wealth or income available to a consumer. Scope: Book-wide default.
+ Scalar wealth or income available to a consumer.
+ Scope:
+ Book-wide default.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{utility-weights}{a_\ell}$
+\begin_inset Formula $\notationdef{utility-weights}{a_{\ell}}$
 \end_inset
 
- Strictly positive taste weights normalized to sum to one; equal expenditure shares only in the Cobb-Douglas case. Scope: Workhorse demand models.
+ Strictly positive taste weights normalized to sum to one;
+ equal expenditure shares only in the Cobb-Douglas case.
+ Scope:
+ Workhorse demand models.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{expenditure-shares}{b_\ell(p,w),\boldsymbol b}$
+\begin_inset Formula $\notationdef{expenditure-shares}{b_{\ell}(p,w),\boldsymbol{b}}$
 \end_inset
 
- Expenditure share \begin_inset Formula $p_\ell x_\ell(p,w)/w$\end_inset
- and its column vector; independent of wealth in the homothetic models considered here. Scope: Workhorse demand models.
+ Expenditure share 
+\begin_inset Formula $p_{\ell}x_{\ell}(p,w)/w$
+\end_inset
+
+ and its column vector;
+ independent of wealth in the homothetic models considered here.
+ Scope:
+ Workhorse demand models.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{ces-curvature}{\rho}$
 \end_inset
 
- CES power parameter with \begin_inset Formula $\rho<1$\end_inset
- and Cobb-Douglas limit at zero; some production parameterizations use a different sign convention. Scope: CES consumer model.
+ CES power parameter with 
+\begin_inset Formula $\rho<1$
+\end_inset
+
+ and Cobb-Douglas limit at zero;
+ some production parameterizations use a different sign convention.
+ Scope:
+ CES consumer model.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{substitution-elasticity}{\sigma}$
 \end_inset
 
- Constant substitution elasticity \begin_inset Formula $1/(1-\rho)>0$\end_inset
-; distinguished from Marshallian own-price elasticity. Scope: CES consumer model.
+ Constant substitution elasticity 
+\begin_inset Formula $1/(1-\rho)>0$
+\end_inset
+
+;
+ distinguished from Marshallian own-price elasticity.
+ Scope:
+ CES consumer model.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{subsistence-bundle}{\gamma}$
 \end_inset
 
- Nonnegative subsistence bundle; discretionary wealth is \begin_inset Formula $w-p\cdot\gamma$\end_inset
-. Scope: Stone-Geary model.
+ Nonnegative subsistence bundle;
+ discretionary wealth is 
+\begin_inset Formula $w-p\cdot\gamma$
+\end_inset
+
+.
+ Scope:
+ Stone-Geary model.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{unit-expenditure-index}{\mathcal P(p)}$
+\begin_inset Formula $\notationdef{unit-expenditure-index}{\mathcal{P}(p)}$
 \end_inset
 
- Unit expenditure \begin_inset Formula $e(p,1)$\end_inset
- under the specified degree-one utility normalization; subscript TL denotes the translog index. Scope: Workhorse dual models.
+ Unit expenditure 
+\begin_inset Formula $e(p,1)$
+\end_inset
+
+ under the specified degree-one utility normalization;
+ subscript TL denotes the translog index.
+ Scope:
+ Workhorse dual models.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{translog-curvature}{\Gamma}$
 \end_inset
 
- Symmetric matrix \begin_inset Formula $(\gamma_{\ell k})$\end_inset
- of log-price quadratic coefficients, with zero row sums; distinct from the Stone-Geary vector \begin_inset Formula $\gamma$\end_inset
-. Scope: Translog expenditure model.
+ Symmetric matrix 
+\begin_inset Formula $(\gamma_{\ell k})$
+\end_inset
+
+ of log-price quadratic coefficients,
+ with zero row sums;
+ distinct from the Stone-Geary vector 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ Scope:
+ Translog expenditure model.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{budget-set}{B(p,w)}$
 \end_inset
 
- Bundles affordable at prices \begin_inset Formula $p$\end_inset
- and wealth \begin_inset Formula $w$\end_inset
-: \begin_inset Formula $\{x\in X:p\cdot x\leq w\}$\end_inset
-. Scope: Book-wide.
+ Bundles affordable at prices 
+\begin_inset Formula $p$
+\end_inset
+
+ and wealth 
+\begin_inset Formula $w$
+\end_inset
+
+:
+ 
+\begin_inset Formula $\{x\in X:p\cdot x\leq w\}$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{marshallian-demand}{x(p,w)}$
 \end_inset
 
- Marshallian demand correspondence; treated as a function only when uniqueness is assumed. Scope: Book-wide.
+ Marshallian demand correspondence;
+ treated as a function only when uniqueness is assumed.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{hicksian-demand}{h(p,\bar u)}$
+\begin_inset Formula $\notationdef{hicksian-demand}{h(p,\bar{u})}$
 \end_inset
 
- Expenditure-minimizing demand correspondence at prices \begin_inset Formula $p$\end_inset
- and target utility \begin_inset Formula $\bar u$\end_inset
-. Scope: Book-wide.
+ Expenditure-minimizing demand correspondence at prices 
+\begin_inset Formula $p$
+\end_inset
+
+ and target utility 
+\begin_inset Formula $\bar{u}$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{direct-utility}{u}$
+\begin_inset Formula $\notationdef{direct-utility}u$
 \end_inset
 
- Direct utility; in uncertainty chapters it is the Bernoulli utility of a prize. Scope: Book-wide default.
+ Direct utility;
+ in uncertainty chapters it is the Bernoulli utility of a prize.
+ Scope:
+ Book-wide default.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{indirect-utility}{v(p,w)}$
 \end_inset
 
- Maximum attainable utility at prices \begin_inset Formula $p$\end_inset
- and wealth \begin_inset Formula $w$\end_inset
-. Scope: Book-wide.
+ Maximum attainable utility at prices 
+\begin_inset Formula $p$
+\end_inset
+
+ and wealth 
+\begin_inset Formula $w$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{expenditure-function}{e(p,\bar u)}$
+\begin_inset Formula $\notationdef{expenditure-function}{e(p,\bar{u})}$
 \end_inset
 
- Minimum expenditure required to attain utility \begin_inset Formula $\bar u$\end_inset
- at prices \begin_inset Formula $p$\end_inset
-. Scope: Book-wide.
+ Minimum expenditure required to attain utility 
+\begin_inset Formula $\bar{u}$
+\end_inset
+
+ at prices 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{money-metric-utility}{\mu_p(x)}$
+\begin_inset Formula $\notationdef{money-metric-utility}{\mu_{p}(x)}$
 \end_inset
 
- Expenditure at reference prices \begin_inset Formula $p$\end_inset
- required to attain the utility of bundle \begin_inset Formula $x$\end_inset
-: \begin_inset Formula $e(p,u(x))$\end_inset
-. Scope: Welfare-analysis sections.
+ Expenditure at reference prices 
+\begin_inset Formula $p$
+\end_inset
+
+ required to attain the utility of bundle 
+\begin_inset Formula $x$
+\end_inset
+
+:
+ 
+\begin_inset Formula $e(p,u(x))$
+\end_inset
+
+.
+ Scope:
+ Welfare-analysis sections.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{product-space}{(\mathcal G,d)}$
+\begin_inset Formula $\notationdef{product-space}{(\mathcal{G},d)}$
 \end_inset
 
- Compact metric space of differentiated-product characteristics and its economically specified distance. Scope: Many-product section.
+ Compact metric space of differentiated-product characteristics and its economically specified distance.
+ Scope:
+ Many-product section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ideal-point}{b_i}$
+\begin_inset Formula $\notationdef{ideal-point}{b_{i}}$
 \end_inset
 
- Consumer \begin_inset Formula $i$\end_inset
-'s bliss or ideal point in product-characteristic space. Scope: Ideal-point model.
+ Consumer 
+\begin_inset Formula $i$
+\end_inset
+
+'s bliss or ideal point in product-characteristic space.
+ Scope:
+ Ideal-point model.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{product-cell}{C_j(p)}$
+\begin_inset Formula $\notationdef{product-cell}{C_{j}(p)}$
 \end_inset
 
- Types who choose product \begin_inset Formula $j$\end_inset
- at price vector \begin_inset Formula $p$\end_inset
-; a generalized Voronoi cell under distance-based utility. Scope: Ideal-point model.
+ Types who choose product 
+\begin_inset Formula $j$
+\end_inset
+
+ at price vector 
+\begin_inset Formula $p$
+\end_inset
+
+;
+ a generalized Voronoi cell under distance-based utility.
+ Scope:
+ Ideal-point model.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{basket-measures}{\mathcal M_+(\mathcal G)}$
+\begin_inset Formula $\notationdef{basket-measures}{\mathcal{M}_{+}(\mathcal{G})}$
 \end_inset
 
- Finite nonnegative Radon measures on product space; includes atomic finite shopping baskets. Scope: Continuum-product model.
+ Finite nonnegative Radon measures on product space;
+ includes atomic finite shopping baskets.
+ Scope:
+ Continuum-product model.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{continuum-pairing}{\langle p,x\rangle}$
 \end_inset
 
- Expenditure pairing \begin_inset Formula $\int_{\mathcal G}p(g)x(dg)$\end_inset
- between a continuous price schedule and a basket measure. Scope: Continuum-product model.
+ Expenditure pairing 
+\begin_inset Formula $\int_{\mathcal{G}}p(g)x(dg)$
+\end_inset
+
+ between a continuous price schedule and a basket measure.
+ Scope:
+ Continuum-product model.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{product-neighborhood}{B_r(g)}$
+\begin_inset Formula $\notationdef{product-neighborhood}{B_{r}(g)}$
 \end_inset
 
- Closed radius-\begin_inset Formula $r$\end_inset
- ball around product point \begin_inset Formula $g$\end_inset
- in the declared product metric. Scope: Many-product section.
+ Closed radius-
+\begin_inset Formula $r$
+\end_inset
+
+ ball around product point 
+\begin_inset Formula $g$
+\end_inset
+
+ in the declared product metric.
+ Scope:
+ Many-product section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{neighborhood-elasticity}{\mathcal E^H(A;\varphi_B)}$
+\begin_inset Formula $\notationdef{neighborhood-elasticity}{\mathcal{E}^{H}(A;\varphi_{B})}$
 \end_inset
 
- Compensated percentage response of demand mass in region \begin_inset Formula $A$\end_inset
- to the continuous log-price shock profile \begin_inset Formula $\varphi_B$\end_inset
- concentrated near region \begin_inset Formula $B$\end_inset
-. Scope: Continuum-product model.
+ Compensated percentage response of demand mass in region 
+\begin_inset Formula $A$
+\end_inset
+
+ to the continuous log-price shock profile 
+\begin_inset Formula $\varphi_{B}$
+\end_inset
+
+ concentrated near region 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Scope:
+ Continuum-product model.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{slutsky-matrix}{S(p,w)}$
 \end_inset
 
- \begin_inset Formula $D_px(p,w)+D_wx(p,w)x(p,w)^\top$\end_inset
-. Scope: Book-wide.
+ 
+\begin_inset Formula $D_{p}x(p,w)+D_{w}x(p,w)x(p,w)^{\top}$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{price-domain}{\mathsf P}$
+\begin_inset Formula $\notationdef{price-domain}{\mathsf{P}}$
 \end_inset
 
- Strictly positive commodity-price domain \begin_inset Formula $\mathbb R_{++}^L$\end_inset
-. Scope: Consumer chapters.
+ Strictly positive commodity-price domain 
+\begin_inset Formula $\mathbb{R}^{L}_{++}$
+\end_inset
+
+.
+ Scope:
+ Consumer chapters.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{wealth-domain}{\mathsf W}$
+\begin_inset Formula $\notationdef{wealth-domain}{\mathsf{W}}$
 \end_inset
 
- Strictly positive wealth domain \begin_inset Formula $\mathbb R_{++}$\end_inset
-. Scope: Consumer chapters.
+ Strictly positive wealth domain 
+\begin_inset Formula $\mathbb{R}_{++}$
+\end_inset
+
+.
+ Scope:
+ Consumer chapters.
 \end_layout
 
 \begin_layout Section
@@ -22764,64 +24419,97 @@ Behavioral demand
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{perceived-price}{\widehat p}$
+\begin_inset Formula $\notationdef{perceived-price}{\widehat{p}}$
 \end_inset
 
- Price vector used in the consumer's perceived first-order condition. Scope: Sparse-max chapter.
+ Price vector used in the consumer's perceived first-order condition.
+ Scope:
+ Sparse-max chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{sparse-demand}{x^{\mathrm{SM}}}$
 \end_inset
 
- Sparse-max demand satisfying perceived-price tangency and the true budget. Scope: Sparse-max chapter.
+ Sparse-max demand satisfying perceived-price tangency and the true budget.
+ Scope:
+ Sparse-max chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{attention-weights}{a=(a_1,\ldots,a_L)}$
+\begin_inset Formula $\notationdef{attention-weights}{a=(a_{1},\ldots,a_{L})}$
 \end_inset
 
- Coordinatewise attention weights in \begin_inset Formula $[0,1]^L$\end_inset
-. Scope: Sparse-max chapter.
+ Coordinatewise attention weights in 
+\begin_inset Formula $[0,1]^{L}$
+\end_inset
+
+.
+ Scope:
+ Sparse-max chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{information-cost}{\mathcal C}$
+\begin_inset Formula $\notationdef{information-cost}{\mathcal{C}}$
 \end_inset
 
- Cost of attention or information acquisition. Scope: Attention chapter.
+ Cost of attention or information acquisition.
+ Scope:
+ Attention chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ri-action-set}{\mathcal A}$
+\begin_inset Formula $\notationdef{ri-action-set}{\mathcal{A}}$
 \end_inset
 
- Finite set of actions available to the rationally inattentive decision maker. Scope: Rational-inattention section.
+ Finite set of actions available to the rationally inattentive decision maker.
+ Scope:
+ Rational-inattention section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{ri-prior}{\mu_0}$
+\begin_inset Formula $\notationdef{ri-prior}{\mu_{0}}$
 \end_inset
 
- Full-support prior distribution over the finite state space \begin_inset Formula $\mathcal S$\end_inset
-. Scope: Rational-inattention section.
+ Full-support prior distribution over the finite state space 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+.
+ Scope:
+ Rational-inattention section.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{ri-channel}{q(a\mid s)}$
 \end_inset
 
- Conditional probability of action \begin_inset Formula $a$\end_inset
- in state \begin_inset Formula $s$\end_inset
-; equivalently, the direct information-and-decision channel. Scope: Rational-inattention section.
+ Conditional probability of action 
+\begin_inset Formula $a$
+\end_inset
+
+ in state 
+\begin_inset Formula $s$
+\end_inset
+
+;
+ equivalently,
+ the direct information-and-decision channel.
+ Scope:
+ Rational-inattention section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{mutual-information}{\mathcal I(q)}$
+\begin_inset Formula $\notationdef{mutual-information}{\mathcal{I}(q)}$
 \end_inset
 
- Shannon mutual information between the state and the action induced by channel \begin_inset Formula $q$\end_inset
-. Scope: Rational-inattention section.
+ Shannon mutual information between the state and the action induced by channel 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ Scope:
+ Rational-inattention section.
 \end_layout
 
 \begin_layout Section
@@ -22829,99 +24517,144 @@ Choice under uncertainty
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{prize-set}{Z}$
+\begin_inset Formula $\notationdef{prize-set}Z$
 \end_inset
 
- Prize or consequence set; finite unless the infinite-outcome section explicitly broadens it. Scope: Uncertainty chapter.
+ Prize or consequence set;
+ finite unless the infinite-outcome section explicitly broadens it.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{lottery}{\mu,\nu,\eta}$
 \end_inset
 
- Probability mass functions or probability measures over prizes. Scope: Uncertainty chapter.
+ Probability mass functions or probability measures over prizes.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{lottery-space}{\Delta(Z)}$
 \end_inset
 
- Set of lotteries over \begin_inset Formula $Z$\end_inset
-; for general spaces the measurable structure is stated explicitly. Scope: Uncertainty chapter.
+ Set of lotteries over 
+\begin_inset Formula $Z$
+\end_inset
+
+;
+ for general spaces the measurable structure is stated explicitly.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{degenerate-lottery}{\delta_z}$
+\begin_inset Formula $\notationdef{degenerate-lottery}{\delta_{z}}$
 \end_inset
 
- Lottery assigning probability one to prize \begin_inset Formula $z$\end_inset
-. Scope: Uncertainty chapter.
+ Lottery assigning probability one to prize 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{expected-utility}{U(\mu)}$
 \end_inset
 
- Expected Bernoulli utility of lottery \begin_inset Formula $\mu$\end_inset
-. Scope: Uncertainty chapter.
+ Expected Bernoulli utility of lottery 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{lottery-cdf}{F_\mu}$
+\begin_inset Formula $\notationdef{lottery-cdf}{F_{\mu}}$
 \end_inset
 
- Cumulative distribution function of lottery \begin_inset Formula $\mu$\end_inset
- on an ordered prize space. Scope: Uncertainty chapter.
+ Cumulative distribution function of lottery 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on an ordered prize space.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{fosd}{\succeq^{\mathrm{FOSD}}}$
 \end_inset
 
- First-order stochastic-dominance relation, oriented toward the dominating distribution. Scope: Uncertainty chapter.
+ First-order stochastic-dominance relation,
+ oriented toward the dominating distribution.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{certainty-equivalent}{\operatorname{CE}(\mu;u)}$
 \end_inset
 
- Sure prize with the same utility as lottery \begin_inset Formula $\mu$\end_inset
-. Scope: Uncertainty chapter.
+ Sure prize with the same utility as lottery 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{risk-premium}{\operatorname{RP}(\mu;u)}$
 \end_inset
 
- Expected prize minus certainty equivalent. Scope: Uncertainty chapter.
+ Expected prize minus certainty equivalent.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{probability-premium}{\operatorname{PP}(x,\varepsilon;u)}$
 \end_inset
 
- Probability adjustment making the specified binary risk indifferent to a sure prize. Scope: Uncertainty chapter.
+ Probability adjustment making the specified binary risk indifferent to a sure prize.
+ Scope:
+ Uncertainty chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{state-probabilities}{\varpi_s}$
+\begin_inset Formula $\notationdef{state-probabilities}{\varpi_{s}}$
 \end_inset
 
- Strictly positive state probabilities summing to one. Scope: State-contingent chapter.
+ Strictly positive state probabilities summing to one.
+ Scope:
+ State-contingent chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{crra}{r}$
+\begin_inset Formula $\notationdef{crra}r$
 \end_inset
 
- Coefficient of relative risk aversion in the power-utility family. Scope: Risk-aversion section.
+ Coefficient of relative risk aversion in the power-utility family.
+ Scope:
+ Risk-aversion section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{state-space}{\mathcal S}$
+\begin_inset Formula $\notationdef{state-space}{\mathcal{S}}$
 \end_inset
 
- Finite state space used in the surrounding model, including sequential-trade applications. Scope: Scoped.
+ Finite state space used in the surrounding model,
+ including sequential-trade applications.
+ Scope:
+ Scoped.
 \end_layout
 
 \begin_layout Section
@@ -22932,14 +24665,18 @@ Probability
 \begin_inset Formula $\notationdef{sigma-algebra}{\Sigma}$
 \end_inset
 
- Borel sigma-algebra on the prize space. Scope: Infinite-outcome section.
+ Borel sigma-algebra on the prize space.
+ Scope:
+ Infinite-outcome section.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{weak-convergence}{\Rightarrow}$
 \end_inset
 
- Weak convergence of probability measures. Scope: Infinite-outcome section.
+ Weak convergence of probability measures.
+ Scope:
+ Infinite-outcome section.
 \end_layout
 
 \begin_layout Section
@@ -22947,38 +24684,48 @@ Aggregation
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{aggregate-demand}{x^A(p,\mathbf w)}$
+\begin_inset Formula $\notationdef{aggregate-demand}{x^{A}(p,\mathbf{w})}$
 \end_inset
 
- Sum of individual Marshallian demands. Scope: Aggregate-demand chapter.
+ Sum of individual Marshallian demands.
+ Scope:
+ Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{wealth-distribution}{\mathbf w}$
+\begin_inset Formula $\notationdef{wealth-distribution}{\mathbf{w}}$
 \end_inset
 
- Vector of individual wealth levels. Scope: Aggregate-demand chapter.
+ Vector of individual wealth levels.
+ Scope:
+ Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{total-wealth}{W}$
+\begin_inset Formula $\notationdef{total-wealth}W$
 \end_inset
 
- Sum of individual wealth levels. Scope: Aggregate-demand chapter.
+ Sum of individual wealth levels.
+ Scope:
+ Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{gorman-form}{a_i(p),b(p)}$
+\begin_inset Formula $\notationdef{gorman-form}{a_{i}(p),b(p)}$
 \end_inset
 
- Consumer-specific intercept and common wealth coefficient in Gorman indirect utility. Scope: Aggregate-demand chapter.
+ Consumer-specific intercept and common wealth coefficient in Gorman indirect utility.
+ Scope:
+ Aggregate-demand chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{social-welfare}{\mathcal W}$
+\begin_inset Formula $\notationdef{social-welfare}{\mathcal{W}}$
 \end_inset
 
- Social welfare function or explicitly stated welfare aggregate. Scope: Scoped.
+ Social welfare function or explicitly stated welfare aggregate.
+ Scope:
+ Scoped.
 \end_layout
 
 \begin_layout Section
@@ -22986,66 +24733,104 @@ Discrete choice
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{latent-utility}{U^*_{ij}}$
+\begin_inset Formula $\notationdef{latent-utility}{U^{*}_{ij}}$
 \end_inset
 
- Latent utility of chooser \begin_inset Formula $i$\end_inset
- from alternative \begin_inset Formula $j$\end_inset
-. Scope: Discrete-choice chapter.
+ Latent utility of chooser 
+\begin_inset Formula $i$
+\end_inset
+
+ from alternative 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Scope:
+ Discrete-choice chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{choice-probability}{P_{ij}}$
 \end_inset
 
- Probability that chooser \begin_inset Formula $i$\end_inset
- selects alternative \begin_inset Formula $j$\end_inset
- from the stated menu. Scope: Discrete-choice chapter.
+ Probability that chooser 
+\begin_inset Formula $i$
+\end_inset
+
+ selects alternative 
+\begin_inset Formula $j$
+\end_inset
+
+ from the stated menu.
+ Scope:
+ Discrete-choice chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{logit-scale}{\tau}$
 \end_inset
 
- Strictly positive Type-I extreme-value scale parameter. Scope: Discrete-choice chapter.
+ Strictly positive Type-I extreme-value scale parameter.
+ Scope:
+ Discrete-choice chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{random-utility-space}{(\Omega,\mathcal F,\mathbb P)}$
+\begin_inset Formula $\notationdef{random-utility-space}{(\Omega,\mathcal{F},\mathbb{P})}$
 \end_inset
 
- Probability space supporting random utility. Scope: Random-utility section.
+ Probability space supporting random utility.
+ Scope:
+ Random-utility section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{random-utility}{\boldsymbol U}$
+\begin_inset Formula $\notationdef{random-utility}{\boldsymbol{U}}$
 \end_inset
 
- Measurable utility vector indexed by alternatives. Scope: Random-utility section.
+ Measurable utility vector indexed by alternatives.
+ Scope:
+ Random-utility section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{stochastic-choice}{P=\{P_B\}_{B\in\mathcal B}}$
+\begin_inset Formula $\notationdef{stochastic-choice}{P=\{P_{B}\}_{B\in\mathcal{B}}}$
 \end_inset
 
- Family of choice-probability distributions, one for each nonempty menu \begin_inset Formula $B$\end_inset
-. Scope: Stochastic-choice section.
+ Family of choice-probability distributions,
+ one for each nonempty menu 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Scope:
+ Stochastic-choice section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{order-types}{\mathcal R_Y}$
+\begin_inset Formula $\notationdef{order-types}{\mathcal{R}_{Y}}$
 \end_inset
 
- Finite set of strict linear orders on the alternative universe \begin_inset Formula $Y$\end_inset
-. Scope: Random-utility section.
+ Finite set of strict linear orders on the alternative universe 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ Scope:
+ Random-utility section.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{expected-maximum}{\mathcal V(v)}$
+\begin_inset Formula $\notationdef{expected-maximum}{\mathcal{V}(v)}$
 \end_inset
 
- Expected maximum random utility as a function of the mean-utility vector \begin_inset Formula $v\in\mathbb R^A$\end_inset
-. Scope: Consumer-surplus section.
+ Expected maximum random utility as a function of the mean-utility vector 
+\begin_inset Formula $v\in\mathbb{R}^{A}$
+\end_inset
+
+.
+ Scope:
+ Consumer-surplus section.
 \end_layout
 
 \begin_layout Section
@@ -23053,76 +24838,106 @@ Firm theory
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{production-plan}{y}$
+\begin_inset Formula $\notationdef{production-plan}y$
 \end_inset
 
- Net-output vector, with positive coordinates denoting outputs and negative coordinates inputs. Scope: Book-wide default.
+ Net-output vector,
+ with positive coordinates denoting outputs and negative coordinates inputs.
+ Scope:
+ Book-wide default.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{production-set}{Y}$
+\begin_inset Formula $\notationdef{production-set}Y$
 \end_inset
 
- Technologically feasible net-output plans. Scope: Firm chapter.
+ Technologically feasible net-output plans.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{production-function}{f}$
+\begin_inset Formula $\notationdef{production-function}f$
 \end_inset
 
- Single-output production function. Scope: Firm chapter.
+ Single-output production function.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{profit-function}{\pi_Y(p)}$
+\begin_inset Formula $\notationdef{profit-function}{\pi_{Y}(p)}$
 \end_inset
 
- Support function of production set \begin_inset Formula $Y$\end_inset
-. Scope: Firm chapter.
+ Support function of production set 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{supply-correspondence}{\mathcal Y_Y(p)}$
+\begin_inset Formula $\notationdef{supply-correspondence}{\mathcal{Y}_{Y}(p)}$
 \end_inset
 
- Profit-maximizing production plans. Scope: Firm chapter.
+ Profit-maximizing production plans.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{input-vector}{\boldsymbol z}$
+\begin_inset Formula $\notationdef{input-vector}{\boldsymbol{z}}$
 \end_inset
 
- Nonnegative vector of physical inputs in a single-output technology. Scope: Firm chapter.
+ Nonnegative vector of physical inputs in a single-output technology.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{input-prices}{\boldsymbol w}$
+\begin_inset Formula $\notationdef{input-prices}{\boldsymbol{w}}$
 \end_inset
 
- Strictly positive vector of input prices. Scope: Firm chapter.
+ Strictly positive vector of input prices.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{output-price}{p_q}$
+\begin_inset Formula $\notationdef{output-price}{p_{q}}$
 \end_inset
 
- Scalar price of output \begin_inset Formula $q$\end_inset
-. Scope: Single-output model.
+ Scalar price of output 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ Scope:
+ Single-output model.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{cost-function}{C(\boldsymbol w,q)}$
+\begin_inset Formula $\notationdef{cost-function}{C(\boldsymbol{w},q)}$
 \end_inset
 
- Minimum input expenditure required to produce at least \begin_inset Formula $q$\end_inset
-. Scope: Firm chapter.
+ Minimum input expenditure required to produce at least 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{factor-demand}{\mathcal Z(\boldsymbol w,q)}$
+\begin_inset Formula $\notationdef{factor-demand}{\mathcal{Z}(\boldsymbol{w},q)}$
 \end_inset
 
- Cost-minimizing input correspondence. Scope: Firm chapter.
+ Cost-minimizing input correspondence.
+ Scope:
+ Firm chapter.
 \end_layout
 
 \begin_layout Section
@@ -23133,24 +24948,40 @@ Equilibrium
 \begin_inset Formula $\notationdef{endowment}{\omega}$
 \end_inset
 
- Endowment vector; subscripts identify agents and superscripts identify observations or states when declared. Scope: Book-wide default.
+ Endowment vector;
+ subscripts identify agents and superscripts identify observations or states when declared.
+ Scope:
+ Book-wide default.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{ownership-shares}{\theta_{ij}}$
 \end_inset
 
- Consumer \begin_inset Formula $i$\end_inset
-'s ownership share of firm \begin_inset Formula $j$\end_inset
-. Scope: Competitive-equilibrium chapter.
+ Consumer 
+\begin_inset Formula $i$
+\end_inset
+
+'s ownership share of firm 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Scope:
+ Competitive-equilibrium chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{excess-demand}{z(p)}$
 \end_inset
 
- Aggregate demand minus aggregate resources at prices \begin_inset Formula $p$\end_inset
-. Scope: Equilibrium chapters.
+ Aggregate demand minus aggregate resources at prices 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Scope:
+ Equilibrium chapters.
 \end_layout
 
 \begin_layout Section
@@ -23158,25 +24989,34 @@ Sequential trade
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{security-payoffs}{R}$
+\begin_inset Formula $\notationdef{security-payoffs}R$
 \end_inset
 
- Matrix of state-contingent security payoffs. Scope: Sequential-trade chapter.
+ Matrix of state-contingent security payoffs.
+ Scope:
+ Sequential-trade chapter.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{asset-prices}{q}$
+\begin_inset Formula $\notationdef{asset-prices}q$
 \end_inset
 
- Date-0 security-price vector. Scope: Sequential-trade chapter.
+ Date-0 security-price vector.
+ Scope:
+ Sequential-trade chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{state-prices}{\psi}$
 \end_inset
 
- Strictly positive state-price vector satisfying \begin_inset Formula $q=R^\top\psi$\end_inset
- when markets are complete. Scope: Sequential-trade chapter.
+ Strictly positive state-price vector satisfying 
+\begin_inset Formula $q=R^{\top}\psi$
+\end_inset
+
+ when markets are complete.
+ Scope:
+ Sequential-trade chapter.
 \end_layout
 
 \begin_layout Section
@@ -23187,14 +25027,19 @@ Matching
 \begin_inset Formula $\notationdef{matching-sides}{M,W}$
 \end_inset
 
- Two finite sides of the one-to-one matching market. Scope: Matching chapter.
+ Two finite sides of the one-to-one matching market.
+ Scope:
+ Matching chapter.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{matching-map}{\varphi}$
 \end_inset
 
- Involutive matching map, with an unmatched agent mapped to themselves. Scope: Matching chapter.
+ Involutive matching map,
+ with an unmatched agent mapped to themselves.
+ Scope:
+ Matching chapter.
 \end_layout
 
 \begin_layout Section
@@ -23202,119 +25047,203 @@ Order theory
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{binary-relation}{R}$
+\begin_inset Formula $\notationdef{binary-relation}R$
 \end_inset
 
- Generic binary relation on a nonempty ground set \begin_inset Formula $X$\end_inset
-. Scope: Scoped.
+ Generic binary relation on a nonempty ground set 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Scope:
+ Scoped.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{inverse-relation}{R^{-1}}$
 \end_inset
 
- Inverse relation: \begin_inset Formula $xR^{-1}y$\end_inset
- iff \begin_inset Formula $yRx$\end_inset
-. Scope: Appendix A.
+ Inverse relation:
+ 
+\begin_inset Formula $xR^{-1}y$
+\end_inset
+
+ iff 
+\begin_inset Formula $yRx$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{symmetric-part}{I_R}$
+\begin_inset Formula $\notationdef{symmetric-part}{I_{R}}$
 \end_inset
 
- Symmetric part \begin_inset Formula $R\cap R^{-1}$\end_inset
-. Scope: Book-wide.
+ Symmetric part 
+\begin_inset Formula $R\cap R^{-1}$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{strict-part}{P_R}$
+\begin_inset Formula $\notationdef{strict-part}{P_{R}}$
 \end_inset
 
- Asymmetric part of \begin_inset Formula $R$\end_inset
-. Scope: Appendix A.
+ Asymmetric part of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{equivalence-class}{[x]_E}$
+\begin_inset Formula $\notationdef{equivalence-class}{[x]_{E}}$
 \end_inset
 
- Equivalence class of \begin_inset Formula $x$\end_inset
- under \begin_inset Formula $E$\end_inset
-. Scope: Appendix A.
+ Equivalence class of 
+\begin_inset Formula $x$
+\end_inset
+
+ under 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{quotient-set}{X/E}$
 \end_inset
 
- Set of equivalence classes of \begin_inset Formula $X$\end_inset
- under an equivalence relation \begin_inset Formula $E$\end_inset
-. Scope: Book-wide.
+ Set of equivalence classes of 
+\begin_inset Formula $X$
+\end_inset
+
+ under an equivalence relation 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Scope:
+ Book-wide.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{quotient-order}{\bar R}$
+\begin_inset Formula $\notationdef{quotient-order}{\bar{R}}$
 \end_inset
 
- Partial order induced by a preorder on its quotient by \begin_inset Formula $I_R$\end_inset
-. Scope: Appendix A.
+ Partial order induced by a preorder on its quotient by 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{maximal-elements}{\operatorname{Max}(S,R)}$
 \end_inset
 
- Set of \begin_inset Formula $R$\end_inset
--maximal elements of feasible subset \begin_inset Formula $S$\end_inset
-. Scope: Appendix A.
+ Set of 
+\begin_inset Formula $R$
+\end_inset
+
+-maximal elements of feasible subset 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{greatest-elements}{\operatorname{Great}(S,R)}$
 \end_inset
 
- Set of \begin_inset Formula $R$\end_inset
--greatest elements of feasible subset \begin_inset Formula $S$\end_inset
-. Scope: Appendix A.
+ Set of 
+\begin_inset Formula $R$
+\end_inset
+
+-greatest elements of feasible subset 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{identity-relation}{\Delta_X}$
+\begin_inset Formula $\notationdef{identity-relation}{\Delta_{X}}$
 \end_inset
 
- Diagonal or identity relation on \begin_inset Formula $X$\end_inset
-. Scope: Appendix A.
+ Diagonal or identity relation on 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{relation-powers}{R^n}$
+\begin_inset Formula $\notationdef{relation-powers}{R^{n}}$
 \end_inset
 
- \begin_inset Formula $n$\end_inset
--fold relational composition, with composition orientation stated in the text. Scope: Appendix A.
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-fold relational composition,
+ with composition orientation stated in the text.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{transitive-closure}{R^+}$
+\begin_inset Formula $\notationdef{transitive-closure}{R^{+}}$
 \end_inset
 
- Least transitive relation containing \begin_inset Formula $R$\end_inset
-. Scope: Appendix A.
+ Least transitive relation containing 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
-\begin_inset Formula $\notationdef{reflexive-transitive-closure}{R^*}$
+\begin_inset Formula $\notationdef{reflexive-transitive-closure}{R^{*}}$
 \end_inset
 
- \begin_inset Formula $\Delta_X\cup R^+$\end_inset
-. Scope: Appendix A.
+ 
+\begin_inset Formula $\Delta_{X}\cup R^{+}$
+\end_inset
+
+.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Description
 \begin_inset Formula $\notationdef{order-extension}{R^{\mathrm{ext}}}$
 \end_inset
 
- Complete-preorder extension obtained from a linear extension of the quotient order. Scope: Appendix A.
+ Complete-preorder extension obtained from a linear extension of the quotient order.
+ Scope:
+ Appendix A.
 \end_layout
 
 \begin_layout Standard
@@ -23329,6 +25258,7 @@ ECON803_NOTATION_GLOSSARY_END
 
 
 \end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex

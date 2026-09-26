@@ -4,7 +4,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 
 | Part | Chapter | Definitions | Results | Proofs | Exercises/examples |
 |---|---|---:|---:|---:|---:|
-| The Classical Rational Consumer | Utility Maximization and Consumer Demand | 4 | 4 | 1 | 14 |
+| The Classical Rational Consumer | Utility Maximization and Consumer Demand | 5 | 4 | 1 | 15 |
 | The Classical Rational Consumer | Duality, Comparative Statics, and Welfare | 1 | 22 | 1 | 14 |
 | The Classical Rational Consumer | Revealed Preference and Recoverability | 10 | 14 | 2 | 8 |
 | The Classical Rational Consumer | Choice Without Budget Geometry | 7 | 4 | 2 | 4 |
@@ -34,6 +34,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Utility Maximization
 - Demand Correspondences
 - First-Order and KKT Conditions
+  - Expenditure-Augmented Utility
 - Workhorse Utility Specifications
   - Homotheticity and Cobb-Douglas Demand
   - CES: A Family of Substitution Patterns

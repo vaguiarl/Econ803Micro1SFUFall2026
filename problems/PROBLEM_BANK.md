@@ -62,6 +62,28 @@ The first of two consumers has $u(x)=(x_1-1)^{1/3}(x_2-2)^{2/3}$ on $x\ge(1,2)$.
 
 (d) Identify where a zero wealth effect for the non-numeraire good is valid. Compare this restriction with the Stone--Geary model.
 
+## 1.6 | Applied | KKT regimes and the quantity--quality tradeoff
+
+Unified Growth Theory links the demographic transition to a shift from child quantity toward education and child quality. This exercise isolates a stylized household block from Galor (2005); it is not the complete dynamic growth model. A parent with potential income $y>\overline c$ chooses consumption $c>0$, fertility $n>0$, and education time per child $e\geq0$ to maximize $(1-\gamma)\log c+\gamma\log\!\left[n h_a(e)\right]$, where $h_a(e)=1+ae/(\tau+e)$, $0<\gamma<1$, $\tau>0$ is baseline time per child, $a>0$ indexes the return to education, and $\overline c>0$ is subsistence consumption. The resource and subsistence constraints are $c+yn(\tau+e)\leq y$ and $c\geq\overline c$. The function $h_a$ is a closed-form teaching specialization of Galor's general child-human-capital technology; the normalization makes one unit of $e$ one unit of parental time.
+
+Part I. By hand. (a) Write the complete KKT system in $(c,n,e)$, including feasibility, multiplier signs, and complementary slackness. Prove that the resource constraint binds.
+
+(b) Define total child-rearing time $t=n(\tau+e)$. Eliminate $c$ and $n$, state the feasible set for $(t,e)$, and show that the transformed objective is additively separable in $t$ and $e$. Write its KKT system. Explain why an inequality can be active with a zero multiplier at a threshold.
+
+(c) Solve globally for $(t^*,e^*)$, then recover $(c^*,n^*)$. Divide the answer into all parameter regions, including the equality cases. A stationary-point calculation alone is not sufficient. Hint: determine the sign of $h_a'(e)(\tau+e)-h_a(e)$.
+
+(d) Let $\tau=1/4$, $\gamma=1/2$, and $\overline c=4$. Calculate $(c^*,n^*,e^*,h_a(e^*))$ for every combination $a\in\{1/2,3\}$ and $y\in\{6,12\}$. Identify the active inequalities, calculate their transformed-problem multipliers, and verify feasibility and complementary slackness.
+
+(e) Explain the income mechanism while subsistence binds, the quantity--quality response when $a$ rises, and which dynamic elements of Unified Growth Theory this static exercise deliberately leaves out.
+
+Part II. Verified scale-up with Codex and Python. (f) Record four lines before coding: Seed: the four hand calculations; Fixed: preferences, $h_a$, continuous fertility, and $(\tau,\gamma,\overline c)$; Scaled: only the number of $(a,y)$ configurations; Risk: threshold misclassification, invalid parameter domains, or mistaking finite computation for proof.
+
+(g) Create a file named work/ugt_kkt.py. On a deterministic rectangular grid containing $a=1$ and $y=\overline c/(1-\gamma)$, compute the closed-form candidate and the transformed-problem KKT multipliers. Reject $a\leq0$, $\tau\leq0$, $\overline c\leq0$, $\gamma\notin(0,1)$, and $y\leq\overline c$.
+
+(h) At every grid point, check the resource identity, subsistence feasibility, nonnegativity, stationarity, complementary slackness, and agreement with an independently implemented bounded numerical maximization. State the numerical tolerances. Plot $e^*$ and $n^*$ and mark the two analytic threshold lines.
+
+(i) Include tests immediately below, at, and above both thresholds. Report separately what the hand argument proves for every admissible parameter vector, what the program checks only on its finite grid, and what remains an empirical or dynamic modeling claim.
+
 # Duality, Comparative Statics, and Welfare
 
 ## 2.1 | Core | Cobb-Douglas duality

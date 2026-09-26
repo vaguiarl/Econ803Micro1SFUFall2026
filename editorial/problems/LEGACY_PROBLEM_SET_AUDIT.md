@@ -2,7 +2,7 @@
 
 ## Editorial decision
 
-The Fall 2026 problem bank is the canonical question source. Historical Western/UWO and SFU 2024 sheets are not copied verbatim: they mix obsolete numbering, duplicated questions, partial answer text, and several mathematically incorrect prompts or keys. Their durable ideas have been rewritten as the 48 non-case problems in the current book; the 17 chapter cases remain a separate assignment stream.
+The Fall 2026 problem bank is the canonical question source. Historical Western/UWO and SFU 2024 sheets are not copied verbatim: they mix obsolete numbering, duplicated questions, partial answer text, and several mathematically incorrect prompts or keys. Their durable ideas and new Fall 2026 extensions have been rewritten as the 49 non-case problems in the current book; the 17 chapter cases remain a separate assignment stream.
 
 This audit records provenance and disposition without publishing solution text. Corrected instructor derivations and the approval ledger live only in the private Fall 2024 repository.
 
@@ -22,7 +22,7 @@ This audit records provenance and disposition without publishing solution text. 
 | Western/SFU PS9 | Regularity, uniqueness, multiple equilibrium | 12.1-12.3 | General theory canonicalized; explicit numerical example held in reserve |
 | Western PS10 | Contingent commodities, OLG, sequential trade | 14.1-14.3 | Asset-span core retained; unsafe parameter cases quarantined |
 | Western PS11 | Matching and manipulation | 15.1-15.3 | Canonicalized |
-| Fall 2026 additions | CGE and modern consumer theory | 8.3; 16.1-16.3 | New material; no historical source claimed |
+| Fall 2026 additions | Modern consumer theory and CGE | 1.6; 8.3; 16.1-16.3 | New material; Galor's UGT household block is the source for 1.6 |
 
 ## Material errors found in the archive
 
@@ -54,4 +54,4 @@ Items failing one of these tests remain in the archive rather than being silentl
 
 ## Fall 2026 weekly-pool status
 
-The 48 non-case problems were rechecked against the current private instructor derivations on 2026-09-20. All thirteen weekly sets now pass the admission rule. The review also tightened the public prompts where a correct answer had previously depended on an unstated condition: small-risk asymptotics, positive-price and interior domains, Roy regularity, free disposal and closed aggregate requirement sets, global regularity for equilibrium finiteness, and unrestricted portfolios for asset spanning. This status applies to the canonical Fall 2026 formulations, not to the historical files listed above.
+The 48 inherited non-case problems were rechecked against the current private instructor derivations on 2026-09-20. Problem 1.6 was added on 2026-09-26 after a separate analytic KKT audit and comparison with Galor's published household block. All thirteen weekly sets now pass the admission rule. The review also tightened the public prompts where a correct answer had previously depended on an unstated condition: small-risk asymptotics, positive-price and interior domains, Roy regularity, free disposal and closed aggregate requirement sets, global regularity for equilibrium finiteness, and unrestricted portfolios for asset spanning. This status applies to the canonical Fall 2026 formulations, not to the historical files listed above.

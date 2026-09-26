@@ -237,7 +237,7 @@ markboth{HOW TO USE THIS PRACTICE BOOK}{HOW TO USE THIS PRACTICE BOOK}
 \end_layout
 
 \begin_layout Standard
-This volume collects the complete student-facing problem program for ECON 803. It contains 65 chapter problems and 10 additional-practice problems.
+This volume collects the complete student-facing problem program for ECON 803. It contains 66 chapter problems and 10 additional-practice problems.
 \end_layout
 
 \begin_layout Standard
@@ -297,7 +297,7 @@ Class meeting: Sep. 11, 2026. Due: Sep. 18, 2026.
 \end_layout
 
 \begin_layout Standard
-Required: 1.1, 1.2, 1.4. Formal or applied extension: 1.3. Optional reserve: None.
+Required: 1.1, 1.2, 1.4. Formal or applied extension: 1.3, 1.6. Optional reserve: None.
 \end_layout
 
 \begin_layout Section*
@@ -673,6 +673,122 @@ At prices \begin_inset Formula $p^0=(1,2,4)$\end_inset
 
 \begin_layout Exercise*
 (c) Explain why fitting one observation does not identify substitution. Describe additional observations that could distinguish the models.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise*
+\series bold
+Problem 1.6 [Applied]. KKT regimes and the quantity--quality tradeoff.
+\series default
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par\backslash
+nopagebreak[4]
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Exercise*
+Unified Growth Theory links the demographic transition to a shift from child quantity toward education and child quality. This exercise isolates a stylized household block from Galor (2005); it is not the complete dynamic growth model. A parent with potential income \begin_inset Formula $y>\overline c$\end_inset
+ chooses consumption \begin_inset Formula $c>0$\end_inset
+, fertility \begin_inset Formula $n>0$\end_inset
+, and education time per child \begin_inset Formula $e\geq0$\end_inset
+ to maximize \begin_inset Formula $(1-\gamma)\log c+\gamma\log\!\left[n h_a(e)\right]$\end_inset
+, where \begin_inset Formula $h_a(e)=1+ae/(\tau+e)$\end_inset
+, \begin_inset Formula $0<\gamma<1$\end_inset
+, \begin_inset Formula $\tau>0$\end_inset
+ is baseline time per child, \begin_inset Formula $a>0$\end_inset
+ indexes the return to education, and \begin_inset Formula $\overline c>0$\end_inset
+ is subsistence consumption. The resource and subsistence constraints are \begin_inset Formula $c+yn(\tau+e)\leq y$\end_inset
+ and \begin_inset Formula $c\geq\overline c$\end_inset
+. The function \begin_inset Formula $h_a$\end_inset
+ is a closed-form teaching specialization of Galor's general child-human-capital technology; the normalization makes one unit of \begin_inset Formula $e$\end_inset
+ one unit of parental time.
+\end_layout
+
+\begin_layout Subsection*
+Part I. By hand
+\end_layout
+
+\begin_layout Exercise*
+(a) Write the complete KKT system in \begin_inset Formula $(c,n,e)$\end_inset
+, including feasibility, multiplier signs, and complementary slackness. Prove that the resource constraint binds.
+\end_layout
+
+\begin_layout Exercise*
+(b) Define total child-rearing time \begin_inset Formula $t=n(\tau+e)$\end_inset
+. Eliminate \begin_inset Formula $c$\end_inset
+ and \begin_inset Formula $n$\end_inset
+, state the feasible set for \begin_inset Formula $(t,e)$\end_inset
+, and show that the transformed objective is additively separable in \begin_inset Formula $t$\end_inset
+ and \begin_inset Formula $e$\end_inset
+. Write its KKT system. Explain why an inequality can be active with a zero multiplier at a threshold.
+\end_layout
+
+\begin_layout Exercise*
+(c) Solve globally for \begin_inset Formula $(t^*,e^*)$\end_inset
+, then recover \begin_inset Formula $(c^*,n^*)$\end_inset
+. Divide the answer into all parameter regions, including the equality cases. A stationary-point calculation alone is not sufficient. Hint: determine the sign of \begin_inset Formula $h_a'(e)(\tau+e)-h_a(e)$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(d) Let \begin_inset Formula $\tau=1/4$\end_inset
+, \begin_inset Formula $\gamma=1/2$\end_inset
+, and \begin_inset Formula $\overline c=4$\end_inset
+. Calculate \begin_inset Formula $(c^*,n^*,e^*,h_a(e^*))$\end_inset
+ for every combination \begin_inset Formula $a\in\{1/2,3\}$\end_inset
+ and \begin_inset Formula $y\in\{6,12\}$\end_inset
+. Identify the active inequalities, calculate their transformed-problem multipliers, and verify feasibility and complementary slackness.
+\end_layout
+
+\begin_layout Exercise*
+(e) Explain the income mechanism while subsistence binds, the quantity--quality response when \begin_inset Formula $a$\end_inset
+ rises, and which dynamic elements of Unified Growth Theory this static exercise deliberately leaves out.
+\end_layout
+
+\begin_layout Subsection*
+Part II. Verified scale-up with Codex and Python
+\end_layout
+
+\begin_layout Exercise*
+(f) Record four lines before coding: Seed: the four hand calculations; Fixed: preferences, \begin_inset Formula $h_a$\end_inset
+, continuous fertility, and \begin_inset Formula $(\tau,\gamma,\overline c)$\end_inset
+; Scaled: only the number of \begin_inset Formula $(a,y)$\end_inset
+ configurations; Risk: threshold misclassification, invalid parameter domains, or mistaking finite computation for proof.
+\end_layout
+
+\begin_layout Exercise*
+(g) Create a file named work/ugt_kkt.py. On a deterministic rectangular grid containing \begin_inset Formula $a=1$\end_inset
+ and \begin_inset Formula $y=\overline c/(1-\gamma)$\end_inset
+, compute the closed-form candidate and the transformed-problem KKT multipliers. Reject \begin_inset Formula $a\leq0$\end_inset
+, \begin_inset Formula $\tau\leq0$\end_inset
+, \begin_inset Formula $\overline c\leq0$\end_inset
+, \begin_inset Formula $\gamma\notin(0,1)$\end_inset
+, and \begin_inset Formula $y\leq\overline c$\end_inset
+.
+\end_layout
+
+\begin_layout Exercise*
+(h) At every grid point, check the resource identity, subsistence feasibility, nonnegativity, stationarity, complementary slackness, and agreement with an independently implemented bounded numerical maximization. State the numerical tolerances. Plot \begin_inset Formula $e^*$\end_inset
+ and \begin_inset Formula $n^*$\end_inset
+ and mark the two analytic threshold lines.
+\end_layout
+
+\begin_layout Exercise*
+(i) Include tests immediately below, at, and above both thresholds. Report separately what the hand argument proves for every admissible parameter vector, what the program checks only on its finite grid, and what remains an empirical or dynamic modeling claim.
 \end_layout
 
 \begin_layout Standard

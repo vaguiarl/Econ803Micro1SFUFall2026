@@ -6,7 +6,7 @@ The **required** column is the board-scale work for class and independent practi
 
 | Set | Meeting | Due | Topic | Required | Extension | Optional cleaned archive reserve |
 |---|---|---|---|---|---|---|
-| PS01 | Sep. 11 | Sep. 18 | Utility maximization and demand | 1.1, 1.2, 1.4 | 1.3 | - |
+| PS01 | Sep. 11 | Sep. 18 | Utility maximization and demand | 1.1, 1.2, 1.4 | 1.3, 1.6 | - |
 | PS02 | Sep. 18 | Sep. 25 | Duality and welfare | 2.1, 2.3, 2.5 | 2.2, 2.4 | - |
 | PS03 | Sep. 25 | Oct. 2 | Revealed preference and recoverability | 3.1, 3.3, 3.6 | 3.2, 3.5 | R001 |
 | PS04 | Oct. 2 | Oct. 9 | Abstract choice and order foundations | 4.1, 4.3, A.1 | A.2 | R002, R004 |

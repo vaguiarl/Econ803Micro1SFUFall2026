@@ -1,5 +1,5 @@
 set	meeting_date	due_date	topic	required_ids	extension_ids	archive_sources	status
-PS01	2026-09-11	2026-09-18	Utility maximization and demand	1.1, 1.2, 1.4	1.3	Western summer PS1; SFU 2024 consumer review	draft
+PS01	2026-09-11	2026-09-18	Utility maximization and demand	1.1, 1.2, 1.4	1.3, 1.6	Western summer PS1; SFU 2024 consumer review; Galor UGT household block	draft
 PS02	2026-09-18	2026-09-25	Duality and welfare	2.1, 2.3, 2.5	2.2, 2.4	Western PS2-PS3; SFU 2024 PS2	draft
 PS03	2026-09-25	2026-10-02	Revealed preference and recoverability	3.1, 3.3, 3.6	3.2, 3.5	Western PS2-PS3; SFU 2024 PS2	draft
 PS04	2026-10-02	2026-10-09	Abstract choice and order foundations	4.1, 4.3, A.1	A.2	Western PS1; SFU 2024 PS1	draft

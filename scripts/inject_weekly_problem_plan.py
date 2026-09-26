@@ -39,6 +39,21 @@ def marker(name: str) -> str:
     )
 
 
+def marker_span(source: str, name: str) -> tuple[int, int]:
+    """Locate a note marker even after LyX has reflowed its whitespace."""
+
+    if source.count(name) != 1:
+        raise ValueError(f"weekly-plan marker is missing or duplicated: {name}")
+    token = source.index(name)
+    start = source.rfind("\\begin_layout Standard", 0, token)
+    note = source.rfind("\\begin_inset Note Note", start, token)
+    inset_end = source.find("\\end_inset", token)
+    layout_end = source.find("\\end_layout", inset_end)
+    if min(start, note, inset_end, layout_end) < 0 or note < start:
+        raise ValueError(f"malformed weekly-plan marker: {name}")
+    return start, layout_end + len("\\end_layout")
+
+
 def layout(kind: str, value: str) -> str:
     return f"\\begin_layout {kind}\n{value}\n\\end_layout\n"
 
@@ -197,32 +212,26 @@ def replace_or_insert(source: str, block: str) -> str:
     if START in source or END in source:
         if source.count(START) != 1 or source.count(END) != 1:
             raise ValueError("weekly-plan markers are incomplete or duplicated")
-        heading_block = (
-            "\\begin_layout Chapter*\n"
-            "Weekly Problem Sets: Fall 2026\n"
-            "\\end_layout\n"
-        )
-        start = source.rfind(heading_block, 0, source.index(START))
-        if start < 0:
-            # One-time migration from the original marker-before-heading order.
-            heading = source.find(heading_block, source.index(START))
-            if heading < 0:
-                raise ValueError("weekly-plan start marker has no chapter heading")
-            start = source.rfind(
-                "\\begin_layout Standard", 0, source.index(START)
-            )
-        end_marker = marker(END)
-        end_marker_start = source.find(end_marker, source.index(START))
-        if end_marker_start < 0:
-            raise ValueError("weekly-plan end marker is malformed")
-        end = end_marker_start + len(end_marker)
+        token = source.index(START)
+        start = source.rfind("\\begin_layout Chapter*", 0, token)
+        heading_end = source.find("\\end_layout", start, token)
+        if start < 0 or heading_end < 0:
+            raise ValueError("weekly-plan start marker has no chapter heading")
+        heading = source[
+            start + len("\\begin_layout Chapter*") : heading_end
+        ]
+        if " ".join(heading.split()) != "Weekly Problem Sets: Fall 2026":
+            raise ValueError("weekly-plan start marker has the wrong chapter heading")
+        _, end = marker_span(source, END)
         # Migrate files written by the original replacement routine, which
         # stopped at the inner Plain Layout and could leave one or more outer
         # Note/Layout tails behind.
         duplicate_tail = "\n\\end_inset\n\n\n\\end_layout\n"
         while source.startswith(duplicate_tail, end):
             end += len(duplicate_tail)
-        return source[:start] + block + source[end:]
+        left = source[:start].rstrip("\n")
+        right = source[end:].lstrip("\n")
+        return left + "\n\n" + block.rstrip("\n") + "\n\n" + right
 
     anchor = (
         "\\begin_layout Standard\n"

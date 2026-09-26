@@ -13,9 +13,9 @@ The [chapter pathway plan](PAIRING_PLAN.md) presents the same metadata in a read
 
 The [Fall 2026 weekly release plan](WEEKLY_RELEASE_PLAN.md) assigns every non-case problem exactly once across the thirteen meetings. It keeps chapter case studies on their own release stream and records the same schedule in machine-readable form in `WEEKLY_RELEASE_PLAN.tsv`.
 
-The [additional practice reserve](../problems/RESERVE_BANK.md) contains ten independently checked descendants of older Western/UWO and SFU midterms and finals. `RESERVE_WEEKLY_MAP.tsv` gives each one a suggested week without changing the canonical 48-problem coverage or the separate case-study stream. The reserve remains question-only; exact provenance and solutions live in the private instructor repository.
+The [additional practice reserve](../problems/RESERVE_BANK.md) contains ten independently checked descendants of older Western/UWO and SFU midterms and finals. `RESERVE_WEEKLY_MAP.tsv` gives each one a suggested week without changing the canonical 49-problem weekly coverage or the separate case-study stream. The reserve remains question-only; exact provenance and solutions live in the private instructor repository.
 
-The [Fall 2026 Practice Book](practice_book/ECON803_Practice_Book_Fall2026.pdf) collects the full 65-problem chapter bank and the ten-problem reserve in one question-only student volume. Its [native LyX source](practice_book/ECON803_Practice_Book_Fall2026.lyx) is generated reproducibly from the same canonical banks and begins with the thirteen-week practice map.
+The [Fall 2026 Practice Book](practice_book/ECON803_Practice_Book_Fall2026.pdf) collects the full 66-problem chapter bank and the ten-problem reserve in one question-only student volume. Its [native LyX source](practice_book/ECON803_Practice_Book_Fall2026.lyx) is generated reproducibly from the same canonical banks and begins with the thirteen-week practice map.
 
 - [Problem Set 1: From Two-Good Demand to Verified General Demand](ps01_consumer_demand/README.md)
 

@@ -3,7 +3,7 @@
 
 The public problem banks remain the source of record.  This generator reuses
 their validated parsers and writes a native LyX book containing the weekly
-map, all 65 chapter problems, and all 10 additional-practice problems.
+map, all 66 chapter problems, and all 10 additional-practice problems.
 """
 
 from __future__ import annotations
@@ -423,7 +423,7 @@ def build() -> str:
         layout(
             "Standard",
             "This volume collects the complete student-facing problem program for ECON 803. "
-            "It contains 65 chapter problems and 10 additional-practice problems.",
+            "It contains 66 chapter problems and 10 additional-practice problems.",
         ),
         layout(
             "Standard",
@@ -486,8 +486,8 @@ def validate_source(
     headings = re.findall(r"\\series bold\nProblem ([A-Z0-9]+(?:\.[0-9]+)?) \[", source)
     if headings != expected_ids:
         raise ValueError("practice-book problem order or coverage is incorrect")
-    if len(expected_ids) != 75 or len(set(expected_ids)) != 75:
-        raise ValueError("practice book must contain exactly 75 unique problems")
+    if len(expected_ids) != 76 or len(set(expected_ids)) != 76:
+        raise ValueError("practice book must contain exactly 76 unique problems")
     forbidden = ("instructor solution", "answer key follows", "SOURCE_LEDGER")
     lowered = source.lower()
     found = [token for token in forbidden if token.lower() in lowered]
@@ -520,7 +520,7 @@ def check_pdf(
         raise SystemExit("practice-book PDF title is missing")
     if "Question-only Practice Book" not in text:
         raise SystemExit("practice-book PDF question-only label is missing")
-    print(f"Practice-book PDF contains {len(reader.pages)} pages and all 75 problem headings")
+    print(f"Practice-book PDF contains {len(reader.pages)} pages and all 76 problem headings")
 
 
 def main() -> None:
@@ -537,7 +537,7 @@ def main() -> None:
     if args.check:
         if not TARGET.exists() or TARGET.read_text(encoding="utf-8") != source:
             raise SystemExit("practice-book LyX source is not synchronized")
-        print("Practice-book LyX source matches all 75 canonical questions")
+        print("Practice-book LyX source matches all 76 canonical questions")
         return
     TARGET.parent.mkdir(parents=True, exist_ok=True)
     TARGET.write_text(source, encoding="utf-8")

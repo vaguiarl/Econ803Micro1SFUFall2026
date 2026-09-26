@@ -44,6 +44,21 @@ def marker(name: str) -> str:
     )
 
 
+def marker_span(source: str, name: str) -> tuple[int, int]:
+    """Locate a note marker even after LyX has reflowed its whitespace."""
+
+    if source.count(name) != 1:
+        raise ValueError(f"reserve marker is missing or duplicated: {name}")
+    token = source.index(name)
+    start = source.rfind("\\begin_layout Standard", 0, token)
+    note = source.rfind("\\begin_inset Note Note", start, token)
+    inset_end = source.find("\\end_inset", token)
+    layout_end = source.find("\\end_layout", inset_end)
+    if min(start, note, inset_end, layout_end) < 0 or note < start:
+        raise ValueError(f"malformed reserve marker: {name}")
+    return start, layout_end + len("\\end_layout")
+
+
 def layout(kind: str, value: str) -> str:
     return f"\\begin_layout {kind}\n{value}\n\\end_layout\n"
 
@@ -203,19 +218,23 @@ def render(problems: list[ReserveProblem], weekly: dict[str, str]) -> str:
 
 
 def replace_or_insert(source: str, block: str) -> str:
-    heading = "\\begin_layout Chapter*\nAdditional Practice Reserve\n\\end_layout\n"
     if START in source or END in source:
         if source.count(START) != 1 or source.count(END) != 1:
             raise ValueError("reserve markers are incomplete or duplicated")
-        start = source.rfind(heading, 0, source.index(START))
-        if start < 0:
+        token = source.index(START)
+        start = source.rfind("\\begin_layout Chapter*", 0, token)
+        heading_end = source.find("\\end_layout", start, token)
+        if start < 0 or heading_end < 0:
             raise ValueError("reserve start marker has no chapter heading")
-        end_marker = marker(END)
-        end_start = source.find(end_marker, source.index(START))
-        if end_start < 0:
-            raise ValueError("reserve end marker is malformed")
-        end = end_start + len(end_marker)
-        return source[:start] + block + source[end:]
+        heading = source[
+            start + len("\\begin_layout Chapter*") : heading_end
+        ]
+        if " ".join(heading.split()) != "Additional Practice Reserve":
+            raise ValueError("reserve start marker has the wrong chapter heading")
+        _, end = marker_span(source, END)
+        left = source[:start].rstrip("\n")
+        right = source[end:].lstrip("\n")
+        return left + "\n\n" + block.rstrip("\n") + "\n\n" + right
 
     anchor = "\\begin_layout Chapter*\nWeekly Problem Sets: Fall 2026\n\\end_layout\n"
     if source.count(anchor) != 1:

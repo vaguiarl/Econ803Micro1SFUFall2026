@@ -81,7 +81,7 @@ AFTER_QUASILINEAR = "".join([
     block("Example", r"When zero wealth effects stop applying. At $r=2$ and $w=3$, demand is $(1/4,5/2)$: extra wealth is spent entirely on good 2. At $w=1/4$, demand is $(1/8,0)$ and all wealth is spent on good 1. The claim that quasilinear demand has no wealth effect for the non-numeraire good requires an interior numeraire choice, here $w>1/r$."),
     block("Subsection", "From CES to Flexible Translog Demand"),
     p(r"CES imposes one common, constant substitution elasticity. Applied demand analysis often needs substitution patterns that vary with relative prices. A translog specification uses a quadratic polynomial in logarithms, allowing such variation. Direct-utility, indirect-utility, and expenditure translog specifications are different parametric restrictions: the dual of a direct translog utility need not be translog. Chapter 2 develops a homothetic translog expenditure model, derives its demand shares, and checks the price region on which it represents a classical rational consumer. This order lets us explain the model through expenditure minimization rather than present an unexplained demand formula."),
-    p(r"For further practice, Problems 1.2--1.5 compare these specifications. The artists case study, Problem 10.4, uses CES fan demand as the first stage of a model of streaming revenue, concert production, and ticket pricing; its consumer part can be completed now."),
+    p(r"For further practice, Problems 1.2--1.6 compare these specifications. The artists case study, Problem 10.4, uses CES fan demand as the first stage of a model of streaming revenue, concert production, and ticket pricing; its consumer part can be completed now."),
     marker(STAMP),
 ])
 

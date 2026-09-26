@@ -262,6 +262,26 @@ def marker(name: str) -> str:
     )
 
 
+def marker_span(source: str, name: str) -> tuple[int, int]:
+    """Return the outer LyX layout containing a generated note marker.
+
+    LyX may reflow whitespace inside a Note inset when a user saves the book.
+    Locating the semantic token first keeps regeneration idempotent without
+    requiring the entire serialized marker to remain byte-for-byte identical.
+    """
+
+    if source.count(name) != 1:
+        raise ValueError(f"generated marker is missing or duplicated: {name}")
+    token = source.index(name)
+    start = source.rfind("\\begin_layout Standard", 0, token)
+    note = source.rfind("\\begin_inset Note Note", start, token)
+    inset_end = source.find("\\end_inset", token)
+    layout_end = source.find("\\end_layout", inset_end)
+    if min(start, note, inset_end, layout_end) < 0 or note < start:
+        raise ValueError(f"generated marker has malformed LyX structure: {name}")
+    return start, layout_end + len("\\end_layout")
+
+
 def separator() -> str:
     return (
         "\\begin_layout Standard\n"
@@ -376,19 +396,19 @@ def strip_generated_blocks(source: str, chapters: list[ChapterProblems]) -> str:
     current_slugs = [slug(chapter.chapter) for chapter in chapters]
     chapter_slugs = list(dict.fromkeys([*existing_slugs, *current_slugs]))
     for chapter_slug in chapter_slugs:
-        start_marker = marker(f"ECON803_PROBLEMS_START:{chapter_slug}")
-        end_marker = marker(f"ECON803_PROBLEMS_END:{chapter_slug}")
-        start = source.find(start_marker)
-        if start < 0:
+        start_name = f"ECON803_PROBLEMS_START:{chapter_slug}"
+        end_name = f"ECON803_PROBLEMS_END:{chapter_slug}"
+        if start_name not in source:
             continue
-        end = source.find(end_marker, start)
-        if end < 0:
-            raise ValueError(f"missing end marker for generated block {chapter_slug}")
+        start, _ = marker_span(source, start_name)
+        _, end = marker_span(source, end_name)
+        if end <= start:
+            raise ValueError(f"crossed markers for generated block {chapter_slug}")
         # Canonicalize the whitespace at the insertion boundary.  Without this,
         # the wrapper newlines added by ``inject`` accumulate on every run and
         # make an otherwise unchanged generated block fail ``--check``.
         left = source[:start].rstrip("\n")
-        right = source[end + len(end_marker) :].lstrip("\n")
+        right = source[end:].lstrip("\n")
         source = left + "\n\n" + right
     return source
 
