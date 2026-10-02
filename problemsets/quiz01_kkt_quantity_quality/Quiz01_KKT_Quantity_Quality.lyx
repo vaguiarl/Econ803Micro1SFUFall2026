@@ -1,0 +1,385 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{microtype}
+\usepackage{xcolor}
+\definecolor{quizblue}{rgb}{0.08,0.24,0.46}
+\AtBeginDocument{\hypersetup{linkcolor=quizblue,urlcolor=quizblue,citecolor=quizblue}}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding default
+\font_roman "cmr" "default"
+\font_sans "cmss" "default"
+\font_typewriter "cmtt" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 2
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.78in
+\topmargin 0.65in
+\rightmargin 0.78in
+\bottommargin 0.65in
+\secnumdepth 0
+\tocdepth 2
+\paragraph_separation skip
+\defskip smallskip
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+\begin_layout Title
+Quiz 1: KKT Regimes in a Quantity-Quality Household
+\end_layout
+
+\begin_layout Author
+ECON 803 - Microeconomic Theory I - Fall 2026
+\end_layout
+
+\begin_layout Date
+October 2, 2026 - 25 minutes - 20 points
+\end_layout
+
+\begin_layout Standard
+Name: ............................................................ Student number: ........................................
+\end_layout
+
+\begin_layout Standard
+Show the KKT conditions and enough algebra to identify every active set.
+ Children are divisible in this classroom model.
+\end_layout
+
+\begin_layout Section*
+From Galor's mechanism to three static snapshots
+\end_layout
+
+\begin_layout Standard
+In Galor's Unified Growth Theory,
+ the time cost of 
+\begin_inset Formula $n$
+\end_inset
+
+ children with education 
+\begin_inset Formula $e$
+\end_inset
+
+ is proportional to 
+\begin_inset Formula $n(\tau+e)$
+\end_inset
+
+.
+ A higher return to education moves resources from child quantity toward child quality.
+ Galor's model is dynamic and maintains positive fertility.
+ To study three KKT active sets in one class,
+ we use the following static teaching extension.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $H\geq0$
+\end_inset
+
+ be total purchased human capital for all children.
+ If 
+\begin_inset Formula $n>0$
+\end_inset
+
+,
+ quality per child is 
+\begin_inset Formula $q=H/n$
+\end_inset
+
+.
+ Each regime also specifies a small fertility floor 
+\begin_inset Formula $\underline n_r\geq0$
+\end_inset
+
+.
+ The household chooses 
+\begin_inset Formula $c,H\geq0$
+\end_inset
+
+ and 
+\begin_inset Formula $n\geq\underline n_r$
+\end_inset
+
+ to maximize
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+U(c,n,H)=c+6n-\frac12n^2+4H-\frac12H^2
+\]
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+subject to the regime-specific budget and quality cone
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+c+pn+kH+\frac12H^2\leq20,
+\qquad
+sn\leq H\leq4n,
+\qquad
+n\geq\underline n_r.
+\]
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset Formula $H^2/2$
+\end_inset
+
+ makes total education expenditure convex.
+ The cone makes 
+\begin_inset Formula $q\in[s,4]$
+\end_inset
+
+ when children are present and forces 
+\begin_inset Formula $H=0$
+\end_inset
+
+ when a regime permits 
+\begin_inset Formula $n=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+1. General KKT system [8 points]
+\end_layout
+
+\begin_layout Standard
+(a) Use multipliers 
+\begin_inset Formula $\lambda,\mu_c,\mu_n,\alpha,\beta\geq0$
+\end_inset
+
+ for,
+ respectively,
+ the budget slack,
+ 
+\begin_inset Formula $c\geq0$
+\end_inset
+
+,
+ 
+\begin_inset Formula $n-\underline n_r\geq0$
+\end_inset
+
+,
+ 
+\begin_inset Formula $H-sn\geq0$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $4n-H\geq0$
+\end_inset
+
+.
+ Write the Lagrangian and the complete KKT system.
+ [6]
+\end_layout
+
+\begin_layout Standard
+(b) Explain why these conditions are sufficient.
+ Show that whenever 
+\begin_inset Formula $c^*>0$
+\end_inset
+
+,
+ the budget binds and 
+\begin_inset Formula $\lambda^*=1$
+\end_inset
+
+.
+ [2]
+\end_layout
+
+\begin_layout Section*
+2. Solve three regimes [9 points]
+\end_layout
+
+\begin_layout Standard
+For each regime,
+ find 
+\begin_inset Formula $(c^*,n^*,H^*)$
+\end_inset
+
+,
+ report 
+\begin_inset Formula $q^*=H^*/n^*$
+\end_inset
+
+ when it is defined,
+ identify the active inequalities,
+ and give one valid multiplier vector.
+ You may first use the binding budget to eliminate consumption.
+ [3 points each]
+\end_layout
+
+\begin_layout Description
+Malthusian: 
+\begin_inset Formula $(p,k,s,\underline n_r)=(2,5,0,0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Modern quantity-quality balance: 
+\begin_inset Formula $(p,k,s,\underline n_r)=(4,2,0,0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+High-quality-cost,
+ low-fertility (post-modern) extension: 
+\begin_inset Formula $(p,k,s,\underline n_r)=(4,6,2,1/4)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+3. Interpretation [3 points]
+\end_layout
+
+\begin_layout Standard
+(a) Describe the movement from quantity to quality across your first two solutions.
+ [1]
+\end_layout
+
+\begin_layout Standard
+(b) Explain why a high quality price 
+\begin_inset Formula $k$
+\end_inset
+
+ alone need not eliminate fertility,
+ but a high 
+\begin_inset Formula $k$
+\end_inset
+
+ together with the minimum-quality requirement 
+\begin_inset Formula $H\geq2n$
+\end_inset
+
+ can push fertility down to its small lower bound.
+ [1]
+\end_layout
+
+\begin_layout Standard
+(c) State one dynamic feedback in Unified Growth Theory that this quiz holds fixed.
+ Also state why the binding low-fertility floor should be called our extension rather than Galor's prediction.
+ [1]
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+vfill
+\backslash
+footnotesize Source note: inspired by Oded Galor, ``From Stagnation to Growth: Unified Growth Theory,'' Handbook of Economic Growth 1A (2005), 171--293, especially equations (4)--(10). DOI: 10.1016/S1574-0684(05)01004-X. The quadratic objective, convex monetary education cost, quality cone, and binding low-fertility floor are teaching extensions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
