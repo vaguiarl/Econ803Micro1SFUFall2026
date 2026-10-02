@@ -135,7 +135,11 @@ A static household quantity-quality problem
 \end_layout
 
 \begin_layout Standard
-Consider a household with 20 units of income.
+Consider a household with regime-specific income 
+\begin_inset Formula $y_r$
+\end_inset
+
+.
  It allocates resources among its own consumption,
  the number of children,
  and investment in the children's human capital.
@@ -150,11 +154,15 @@ Consider a household with 20 units of income.
 \begin_layout Standard
 The choice variables are:
  
-\begin_inset Formula $c\geq0$
+\begin_inset Formula $c\geq\bar c=1$
 \end_inset
 
  is parental consumption (the numeraire,
- with price one);
+ with price one) and must meet a subsistence requirement 
+\begin_inset Formula $\bar c=1$
+\end_inset
+
+;
  
 \begin_inset Formula $n\geq0$
 \end_inset
@@ -188,6 +196,16 @@ The choice variables are:
 \begin_layout Standard
 The parameters are:
  
+\begin_inset Formula $y_r>0$
+\end_inset
+
+,
+ income in regime 
+\begin_inset Formula $r$
+\end_inset
+
+;
+ 
 \begin_inset Formula $p\geq0$
 \end_inset
 
@@ -216,9 +234,15 @@ The parameters are:
 
 .
  The household chooses 
-\begin_inset Formula $c,H\geq0$
+\begin_inset Formula $c\geq\bar c$
 \end_inset
 
+,
+ 
+\begin_inset Formula $H\geq0$
+\end_inset
+
+,
  and 
 \begin_inset Formula $n\geq\underline n_r$
 \end_inset
@@ -256,11 +280,12 @@ The constraints are
 \begin_layout Standard
 \begin_inset Formula
 \[
-c+pn+kH+\frac12H^2\leq20,
+c+pn+kH+\frac12H^2\leq y_r,
 \qquad
 sn\leq H\leq4n,
 \qquad
-n\geq\underline n_r.
+n\geq\underline n_r,
+\quad c\geq\bar c=1.
 \]
 \end_inset
 
@@ -268,7 +293,11 @@ n\geq\underline n_r.
 
 \begin_layout Standard
 Budget:
- income is normalized to 20.
+ income is 
+\begin_inset Formula $y_r$
+\end_inset
+
+ and varies across regimes.
  Expenditure is parental consumption 
 \begin_inset Formula $c$
 \end_inset
@@ -296,6 +325,12 @@ Budget:
 
  always raises utility,
  no income is discarded at an optimum.
+ The constraint 
+\begin_inset Formula $c\geq\bar c=1$
+\end_inset
+
+ requires subsistence consumption;
+ it will bind in the low-income Malthusian regime.
 \end_layout
 
 \begin_layout Standard
@@ -373,7 +408,7 @@ Fertility floor:
  respectively,
  the budget slack,
  
-\begin_inset Formula $c\geq0$
+\begin_inset Formula $c-\bar c\geq0$
 \end_inset
 
 ,
@@ -397,17 +432,22 @@ Fertility floor:
 \end_layout
 
 \begin_layout Standard
-(b) Explain why these conditions are sufficient.
+(b) Explain why these conditions are sufficient and why the budget binds.
  Show that whenever 
-\begin_inset Formula $c^*>0$
+\begin_inset Formula $c^*>\bar c$
 \end_inset
 
 ,
- the budget binds and 
+ 
 \begin_inset Formula $\lambda^*=1$
 \end_inset
 
-.
+,
+ and explain why 
+\begin_inset Formula $\lambda^*>1$
+\end_inset
+
+ can occur when subsistence binds.
  [2]
 \end_layout
 
@@ -431,11 +471,15 @@ For each regime,
  and give one valid multiplier vector.
  You may first use the binding budget to eliminate consumption.
  [3 points each]
+ The snapshots vary income and relative costs jointly;
+ use them to compare KKT regimes,
+ not as a ceteris paribus claim that low income alone causes high fertility.
 \end_layout
 
 \begin_layout Description
-Quantity-dominant (Malthusian): 
-\begin_inset Formula $(p,k,s,\underline n_r)=(2,5,0,0)$
+Very-low-income,
+ quantity-dominant (Malthusian): 
+\begin_inset Formula $(y_r,p,k,s,\underline n_r)=(5,1,5,0,0)$
 \end_inset
 
 .
@@ -443,7 +487,7 @@ Quantity-dominant (Malthusian):
 
 \begin_layout Description
 Modern quantity-quality balance: 
-\begin_inset Formula $(p,k,s,\underline n_r)=(4,2,0,0)$
+\begin_inset Formula $(y_r,p,k,s,\underline n_r)=(20,4,2,0,0)$
 \end_inset
 
 .
@@ -452,7 +496,7 @@ Modern quantity-quality balance:
 \begin_layout Description
 High-quality-cost,
  low-fertility (post-modern) extension: 
-\begin_inset Formula $(p,k,s,\underline n_r)=(4,6,2,1/4)$
+\begin_inset Formula $(y_r,p,k,s,\underline n_r)=(20,4,6,2,1/4)$
 \end_inset
 
 .
@@ -463,7 +507,8 @@ High-quality-cost,
 \end_layout
 
 \begin_layout Standard
-(a) Describe the movement from quantity to quality across your first two solutions.
+(a) Use the active constraints to explain why the poor Malthusian household spends all income above subsistence on child quantity and buys no child human capital,
+ while the modern household chooses both quantity and quality.
  [1]
 \end_layout
 
@@ -504,7 +549,7 @@ status collapsed
 \backslash
 vfill
 \backslash
-footnotesize Source note: inspired by Oded Galor, ``From Stagnation to Growth: Unified Growth Theory,'' Handbook of Economic Growth 1A (2005), 171--293, especially equations (4)--(10). DOI: 10.1016/S1574-0684(05)01004-X. The quadratic objective, convex monetary education cost, quality cone, and binding low-fertility floor are teaching extensions.
+footnotesize Source note: inspired by Oded Galor, ``From Stagnation to Growth: Unified Growth Theory,'' Handbook of Economic Growth 1A (2005), 171--293, especially equations (4)--(10). DOI: 10.1016/S1574-0684(05)01004-X. Galor's subsistence mechanism motivates the consumption floor. The first snapshot's income is one quarter of modern income. The quadratic objective, convex monetary education cost, quality cone, and binding low-fertility floor are teaching extensions.
 \end_layout
 
 \end_inset
