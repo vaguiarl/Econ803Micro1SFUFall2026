@@ -126,52 +126,92 @@ Name: ............................................................ Student numbe
 
 \begin_layout Standard
 Show the KKT conditions and enough algebra to identify every active set.
- Children are divisible in this classroom model.
+ The model and all notation needed for the quiz are defined below;
+ no prior knowledge of Galor is required.
 \end_layout
 
 \begin_layout Section*
-From Galor's mechanism to three static snapshots
+A static household quantity-quality problem
 \end_layout
 
 \begin_layout Standard
-In Galor's Unified Growth Theory,
- the time cost of 
-\begin_inset Formula $n$
-\end_inset
-
- children with education 
-\begin_inset Formula $e$
-\end_inset
-
- is proportional to 
-\begin_inset Formula $n(\tau+e)$
-\end_inset
-
-.
- A higher return to education moves resources from child quantity toward child quality.
- Galor's model is dynamic and maintains positive fertility.
- To study three KKT active sets in one class,
- we use the following static teaching extension.
+Consider a household with 20 units of income.
+ It allocates resources among its own consumption,
+ the number of children,
+ and investment in the children's human capital.
+ More children increase family size (quantity),
+ while more investment per child increases child quality.
+ Because both uses are costly,
+ the household faces a quantity-quality trade-off.
+ Galor studies this mechanism inside a dynamic growth model;
+ here we use a deliberately simple static problem to isolate the KKT economics.
 \end_layout
 
 \begin_layout Standard
-Let 
+The choice variables are:
+ 
+\begin_inset Formula $c\geq0$
+\end_inset
+
+ is parental consumption (the numeraire,
+ with price one);
+ 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+ is a divisible fertility index;
+ and 
 \begin_inset Formula $H\geq0$
 \end_inset
 
- be total purchased human capital for all children.
- If 
+ is total human-capital investment across all children,
+ not investment per child.
+ When 
 \begin_inset Formula $n>0$
 \end_inset
 
 ,
- quality per child is 
+ average quality per child is
+ 
 \begin_inset Formula $q=H/n$
 \end_inset
 
 .
- Each regime also specifies a small fertility floor 
+ Thus 
+\begin_inset Formula $n=1/4$
+\end_inset
+
+ means a near-zero positive value of this index,
+ not literally one-quarter of a child.
+\end_layout
+
+\begin_layout Standard
+The parameters are:
+ 
+\begin_inset Formula $p\geq0$
+\end_inset
+
+,
+ the direct resource cost of each unit of fertility;
+ 
+\begin_inset Formula $k\geq0$
+\end_inset
+
+,
+ the linear price of total human-capital investment;
+ 
+\begin_inset Formula $s\geq0$
+\end_inset
+
+,
+ the minimum required quality per child;
+ and 
 \begin_inset Formula $\underline n_r\geq0$
+\end_inset
+
+,
+ the fertility floor in regime 
+\begin_inset Formula $r$
 \end_inset
 
 .
@@ -196,7 +236,21 @@ U(c,n,H)=c+6n-\frac12n^2+4H-\frac12H^2
 \end_layout
 
 \begin_layout Standard
-subject to the regime-specific budget and quality cone
+The terms 
+\begin_inset Formula $6n-n^2/2$
+\end_inset
+
+ and 
+\begin_inset Formula $4H-H^2/2$
+\end_inset
+
+ give diminishing marginal benefits from family size and total child human capital.
+ The quadratic specification is chosen for tractability,
+ not as a literal description of preferences.
+\end_layout
+
+\begin_layout Standard
+The constraints are
 \end_layout
 
 \begin_layout Standard
@@ -213,24 +267,97 @@ n\geq\underline n_r.
 \end_layout
 
 \begin_layout Standard
-The term 
+Budget:
+ income is normalized to 20.
+ Expenditure is parental consumption 
+\begin_inset Formula $c$
+\end_inset
+
+,
+ direct child cost 
+\begin_inset Formula $pn$
+\end_inset
+
+,
+ linear education cost 
+\begin_inset Formula $kH$
+\end_inset
+
+,
+ and the convex cost 
 \begin_inset Formula $H^2/2$
 \end_inset
 
- makes total education expenditure convex.
- The cone makes 
-\begin_inset Formula $q\in[s,4]$
+.
+ The last term makes additional aggregate investment progressively more expensive.
+ Since more 
+\begin_inset Formula $c$
 \end_inset
 
- when children are present and forces 
-\begin_inset Formula $H=0$
+ always raises utility,
+ no income is discarded at an optimum.
+\end_layout
+
+\begin_layout Standard
+Quality cone:
+ 
+\begin_inset Formula $sn\leq H\leq4n$
 \end_inset
 
- when a regime permits 
-\begin_inset Formula $n=0$
+ links total investment to the number of children.
+ If 
+\begin_inset Formula $n>0$
+\end_inset
+
+,
+ division by 
+\begin_inset Formula $n$
+\end_inset
+
+ gives 
+\begin_inset Formula $s\leq q=H/n\leq4$
 \end_inset
 
 .
+ Thus every child must receive at least quality 
+\begin_inset Formula $s$
+\end_inset
+
+,
+ while 4 is a normalized upper bound on quality per child.
+ If 
+\begin_inset Formula $n=0$
+\end_inset
+
+,
+ the two inequalities force 
+\begin_inset Formula $H=0$
+\end_inset
+
+,
+ so the household cannot purchase child human capital without children.
+\end_layout
+
+\begin_layout Standard
+Fertility floor:
+ 
+\begin_inset Formula $n\geq\underline n_r$
+\end_inset
+
+ is zero in the first two regimes.
+ In the last regime it is 
+\begin_inset Formula $1/4$
+\end_inset
+
+,
+ which produces a positive but near-zero KKT corner.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -307,7 +434,7 @@ For each regime,
 \end_layout
 
 \begin_layout Description
-Malthusian: 
+Quantity-dominant (Malthusian): 
 \begin_inset Formula $(p,k,s,\underline n_r)=(2,5,0,0)$
 \end_inset
 
@@ -359,8 +486,12 @@ High-quality-cost,
 \end_layout
 
 \begin_layout Standard
-(c) State one dynamic feedback in Unified Growth Theory that this quiz holds fixed.
- Also state why the binding low-fertility floor should be called our extension rather than Galor's prediction.
+(c) A full growth model would let today's household choices affect tomorrow.
+ Name one plausible feedback---for example,
+ education could raise the next generation's human capital,
+ fertility could change future population,
+ or technology could change the return to education.
+ Then explain why the binding low-fertility floor is our teaching extension rather than Galor's prediction.
  [1]
 \end_layout
 
