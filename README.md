@@ -4,6 +4,16 @@ This repository contains the public, student-facing first edition of Victor Agui
 
 The Fall 2026 course runs from September 9 through December 7. Class meets Fridays from 9:30 a.m. to 12:20 p.m. in WMC 4602.
 
+## Student quick links
+
+- [Download the current course notes (PDF)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/notes/Microeconomics_1_notes_by_Victor_Aguiar.pdf)
+- [Download the question-only practice book (PDF)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/problemsets/practice_book/ECON803_Practice_Book_Fall2026.pdf)
+- [Browse the canonical problem bank](problems/PROBLEM_BANK.md)
+- [Read the course outline](COURSE_OUTLINE.md)
+- [See the weekly release structure](problemsets/README.md)
+
+These links always point to the public `main` branch. Solutions and unreleased assessments remain in the private instructor repository.
+
 The Fall 2026 baseline has four commitments:
 
 1. every mathematical statement is written with its objects and hypotheses visible;
