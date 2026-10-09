@@ -1,0 +1,9707 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/victoraguiar/Documents/GitHub/Econ804Micro1SFUFall2026/course/handouts/kkt_economics_cookbook/
+\textclass article
+\begin_preamble
+
+
+\usepackage{newtxtext}
+\usepackage{sourcesanspro}
+\usepackage{array}
+\usepackage{multicol}\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{bookmark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setlength{\parskip}{4.5pt}
+\setlength{\columnsep}{0.25in}
+\renewcommand{\arraystretch}{1.16}
+\setlist[itemize]{leftmargin=1.35em,itemsep=2.5pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=3pt,topsep=3pt}
+\emergencystretch=1.2em
+
+% The helper macros preserve color information through tex2lyx.
+\newcommand{\kktsectionformat}{\sffamily\bfseries\Large\color{KKTnavy}}
+\newcommand{\kktsubsectionformat}{\sffamily\bfseries\large\color{KKTnavy}}
+\newcommand{\kktsectionrule}{\vspace{1pt}\color{KKTline}\titlerule}
+\titleformat{\section}
+  {\kktsectionformat}
+  {\thesection}{0.55em}{}
+  [\kktsectionrule]
+\titleformat{\subsection}
+  {\kktsubsectionformat}
+  {\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{4pt}{7pt}
+\titlespacing*{\subsection}{0pt}{9pt}{3pt}
+
+
+\fancyhf{}
+\lhead{\sffamily\small\color{KKTgray} ECON 803 \textbar{} Microeconomic Theory I}
+\rhead{\sffamily\small\color{KKTgray} The Economic KKT Cookbook}
+\cfoot{\sffamily\small\color{KKTgray} \thepage\ of \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{KKTline}\leaders\hrule height \headrulewidth\hfill}}
+
+\newcommand{\sectiontag}[1]{%
+  \tcbox[on line,boxrule=0pt,arc=1.5pt,left=5pt,right=5pt,top=2pt,bottom=2pt,
+    colback=KKTnavy,coltext=white,fontupper=\sffamily\bfseries\footnotesize]{#1}}
+\newcommand{\term}[1]{\textcolor{KKTnavy}{\textbf{#1}}}
+\newcommand{\KKT}{\mathrm{KKT}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\given}{\,|\,}
+\newcommand{\mb}{\boldsymbol}
+
+\newtcolorbox{recipebox}[1][]{
+  enhanced,breakable,boxrule=0.8pt,arc=2pt,
+  colframe=KKTnavy,colback=KKTbluewash,
+  left=9pt,right=9pt,top=7pt,bottom=7pt,
+  fonttitle=\sffamily\bfseries,coltitle=KKTnavy,
+  title={RECIPE},#1}
+\newtcolorbox{definitionbox}[1][]{
+  enhanced,breakable,boxrule=0.8pt,arc=2pt,
+  colframe=KKTnavy,colback=white,
+  left=9pt,right=9pt,top=7pt,bottom=7pt,
+  fonttitle=\sffamily\bfseries,coltitle=KKTnavy,
+  title={DEFINITION},#1}
+\newtcolorbox{insightbox}[1][]{
+  enhanced,breakable,boxrule=0.8pt,arc=2pt,
+  colframe=KKTamber,colback=KKTamberwash,
+  left=9pt,right=9pt,top=7pt,bottom=7pt,
+  fonttitle=\sffamily\bfseries,coltitle=KKTamber,
+  title={ECONOMIC INTUITION},#1}
+\newtcolorbox{checkbox}[1][]{
+  enhanced,breakable,boxrule=0.8pt,arc=2pt,
+  colframe=KKTteal,colback=KKTgreenwash,
+  left=9pt,right=9pt,top=7pt,bottom=7pt,
+  fonttitle=\sffamily\bfseries,coltitle=KKTteal,
+  title={CHECK},#1}
+\newtcolorbox{resultbox}[1][]{
+  enhanced,breakable,boxrule=1pt,arc=2pt,
+  colframe=KKTteal,colback=KKTgreenwash,
+  left=9pt,right=9pt,top=7pt,bottom=7pt,
+  fonttitle=\sffamily\bfseries,coltitle=KKTteal,
+  title={RESULT},#1}
+\newtcolorbox{pitfallbox}[1][]{
+  enhanced,breakable,boxrule=0.8pt,arc=2pt,
+  colframe=KKTred,colback=KKTredwash,
+  left=9pt,right=9pt,top=7pt,bottom=7pt,
+  fonttitle=\sffamily\bfseries,coltitle=KKTred,
+  title={PITFALL},#1}
+
+\newcommand{\pagekicker}[2]{%
+  \noindent\sectiontag{#1}\hspace{7pt}{\sffamily\bfseries\large\color{KKTnavy}#2}\par\vspace{5pt}}
+\newcommand{\auditmark}{\textcolor{KKTteal}{\ensuremath{\checkmark}}}
+
+% Keep the designed cover as one stable macro when this source is imported into
+% LyX.  tex2lyx otherwise flattens nested font and color scopes on the title.
+\newcommand{\makekktcover}{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[KKTnavy] (current page.north west) rectangle ([yshift=-3.85in]current page.north east);
+  \fill[KKTteal] ([yshift=-3.85in]current page.north west) rectangle ([yshift=-3.93in]current page.north east);
+\end{tikzpicture}
+
+\vspace*{0.25in}
+{\sffamily\bfseries\color{white}\large ECON 803 \textbar{} MICROECONOMIC THEORY I\par}
+\vspace{0.47in}
+{\sffamily\bfseries\color{white}\fontsize{32}{35}\selectfont
+The Economic KKT\\Cookbook\par}
+\vspace{0.18in}
+{\sffamily\color{white}\fontsize{15}{19}\selectfont
+A portable method for constrained optimization, corners,\\
+shadow prices, and comparative statics\par}
+
+\vspace{1.12in}
+\begin{tcolorbox}[enhanced,boxrule=0pt,arc=2pt,colback=KKTbluewash,
+  left=14pt,right=14pt,top=12pt,bottom=12pt]
+{\sffamily\bfseries\large\color{KKTnavy} What this booklet gives you}\par
+\vspace{3pt}
+One sign convention. One active-set algorithm. One verification checklist.
+The method applies to consumer choice, firms, portfolios, mechanism constraints,
+and dynamic problems solved one state at a time. A separate algebraic toolkit
+shows when structure can solve most of the problem before the multipliers appear.
+
+\vspace{5pt}
+\begin{tabularx}{\textwidth}{p{0.18\textwidth}X}
+\textbf{\color{KKTnavy}Notation} & Write every inequality as a nonnegative slack before assigning a multiplier.\\
+\textbf{\color{KKTnavy}Corners} & Replace unjustified equalities by complementarity and sign checks.\\
+\textbf{\color{KKTnavy}Shortcuts} & Use tangent directions, bounds, homogeneity, duality, and projection before brute force.\\
+\textbf{\color{KKTnavy}Interpretation} & Read multipliers as marginal values only after the candidate is verified.\\
+\textbf{\color{KKTnavy}Examples} & Expected-utility portfolio choice and a Galor-inspired quantity-quality model.\\
+\end{tabularx}
+\end{tcolorbox}
+
+\vfill
+{\sffamily\bfseries\large\color{KKTnavy} Victor H. Aguiar}\par
+{\sffamily\color{KKTgray} Simon Fraser University \textbar{} Fall 2026}\par
+\vspace{0.24in}
+{\small\color{KKTgray}
+Student edition. The examples are fully worked so that the booklet can be used
+for review, office hours, and core-exam preparation.}%
+}
+
+% Preserve TikZ style braces through the TeX-to-LyX round trip.
+\newcommand{\makeactivesetdiagram}{%
+\begin{center}
+\begin{tikzpicture}[
+  node distance=6mm and 8mm,
+  every node/.style={font=\sffamily\small,align=center},
+  boxstep/.style={rectangle,rounded corners=2pt,draw=KKTnavy,fill=KKTbluewash,
+    text width=31mm,minimum height=10mm,inner sep=4pt},
+  test/.style={diamond,aspect=2.15,draw=KKTamber,fill=KKTamberwash,
+    text width=27mm,inner sep=2pt},
+  done/.style={rectangle,rounded corners=2pt,draw=KKTteal,fill=KKTgreenwash,
+    text width=31mm,minimum height=10mm,inner sep=4pt},
+  arrow/.style={-{Latex[length=2mm]},thick,color=KKTgray}]
+  \node[boxstep] (guess) {Guess positive choices and binding constraints};
+  \node[boxstep,right=of guess] (solve) {Impose the implied equalities and solve};
+  \node[test,right=of solve] (audit) {Do all signs and products pass?};
+  \node[done,right=of audit] (cert) {Certify the candidate and interpret};
+  \node[boxstep,below=of audit] (revise) {Revise the active set};
+  \draw[arrow] (guess) -- (solve);
+  \draw[arrow] (solve) -- (audit);
+  \draw[arrow] (audit) -- node[above,font=\sffamily\scriptsize]{yes} (cert);
+  \draw[arrow] (audit) -- node[right,font=\sffamily\scriptsize]{no} (revise);
+  \draw[arrow] (revise.west) -| (guess.south);
+\end{tikzpicture}
+\end{center}%
+}
+
+
+\end_preamble
+\use_default_options false
+\begin_modules
+enumitem
+multicol
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "ADOBESourceSansPro" "default"
+\font_typewriter "default" "default"
+\font_math "newtxmath" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_sans_opts "scaled=0.92"
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_title "The Economic KKT Cookbook"
+\pdf_author "Victor H. Aguiar"
+\pdf_subject "ECON 803 Microeconomic Theory I"
+\pdf_keywords "KKT, economics, complementarity, active sets, envelope theorem"
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=KKTnavy,urlcolor=KKTteal,citecolor=KKTteal"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor KKTamber 956000
+\customcolor KKTamberwash FBF7EE
+\customcolor KKTbluewash F1F5FA
+\customcolor KKTgray 66717E
+\customcolor KKTgreenwash F1F7F4
+\customcolor KKTink 26313D
+\customcolor KKTline CBD3DC
+\customcolor KKTnavy 18375F
+\customcolor KKTred 9A3030
+\customcolor KKTredwash FBF2F2
+\customcolor KKTteal 246B4F
+\fontcolor none
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.72in
+\topmargin 0.72in
+\rightmargin 0.72in
+\bottommargin 0.68in
+\headheight 22pt
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0pt
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Cover
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+makekktcover
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 2
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+START HERE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+The method in sixty seconds
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Karush-Kuhn-Tucker (KKT) conditions extend the Lagrange method to inequality constraints and economically important corner solutions.
+\end_layout
+
+\begin_layout Standard
+Consider a maximization problem with nonnegative choices and constraints written as nonnegative slacks: 
+\begin_inset Formula \[
+\max_{x\ge 0} f(x;\theta)
+\;\text{subject to}\;
+s_j(x;\theta)\ge 0,
+\; h_k(x;\theta)=0.
+\]
+\end_inset
+
+Use multipliers 
+\begin_inset Formula $\lambda_j\ge0$
+\end_inset
+
+ on 
+\begin_inset Formula $s_j\ge0$
+\end_inset
+
+ and unrestricted multipliers 
+\begin_inset Formula $\nu_k$
+\end_inset
+
+ on equalities. Define the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+net marginal payoff
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+D_i(x,\lambda,\nu)
+=f_i(x)+\sum_j\lambda_j s_{j,i}(x)+\sum_k\nu_k h_{k,i}(x).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE SIX-LINE COOKBOOK
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=
+\color KKTnavy
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+arabic*
+\end_layout
+
+\end_inset
+
+.
+\color inherit
+
+\end_layout
+
+\end_inset
+
+
+\series bold
+Normalize.
+\series default
+ Rewrite every inequality as a slack 
+\begin_inset Formula $s_j(x)\ge0$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Write complementarity.
+\series default
+ 
+\begin_inset Formula \[
+  0\le x_i\ \perp\ -D_i\ge0,
+  \;
+  0\le\lambda_j\ \perp\ s_j(x)\ge0.
+  \]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Guess an active set.
+\series default
+ Which choices are positive? Which constraints bind? 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Solve equalities.
+\series default
+ Positive 
+\begin_inset Formula $x_i$
+\end_inset
+
+ gives 
+\begin_inset Formula $D_i=0$
+\end_inset
+
+; binding 
+\begin_inset Formula $s_j$
+\end_inset
+
+ gives 
+\begin_inset Formula $s_j=0$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Audit every sign.
+\series default
+ Check feasibility, multiplier signs, omitted-choice inequalities, slack constraints, and every complementary product. 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Certify and interpret.
+\series default
+ Use concavity for global optimality; then use multipliers and the envelope theorem for economics. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+ At a positive choice, marginal benefit equals its shadow opportunity cost. At a zero choice, marginal benefit may be lower. This is why an equality-only FOC method misses economically important corners. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+How to use this booklet
+\end_layout
+
+\begin_layout Standard
+Pages 3–8 build the method. Pages 9–15 develop an algebra-before-KKT toolkit. Pages 16–18 solve portfolio choice, and pages 19–22 solve the quantity-quality example. Page 23 is a mastery protocol; page 24 is a tear-out reference sheet.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ONE RULE THAT PREVENTS MOST SIGN ERRORS
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Never memorize a multiplier sign in isolation. First choose a slack direction. This booklet always uses 
+\begin_inset Formula $s(x)\ge0$
+\end_inset
+
+ and adds 
+\begin_inset Formula $+\lambda s(x)$
+\end_inset
+
+ to a maximization Lagrangian. Changing convention is harmless only if every associated sign changes with it. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 3
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+1 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ TRANSLATE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Put the economics into one canonical form
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Before KKT: model the feasible set
+\end_layout
+
+\begin_layout Standard
+KKT is easiest after the economic constraints are translated into one language. For a maximization problem, this booklet uses 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+nonnegative slacks
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Formula \[
+s_j(x)\ge0.
+\]
+\end_inset
+
+The multiplier 
+\begin_inset Formula $\lambda_j\ge0$
+\end_inset
+
+ is attached to 
+\begin_inset Formula $+\lambda_j s_j(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="7" columns="3">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="97text%">
+<column alignment="none" valignment="top" width="25text%">
+<column alignment="none" valignment="top" width="26text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Economic statement
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Nonnegative slack
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Interpretation of multiplier
+\series default
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $p\cdot x\le m$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $m-p\cdot x\ge0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+marginal value of one more unit of income
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $q\le F(z)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $F(z)-q\ge0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+marginal value of relaxing technology
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $e_i\ge\underline e_i$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $e_i-\underline e_i\ge0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+marginal value of lowering the requirement
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $Ax\le b$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $b-Ax\ge0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+marginal value of the relevant right-hand-side resource
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $x_i\ge0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+keep as a sign restriction 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+forgone gain from forcing the choice to remain at zero
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $h(x)=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+equality, no slack 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+multiplier is unrestricted in sign
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+COMPLEMENTARITY
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For vectors 
+\begin_inset Formula $a,b$
+\end_inset
+
+ of the same length, 
+\begin_inset Formula \[
+0\le a\ \perp\ b\ge0
+\]
+\end_inset
+
+means 
+\begin_inset Formula $a\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $b\ge0$
+\end_inset
+
+, and 
+\begin_inset Formula $a_i b_i=0$
+\end_inset
+
+ for every component 
+\begin_inset Formula $i$
+\end_inset
+
+. Thus at least one member of each pair is zero. Both may be zero. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Units are a fast error check
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $f$
+\end_inset
+
+ is measured in utility and a slack is measured in dollars, its multiplier has units 
+\begin_inset Quotes eld
+\end_inset
+
+utility per dollar.
+\begin_inset Quotes erd
+\end_inset
+
+ Rescaling a constraint rescales its multiplier. For example, 
+\begin_inset Formula $m-px\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $2m-2px\ge0$
+\end_inset
+
+ describe the same feasible set, but the second multiplier is half the first. Economic claims about shadow prices must therefore report the normalization.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+MODEL FIRST, DIFFERENTIATE SECOND
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Before writing a Lagrangian, identify the choice variables, domains, economic constraints, and parameter units. If a bound is already implied by other constraints, do not duplicate it: redundant constraints create redundant and often nonunique multipliers. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 4
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+2 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ DERIVE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Full KKT and the compact economic form
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+One derivation worth knowing
+\end_layout
+
+\begin_layout Standard
+Take 
+\begin_inset Formula \[
+\max_{x\ge0}f(x)
+\;\text{subject to}\;
+s(x)\ge0,
+\; h(x)=0.
+\]
+\end_inset
+
+Introduce 
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+ for 
+\begin_inset Formula $s(x)\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $\mu\ge0$
+\end_inset
+
+ for 
+\begin_inset Formula $x\ge0$
+\end_inset
+
+, and a free vector 
+\begin_inset Formula $\nu$
+\end_inset
+
+ for 
+\begin_inset Formula $h(x)=0$
+\end_inset
+
+: 
+\begin_inset Formula \[
+\mathcal L(x,\lambda,\nu,\mu)
+=f(x)+\lambda^{\top}s(x)+\nu^{\top}h(x)+\mu^{\top}x.
+\]
+\end_inset
+
+The full stationarity condition is 
+\begin_inset Formula \[
+\nabla f(x)+J_s(x)^{\top}\lambda+J_h(x)^{\top}\nu+\mu=0.
+\]
+\end_inset
+
+Let 
+\begin_inset Formula \[
+D:=\nabla f(x)+J_s(x)^{\top}\lambda+J_h(x)^{\top}\nu.
+\]
+\end_inset
+
+Then stationarity says 
+\begin_inset Formula $\mu=-D$
+\end_inset
+
+. Since 
+\begin_inset Formula $\mu\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $x_i\mu_i=0$
+\end_inset
+
+, we can eliminate 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and write the compact system 
+\begin_inset Formula \begin{equation}
+\boxed{
+0\le x\ \perp\ -D\ge0,
+\;
+0\le\lambda\ \perp\ s(x)\ge0,
+\; h(x)=0.}
+\label{eq:compact-kkt}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{checkbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+READ THE FIRST PAIR CORRECTLY
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For each choice 
+\begin_inset Formula $x_i$
+\end_inset
+
+: 
+\begin_inset Formula \[
+\begin{array}{lll}
+x_i>0 &\Longrightarrow& D_i=0,\\[2pt]
+x_i=0 &\Longrightarrow& D_i\le0.
+\end{array}
+\]
+\end_inset
+
+The inequality says that a choice held at zero cannot have a positive net marginal payoff. Equality is required only for a positive choice. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{checkbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+What if a variable is free in sign?
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $x_i$
+\end_inset
+
+ may be positive or negative, do not attach a nonnegativity multiplier. Use the equality 
+\begin_inset Formula $D_i=0$
+\end_inset
+
+. If a sign is already implied by other constraints, you may also treat the variable as sign-free and avoid a redundant multiplier, provided the implication is exact.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+ The component statement 
+\begin_inset Formula $\nabla f-A^{\top}\lambda\le0$
+\end_inset
+
+ applies to choices restricted by 
+\begin_inset Formula $x\ge0$
+\end_inset
+
+. It is not the stationarity condition for an unrestricted choice, which requires equality. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 5
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+3 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ REMEMBER
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+The linear-resource formula
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The formula used most often in economics
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula \[
+\max_{x\ge0} f(x)
+\;\text{subject to}\;
+Ax\le b,
+\]
+\end_inset
+
+use the slack 
+\begin_inset Formula $b-Ax\ge0$
+\end_inset
+
+ and multiplier 
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+. Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:compact-kkt"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ becomes 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE MEMORY FORMULA
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+\boxed{
+\begin{aligned}
+&b-Ax\ge0,
+\; \lambda\ge0,
+\; \lambda_j(b_j-A_jx)=0,\\
+&\nabla f(x)-A^{\top}\lambda\le0,\\
+&x_i\bigl[\nabla_i f(x)-(A^{\top}\lambda)_i\bigr]=0.
+\end{aligned}}
+\]
+\end_inset
+
+Equivalently, 
+\begin_inset Formula \[
+0\le x\ \perp\ A^{\top}\lambda-\nabla f(x)\ge0,
+\;
+0\le\lambda\ \perp\ b-Ax\ge0.
+\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Three economic readings
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=
+\color KKTnavy
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+arabic*
+\end_layout
+
+\end_inset
+
+.
+\color inherit
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+Used activity:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ if 
+\begin_inset Formula $x_i>0$
+\end_inset
+
+, marginal benefit equals the total shadow cost 
+\begin_inset Formula $A_i^{\top}\lambda$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+Unused activity:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ if 
+\begin_inset Formula $x_i=0$
+\end_inset
+
+, marginal benefit is no larger than its total shadow cost. 
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+Scarce resource:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ if 
+\begin_inset Formula $\lambda_j>0$
+\end_inset
+
+, resource 
+\begin_inset Formula $j$
+\end_inset
+
+ is exhausted. A resource can be exhausted with 
+\begin_inset Formula $\lambda_j=0$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+POSITIVE MULTIPLIER IMPLIES BINDING, NOT CONVERSE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Complementarity gives 
+\begin_inset Formula \[
+\lambda_j>0\Longrightarrow b_j-A_jx=0.
+\]
+\end_inset
+
+It does not give the reverse implication. A binding constraint can be locally valueless, and therefore have a zero multiplier. The second worked example shows this at the apex of a quality cone. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Equality-constrained resources
+\end_layout
+
+\begin_layout Standard
+If a resource constraint is written as 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+, its multiplier is free in sign and stationarity is an equality for unrestricted choices. In many monotone consumer or firm problems it is cleaner first to prove that 
+\begin_inset Formula $Ax\le b$
+\end_inset
+
+ binds, then substitute. Preserve the reduced domain and record how reduced multipliers map back to the original problem.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 6
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+4 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ SOLVE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+The active-set algorithm
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Turn complementarity into ordinary algebra
+\end_layout
+
+\begin_layout Standard
+KKT looks nonlinear because each complementary pair has two possible branches. Economic reasoning often identifies the likely branch. An 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+active set
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ is simply a guess about which choices are positive and which constraints bind.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+makeactivesetdiagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ACTIVE-SET WORKSHEET
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Choose sets 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ of positive and zero choices, and sets 
+\begin_inset Formula $B$
+\end_inset
+
+ and 
+\begin_inset Formula $S$
+\end_inset
+
+ of binding and slack constraints. Solve 
+\begin_inset Formula \[
+\begin{array}{llll}
+D_i=0 & (i\in P), & x_i=0 & (i\in Z),\\
+s_j(x)=0 & (j\in B), & \lambda_j=0 & (j\in S).
+\end{array}
+\]
+\end_inset
+
+Then verify 
+\begin_inset Formula \[
+x_P>0,
+\; -D_Z\ge0,
+\; \lambda_B\ge0,
+\; s_S(x)>0.
+\]
+\end_inset
+
+Weak inequalities are allowed when the solution is degenerate. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+The final audit
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="6" columns="2">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="97text%">
+<column alignment="none" valignment="top" width="7text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+auditmark
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Every original constraint is feasible.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+auditmark
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Every inequality multiplier has the declared sign.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+auditmark
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Every positive choice has zero residual; every zero choice has a nonnegative residual.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+auditmark
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Every slack constraint has zero multiplier.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+auditmark
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Every complementary product is zero.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+auditmark
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+A theorem, not optimism, justifies the global claim.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 7
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+5 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ CERTIFY
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+What KKT does and does not prove
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Separate four logically different questions
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+GLOBAL SUFFICIENCY IN THE CONCAVE CASE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $f$
+\end_inset
+
+, the slacks, and the equality constraints are differentiable. Let 
+\begin_inset Formula $f$
+\end_inset
+
+ and every slack 
+\begin_inset Formula $s_j$
+\end_inset
+
+ be concave, and let every 
+\begin_inset Formula $h_k$
+\end_inset
+
+ be affine. Then every feasible point that satisfies the KKT system is a global maximizer. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The reason is geometric: the first-order concavity bound on 
+\begin_inset Formula $f$
+\end_inset
+
+ and on each slack, combined with multiplier nonnegativity and complementarity, rules out a feasible direction with higher objective value.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="5" columns="2">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="none" valignment="top" width="27text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Question 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+What is needed?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+Does an optimizer exist?
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Compact feasible set plus continuity, or another coercivity/existence argument. KKT alone does not give existence.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+Must an optimizer satisfy KKT?
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+A constraint qualification. Slater's condition is the standard convenient condition for convex feasible problems.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+Is a KKT point globally optimal?
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Concave objective, concave nonnegative slacks, and affine equalities. Slater is not needed for this direction.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+Is the optimizer unique?
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Strict concavity of the objective on the feasible set. This does not imply unique multipliers.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{checkbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+SLATER'S CONDITION
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For the present convention, a Slater point satisfies every nonlinear inequality strictly, 
+\begin_inset Formula $s_j(x)>0$
+\end_inset
+
+, while satisfying all equalities. Under the usual convexity and regularity assumptions, it guarantees strong duality and the existence of KKT multipliers at an optimum. It is a necessity tool, not an existence theorem for the primal optimizer. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{checkbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+WHEN THE COOKBOOK NEEDS AN UPGRADE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ If the objective or constraints are nonsmooth, replace gradients by subgradients or normal cones. If the problem is nonconcave, KKT points are candidates: compare their objective values with boundaries and other stationary points. If an optimum has zero consumption under 
+\begin_inset Formula $u(c)=\sqrt c$
+\end_inset
+
+ or 
+\begin_inset Formula $\log c$
+\end_inset
+
+, ordinary derivatives may fail; use domain arguments or nonsmooth methods. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 8
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+6 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ INTERPRET
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Envelope-theorem magic, used carefully
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comparative statics without differentiating the policy
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula \[
+V(\theta)=\max_x f(x;\theta)
+\;\text{subject to}\;
+s(x;\theta)\ge0,
+\; h(x;\theta)=0.
+\]
+\end_inset
+
+At a regular point where the value function is differentiable, the envelope formula is 
+\begin_inset Formula \begin{equation}
+\boxed{
+V_{\theta}
+=f_{\theta}(x^*;\theta)
++\lambda^{*\top}s_{\theta}(x^*;\theta)
++\nu^{*\top}h_{\theta}(x^*;\theta).}
+\label{eq:envelope}
+\end{equation}
+\end_inset
+
+There is no 
+\begin_inset Formula $dx^*/d\theta$
+\end_inset
+
+ term. Optimality makes the first-order effect of the induced policy change vanish.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="5" columns="3">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="none" valignment="top" width="28text%">
+<column alignment="none" valignment="top" width="28text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Problem 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Envelope result 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Economic reading
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $Ax\le b$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $V_{b_j}=\lambda_j^*$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+value of one more unit of resource 
+\begin_inset Formula $j$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Consumer budget 
+\begin_inset Formula $p\cdot x\le m$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $v_m=\lambda^*$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+marginal utility of wealth
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Same consumer problem 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $v_{p_i}=-\lambda^*x_i^*$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+price effect holding the policy fixed
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Profit with capacity 
+\begin_inset Formula $q\le\bar q$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $\pi_{\bar q}=\lambda^*$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+value of one more unit of capacity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\lambda^*>0$
+\end_inset
+
+, the consumer formulas imply Roy's identity: 
+\begin_inset Formula \[
+x_i^*(p,m)=-\frac{v_{p_i}(p,m)}{v_m(p,m)}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+WHAT THE ENVELOPE THEOREM SAVES
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ First solve and verify the optimization problem. Then use the multiplier to value a small relaxation. The envelope theorem avoids solving explicitly for how every choice changes with the parameter. It is an interpreter, not a solver. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+ At an active-set switch, the value function may have a kink. A single derivative may not exist; use one-sided or directional derivatives, or the relevant range of multipliers. Also remember that multiplying a constraint by a positive constant inversely rescales its multiplier. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 9
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+7 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ ECONOMIZE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Discover first; certify second
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+KKT is a certificate, not an equation factory
+\end_layout
+
+\begin_layout Standard
+An expert normally solves the same problem along two paths. The 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+discovery path
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ uses economics, algebra, geometry, or an inequality to locate a candidate. The 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+certification path
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ uses KKT to prove that the candidate leaves no profitable feasible direction and to recover shadow prices.
+\end_layout
+
+\begin_layout Standard
+For linear resources define the primal slack and the reduced-cost residual 
+\begin_inset Formula \[
+s=b-Ax,
+\qquad
+r=A^{\top}\lambda-\nabla f(x).
+\]
+\end_inset
+
+Then the entire inequality logic is 
+\begin_inset Formula \[
+0\le\lambda\ \perp\ s\ge0,
+\qquad
+0\le x\ \perp\ r\ge0.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="7" columns="3">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="97text%">
+<column alignment="none" valignment="top" width="18text%">
+<column alignment="none" valignment="top" width="18text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Primal object
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Dual mate
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Economic state
+\series default
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $s_j>0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $\lambda_j=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+resource is abundant
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $s_j=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $\lambda_j>0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+resource is scarce and locally valuable
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $s_j=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $\lambda_j=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+binding but locally valueless; often a regime boundary
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $x_i>0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $r_i=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+activity is used; marginal benefit equals shadow cost
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $x_i=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $r_i>0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+activity is strictly not worth entering
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $x_i=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $r_i=0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+indifference, degeneracy, or a regime boundary
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE ALGEBRA-BEFORE-KKT LADDER
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=
+\color KKTnavy
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+arabic*
+\end_layout
+
+\end_inset
+
+.
+\color inherit
+
+\end_layout
+
+\end_inset
+
+
+\series bold
+Screen economically.
+\series default
+ Use monotonicity, dominance, Inada conditions, and units to predict binding resources and impossible corners. 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reduce dimension.
+\series default
+ Substitute a proved binding equality, choose natural coordinates, or move along tangent directions. 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Exploit structure.
+\series default
+ Look for separability, homogeneity, completing the square, ratios, or a sharp inequality. 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Certify.
+\series default
+ Restore every omitted domain restriction and audit the full KKT system. Then invoke the appropriate global theorem. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+DO NOT SIMPLIFY AWAY THE BOUNDARY
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ A substitution is equivalent to the original problem only when its reduced domain carries every implied inequality. A clever candidate without those checks is not yet a solution. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 10
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+8 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ REDUCE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Tangent directions and better coordinates
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Eliminate multipliers without losing constraints
+\end_layout
+
+\begin_layout Standard
+Suppose the active equalities are 
+\begin_inset Formula $Bx=d$
+\end_inset
+
+. A feasible first-order movement 
+\begin_inset Formula $z$
+\end_inset
+
+ along that face satisfies 
+\begin_inset Formula $Bz=0$
+\end_inset
+
+. At an interior point of the face, 
+\begin_inset Formula \[
+\boxed{z^{\top}\nabla f(x^*)=0\quad\text{for every }z\in\ker B.}
+\]
+\end_inset
+
+If the columns of 
+\begin_inset Formula $N$
+\end_inset
+
+ span 
+\begin_inset Formula $\ker B$
+\end_inset
+
+, solve 
+\begin_inset Formula $N^{\top}\nabla f(x)=0$
+\end_inset
+
+ together with 
+\begin_inset Formula $Bx=d$
+\end_inset
+
+. This is the matrix version of substituting the budget and often removes all equality multipliers.
+\end_layout
+
+\begin_layout Standard
+With one budget 
+\begin_inset Formula $p\cdot x=m$
+\end_inset
+
+, a budget-neutral movement between positive goods 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+ gives 
+\begin_inset Formula \[
+p_k f_i-p_i f_k=0
+\quad\Longleftrightarrow\quad
+\frac{f_i}{p_i}=\frac{f_k}{p_k}.
+\]
+\end_inset
+
+The familiar marginal-utility-per-dollar rule is therefore a tangent-direction condition. It applies only after positivity has been established.
+\end_layout
+
+\begin_layout Subsection*
+Change from assets to state goods
+\end_layout
+
+\begin_layout Standard
+For the portfolio example, let 
+\begin_inset Formula $c=(c_L,c_H)^{\top}$
+\end_inset
+
+ and 
+\begin_inset Formula \[
+c_L=\tfrac12\alpha+\beta,
+\qquad
+c_H=\tfrac74\alpha+\beta.
+\]
+\end_inset
+
+Inverting this payoff map gives 
+\begin_inset Formula \[
+\alpha=\frac45(c_H-c_L),
+\qquad
+\beta=\frac15(7c_L-2c_H).
+\]
+\end_inset
+
+Consequently, the asset budget becomes a state-price budget: 
+\begin_inset Formula \begin{equation}
+\boxed{\frac35c_L+\frac25c_H\le w.}
+\label{eq:state-price-budget}
+\end{equation}
+\end_inset
+
+No short selling survives as the consumption cone 
+\begin_inset Formula \[
+c_H\ge c_L,
+\qquad
+2c_H\le7c_L.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE GENERAL CHANGE OF BASIS
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ If state consumption is 
+\begin_inset Formula $c=Rx$
+\end_inset
+
+, asset prices are 
+\begin_inset Formula $p$
+\end_inset
+
+, and 
+\begin_inset Formula $R$
+\end_inset
+
+ is invertible, then 
+\begin_inset Formula $x=R^{-1}c$
+\end_inset
+
+ and the state-price vector is 
+\begin_inset Formula \[
+q=R^{-\top}p.
+\]
+\end_inset
+
+The budget becomes 
+\begin_inset Formula $q\cdot c\le w$
+\end_inset
+
+, while portfolio restrictions become constraints on 
+\begin_inset Formula $R^{-1}c$
+\end_inset
+
+. In incomplete markets, 
+\begin_inset Formula $R$
+\end_inset
+
+ is not invertible and the attainable-consumption subspace must remain explicit. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 11
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+9 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ BOUND
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+A global solution without differentiation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cauchy–Schwarz solves square-root utility
+\end_layout
+
+\begin_layout Standard
+Consider state prices 
+\begin_inset Formula $q_s>0$
+\end_inset
+
+, probabilities 
+\begin_inset Formula $\pi_s>0$
+\end_inset
+
+, and 
+\begin_inset Formula $\sum_s q_sc_s\le w$
+\end_inset
+
+. Then 
+\begin_inset Formula \[
+\sum_s\pi_s\sqrt{c_s}
+=\sum_s\frac{\pi_s}{\sqrt{q_s}}\sqrt{q_sc_s}
+\le
+\sqrt{\sum_s\frac{\pi_s^2}{q_s}}
+\sqrt{\sum_s q_sc_s}.
+\]
+\end_inset
+
+For the portfolio state prices in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:state-price-budget"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+, 
+\begin_inset Formula \[
+\frac{(1/2)^2}{3/5}+\frac{(1/2)^2}{2/5}=\frac{25}{24}.
+\]
+\end_inset
+
+Thus, at 
+\begin_inset Formula $w=24$
+\end_inset
+
+, 
+\begin_inset Formula \[
+F(c_L,c_H)\le\sqrt{\frac{25}{24}\,24}=5.
+\]
+\end_inset
+
+Equality in Cauchy–Schwarz requires 
+\begin_inset Formula \[
+\sqrt{c_s}\propto\frac{\pi_s}{q_s},
+\qquad
+\sqrt{c_L}:\sqrt{c_H}=2:3.
+\]
+\end_inset
+
+The state-price budget then gives 
+\begin_inset Formula \[
+(c_L,c_H)=(16,36),
+\qquad
+(\alpha,\beta)=(16,8).
+\]
+\end_inset
+
+The holding-cone inequalities hold, so this sharp upper bound is attainable. It proves global optimality before KKT is written.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE CRRA–HÖLDER FORMULA
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For 
+\begin_inset Formula $0<\rho<1$
+\end_inset
+
+, define 
+\begin_inset Formula \[
+S=\sum_s
+\pi_s^{1/(1-\rho)}q_s^{-\rho/(1-\rho)}.
+\]
+\end_inset
+
+Then 
+\begin_inset Formula \[
+\max_{c\ge0,\ q\cdot c\le w}\sum_s\pi_sc_s^{\rho}
+=w^{\rho}S^{1-\rho},
+\]
+\end_inset
+
+and 
+\begin_inset Formula \[
+c_s^*=\frac{w}{S}
+\left(\frac{\pi_s}{q_s}\right)^{1/(1-\rho)}.
+\]
+\end_inset
+
+The square-root result is the case 
+\begin_inset Formula $\rho=1/2$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+ A sharp bound solves the relaxed state-good problem. Portfolio cones, borrowing limits, or incomplete markets still require feasibility checks. If the equality case violates them, return to KKT with the violated restriction active. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 12
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+10 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ SCALE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Homogeneity, Euler, and multiplier shortcuts
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Dot the KKT system with the allocation
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $Ax\le b$
+\end_inset
+
+ and 
+\begin_inset Formula $x\ge0$
+\end_inset
+
+, complementarity implies 
+\begin_inset Formula \[
+x^{\top}\nabla f(x)
+=x^{\top}A^{\top}\lambda
+=\lambda^{\top}Ax
+=\lambda^{\top}b.
+\]
+\end_inset
+
+Hence the compact KKT system contains the useful identity 
+\begin_inset Formula \begin{equation}
+\boxed{x^{\top}\nabla f(x)=\lambda^{\top}b.}
+\label{eq:euler-kkt}
+\end{equation}
+\end_inset
+
+If 
+\begin_inset Formula $f$
+\end_inset
+
+ is homogeneous of degree 
+\begin_inset Formula $r$
+\end_inset
+
+, Euler's theorem turns 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:euler-kkt"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ into 
+\begin_inset Formula \[
+\boxed{r f(x^*)=\lambda^{*\top}b.}
+\]
+\end_inset
+
+With one binding budget 
+\begin_inset Formula $p\cdot x\le m$
+\end_inset
+
+, 
+\begin_inset Formula \[
+\boxed{\lambda^*=\frac{rV(m)}{m}.}
+\]
+\end_inset
+
+This agrees with the envelope theorem because scaling income by 
+\begin_inset Formula $t$
+\end_inset
+
+ scales the value by 
+\begin_inset Formula $t^r$
+\end_inset
+
+ whenever the feasible set scales linearly.
+\end_layout
+
+\begin_layout Subsection*
+Cobb–Douglas in two lines
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $U(x)=\prod_i x_i^{a_i}$
+\end_inset
+
+ and 
+\begin_inset Formula $r=\sum_i a_i$
+\end_inset
+
+. Since logarithms preserve the optimizer, maximize 
+\begin_inset Formula $\sum_i a_i\log x_i$
+\end_inset
+
+. Interior conditions give 
+\begin_inset Formula \[
+\frac{a_i}{x_i}=\widetilde\lambda p_i.
+\]
+\end_inset
+
+Multiplying by 
+\begin_inset Formula $x_i$
+\end_inset
+
+ and summing yields 
+\begin_inset Formula \[
+r=\widetilde\lambda m,
+\qquad
+\boxed{x_i^*=\frac{a_i}{r}\frac{m}{p_i}.}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+MONOTONE TRANSFORMATIONS CHANGE MULTIPLIERS
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ If the objective is replaced by 
+\begin_inset Formula $\phi(f)$
+\end_inset
+
+ with 
+\begin_inset Formula $\phi'>0$
+\end_inset
+
+, the optimizer is unchanged but the multipliers are not. Under the same constraint normalization, 
+\begin_inset Formula \[
+\widetilde\lambda=\phi'(f(x^*))\lambda.
+\]
+\end_inset
+
+For 
+\begin_inset Formula $\phi(f)=\log f$
+\end_inset
+
+, the original wealth multiplier is 
+\begin_inset Formula $\lambda=f(x^*)\widetilde\lambda$
+\end_inset
+
+. Map back before reporting an envelope effect. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE QUASILINEAR NUMERAIRE TRICK
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For 
+\begin_inset Formula \[
+\max_{c,x\ge0}\{c+v(x):c+p\cdot x\le m\},
+\]
+\end_inset
+
+if 
+\begin_inset Formula $c^*>0$
+\end_inset
+
+, its stationarity condition pins down 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+. Hence 
+\begin_inset Formula \[
+v_i(x^*)\le p_i,
+\qquad
+x_i^*[v_i(x^*)-p_i]=0.
+\]
+\end_inset
+
+Used activities equate marginal benefit to price. If instead 
+\begin_inset Formula $c^*=0$
+\end_inset
+
+, the shortcut fails and 
+\begin_inset Formula $\lambda\ge1$
+\end_inset
+
+; the wealth boundary must remain explicit. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 13
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+11 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ DUALIZE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Many goods, one shadow price
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The water-filling reduction
+\end_layout
+
+\begin_layout Standard
+For a separable resource-allocation problem 
+\begin_inset Formula \[
+\max_{x\ge0}\sum_{i=1}^n u_i(x_i)
+\quad\text{subject to}\quad
+\sum_{i=1}^n p_ix_i\le m,
+\]
+\end_inset
+
+fix a tentative shadow price 
+\begin_inset Formula $\lambda$
+\end_inset
+
+. Each choice can then be solved independently: 
+\begin_inset Formula \[
+x_i(\lambda)
+\in\arg\max_{x_i\ge0}
+\{u_i(x_i)-\lambda p_ix_i\}.
+\]
+\end_inset
+
+For differentiable, strictly concave 
+\begin_inset Formula $u_i$
+\end_inset
+
+, 
+\begin_inset Formula \[
+x_i(\lambda)=
+\begin{cases}
+0,&u_i'(0+)\le\lambda p_i,\\[2pt]
+(u_i')^{-1}(\lambda p_i),&u_i'(0+)>\lambda p_i.
+\end{cases}
+\]
+\end_inset
+
+Now solve only the scalar resource-clearing equation 
+\begin_inset Formula \[
+\boxed{\sum_i p_ix_i(\lambda)=m.}
+\]
+\end_inset
+
+The left side is nonincreasing in 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and strictly decreasing on the relevant interior segments, so bisection is reliable when a closed form is unavailable. Corners are selected automatically.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{resultbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+QUADRATIC BENEFITS WITH CAPS
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula \[
+u_i(x_i)=a_ix_i-\frac12b_ix_i^2,
+\qquad b_i>0,
+\qquad 0\le x_i\le\bar x_i,
+\]
+\end_inset
+
+then 
+\begin_inset Formula \[
+\boxed{x_i(\lambda)=
+\min\!\left\{\bar x_i,
+\max\!\left\{0,\frac{a_i-\lambda p_i}{b_i}\right\}\right\}.}
+\]
+\end_inset
+
+An activity enters when 
+\begin_inset Formula $\lambda<a_i/p_i$
+\end_inset
+
+ and hits its cap when the unclipped formula exceeds 
+\begin_inset Formula $\bar x_i$
+\end_inset
+
+. The regime map is encoded in these thresholds. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{resultbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+WHY THE ONE-DIMENSIONAL METHOD WORKS
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ The dual problem is 
+\begin_inset Formula \[
+\min_{\lambda\ge0}
+\left\{\lambda m+
+\sum_i\sup_{x_i\ge0}
+[u_i(x_i)-\lambda p_ix_i]\right\}.
+\]
+\end_inset
+
+For every feasible allocation and every 
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+, the expression in braces is an upper bound on attainable utility. Matching it with the value of a feasible allocation gives a zero-gap proof of global optimality. Separable primal choices become independent at a fixed price; the minimizing shadow price makes aggregate resource use consistent. KKT links the two views. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 14
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+12 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ PROJECT
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Quadratic KKT is geometry plus linear algebra
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Complete the square before differentiating
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $Q$
+\end_inset
+
+ positive definite, 
+\begin_inset Formula \[
+f(x)=c+a^{\top}x-\frac12x^{\top}Qx
+=C-\frac12(x-\bar x)^{\top}Q(x-\bar x),
+\qquad
+\bar x=Q^{-1}a.
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula $\bar x$
+\end_inset
+
+ is the unconstrained bliss point, and over a closed convex feasible set the constrained optimizer is its projection in the metric generated by 
+\begin_inset Formula $Q$
+\end_inset
+
+. Active constraints are the faces hit by that projection.
+\end_layout
+
+\begin_layout Standard
+For the reduced quantity-quality objective, put 
+\begin_inset Formula \[
+a=6-p,
+\qquad b=4-k.
+\]
+\end_inset
+
+Then 
+\begin_inset Formula \[
+W(n,H)
+=y+\frac12a^2+\frac14b^2
+-\frac12\left[(n-a)^2+2\left(H-\frac b2\right)^2\right].
+\]
+\end_inset
+
+The bliss point is therefore 
+\begin_inset Formula \[
+\boxed{(n_0,H_0)=\left(6-p,\frac{4-k}{2}\right).}
+\]
+\end_inset
+
+The three demographic snapshots are different weighted projections of this point onto the subsistence set and quality cone.
+\end_layout
+
+\begin_layout Subsection*
+Once a face is guessed, solve one linear system
+\end_layout
+
+\begin_layout Standard
+Let the proposed active constraints be 
+\begin_inset Formula $Bx=d$
+\end_inset
+
+. Stationarity and feasibility are 
+\begin_inset Formula \[
+Qx+B^{\top}\lambda=a,
+\qquad Bx=d,
+\]
+\end_inset
+
+or 
+\begin_inset Formula \begin{equation}
+\boxed{
+\begin{pmatrix}Q&B^{\top}\\ B&0\end{pmatrix}
+\begin{pmatrix}x\\ \lambda\end{pmatrix}
+=
+\begin{pmatrix}a\\ d\end{pmatrix}.}
+\label{eq:kkt-matrix}
+\end{equation}
+\end_inset
+
+If 
+\begin_inset Formula $BQ^{-1}B^{\top}$
+\end_inset
+
+ is invertible, the Schur complement gives 
+\begin_inset Formula \[
+\lambda=(BQ^{-1}B^{\top})^{-1}(BQ^{-1}a-d).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{checkbox}
+\end_layout
+
+\end_inset
+
+ Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kkt-matrix"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ produces a candidate, not an automatic answer. Check 
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+, every inactive slack, all omitted-choice residuals, and possible dependence among active constraints. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{checkbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 15
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+13 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ MAP
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Ratios, rays, and exact regime boundaries
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Turn a cone into a one-dimensional problem
+\end_layout
+
+\begin_layout Standard
+In the quantity-quality model, when 
+\begin_inset Formula $n>0$
+\end_inset
+
+ define 
+\begin_inset Formula \[
+q=\frac{H}{n}\in[s,4].
+\]
+\end_inset
+
+Using 
+\begin_inset Formula $a=6-p$
+\end_inset
+
+ and 
+\begin_inset Formula $b=4-k$
+\end_inset
+
+, the gain relative to the apex becomes 
+\begin_inset Formula \[
+W(n,qn)-W(0,0)
+=(a+bq)n-\left(\frac12+q^2\right)n^2.
+\]
+\end_inset
+
+Conditional on the ray 
+\begin_inset Formula $q$
+\end_inset
+
+, the unconstrained choice is 
+\begin_inset Formula \begin{equation}
+\boxed{n_0(q)=\frac{[a+bq]_+}{1+2q^2}.}
+\label{eq:ray-choice}
+\end{equation}
+\end_inset
+
+The subsistence constraint truncates this at 
+\begin_inset Formula $n_{\max}(q)$
+\end_inset
+
+. For 
+\begin_inset Formula $q>0$
+\end_inset
+
+, 
+\begin_inset Formula \[
+n_{\max}(q)=
+\frac{-(p+kq)+
+\sqrt{(p+kq)^2+2q^2(y-1)}}{q^2},
+\]
+\end_inset
+
+while 
+\begin_inset Formula $n_{\max}(0)=(y-1)/p$
+\end_inset
+
+. Hence a two-choice nonlinear problem reduces to a bounded search over 
+\begin_inset Formula $q\in[s,4]$
+\end_inset
+
+, with 
+\begin_inset Formula \[
+n^*(q)=\min\{n_0(q),n_{\max}(q)\}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{resultbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+AN EXACT ZERO-CHOICE TEST
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ If small positive choices are resource-feasible, the apex is optimal exactly when 
+\begin_inset Formula \[
+\boxed{\max_{q\in[s,4]}(a+bq)\le0.}
+\]
+\end_inset
+
+Because the expression is linear in 
+\begin_inset Formula $q$
+\end_inset
+
+, this becomes 
+\begin_inset Formula \[
+a+bs\le0\quad(b<0),
+\qquad
+a+4b\le0\quad(b\ge0).
+\]
+\end_inset
+
+This is a global corner test obtained from feasible directions, not from solving for multipliers. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{resultbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+BUILD A PARAMETER-REGIME MAP
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Solve a candidate active set symbolically. Convert each feasibility, multiplier, and reduced-cost check into a parameter inequality. Their intersection is the candidate's regime. A boundary occurs when one audit inequality becomes an equality; cross it by changing that one status and resolving. This avoids blind enumeration of all 
+\begin_inset Formula $2^{n+m}$
+\end_inset
+
+ active sets. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 16
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLE 1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Expected-utility portfolio choice
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+From a heuristic FOC to a corner-safe method
+\end_layout
+
+\begin_layout Standard
+A consumer has wealth 
+\begin_inset Formula $w=24$
+\end_inset
+
+. She invests 
+\begin_inset Formula $\alpha\ge0$
+\end_inset
+
+ dollars in a risky asset and 
+\begin_inset Formula $\beta\ge0$
+\end_inset
+
+ dollars in a safe asset: 
+\begin_inset Formula \[
+\alpha+\beta\le24.
+\]
+\end_inset
+
+The safe gross return is 
+\begin_inset Formula $1$
+\end_inset
+
+. The risky gross return is 
+\begin_inset Formula $1/2$
+\end_inset
+
+ in state 
+\begin_inset Formula $L$
+\end_inset
+
+ and 
+\begin_inset Formula $7/4$
+\end_inset
+
+ in state 
+\begin_inset Formula $H$
+\end_inset
+
+, each with probability 
+\begin_inset Formula $1/2$
+\end_inset
+
+. Bernoulli utility is 
+\begin_inset Formula $u(c)=\sqrt c$
+\end_inset
+
+. State consumption is 
+\begin_inset Formula \[
+c_L=\frac{\alpha}{2}+\beta,
+\;
+c_H=\frac{7\alpha}{4}+\beta,
+\]
+\end_inset
+
+so expected utility is 
+\begin_inset Formula \[
+F(\alpha,\beta)
+=\frac12\sqrt{c_L}+\frac12\sqrt{c_H}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Step 1: write the marginal utilities
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \[
+F_{\alpha}
+=\frac{1}{8\sqrt{c_L}}+\frac{7}{16\sqrt{c_H}},
+\;
+F_{\beta}
+=\frac{1}{4\sqrt{c_L}}+\frac{1}{4\sqrt{c_H}}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Step 2: write compact KKT
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+ be the wealth multiplier. Then 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+PORTFOLIO KKT SYSTEM
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+\begin{aligned}
+0&\le\alpha\ \perp\ \lambda-F_{\alpha}\ge0,\\
+0&\le\beta\ \perp\ \lambda-F_{\beta}\ge0,\\
+0&\le\lambda\ \perp\ 24-\alpha-\beta\ge0.
+\end{aligned}
+\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The budget binds because adding one dollar to the safe asset raises consumption in both states. Hence 
+\begin_inset Formula $\alpha+\beta=24$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+ at the solution.
+\end_layout
+
+\begin_layout Subsection*
+Step 3: make an active-set guess
+\end_layout
+
+\begin_layout Standard
+Guess that both assets are held: 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta>0$
+\end_inset
+
+. Complementarity then gives 
+\begin_inset Formula \[
+F_{\alpha}=F_{\beta}=\lambda,
+\; \alpha+\beta=24.
+\]
+\end_inset
+
+The guess will not be accepted until every sign is checked.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 10
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLE 1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Solve, audit, and interpret
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Step 4: solve only the implied equalities
+\end_layout
+
+\begin_layout Standard
+Subtract the two asset conditions: 
+\begin_inset Formula \[
+F_{\alpha}-F_{\beta}
+=-\frac{1}{8\sqrt{c_L}}+\frac{3}{16\sqrt{c_H}}=0.
+\]
+\end_inset
+
+Equivalently, 
+\begin_inset Formula \[
+3\sqrt{c_L}=2\sqrt{c_H}.
+\]
+\end_inset
+
+Since the budget binds, 
+\begin_inset Formula $\beta=24-\alpha$
+\end_inset
+
+ and therefore 
+\begin_inset Formula \[
+c_L=24-\frac{\alpha}{2},
+\;
+c_H=24+\frac{3\alpha}{4}.
+\]
+\end_inset
+
+Both square roots are nonnegative, so squaring is safe: 
+\begin_inset Formula \[
+9\left(24-\frac{\alpha}{2}\right)
+=4\left(24+\frac{3\alpha}{4}\right).
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula $\alpha^*=16$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta^*=8$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{resultbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+PORTFOLIO SOLUTION
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+(\alpha^*,\beta^*)=(16,8),
+\;
+(c_L^*,c_H^*)=(16,36),
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+F^*=\frac12\sqrt{16}+\frac12\sqrt{36}=5,
+\;
+\lambda^*=\frac{5}{48}.
+\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{resultbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Step 5: audit the candidate
+\end_layout
+
+\begin_layout Standard
+At 
+\begin_inset Formula $(c_L,c_H)=(16,36)$
+\end_inset
+
+, 
+\begin_inset Formula \[
+F_{\alpha}=\frac1{32}+\frac7{96}=\frac5{48},
+\;
+F_{\beta}=\frac1{16}+\frac1{24}=\frac5{48}.
+\]
+\end_inset
+
+Both asset holdings and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are positive, the budget slack is zero, and both stationarity residuals are zero. All complementary products vanish. The payoff vectors are linearly independent, so strict concavity of square-root utility makes 
+\begin_inset Formula $F$
+\end_inset
+
+ strictly concave in 
+\begin_inset Formula $(\alpha,\beta)$
+\end_inset
+
+ on the relevant domain. The verified KKT point is therefore the unique global maximizer.
+\end_layout
+
+\begin_layout Subsection*
+Step 6: read the economics
+\end_layout
+
+\begin_layout Standard
+Because a one-dollar shift from the safe asset to the risky asset changes the state payoff by 
+\begin_inset Formula $\widetilde R-1$
+\end_inset
+
+, 
+\begin_inset Formula \[
+F_{\alpha}-F_{\beta}
+=\E\!\left[u'(c)(\widetilde R-1)\right].
+\]
+\end_inset
+
+Thus the familiar expected-marginal-utility rule is exactly the interior KKT condition. The envelope theorem gives 
+\begin_inset Formula $V'(24)=\lambda^*=5/48$
+\end_inset
+
+: one more dollar of initial wealth raises maximal expected utility by approximately 
+\begin_inset Formula $0.1042$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 11
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLE 1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Corners and a reusable generalization
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Why KKT is safer than an interior heuristic
+\end_layout
+
+\begin_layout Standard
+Suppose instead that the consumer is risk neutral, 
+\begin_inset Formula $u(c)=c$
+\end_inset
+
+. The risky asset's expected gross return is 
+\begin_inset Formula \[
+\E[\widetilde R]
+=\frac12\left(\frac12+\frac74\right)=\frac98>1.
+\]
+\end_inset
+
+The optimum is the corner 
+\begin_inset Formula $(\alpha^*,\beta^*)=(24,0)$
+\end_inset
+
+. Take 
+\begin_inset Formula $\lambda^*=9/8$
+\end_inset
+
+. Then 
+\begin_inset Formula \[
+\lambda^*-F_{\alpha}=0,
+\;
+\lambda^*-F_{\beta}=\frac18>0.
+\]
+\end_inset
+
+The second inequality is the correct condition at the zero safe holding. Forcing equality would incorrectly rule out the optimum.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE ECONOMIC CONTENT OF THE CORNER
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ At 
+\begin_inset Formula $\beta=0$
+\end_inset
+
+, moving one dollar from the risky asset to the safe asset lowers expected consumption by 
+\begin_inset Formula $1/8$
+\end_inset
+
+. The unused asset has marginal value below the shadow value of wealth. KKT records this as an inequality. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+The same square-root problem at general wealth
+\end_layout
+
+\begin_layout Standard
+For any 
+\begin_inset Formula $w>0$
+\end_inset
+
+, the interior calculation gives 
+\begin_inset Formula \[
+\alpha^*(w)=\frac{2w}{3},
+\;
+\beta^*(w)=\frac{w}{3},
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+c_L^*(w)=\frac{2w}{3},
+\;
+c_H^*(w)=\frac{3w}{2}.
+\]
+\end_inset
+
+The indirect value and multiplier are 
+\begin_inset Formula \[
+V(w)=\frac{5\sqrt w}{2\sqrt6},
+\;
+V'(w)=\lambda^*(w)=\frac{5}{4\sqrt6\sqrt w}.
+\]
+\end_inset
+
+At 
+\begin_inset Formula $w=24$
+\end_inset
+
+, these formulas reproduce the solution on page 10.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{checkbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+PORTFOLIO TEMPLATE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For assets with payoff vectors 
+\begin_inset Formula $r_i$
+\end_inset
+
+ and holdings 
+\begin_inset Formula $x_i\ge0$
+\end_inset
+
+, an interior holding satisfies 
+\begin_inset Formula \[
+\E\!\left[u'(c)r_i\right]=\lambda.
+\]
+\end_inset
+
+An excluded asset satisfies 
+\begin_inset Formula $\E[u'(c)r_i]\le\lambda$
+\end_inset
+
+. When one asset is the numeraire payoff, subtracting its equality gives the familiar excess-return condition. KKT adds the correct inequality at a corner. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{checkbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 12
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLE 2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+A Galor-inspired quantity-quality model
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+A static laboratory for three regimes
+\end_layout
+
+\begin_layout Standard
+A household chooses parental consumption 
+\begin_inset Formula $c$
+\end_inset
+
+, a divisible fertility index 
+\begin_inset Formula $n\ge0$
+\end_inset
+
+, and total human-capital investment 
+\begin_inset Formula $H$
+\end_inset
+
+. If 
+\begin_inset Formula $n>0$
+\end_inset
+
+, define quality per child by 
+\begin_inset Formula $q=H/n$
+\end_inset
+
+. Preferences are 
+\begin_inset Formula \[
+U(c,n,H)=c+6n-\frac12n^2+4H-\frac12H^2.
+\]
+\end_inset
+
+The constraints are 
+\begin_inset Formula \[
+c+pn+kH+\frac12H^2\le y,
+\; c\ge1,
+\; sn\le H\le4n.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="7" columns="2">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="96text%">
+<column alignment="none" valignment="top" width="10text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Symbol 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Meaning
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $y$
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+household income
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $p$
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+direct resource cost of fertility
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $k$
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+linear price of total human-capital investment
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $s$
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+minimum feasible quality per child
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $c\ge1$
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+subsistence consumption requirement
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $sn\le H\le4n$
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+quality cone: 
+\begin_inset Formula $s\le q\le4$
+\end_inset
+
+ whenever 
+\begin_inset Formula $n>0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The cone forces 
+\begin_inset Formula $H=0$
+\end_inset
+
+ when 
+\begin_inset Formula $n=0$
+\end_inset
+
+, so 
+\begin_inset Formula $q$
+\end_inset
+
+ is undefined at zero fertility. It also implies 
+\begin_inset Formula $H\ge0$
+\end_inset
+
+ whenever 
+\begin_inset Formula $s\ge0$
+\end_inset
+
+; no separate 
+\begin_inset Formula $H\ge0$
+\end_inset
+
+ multiplier is needed.
+\end_layout
+
+\begin_layout Standard
+Because utility is increasing in 
+\begin_inset Formula $c$
+\end_inset
+
+, the budget binds. Substitute 
+\begin_inset Formula \[
+c=y-pn-kH-\frac12H^2
+\]
+\end_inset
+
+to obtain the reduced objective 
+\begin_inset Formula \[
+W(n,H)=y+(6-p)n-\frac12n^2+(4-k)H-H^2.
+\]
+\end_inset
+
+The reduced slacks are 
+\begin_inset Formula \[
+R(n,H):=y-1-pn-kH-\frac12H^2,
+\; H-sn,
+\; 4n-H.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+WHAT IS AND IS NOT ATTRIBUTED TO GALOR
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ The quantity-quality tradeoff and regime interpretation are inspired by unified growth theory. The quadratic preferences, convex education cost, quality cone, and exact zero-fertility corner are pedagogical extensions designed to isolate KKT logic; they are not claims about the exact specification in Galor's model. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 13
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLE 2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Reduce once, then reuse the KKT system
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\eta,a,b\ge0$
+\end_inset
+
+ be the multipliers on 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\begin_inset Formula $H-sn$
+\end_inset
+
+, and 
+\begin_inset Formula $4n-H$
+\end_inset
+
+. Treat 
+\begin_inset Formula $n$
+\end_inset
+
+ as nonnegative. Treat 
+\begin_inset Formula $H$
+\end_inset
+
+ as sign-free because its nonnegativity is already implied by the cone. Define 
+\begin_inset Formula \[
+D_n=(6-p)-n-\eta p-sa+4b,
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+D_H=(4-k)-2H-\eta(k+H)+a-b.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+REDUCED QUANTITY-QUALITY KKT SYSTEM
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+\begin{aligned}
+0&\le n\ \perp\ -D_n\ge0,
+&D_H&=0,\\
+0&\le\eta\ \perp\ R(n,H)\ge0,\\
+0&\le a\ \perp\ H-sn\ge0,\\
+0&\le b\ \perp\ 4n-H\ge0.
+\end{aligned}
+\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The reduced objective is strictly concave. The subsistence slack 
+\begin_inset Formula $R$
+\end_inset
+
+ is concave, so its superlevel set is convex; the cone is affine. Under Slater's condition, KKT is necessary, and any verified KKT point is sufficient. Strict concavity gives a unique primal allocation, though multipliers may be nonunique.
+\end_layout
+
+\begin_layout Subsection*
+Mapping back to the original budget multiplier
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ be the multiplier on the original budget and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ the multiplier on 
+\begin_inset Formula $c-1\ge0$
+\end_inset
+
+. The original 
+\begin_inset Formula $c$
+\end_inset
+
+ stationarity condition is 
+\begin_inset Formula \[
+1-\lambda+\mu=0.
+\]
+\end_inset
+
+After substitution, 
+\begin_inset Formula $\eta=\mu$
+\end_inset
+
+, so 
+\begin_inset Formula \begin{equation}
+\boxed{\lambda=1+\eta.}
+\label{eq:lambda-map}
+\end{equation}
+\end_inset
+
+The envelope theorem gives 
+\begin_inset Formula $V_y=\lambda$
+\end_inset
+
+. Thus 
+\begin_inset Formula $\eta$
+\end_inset
+
+ is the extra marginal value generated when the subsistence floor binds; it is not itself the original budget multiplier.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+ Substitution simplifies algebra, but it can hide multipliers. Always record how the reduced and original systems correspond. Here forgetting the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $1+$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lambda-map"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ would understate the marginal value of income. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 14
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLE 2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Regimes I and II
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Regime I: very-low-income, quantity-dominant
+\end_layout
+
+\begin_layout Standard
+Set 
+\begin_inset Formula $(y,p,k,s)=(5,1,5,0)$
+\end_inset
+
+. Guess 
+\begin_inset Formula $n>0$
+\end_inset
+
+, 
+\begin_inset Formula $R=0$
+\end_inset
+
+, 
+\begin_inset Formula $H=0$
+\end_inset
+
+, and the upper quality constraint slack. The active-set equalities are 
+\begin_inset Formula \[
+D_n=5-n-\eta=0,
+\;
+D_H=-1-5\eta+a=0,
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+R=4-n-5H-\frac12H^2=0,
+\; b=0.
+\]
+\end_inset
+
+They give 
+\begin_inset Formula \[
+(c^*,n^*,H^*,q^*)=(1,4,0,0),
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+(\eta^*,a^*,b^*)=(1,6,0),
+\; \lambda^*=1+\eta^*=2.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{checkbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+REGIME I AUDIT
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ The budget, subsistence floor, and lower cone facet bind. The upper-cone slack is 
+\begin_inset Formula $4n-H=16>0$
+\end_inset
+
+, so 
+\begin_inset Formula $b=0$
+\end_inset
+
+ is correct. The positive fertility choice has 
+\begin_inset Formula $D_n=0$
+\end_inset
+
+, and 
+\begin_inset Formula $D_H=0$
+\end_inset
+
+. Every multiplier is nonnegative. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{checkbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The household has only 
+\begin_inset Formula $4$
+\end_inset
+
+ units above subsistence. With high education cost 
+\begin_inset Formula $k=5$
+\end_inset
+
+ and no minimum-quality requirement, all of that margin goes to fertility. The income multiplier 
+\begin_inset Formula $2$
+\end_inset
+
+ exceeds the direct marginal utility of consumption because extra income also relaxes the binding subsistence restriction in the reduced problem.
+\end_layout
+
+\begin_layout Subsection*
+Regime II: modern quantity-quality balance
+\end_layout
+
+\begin_layout Standard
+Set 
+\begin_inset Formula $(y,p,k,s)=(20,4,2,0)$
+\end_inset
+
+. Guess 
+\begin_inset Formula $n,H>0$
+\end_inset
+
+ and all reduced constraints slack, so 
+\begin_inset Formula $\eta=a=b=0$
+\end_inset
+
+. Then 
+\begin_inset Formula \[
+D_n=2-n=0,
+\;
+D_H=2-2H=0.
+\]
+\end_inset
+
+Hence 
+\begin_inset Formula \[
+(c^*,n^*,H^*,q^*)
+=\left(\frac{19}{2},2,1,\frac12\right),
+\;
+(\eta^*,a^*,b^*)=(0,0,0),
+\;
+\lambda^*=1.
+\]
+\end_inset
+
+The unused-income-above-subsistence slack is 
+\begin_inset Formula $R=17/2$
+\end_inset
+
+, and the two cone slacks are 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $7$
+\end_inset
+
+. The active-set guess passes every check.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 15
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLE 2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Regime III and the exact-zero corner
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Regime III: high quality cost with a minimum standard
+\end_layout
+
+\begin_layout Standard
+Set 
+\begin_inset Formula $(y,p,k,s)=(20,4,6,2)$
+\end_inset
+
+. At 
+\begin_inset Formula $n=H=0$
+\end_inset
+
+, the reduced subsistence slack is 
+\begin_inset Formula $R=19$
+\end_inset
+
+, so 
+\begin_inset Formula $\eta=0$
+\end_inset
+
+. Both cone facets bind at the apex. One valid multiplier choice is 
+\begin_inset Formula \[
+b=0,
+\;
+D_H=-2+a=0
+\;\Longrightarrow\; a=2.
+\]
+\end_inset
+
+For fertility, 
+\begin_inset Formula \[
+-D_n=-[2-2a]=2>0.
+\]
+\end_inset
+
+This strict residual certifies the zero choice 
+\begin_inset Formula $n=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{resultbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+EXACT-ZERO SOLUTION
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+(c^*,n^*,H^*)=(20,0,0),
+\; q^*\text{ is undefined},
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+(\eta^*,a^*,b^*)=(0,2,0),
+\; \lambda^*=1.
+\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{resultbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The global comparison is especially transparent. Since 
+\begin_inset Formula $H\ge2n$
+\end_inset
+
+, 
+\begin_inset Formula \[
+\begin{aligned}
+W(n,H)-W(0,0)
+&=2n-\frac12n^2-2H-H^2\\
+&\le -2n-\frac92n^2<0
+\;\text{for every }n>0.
+\end{aligned}
+\]
+\end_inset
+
+Thus no positive-fertility allocation can beat the apex.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+DEGENERACY IS INFORMATION, NOT AN ERROR
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ The primal allocation is unique, but the cone multipliers are not. In fact, 
+\begin_inset Formula \[
+b\in[0,1],
+\; a=b+2
+\]
+\end_inset
+
+works, together with a nonnegativity multiplier on 
+\begin_inset Formula $n$
+\end_inset
+
+ equal to 
+\begin_inset Formula $2-2b$
+\end_inset
+
+ in the full system. At 
+\begin_inset Formula $b=0$
+\end_inset
+
+, the upper cone facet is binding but has zero multiplier. This is the promised example showing that binding does not imply a positive multiplier. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+What changes across the three snapshots?
+\end_layout
+
+\begin_layout Standard
+These regimes vary income and relative costs jointly; they are not a claim that income alone determines fertility. The exercise shows how KKT distinguishes an interior balance, a binding subsistence regime, and a genuine zero-choice corner.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 23
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+MASTERY
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+From correct calculations to reliable judgment
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The three-pass protocol
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="4" columns="2">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="98text%">
+<column alignment="none" valignment="top" width="18text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Pass
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Questions to answer
+\series default
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+1. Economize
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+What is monotone? What must bind? What can be ruled out by dominance, units, symmetry, or an Inada condition? Is there a better coordinate system, a useful ratio, a sharp bound, or a bliss point?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+2. Solve
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+What are the primal–dual pairs? Which choices are positive? Which constraints bind? What equalities does that active set imply?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+3. Certify
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Does the candidate pass PDCS–GE below? Where is the active set valid in parameter space, and what do the multipliers mean?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+PDCS–GE: THE NONNEGOTIABLE FINAL AUDIT
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="none" valignment="top" width="8text%">
+<column alignment="none" valignment="top" varwidth="true">
+<column alignment="none" valignment="top" width="8text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+P
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+primal feasibility 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+D
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+dual feasibility
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+C
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+complementary products 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+S
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+stationarity and zero-choice residuals
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+G
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+global theorem 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+E
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+economics, units, and envelope effects 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+The global certificate students should be able to reproduce
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $y$
+\end_inset
+
+ be any feasible allocation. For concave differentiable 
+\begin_inset Formula $f$
+\end_inset
+
+, KKT gives 
+\begin_inset Formula $\nabla f(x^*)=A^{\top}\lambda-r$
+\end_inset
+
+, with 
+\begin_inset Formula $r\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $x^*\perp r$
+\end_inset
+
+, and 
+\begin_inset Formula $\lambda\perp b-Ax^*$
+\end_inset
+
+. Therefore 
+\begin_inset Formula \[
+\begin{aligned}
+f(y)-f(x^*)
+&\le \nabla f(x^*)^{\top}(y-x^*)\\
+&=\lambda^{\top}(Ay-b)-r^{\top}y\le0.
+\end{aligned}
+\]
+\end_inset
+
+This is why the certificate proves global optimality: feasibility makes both remaining terms nonpositive.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{checkbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE FIVE-MINUTE KKT GYM
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Rotate one drill at the start of class: 
+\end_layout
+
+\begin_layout Itemize
+translate prose into nonnegative slacks and name every unit; 
+\end_layout
+
+\begin_layout Itemize
+predict the active set before calculating; 
+\end_layout
+
+\begin_layout Itemize
+diagnose the first incorrect line in a polished but false solution; 
+\end_layout
+
+\begin_layout Itemize
+reverse KKT: infer parameter restrictions from a proposed certificate; 
+\end_layout
+
+\begin_layout Itemize
+solve one problem by substitution or geometry, then certify it by KKT; 
+\end_layout
+
+\begin_layout Itemize
+cross a parameter threshold and identify the single status that changes; 
+\end_layout
+
+\begin_layout Itemize
+obtain a comparative static from a multiplier without re-solving; 
+\end_layout
+
+\begin_layout Itemize
+defend a zero-choice inequality orally in sixty seconds. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{checkbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+CORE-EXAM STANDARD
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Mastery means solving and auditing a two-choice, two-constraint concave problem in about fifteen minutes, deriving its parameter regimes, and explaining every multiplier without relying on memorized sign rules. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 24
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+thispagestyle{fancy}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+TEAR-OUT SHEET
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Economic KKT at a glance
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Flex Multiple Columns
+status collapsed
+
+\begin_layout Standard
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+2
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+raggedcolumns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+CANONICAL MAXIMIZATION
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+\max_{x\ge0} f(x)
+\;\text{s.t.}\;
+s(x)\ge0,
+\; h(x)=0.
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+D=\nabla f+J_s^{\top}\lambda+J_h^{\top}\nu.
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+\begin{aligned}
+0&\le x\ \perp\ -D\ge0,\\
+0&\le\lambda\ \perp\ s(x)\ge0,\\
+h(x)&=0.
+\end{aligned}
+\]
+\end_inset
+
+
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+; equality multiplier 
+\begin_inset Formula $\nu$
+\end_inset
+
+ is free. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+LINEAR RESOURCES
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For 
+\begin_inset Formula $Ax\le b$
+\end_inset
+
+, 
+\begin_inset Formula \[
+0\le x\ \perp\ A^{\top}\lambda-\nabla f\ge0,
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+0\le\lambda\ \perp\ b-Ax\ge0.
+\]
+\end_inset
+
+Positive choice: equality. Zero choice: inequality. Positive multiplier: binding. Binding: multiplier may be zero. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{checkbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ACTIVE-SET AUDIT
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=
+\color KKTteal
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+arabic*
+\end_layout
+
+\end_inset
+
+.
+\color inherit
+
+\end_layout
+
+\end_inset
+
+Normalize each inequality as slack 
+\begin_inset Formula $\ge0$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Enumerate
+Guess positive choices and binding constraints. 
+\end_layout
+
+\begin_layout Enumerate
+Solve the implied equalities. 
+\end_layout
+
+\begin_layout Enumerate
+Check original feasibility. 
+\end_layout
+
+\begin_layout Enumerate
+Check multiplier signs. 
+\end_layout
+
+\begin_layout Enumerate
+Check residuals at zero choices. 
+\end_layout
+
+\begin_layout Enumerate
+Check slack constraints have zero multipliers. 
+\end_layout
+
+\begin_layout Enumerate
+Check every complementary product. 
+\end_layout
+
+\begin_layout Enumerate
+Invoke the correct global theorem. 
+\end_layout
+
+\begin_layout Enumerate
+Interpret units and envelope effects. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{checkbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+columnbreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+TEN COMMON ERRORS
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=
+\color KKTred
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+arabic*
+\end_layout
+
+\end_inset
+
+.
+\color inherit
+
+\end_layout
+
+\end_inset
+
+Mixing 
+\begin_inset Formula $s\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $g\le0$
+\end_inset
+
+ conventions. 
+\end_layout
+
+\begin_layout Enumerate
+Imposing equality at a zero choice. 
+\end_layout
+
+\begin_layout Enumerate
+Claiming binding implies a positive multiplier. 
+\end_layout
+
+\begin_layout Enumerate
+Dividing by a choice before proving it is positive. 
+\end_layout
+
+\begin_layout Enumerate
+Defining 
+\begin_inset Formula $H/n$
+\end_inset
+
+ when 
+\begin_inset Formula $n=0$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Enumerate
+Squaring without checking signs or extraneous roots. 
+\end_layout
+
+\begin_layout Enumerate
+Claiming every KKT point is global without concavity. 
+\end_layout
+
+\begin_layout Enumerate
+Treating Slater as an existence theorem. 
+\end_layout
+
+\begin_layout Enumerate
+Inferring unique multipliers from strict concavity. 
+\end_layout
+
+\begin_layout Enumerate
+Using the envelope theorem before verifying the solution. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ENVELOPE FORMULA
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ At a differentiability point, 
+\begin_inset Formula \[
+V_{\theta}=f_{\theta}+\lambda^{\top}s_{\theta}
++\nu^{\top}h_{\theta}.
+\]
+\end_inset
+
+For 
+\begin_inset Formula $Ax\le b$
+\end_inset
+
+, 
+\begin_inset Formula $V_{b_j}=\lambda_j$
+\end_inset
+
+. For a consumer budget, 
+\begin_inset Formula $v_m=\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{p_i}=-\lambda x_i$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\family sans
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTnavy}
+\end_layout
+
+\end_inset
+
+ Further reading
+\family default
+
+\series default
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+Boyd and Vandenberghe, 
+\emph on
+Convex Optimization
+\emph default
+, chapters 5 and 10 (
+\begin_inset CommandInset href
+LatexCommand href
+name "official materials"
+target "https://web.stanford.edu/~boyd/cvxbook/"
+literal "false"
+
+\end_inset
+
+). Ferris and Pang (1997), 
+\begin_inset Quotes eld
+\end_inset
+
+Engineering and Economic Applications of Complementarity Problems
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset CommandInset href
+LatexCommand href
+name "survey"
+target "https://pages.cs.wisc.edu/~ferris/papers/sirev-comp-app.pdf"
+literal "false"
+
+\end_inset
+
+). Rutherford (1995), 
+\begin_inset Quotes eld
+\end_inset
+
+Extension of GAMS for Complementarity Problems Arising in Applied Economic Analysis
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset CommandInset href
+LatexCommand href
+name "DOI"
+target "https://doi.org/10.1016/0165-1889(94)00831-2"
+literal "false"
+
+\end_inset
+
+). Milgrom and Segal (2002), 
+\begin_inset Quotes eld
+\end_inset
+
+Envelope Theorems for Arbitrary Choice Sets
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset CommandInset href
+LatexCommand href
+name "paper"
+target "https://milgrom.people.stanford.edu/wp-content/uploads/2002/03/Envelope-Theorems.pdf"
+literal "false"
+
+\end_inset
+
+). Galor (2005), 
+\begin_inset Quotes eld
+\end_inset
+
+From Stagnation to Growth: Unified Growth Theory
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset CommandInset href
+LatexCommand href
+name "DOI"
+target "https://doi.org/10.1016/S1574-0684(05)01004-X"
+literal "false"
+
+\end_inset
+
+).
+\size default
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 6pt
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTline}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hrule
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{KKTgray}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 4pt
+\end_inset
+
+ 
+\size footnotesize
+
+\family sans
+Prepared for ECON 803, Fall 2026. This booklet uses a single maximization/slack convention throughout. When consulting another source, translate its convention before comparing signs.
+\family default
+
+\size default
+
+\end_layout
+
+\end_body
+\end_document
