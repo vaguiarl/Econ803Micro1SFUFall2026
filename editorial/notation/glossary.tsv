@@ -92,6 +92,8 @@ social-welfare	$\mathcal W$	Aggregation	Scoped	Social welfare function or explic
 latent-utility	$U^*_{ij}$	Discrete choice	Discrete-choice chapter	Latent utility of chooser $i$ from alternative $j$.	Choice from a finite menu	linked
 choice-probability	$P_{ij}$	Discrete choice	Discrete-choice chapter	Probability that chooser $i$ selects alternative $j$ from the stated menu.	Choice from a finite menu	linked
 logit-scale	$\tau$	Discrete choice	Discrete-choice chapter	Strictly positive Type-I extreme-value scale parameter.	Multinomial logit and IIA	linked
+bundle-menu	$B_X(p,w)$	Discrete choice	Bundle-to-discrete-choice bridge	Affordable members of the finite bundle catalogue at prices $p$ and wealth $w$.	Discrete Bundles, a Numeraire, and Cost Efficiency	linked
+bundle-surplus	$\delta_{\widetilde p}(x)$	Discrete choice	Bundle-to-discrete-choice bridge	Quasilinear subutility net of bundle expenditure in units of the outside good, $v(x)-\widetilde p\cdot x$.	The Quasilinear Specialization	linked
 random-utility-space	$(\Omega,\mathcal F,\mathbb P)$	Discrete choice	Random-utility section	Probability space supporting random utility.	Random utility	linked
 random-utility	$\boldsymbol U$	Discrete choice	Random-utility section	Measurable utility vector indexed by alternatives.	Random utility	linked
 stochastic-choice	$P=\{P_B\}_{B\in\mathcal B}$	Discrete choice	Stochastic-choice section	Family of choice-probability distributions, one for each nonempty menu $B$.	Stochastic choice	linked

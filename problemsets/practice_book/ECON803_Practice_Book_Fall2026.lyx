@@ -1943,9 +1943,10 @@ nopagebreak[4]
 \end_layout
 
 \begin_layout Exercise*
-Choice probabilities satisfy \begin_inset Formula $P(j\mid A)=\exp(V_{j}/\tau)/\sum_{k\in A}\exp(V_{k}/\tau)$\end_inset
+Choice probabilities satisfy \begin_inset Formula $P(j\mid A)=\exp(\delta_{j}/\tau)/\sum_{k\in A}\exp(\delta_{k}/\tau)$\end_inset
 , where \begin_inset Formula $\tau>0$\end_inset
-.
+ and \begin_inset Formula $\delta_j$\end_inset
+ is deterministic net surplus.
 \end_layout
 
 \begin_layout Exercise*

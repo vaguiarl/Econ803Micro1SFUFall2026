@@ -301,7 +301,7 @@ Terminal wealth is $W_T=wR_{f}+\theta(\widetilde R-R_{f})$, where $\widetilde R\
 
 ## 6.1 | Core | Logit odds and IIA
 
-Choice probabilities satisfy $P(j\mid A)=\exp(V_{j}/\tau)/\sum_{k\in A}\exp(V_{k}/\tau)$, where $\tau>0$.
+Choice probabilities satisfy $P(j\mid A)=\exp(\delta_{j}/\tau)/\sum_{k\in A}\exp(\delta_{k}/\tau)$, where $\tau>0$ and $\delta_j$ is deterministic net surplus.
 
 (a) Derive the odds ratio $P(j\mid A)/P(k\mid A)$.
 
