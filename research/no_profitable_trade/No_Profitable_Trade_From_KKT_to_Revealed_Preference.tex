@@ -1,0 +1,1065 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\definecolor{NPTnavy}{HTML}{18375F}
+\definecolor{NPTteal}{HTML}{246B4F}
+\definecolor{NPTamber}{HTML}{956000}
+\definecolor{NPTred}{HTML}{9A3030}
+\definecolor{NPTgray}{HTML}{66717E}
+\definecolor{NPTbluewash}{HTML}{F2F6FA}
+\definecolor{NPTgreenwash}{HTML}{F2F8F5}
+\definecolor{NPTamberwash}{HTML}{FCF8EE}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=NPTnavy,
+  citecolor=NPTteal,
+  urlcolor=NPTteal,
+  pdftitle={No Profitable Trade: From KKT to Revealed Preference},
+  pdfauthor={Victor H. Aguiar},
+  pdfsubject={Brainstorming paper and research agenda},
+  pdfkeywords={KKT, revealed preference, Afriat, GARP, CMU, stochastic choice, continuum goods}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2.5pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=3pt,topsep=3pt}
+\renewcommand{\arraystretch}{1.14}
+\emergencystretch=1.5em
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\color{NPTgray} Victor H. Aguiar}
+\rhead{\small\color{NPTgray} No Profitable Trade}
+\cfoot{\small\color{NPTgray} \thepage\ of \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\pos}[1]{\left[#1\right]_{+}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\esssup}{\operatorname*{ess\,sup}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{agenda}[theorem]{Research question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newtcolorbox{statusbox}{
+  enhanced,breakable,boxrule=0.7pt,arc=2pt,
+  colframe=NPTamber,colback=NPTamberwash,
+  left=9pt,right=9pt,top=7pt,bottom=7pt}
+\newtcolorbox{keybox}{
+  enhanced,breakable,boxrule=0.8pt,arc=2pt,
+  colframe=NPTnavy,colback=NPTbluewash,
+  left=10pt,right=10pt,top=8pt,bottom=8pt}
+\newtcolorbox{knownbox}{
+  enhanced,breakable,boxrule=0.7pt,arc=2pt,
+  colframe=NPTteal,colback=NPTgreenwash,
+  left=9pt,right=9pt,top=7pt,bottom=7pt}
+
+\title{\vspace{-0.6in}\textbf{No Profitable Trade: From KKT to Revealed Preference}\\[0.35em]
+  \large A Brainstorming Paper and Research Agenda}
+\author{Victor H. Aguiar\\Simon Fraser University}
+\date{October 9, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{statusbox}
+\textbf{Status.} This document is a disciplined brainstorming paper, not a novelty claim and
+not a finished submission.  It separates established mathematics from interpretive synthesis,
+candidate diagnostics, and open research questions.  The organizing phrase ``no profitable
+trade'' is deliberately economic; it is not asserted to be new terminology.  Any eventual paper
+must add a systematic novelty search, sharpen the statistical objects, and choose one principal
+theorem rather than pursue every extension at once.
+\end{statusbox}
+
+\begin{abstract}
+This note develops a common language for constrained optimization and revealed preference.
+For a proposed choice, exact regret asks whether another feasible bundle delivers higher utility;
+its first-order counterpart is the support gap obtained by maximizing the current utility gradient
+over the opportunity set.  For a concave objective, zero support gap is equivalent to global
+optimality.  On a standard budget the gap has a closed form: it decomposes into unspent-income
+loss and commodity-specific entry losses, reproducing all KKT conditions---including corners---
+without requiring multipliers at the discovery stage.  Multipliers are recovered afterward as
+dual certificates.
+
+Across repeated budgets, the same geometry leads to Afriat inequalities.  Observation-specific
+rescalings of prices serve as supporting utility gradients; GARP is the observable no-profitable-
+cycle condition left after utility levels and marginal utilities of income are eliminated.  A
+parallel blocking gap extends the idea to asymmetric preference functions and coherent
+coalitional multi-utility representations, with an exact warning: no blocking is generally weaker
+than preference maximization unless skew symmetry is imposed.  The note closes with proposed
+stochastic-choice and continuum-good extensions, a formal-verification program, and an explicit
+ledger distinguishing classical results from potentially new work.
+\end{abstract}
+
+\begin{keybox}
+\centering
+\textbf{One proposed conceptual spine}\par
+\vspace{3pt}
+\[
+\boxed{
+\begin{gathered}
+\text{no improving feasible direction}
+\;\Longrightarrow\;
+\text{no profitable trade}\\[-1pt]
+\Downarrow\\[-1pt]
+\text{no profitable revealed-preference cycle}
+\end{gathered}
+}
+\]
+The first arrow is optimization within one opportunity set.  The second is an integrability
+question across many opportunity sets.  They should be connected, but never conflated.
+\end{keybox}
+
+\tableofcontents
+
+\section{The question and the levels of information}
+
+The proposed program starts from one question:
+
+\begin{quote}
+Given a proposed or observed choice, can one exhibit a feasible trade, a revealed-preference
+cycle, a blocking coalition, or a stochastic separating trial that demonstrates an improvement?
+\end{quote}
+
+The answer depends on what is observed.  It is useful to distinguish four levels.
+
+\begin{enumerate}[label=\textbf{L\arabic*.}]
+  \item \textbf{Known objective and one feasible set.}  We can compute exact regret and a
+  first-order no-profitable-trade gap.
+  \item \textbf{Known objective and many feasible sets.}  Every chosen point must pass the
+  one-set test, and the gradients must arise from the same objective.
+  \item \textbf{Unknown objective and finite demand observations.}  Supporting gradients and
+  utility levels are latent.  Afriat's inequalities ask whether such objects exist; GARP is the
+  corresponding observable cycle condition.
+  \item \textbf{Population choice probabilities.}  A distribution of deterministic rational
+  types is latent.  Convex separation replaces a single revealed-preference graph.
+\end{enumerate}
+
+This hierarchy prevents two recurring mistakes.  First, a numerical first-order gap is not
+directly observable when utility is unknown.  Second, a revealed-preference cycle is not literally
+an arbitrage or a sequence of trades that the consumer could execute through time.  It is a
+logical inconsistency among the preference comparisons implied by choices, unless an additional
+market mechanism gives the cycle a trading interpretation.
+
+\section{One opportunity set: exact regret and the NPT gap}
+
+Let $C\subset\R^L$ be nonempty, compact, and convex, and let $u$ be differentiable on a
+neighborhood of $C$.  For $x\in C$, define the \emph{exact utility regret}
+\begin{equation}
+  \cR_u(x\mid C)
+  :=\max_{y\in C}\{u(y)-u(x)\},
+  \label{eq:exact-regret}
+\end{equation}
+and the \emph{linearized no-profitable-trade gap}
+\begin{equation}
+  \cG_u(x\mid C)
+  :=\max_{y\in C}\ip{\nabla u(x)}{y-x}
+  =\sigma_C(\nabla u(x))-\ip{\nabla u(x)}{x},
+  \label{eq:npt-gap}
+\end{equation}
+where $\sigma_C(g):=\max_{y\in C}\ip{g}{y}$ is the support function of $C$.
+The maximizing $y$ in \eqref{eq:npt-gap} is the best trade according to current marginal
+utilities.  In optimization, this object is the variational-inequality or Frank--Wolfe gap
+\cite{FrankWolfe1956,Jaggi2013}; the proposed contribution is to make its economic content
+central and to connect it systematically to revealed preference.
+
+\begin{proposition}[Exact regret is bounded by the NPT gap]
+\label{prop:regret-gap}
+Suppose $u$ is concave and differentiable.  For every $x\in C$,
+\[
+  0\le \cR_u(x\mid C)\le \cG_u(x\mid C).
+\]
+Moreover, the following statements are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item $x\in\argmax_{y\in C}u(y)$;
+  \item $\cR_u(x\mid C)=0$;
+  \item $\cG_u(x\mid C)=0$;
+  \item $\ip{\nabla u(x)}{y-x}\le0$ for every $y\in C$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Because $x\in C$, both maxima are at least zero.  Concavity gives
+\[
+  u(y)-u(x)\le\ip{\nabla u(x)}{y-x}
+  \quad\text{for every }y\in C,
+\]
+and hence $\cR_u\le\cG_u$.  Thus $\cG_u=0$ implies global optimality.  Conversely,
+if $x$ is globally optimal, then for each $y\in C$ the function
+$\varphi(t)=u(x+t(y-x))$ is maximized at $t=0$ over $[0,1]$.  Therefore
+$\varphi'(0)=\ip{\nabla u(x)}{y-x}\le0$.  Taking the maximum over $y$ proves
+$\cG_u=0$.
+\end{proof}
+
+The proof makes the economics transparent.  Concavity converts the linearized value of the
+best feasible trade into a valid upper bound on the value of the best actual deviation.  Without
+concavity, $\cG_u=0$ remains a first-order stationarity condition but need not establish a global
+maximum.
+
+\begin{remark}[A positive gap certifies a direction, not necessarily a full jump]
+If $\cG_u(x\mid C)>0$ and $y^\ell$ solves the support problem, then
+$d=y^\ell-x$ has positive directional derivative.  Convexity of $C$ and differentiability of
+$u$ imply that $x+\gamma d$ is feasible and improves utility for every sufficiently small
+$\gamma>0$.  Curvature may nevertheless make the full jump from $x$ to $y^\ell$ unattractive.
+A line search or a sufficiently small step converts the linear certificate into an actual
+profitable trade.
+\end{remark}
+
+\subsection{Nonsmooth utilities}
+
+For a concave function, let $\partial^+u(x)$ denote its superdifferential.  Given
+$g\in\partial^+u(x)$, define
+\[
+  \cG(x;g,C):=\sigma_C(g)-\ip{g}{x}.
+\]
+The supergradient inequality immediately yields
+\begin{equation}
+  \cR_u(x\mid C)\le\cG(x;g,C).
+  \label{eq:supergradient-certificate}
+\end{equation}
+Thus any $g\in\partial^+u(x)$ with $\cG(x;g,C)=0$ is a global optimality certificate.
+This version is the right bridge to Afriat's piecewise-affine rationalizing utility, which is
+typically nondifferentiable.
+
+\subsection{Ordinal content and its limit}
+
+Zero is robust, magnitude is not.  If $\widetilde u=\phi\circ u$ and $\phi$ is differentiable
+with $\phi'(u(x))>0$, then
+\[
+  \nabla\widetilde u(x)=\phi'(u(x))\nabla u(x),
+  \qquad
+  \cG_{\widetilde u}(x\mid C)=\phi'(u(x))\cG_u(x\mid C).
+\]
+Consequently, the statement ``there is no profitable first-order trade'' is locally ordinally
+invariant, but its utility-unit magnitude is not.  A numerical NPT gap must therefore be normalized
+or tied to a specified cardinal representation before it is interpreted as a welfare quantity.
+
+\section{A single budget: a closed form and KKT recovery}
+
+Consider the standard budget
+\[
+  B(p,m):=\{y\in\R_+^L:p\cdot y\le m\},
+  \qquad p\in\R_{++}^L,\quad m>0.
+\]
+Fix a feasible $x$ and write $g=\nabla u(x)$.  Define the largest positive marginal
+utility per dollar
+\begin{equation}
+  \rho(x):=\max\left\{0,\max_{1\le i\le L}\frac{g_i}{p_i}\right\}.
+  \label{eq:rho}
+\end{equation}
+
+\begin{theorem}[One-budget NPT formula]
+\label{thm:budget-gap}
+For every feasible $x$,
+\begin{align}
+  \cG_u(x\mid B(p,m))
+  &=m\rho(x)-g\cdot x
+  \label{eq:budget-gap}\displaybreak[0]\\
+  &=\rho(x)\,[m-p\cdot x]
+    +\sum_{i=1}^L p_ix_i
+      \left[\rho(x)-\frac{g_i}{p_i}\right].
+  \label{eq:budget-decomposition}
+\end{align}
+If $u$ is concave, $x$ is globally optimal if and only if this expression is zero.
+Equivalently,
+\begin{align}
+  &m-p\cdot x\ge0,\qquad
+    \rho\ge0,\qquad
+    \rho(m-p\cdot x)=0,
+  \label{eq:npt-budget-comp}\\
+  &g_i-\rho p_i\le0,\qquad
+    x_i(g_i-\rho p_i)=0
+    \quad(i=1,\ldots,L).
+  \label{eq:npt-entry-comp}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+The linear support problem is
+\[
+  \max_{y\ge0,\,p\cdot y\le m}g\cdot y.
+\]
+If all $g_i\le0$, choosing $y=0$ gives value zero.  Otherwise, all expenditure is placed
+on a good attaining the highest positive ratio $g_i/p_i$, so the value is $m\rho$.
+Subtracting $g\cdot x$ yields \eqref{eq:budget-gap}; adding and subtracting
+$\rho p\cdot x$ yields \eqref{eq:budget-decomposition}.  Every term in the latter is
+nonnegative by feasibility and the definition of $\rho$.  Hence the sum is zero exactly when
+all complementary products in \eqref{eq:npt-budget-comp}--\eqref{eq:npt-entry-comp} vanish.
+Global optimality follows from Proposition~\ref{prop:regret-gap}.
+\end{proof}
+
+The formula turns the KKT conditions into an accounting identity.  Set
+\begin{equation}
+  \lambda:=\rho,
+  \qquad
+  \mu_i:=\rho p_i-g_i\ge0.
+  \label{eq:recover-multipliers}
+\end{equation}
+Then $g-\lambda p+\mu=0$, while \eqref{eq:budget-decomposition} is precisely
+\[
+  \lambda(m-p\cdot x)+\mu\cdot x.
+\]
+For a generic candidate, $(\rho,\mu)$ is the optimal dual certificate for the \emph{linearized}
+support problem.  Thus the NPT calculation can discover and screen an allocation without first
+guessing multipliers.  When the gap is zero, concavity makes $x$ optimal for the original utility
+problem and the same pair becomes an original-problem KKT certificate: $\rho$ is a shadow-income
+supergradient and $\mu_i$ is the exclusion margin for a zero-consumption good.
+
+\begin{corollary}[Interior equalization and corner screening]
+If $\rho>0$, zero NPT gap requires the budget to bind.  Every consumed good satisfies
+\[
+  \frac{\partial_i u(x)}{p_i}=\rho,
+\]
+whereas every excluded good satisfies
+\[
+  \frac{\partial_i u(x)}{p_i}\le\rho.
+\]
+An excluded good with a strictly larger ratio is an immediate profitable-entry certificate.
+\end{corollary}
+
+\begin{example}[A corner detected before writing the Lagrangian]
+\label{ex:corner}
+Let
+\[
+  u(x_1,x_2)=a_1\log(1+x_1)+a_2x_2,
+  \qquad a_1,a_2>0,
+\]
+and consider the candidate $\bar x=(0,m/p_2)$.  At this candidate,
+\[
+  g=(a_1,a_2),\qquad
+  \rho=\max\left\{\frac{a_1}{p_1},\frac{a_2}{p_2}\right\},
+\]
+so
+\[
+  \cG_u(\bar x\mid B)
+  =m\left[\frac{a_1}{p_1}-\frac{a_2}{p_2}\right]_+.
+\]
+The all-good-2 corner is globally optimal exactly when $a_1/p_1\le a_2/p_2$.  If the
+inequality fails, the gap identifies good 1 as the profitable entrant.  The actual utility gain
+from reoptimization is no larger than this linearized bound.
+\end{example}
+
+\begin{example}[Cobb--Douglas as an exact zero-gap audit]
+For $u(x)=\alpha\log x_1+(1-\alpha)\log x_2$, the familiar demand
+\[
+  x_1^*=\frac{\alpha m}{p_1},
+  \qquad
+  x_2^*=\frac{(1-\alpha)m}{p_2}
+\]
+has
+\[
+  \frac{\partial_1u(x^*)}{p_1}
+  =\frac{\partial_2u(x^*)}{p_2}
+  =\frac1m.
+\]
+Hence $\rho=1/m$, $g\cdot x^*=1$, and $m\rho-g\cdot x^*=0$.  This one-line
+calculation simultaneously checks budget exhaustion, equalized bang per buck, and global
+optimality.  Here utility is understood on the positive orthant (or as an extended-value utility
+equal to $-\infty$ on the axes); the gradient audit is applied at the strictly positive optimizer.
+\end{example}
+
+\subsection{A candidate scale-free diagnostic}
+
+When $g\ge0$ and $\rho>0$, define
+\begin{equation}
+  \widehat\cG_u(x\mid B)
+  :=\frac{\cG_u(x\mid B)}{m\rho}
+  =1-\frac{g\cdot x}{m\rho}\in[0,1].
+  \label{eq:normalized-gap}
+\end{equation}
+This quantity is invariant to multiplying $g$ by a positive scalar and therefore to a smooth
+increasing transformation of utility with strictly positive derivative at $u(x)$.  It is a promising classroom diagnostic:
+it reports the share of maximal current marginal value lost to slack income and misallocation.
+It is \emph{not yet} a revealed-preference efficiency index or a cardinal welfare measure.
+Its relationship to the critical cost efficiency index and other data-only measures is an open
+question, not a theorem asserted here.
+
+\section{Many linear constraints: multipliers as the dual of trade search}
+
+Let
+\[
+  C=\{y\in\R_+^L:Ay\le b\}
+\]
+be nonempty and compact.  For a proposed $x\in C$ and a marginal-value vector $g$, linear
+programming duality gives the exact identity
+\begin{align}
+  \cG(x;g,C)
+  &=\max_{y\in C}g\cdot(y-x)
+  \label{eq:poly-primal}\\
+  &=\min_{\lambda\ge0:\,A^\top\lambda\ge g}
+       \{b^\top\lambda-g^\top x\}
+  \label{eq:poly-dual}\\
+  &=\min_{\lambda\ge0:\,A^\top\lambda\ge g}
+       \left\{\lambda^\top(b-Ax)
+       +(A^\top\lambda-g)^\top x\right\}.
+  \label{eq:poly-decomp}
+\end{align}
+Writing $\mu=A^\top\lambda-g\ge0$, a zero gap is equivalent to the existence of prices
+of the constraints such that
+\[
+  g-A^\top\lambda+\mu=0,\qquad
+  \lambda_j(b_j-A_jx)=0,\qquad
+  \mu_ix_i=0.
+\]
+These are the KKT conditions under the maximization convention
+$L=u(x)+\lambda^\top(b-Ax)+\mu^\top x$ \cite{KuhnTucker1951}.
+
+This duality clarifies what a ``multiplier-free KKT'' can and cannot mean.  The primal support
+problem avoids multipliers as a method of discovery: search directly for the best feasible trade.
+The dual variables remain mathematically valuable because they compress the proof that no trade
+is profitable.  Eliminating them from the student's first calculation does not eliminate duality.
+
+\subsection{Sparse local tests}
+
+Let $T_C(x)$ be the tangent cone of $C$ at $x$.  The first-order NPT condition is
+\[
+  g\cdot d\le0\qquad\text{for every }d\in T_C(x).
+\]
+For a polyhedron, it is enough to check a generating set of extreme rays of the tangent cone.
+This suggests a sparse ``elementary trade'' implementation: pairwise swaps for a single budget,
+network cycles for flow constraints, and circuit directions for a general matrix $A$.  The
+underlying convex geometry is standard; the research task is to identify economically meaningful
+generators and minimal certificates for important classes of models.
+
+\section{From NPT to revealed preference}
+
+Consider a finite demand dataset
+\[
+  \mathcal D=\{(p^t,x^t)\}_{t\in\T},
+  \qquad p^t\in\R_{++}^L,\quad x^t\in\R_+^L\setminus\{0\},
+\]
+with observed wealth $m^t=p^t\cdot x^t$ and budget $B_t=B(p^t,m^t)$.
+Bundle $x^t$ is directly revealed preferred to $x^s$ when
+\[
+  p^t\cdot x^s\le p^t\cdot x^t.
+\]
+GARP rules out a directed affordability cycle containing only weak edges and at least one strict
+edge.  Equivalently, it rules out $x^t$ being indirectly revealed preferred to $x^s$ while
+$x^s$ is strictly directly revealed preferred to $x^t$ \cite{Afriat1967,Varian1982}.
+
+\subsection{The graph intuition}
+
+Suppose first that one common, locally nonsatiated utility function rationalizes the data.  Every
+outgoing affordability edge $t\to s$ implies
+\[
+  u(x^t)\ge u(x^s).
+\]
+Transitivity of numerical utility propagates this inequality along every directed path.  A strict
+affordability edge, together with local nonsatiation, produces a strict preference comparison.
+Therefore a strict directed cycle is impossible.
+
+This yields the useful but carefully qualified slogan:
+\begin{quote}
+\textbf{NPT is no improving edge within a known opportunity set.  GARP is no inconsistent
+cycle across observed opportunity sets when the objective is unknown.}
+\end{quote}
+
+\subsection{Afriat inequalities as compatible local certificates}
+
+Afriat's theorem states that GARP is equivalent to the existence of numbers $U_t\in\R$ and
+$\lambda_t>0$ satisfying
+\begin{equation}
+  U_s\le U_t+\lambda_t p^t\cdot(x^s-x^t)
+  \qquad\text{for all }s,t\in\T.
+  \label{eq:afriat}
+\end{equation}
+The piecewise-affine function
+\begin{equation}
+  u_A(x):=\min_{t\in\T}
+  \left\{U_t+\lambda_t p^t\cdot(x-x^t)\right\}
+  \label{eq:afriat-utility}
+\end{equation}
+is concave, continuous, strictly increasing, and rationalizes the data.  At $x^t$ the $t$th plane is
+active, so
+\begin{equation}
+  q_t:=\lambda_t p^t\in\partial^+u_A(x^t).
+  \label{eq:supporting-price}
+\end{equation}
+Moreover,
+\[
+  \cG(x^t;q_t,B_t)
+  =\max_{y\in B_t}q_t\cdot(y-x^t)
+  =0.
+\]
+Thus each observation receives a zero-NPT certificate, while inequalities
+\eqref{eq:afriat} ensure that all certificates are supporting covectors of one concave potential.
+
+\begin{theorem}[Afriat--NPT bridge: a restatement of known results]
+\label{thm:afriat-npt}
+For a finite Walrasian demand dataset, the following statements are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item the dataset satisfies GARP;
+  \item the Afriat inequalities \eqref{eq:afriat} have a solution with $\lambda_t>0$;
+  \item the data are rationalizable by a continuous, strictly increasing, concave utility function;
+  \item there exist a concave strictly increasing function $u$ and positive rescaled prices
+  $q_t=\lambda_tp^t$ such that
+  \[
+    q_t\in\partial^+u(x^t)
+    \quad\text{and}\quad
+    \cG(x^t;q_t,B_t)=0
+    \quad\text{for every }t;
+  \]
+  \item there are scalars $\lambda_t>0$ such that the graph
+  $\{(x^t,q_t)\}_{t\in\T}$ is cyclically supermonotone:
+  \begin{equation}
+    \sum_{k=1}^K
+    q_{t_k}\cdot(x^{t_{k+1}}-x^{t_k})\ge0,
+    \qquad t_{K+1}=t_1,
+    \label{eq:cyclic-supermonotone}
+  \end{equation}
+  for every finite cycle of observations.
+\end{enumerate}
+\end{theorem}
+
+Statements (i)--(iii) are Afriat's theorem.  The equivalence with (iv) is the supporting-
+hyperplane interpretation above.  Summing the supergradient inequalities around a cycle gives
+(v).  Conversely, for fixed $q_t$ the Afriat system is the complete directed difference-constraint
+system
+\[
+  U_s-U_t\le q_t\cdot(x^s-x^t).
+\]
+Such a system is feasible exactly when every directed cycle has nonnegative total weight.
+The resulting $U_t$ and the minimum-of-affine construction \eqref{eq:afriat-utility} produce
+the concave potential.  Finally, $q_t=\lambda_tp^t$ and
+$p^t\cdot x^t=m^t$ imply that $q_t$ supports $B_t$ at $x^t$, hence its local support gap is
+zero.  This is the finite-data form of Rockafellar's cyclic-monotonicity
+construction \cite{Rockafellar1966}.  The word \emph{supermonotone} records the sign convention for concave
+supergradients; $-q_t$ belongs to the usual convex cyclically monotone formulation.
+
+\begin{keybox}
+\textbf{Interpretation of $\lambda_t$.}  Price is not itself marginal utility.  The vector
+$\lambda_t p^t$ is the supporting utility covector, and $\lambda_t$ is the observation-specific
+marginal utility of income.  Raw price vectors generally need not be cyclically monotone because
+income effects and cardinal utility scales vary across observations.  In quasilinear environments
+with an interior numeraire, the normalization often fixes $\lambda_t=1$; this is why unscaled
+cyclic monotonicity plays a direct role in quasilinear rationalizability \cite{Rochet1987}.
+\end{keybox}
+
+\subsection{Why corners do not break the bridge}
+
+Suppose a differentiable concave $u$ rationalizes the observations and the KKT conditions at
+observation $t$ are
+\begin{equation}
+  \nabla u(x^t)=\lambda_tp^t-\mu_t,
+  \qquad \mu_t\ge0,
+  \qquad \mu_t\cdot x^t=0.
+  \label{eq:kkt-corner}
+\end{equation}
+For every observed $x^s$, concavity yields
+\begin{align}
+  u(x^s)-u(x^t)
+  &\le \nabla u(x^t)\cdot(x^s-x^t)\\
+  &=\lambda_tp^t\cdot(x^s-x^t)
+    -\mu_t\cdot x^s+\mu_t\cdot x^t\\
+  &\le\lambda_tp^t\cdot(x^s-x^t).
+  \label{eq:corner-afriat}
+\end{align}
+This is the Afriat inequality.  The commodity-specific nonnegativity multipliers disappear from
+the observable inequality because $-\mu_t\cdot x^s\le0$ and $\mu_t\cdot x^t=0$.
+Corners therefore strengthen rather than obstruct the certificate.
+
+\section{Preference functions and coalitional blocking}
+
+Let $r:X\times X\to\R$ be a reflexive preference function normalized by $r(x,x)=0$,
+where $r(x,y)\ge0$ means that $x$ is weakly preferred to $y$.  Standard utility is the special
+case $r(x,y)=u(x)-u(y)$.  For a feasible set $B$ and $x\in B$, define two gaps:
+\begin{align}
+  \cP_r(x\mid B)
+  &:=\sup_{y\in B}\pos{-r(x,y)},
+  &&\text{preference-maximization gap},
+  \label{eq:preference-gap}\\
+  \B_r(x\mid B)
+  &:=\sup_{y\in B}r(y,x),
+  &&\text{blocking gap}.
+  \label{eq:blocking-gap}
+\end{align}
+Reflexivity makes both gaps nonnegative.  The first is zero exactly when
+$r(x,y)\ge0$ for every $y\in B$.  The second is zero exactly when no feasible $y$ satisfies
+$r(y,x)>0$.
+
+\begin{proposition}[Maximization, core, and skew symmetry]
+\label{prop:blocking}
+Suppose $r$ is asymmetric in the sense that
+$r(x,y)\ge0$ implies $r(y,x)\le0$.
+Then
+\[
+  \cP_r(x\mid B)=0\quad\Longrightarrow\quad \B_r(x\mid B)=0.
+\]
+If $r$ is skew-symmetric, $r(y,x)=-r(x,y)$, then
+\[
+  \cP_r(x\mid B)=\B_r(x\mid B),
+\]
+so preference maximization and no blocking are equivalent.
+\end{proposition}
+
+\begin{proof}
+If $r(x,y)\ge0$ for every feasible $y$, asymmetry implies $r(y,x)\le0$.  Since
+$r(x,x)=0$, the supremum in \eqref{eq:blocking-gap} is zero.  Under skew symmetry,
+\[
+  \sup_{y\in B}\pos{-r(x,y)}
+  =\sup_{y\in B}\pos{r(y,x)}
+  =\sup_{y\in B}r(y,x),
+\]
+where the last equality again uses the available zero at $y=x$.
+\end{proof}
+
+This proposition records an essential caveat: with a merely asymmetric preference function,
+a core point need not be a preference maximizer.  Treating the blocking gap as exact regret is
+valid under skew symmetry, but generally false without it.
+
+\subsection{Coalitional multi-utility}
+
+For a transparent finite formulation, let $\Omega$ be a nonempty finite collection of nonempty
+finite sets $U$ of utility functions.  A CMU preference function has the form
+\begin{equation}
+  r_\Omega(y,x)
+  =\max_{U\in\Omega}\min_{u\in U}\{u(y)-u(x)\}.
+  \label{eq:cmu}
+\end{equation}
+Its blocking gap is
+\begin{equation}
+  \B_{r_\Omega}(x\mid B)
+  =\sup_{y\in B}\max_{U\in\Omega}
+    \min_{u\in U}\{u(y)-u(x)\}.
+  \label{eq:cmu-blocking-gap}
+\end{equation}
+On a compact budget with continuous component utilities, zero means that no coalition $U$ and
+feasible bundle $y$ make every utility in $U$ strictly favor $y$ over $x$.  The compact CMU
+formulation replaces finiteness by the corresponding compactness and continuity hypotheses.
+
+Aguiar, Hjertstrand, Serrano, and Evren characterize WGARP through asymmetric preference
+functions and coherent CMU representations \cite{AguiarEtAl2026}.  Their Section~6 studies
+exactly the associated core problem
+\[
+  \max_{y\in B}r_\Omega(y,\bar x).
+\]
+For such a coherent CMU, at $\bar x=x^*$ a preference maximizer solves this problem; the converse holds under skew
+symmetry.  Thus the NPT language is not a replacement for that theory.  It is a proposed
+unifying interpretation and a route to quantitative, computational, and formal extensions.
+
+\Needspace{8\baselineskip}
+For classical utility, \eqref{eq:cmu-blocking-gap} collapses to
+\[
+  \B_r(x\mid B)
+  =\sup_{y\in B}\{u(y)-u(x)\}
+  =\cR_u(x\mid B).
+\]
+The hierarchy can therefore be stated without ambiguity:
+\[
+  \cP_{r_\Omega}(x\mid B)=0
+  \;\Longrightarrow_{\text{asymmetry}}\;
+  \B_{r_\Omega}(x\mid B)=0,
+  \qquad
+  \cP_{r_\Omega}=0
+  \;\Longleftrightarrow_{\text{skew symmetry}}\;
+  \B_{r_\Omega}=0.
+\]
+For the singleton classical representation $r(x,y)=u(x)-u(y)$, skew symmetry holds and both
+objects equal exact utility regret.
+
+The magnitudes of $\cP_r$ and $\B_r$ depend on the cardinal representation $r$ and on
+normalizations of the component utilities.  Their zero sets are the robust objects.  Any empirical
+``distance from WGARP'' based on these gaps must specify an admissible normalization class.
+
+\section{Stochastic choice: a separating-trial gap}
+
+For a finite stochastic-choice design and a fixed population whose distribution of latent
+preference types is stable across the observed choice sets, stack choice probabilities in a vector
+$\pi\in\R^J$.  Let $a^1,\ldots,a^R$ denote the incidence vectors generated by all deterministic
+rational choice types admitted by the design, and set
+\[
+  P:=\operatorname{conv}\{a^1,\ldots,a^R\}.
+\]
+Random-utility rationalizability is equivalent to $\pi\in P$ in this finite formulation
+\cite{McFadden2005,KitamuraStoye2018}.  Given a norm $\|\cdot\|$ and its dual
+$\|\cdot\|_*$, define
+\begin{equation}
+  \cG_{\mathrm{stoch}}(\pi)
+  :=\max_{\|w\|_*\le1}
+  \left\{w\cdot\pi-\sigma_P(w)\right\},
+  \qquad
+  \sigma_P(w)=\max_r w\cdot a^r.
+  \label{eq:stochastic-gap}
+\end{equation}
+Convex duality gives
+\begin{equation}
+  \cG_{\mathrm{stoch}}(\pi)
+  =\inf_{q\in P}\|\pi-q\|.
+  \label{eq:stochastic-distance}
+\end{equation}
+Hence the gap is zero exactly under rationalizability.  When it is positive, an optimizing
+$w$ is a unit-dual-norm normal vector to a separating hyperplane: a stochastic
+revealed-preference trial on which the
+observed probabilities outperform every deterministic rational type.  This is the probabilistic
+counterpart of a profitable trade.
+
+Equation \eqref{eq:stochastic-distance} is standard convex separation, not a claimed new
+characterization.  The research opportunities are economic and statistical:
+\begin{itemize}
+  \item choose a norm and normalization with a transparent behavioral interpretation;
+  \item obtain sparse separating trials that can be explained to a student or decision maker;
+  \item derive sampling theory and critical values for the maximized gap;
+  \item study robustness to measurement error, building on stochastic revealed-preference methods
+  such as Aguiar and Kashaev \cite{AguiarKashaev2021};
+  \item extend the construction from GARP-rational types to WGARP/CMU types.
+\end{itemize}
+
+\section{A continuum of differentiated goods}
+
+The continuum-good extension is motivated by product environments in which the finite list of
+commodities is itself an approximation.  Let $(\Omega,\mathcal F,\nu)$ be a nontrivial,
+$\sigma$-finite measure space of product varieties, and let
+$p:\Omega\to(0,\infty)$ be measurable.  The commodity space is the weighted cone
+$L^1_+(p\,d\nu)$.  For a finite positive expenditure level $0<m<\infty$, define
+\[
+  B(p,m)=\left\{x\in L^1_+(p\,d\nu):
+  \int_\Omega p(\omega)x(\omega)\,d\nu(\omega)\le m\right\}.
+\]
+Suppose the derivative of utility at $x$ is the continuous linear functional
+\[
+  D u(x)[d]=\int_\Omega g(\omega)d(\omega)\,d\nu(\omega),
+\]
+where $g$ is measurable and $g/p\in L^\infty(\nu)$.  Set
+\begin{equation}
+  \rho
+  :=\esssup_{\omega\in\Omega}
+  \max\left\{0,\frac{g(\omega)}{p(\omega)}\right\}.
+  \label{eq:continuum-rho}
+\end{equation}
+Redefining the support gap with a supremum on this noncompact density space, the support
+calculation gives
+\begin{align}
+  \cG(x;g,B)
+  &:=\sup_{y\in B(p,m)}\int_\Omega g(\omega)[y(\omega)-x(\omega)]\,d\nu(\omega)
+  \nonumber\\
+  &=m\rho-\int_\Omega g(\omega)x(\omega)\,d\nu(\omega)
+  \label{eq:continuum-gap}\\
+  &=\rho\left[m-\int_\Omega p(\omega)x(\omega)\,d\nu(\omega)\right]
+  +\int_\Omega p(\omega)x(\omega)
+  \left[\rho-\frac{g(\omega)}{p(\omega)}\right]d\nu(\omega).
+  \label{eq:continuum-decomp}
+\end{align}
+The proof is the finite-good argument after the change of variable
+$z(\omega)=p(\omega)y(\omega)$.  The support value is $m$ times the essential supremum
+of the positive part of $g/p$.  Sigma-finiteness permits expenditure to be concentrated on
+finite-measure subsets on which this ratio approaches its essential supremum.  For $m>0$ and
+$\rho>0$, a density maximizer exists exactly when
+$\{\omega:g(\omega)/p(\omega)=\rho\}$ has positive measure; otherwise only a concentrating
+sequence approaches the supremum.  If $\rho=0$, the zero density attains the support value.
+
+The functional-analytic support identity is standard.  A serious continuum consumer theory must
+still settle the economically important issues:
+
+\begin{enumerate}[label=\textbf{C\arabic*.}]
+  \item \textbf{Choice space.}  Densities, finite measures, and indivisible product choices imply
+  different feasible spaces and dual objects.
+  \item \textbf{Differentiability.}  The appropriate Fr\'echet, G\^ateaux, or directional derivative
+  depends on the topology and on whether utility includes taste for variety or bundle interactions.
+  \item \textbf{Attainment.}  Bliss-point or discrete-choice consumers may choose atoms rather than
+  densities, changing both compactness and the support problem.
+  \item \textbf{Neighborhood substitution.}  Cross-price effects should be aggregated over sets of
+  nearby products, not reported as an unmanageably large matrix indexed by individual varieties.
+  \item \textbf{Discretization.}  A theorem is needed showing when finite catalogs and their NPT
+  certificates converge to the continuum model.
+\end{enumerate}
+
+\begin{agenda}[Neighborhood revealed preference]
+Let products occupy a metric characteristic space $(\Omega,d)$ and let $N_h(\omega)$ be an
+$h$-neighborhood.  Can one define revealed substitution kernels and neighborhood cross-price
+elasticities that (i) are identified from discretized demand, (ii) converge as the catalog becomes
+dense, and (iii) admit sparse NPT witnesses localized to economically interpretable product
+neighborhoods?
+\end{agenda}
+
+\section{A formal-verification program}
+
+The framework is well suited to proof certificates because failure and success both admit finite
+witnesses in the finite-dimensional cases.
+
+\begin{enumerate}
+  \item \textbf{One budget.}  Verify the identity
+  \[
+    \cG=m\rho-g\cdot x
+    =\rho(m-p\cdot x)+\sum_i x_i(\rho p_i-g_i)
+  \]
+  and conclude zero from nonnegative terms and complementarity.
+  \item \textbf{General polyhedra.}  Verify primal feasibility, dual feasibility, stationarity,
+  complementary products, and the supporting-hyperplane global bound.
+  \item \textbf{GARP failure.}  A finite list of observations, affordability inequalities, and one
+  strict inequality is a complete cycle certificate.
+  \item \textbf{GARP success.}  Exact rational numbers $(U_t,\lambda_t)$ satisfying all Afriat
+  inequalities certify rationalizability; the minimum-of-affine construction supplies the
+  mathematical bridge.
+  \item \textbf{Stochastic failure.}  A rational vector $w$ whose separating inequality is positive
+  certifies nonmembership in the rational-type polytope.
+\end{enumerate}
+
+Lean should certify the smallest exact algebraic claim that matters; it should not be described as
+having established novelty, prose quality, or an infinite-dimensional analytic theorem that has not
+been formalized.  A practical repository would separate: (a) data certificates; (b) algebraic
+verification; and (c) the analytic assumptions connecting those certificates to economic meaning.
+
+\section{What is known, what is synthesis, and what remains open}
+
+\begingroup
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth}
+  >{\raggedright\arraybackslash}p{0.32\textwidth}
+  >{\raggedright\arraybackslash}p{0.40\textwidth}}
+\toprule
+\textbf{Status} & \textbf{Object} & \textbf{Assessment}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Status} & \textbf{Object} & \textbf{Assessment}\\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\footnotesize Continued on the next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Established
+& Concavity, variational inequalities, and the support/Frank--Wolfe gap
+& Zero gap characterizes a concave maximum; the gap bounds objective regret.\\
+\addlinespace
+Established
+& KKT and linear-programming duality
+& Multipliers are dual certificates for the absence of a profitable linearized trade.\\
+\addlinespace
+Established
+& Afriat inequalities, GARP, and concave rationalization
+& These equivalences are classical; the NPT vocabulary is a restatement and teaching bridge.\\
+\addlinespace
+Established
+& Cyclic monotonicity and integrability
+& Rockafellar supplies the mathematical potential theorem; positive rescaled prices, not generally
+raw prices, are the relevant covectors.\\
+\addlinespace
+Established
+& WGARP and coherent CMU rationalization
+& Aguiar et al. provide the rationalization and core problem; no-blocking is weaker than maximization
+without skew symmetry.\\
+\addlinespace
+Established
+& Finite random-utility polytopes and separation
+& Rationalizability is polytope/cone membership; a support inequality separates failures.\\
+\addlinespace
+Interpretive synthesis
+& ``NPT $\to$ no profitable cycle $\to$ rationalizability''
+& Potentially valuable as a unified exposition, but not itself a theorem of novelty.\\
+\addlinespace
+Candidate diagnostic
+& Normalized local NPT gap \eqref{eq:normalized-gap}
+& Locally invariant to utility rescaling; its empirical and welfare content remains to be proved.\\
+\addlinespace
+Research agenda
+& Quantitative CMU and $k$-acyclic blocking gaps
+& Requires a principled normalization and theorems relating gap size to observable violations.\\
+\addlinespace
+Research agenda
+& Sparse stochastic separating trials
+& Requires statistical theory, computational guarantees, and comparison with existing ARSP tests.\\
+\addlinespace
+Research agenda
+& Continuum goods and neighborhood substitution
+& Requires a choice-space model, existence and discretization results, and economically meaningful
+cross-price objects.\\
+\addlinespace
+Research agenda
+& Machine-checked certificate library
+& Finite algebraic certificates are feasible; analytic bridges must be stated separately and honestly.\\
+\end{longtable}
+\endgroup
+
+\section{A focused paper sequence}
+
+Trying to establish every extension in one paper would obscure the central insight.  A credible
+sequence works backward from sharply stated deliverables.
+
+\subsection*{Paper 1: the finite deterministic bridge}
+
+The first paper should center on one theorem or diagnostic beyond the classical equivalences.
+A disciplined target is:
+\begin{quote}
+Construct a normalized, representation-aware NPT diagnostic for finite consumer data; characterize
+its primal profitable-trade and dual price-support forms; and establish its exact relationship to
+Afriat efficiency and sparse revealed-preference cycles.
+\end{quote}
+The literature review must determine whether this object is already implicit in approximate
+revealed-preference, variational-inequality, or inverse-optimization work.
+
+\subsection*{Paper 2: CMU and bounded cycles}
+
+Define normalized blocking gaps for coherent CMU representations, determine what can be identified
+without fixing a cardinal representation, and relate the minimal gap to WGARP and $k$-acyclicity.
+The core/maximization distinction must remain explicit throughout.
+
+\subsection*{Paper 3: stochastic certificates}
+
+Develop sparse separating trials, finite-sample inference, and robust versions that allow
+measurement error.  The contribution should be statistical interpretability or computational
+sparsity, not the already-known convex separation characterization.
+
+\subsection*{Paper 4: product neighborhoods in a continuum catalog}
+
+Specify a characteristics-based continuum model, prove convergence from finite catalogs, and define
+neighborhood substitution objects.  This paper should connect the billion-product motivation to a
+mathematically disciplined limit experiment rather than merely replacing sums with integrals.
+
+\section{Implications for the textbook}
+
+Even before the research agenda is resolved, the established portion supplies a clean teaching
+sequence:
+
+\begin{enumerate}
+  \item Utility maximization introduces the model and exact regret.
+  \item The NPT gap shows why marginal conditions, corners, and global concavity belong together.
+  \item KKT multipliers appear as recovered prices certifying that every feasible trade loses.
+  \item Repeated observations turn local support into an integrability problem.
+  \item Afriat and GARP solve the inverse problem: whether local certificates can be glued into one
+  utility function.
+  \item WGARP and CMU weaken the gluing requirement from all cycles to pairwise consistency and
+  coalitional no blocking.
+  \item Stochastic choice replaces a chosen bundle by a distribution and a profitable trade by a
+  separating trial.
+\end{enumerate}
+
+This ordering makes revealed preference an implication and inverse problem of utility maximization,
+not an apparently unrelated collection of axioms.  It also permits one notation throughout:
+$x$ for a proposed choice, $B$ for its opportunity set, $g$ or $q$ for a supporting marginal-value
+covector, and a gap for the best admissible challenge.
+
+\section{Conclusion}
+
+The core mathematics is simple enough to be memorable:
+\[
+\text{optimality}
+\quad\Longleftrightarrow\quad
+\max_{y\in C}\ip{\nabla u(x)}{y-x}=0
+\]
+for differentiable concave utility.  On a budget, the maximum has a closed form and decomposes into
+the familiar KKT complementary products.  Across budgets, positive rescalings of price vectors are
+supporting utility covectors; Afriat inequalities test whether they can be integrated into a single
+concave potential, and GARP is the observable cycle restriction.  For nontransitive preference
+functions, a blocking gap survives, but its equivalence to maximization requires skew symmetry.
+
+The potential research contribution is not to rename KKT, Frank--Wolfe, Afriat, or Rockafellar.
+It is to build an economics-native theory of certificates---local trades, global cycles, blocking
+coalitions, stochastic trials, and continuum neighborhoods---with transparent normalization,
+sparse witnesses, and formal verification.  The next step is to select one quantitative theorem
+for the first paper and subject it to a dedicated novelty audit.
+
+\begin{thebibliography}{99}
+
+\bibitem{Afriat1967}
+Afriat, S. N. (1967).
+``The Construction of Utility Functions from Expenditure Data.''
+\emph{International Economic Review} 8(1), 67--77.
+\href{https://doi.org/10.2307/2525382}{doi:10.2307/2525382}.
+
+\bibitem{AguiarEtAl2026}
+Aguiar, V. H., P. Hjertstrand, R. Serrano, and O. Evren (2026).
+``A Rationalization of the Weak Axiom of Revealed Preference.''
+Working paper, arXiv:1906.00296, version 2 (manuscript dated November 2025;
+arXiv revision posted August 12, 2026).
+\url{https://arxiv.org/abs/1906.00296}.
+
+\bibitem{AguiarKashaev2021}
+Aguiar, V. H. and N. Kashaev (2021).
+``Stochastic Revealed Preferences with Measurement Error.''
+\emph{Review of Economic Studies} 88(4), 2042--2093.
+\href{https://doi.org/10.1093/restud/rdaa067}{doi:10.1093/restud/rdaa067}.
+
+\bibitem{FrankWolfe1956}
+Frank, M. and P. Wolfe (1956).
+``An Algorithm for Quadratic Programming.''
+\emph{Naval Research Logistics Quarterly} 3(1--2), 95--110.
+\href{https://doi.org/10.1002/nav.3800030109}{doi:10.1002/nav.3800030109}.
+
+\bibitem{Jaggi2013}
+Jaggi, M. (2013).
+``Revisiting Frank--Wolfe: Projection-Free Sparse Convex Optimization.''
+In \emph{Proceedings of the 30th International Conference on Machine Learning}, 427--435.
+
+\bibitem{KitamuraStoye2018}
+Kitamura, Y. and J. Stoye (2018).
+``Nonparametric Analysis of Random Utility Models.''
+\emph{Econometrica} 86(6), 1883--1909.
+\href{https://doi.org/10.3982/ECTA14478}{doi:10.3982/ECTA14478}.
+
+\bibitem{KuhnTucker1951}
+Kuhn, H. W. and A. W. Tucker (1951).
+``Nonlinear Programming.''
+In J. Neyman (ed.), \emph{Proceedings of the Second Berkeley Symposium on Mathematical
+Statistics and Probability}, 481--492. University of California Press.
+
+\bibitem{McFadden2005}
+McFadden, D. (2005).
+``Revealed Stochastic Preference: A Synthesis.''
+\emph{Economic Theory} 26(2), 245--264.
+\href{https://doi.org/10.1007/s00199-004-0495-3}{doi:10.1007/s00199-004-0495-3}.
+
+\bibitem{NishimuraOk2016}
+Nishimura, H. and E. A. Ok (2016).
+``Utility Representation of an Incomplete and Nontransitive Preference Relation.''
+\emph{Journal of Economic Theory} 166, 164--185.
+\href{https://doi.org/10.1016/j.jet.2016.07.002}{doi:10.1016/j.jet.2016.07.002}.
+
+\bibitem{Rochet1987}
+Rochet, J.-C. (1987).
+``A Necessary and Sufficient Condition for Rationalizability in a Quasi-Linear Context.''
+\emph{Journal of Mathematical Economics} 16(2), 191--200.
+\href{https://doi.org/10.1016/0304-4068(87)90007-3}{doi:10.1016/0304-4068(87)90007-3}.
+
+\bibitem{Rockafellar1966}
+Rockafellar, R. T. (1966).
+``Characterization of the Subdifferentials of Convex Functions.''
+\emph{Pacific Journal of Mathematics} 17(3), 497--510.
+\url{https://msp.org/pjm/1966/17-3/pjm-v17-n3-p08-p.pdf}.
+
+\bibitem{Samuelson1938}
+Samuelson, P. A. (1938).
+``A Note on the Pure Theory of Consumer's Behaviour.''
+\emph{Economica} 5(17), 61--71.
+
+\bibitem{Varian1982}
+Varian, H. R. (1982).
+``The Nonparametric Approach to Demand Analysis.''
+\emph{Econometrica} 50(4), 945--973.
+\href{https://doi.org/10.2307/1912771}{doi:10.2307/1912771}.
+
+\end{thebibliography}
+
+\end{document}

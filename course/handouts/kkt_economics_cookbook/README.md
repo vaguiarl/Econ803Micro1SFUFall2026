@@ -9,7 +9,7 @@ Generated `.tex` exports are intentionally untracked so that they cannot become
 a competing source of truth. Substantive classroom edits should be made in LyX
 and followed by a fresh PDF export and visual check.
 
-The 25-page booklet contains:
+The 28-page booklet contains:
 
 - one maximization/nonnegative-slack sign convention;
 - the compact complementarity and active-set method;
@@ -19,5 +19,8 @@ The 25-page booklet contains:
   and parameter-regime maps;
 - a reduced-cost entry test that predicts zero choices and certifies a proposed
   active set before solving the full problem;
+- a multiplier-free no-profitable-trade gap, its one-budget closed form, and
+  the precise connection to Afriat inequalities, GARP, and CMU blocking;
 - fully audited portfolio and quantity-quality examples;
+- independent zero-gap certificates for both worked examples;
 - a three-pass mastery protocol and tear-out reference sheet.

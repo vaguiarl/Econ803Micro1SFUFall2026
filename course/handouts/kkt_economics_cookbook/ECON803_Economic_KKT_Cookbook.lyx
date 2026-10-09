@@ -115,7 +115,7 @@
 \newcommand{\pagekicker}[2]{%
   \noindent\sectiontag{#1}\hspace{7pt}{\sffamily\bfseries\large\color{KKTnavy}#2}\par\vspace{5pt}}
 \newcommand{\auditmark}{\textcolor{KKTteal}{\ensuremath{\checkmark}}}
-\newcommand{\kkttearoutsize}{\small}
+\newcommand{\kkttearoutsize}{\footnotesize}
 
 % Keep the designed cover as one stable macro when this source is imported into
 % LyX.  tex2lyx otherwise flattens nested font and color scopes on the title.
@@ -134,7 +134,7 @@ The Economic KKT\\Cookbook\par}
 \vspace{0.18in}
 {\sffamily\color{white}\fontsize{15}{19}\selectfont
 A portable method for constrained optimization, corners,\\
-shadow prices, and comparative statics\par}
+profitable-trade tests, shadow prices, and comparative statics\par}
 
 \vspace{1.12in}
 \begin{tcolorbox}[enhanced,boxrule=0pt,arc=2pt,colback=KKTbluewash,
@@ -151,6 +151,7 @@ shows when structure can solve most of the problem before the multipliers appear
 \textbf{\color{KKTnavy}Notation} & Write every inequality as a nonnegative slack before assigning a multiplier.\\
 \textbf{\color{KKTnavy}Corners} & Replace unjustified equalities by complementarity and sign checks.\\
 \textbf{\color{KKTnavy}Shortcuts} & Use tangent directions, bounds, homogeneity, duality, and projection before brute force.\\
+\textbf{\color{KKTnavy}Certificates} & Either exhibit a profitable feasible trade or prove that the no-trade gap is zero.\\
 \textbf{\color{KKTnavy}Interpretation} & Read multipliers as marginal values only after the candidate is verified.\\
 \textbf{\color{KKTnavy}Examples} & Expected-utility portfolio choice and a Galor-inspired quantity-quality model.\\
 \end{tabularx}
@@ -230,7 +231,7 @@ multicol
 \pdf_title "The Economic KKT Cookbook"
 \pdf_author "Victor H. Aguiar"
 \pdf_subject "ECON 803 Microeconomic Theory I"
-\pdf_keywords "KKT, economics, complementarity, active sets, envelope theorem"
+\pdf_keywords "KKT, economics, complementarity, active sets, no profitable trade, revealed preference, envelope theorem"
 \pdf_bookmarks 0
 \pdf_bookmarksnumbered 0
 \pdf_bookmarksopen 0
@@ -681,7 +682,7 @@ How to use this booklet
 \end_layout
 
 \begin_layout Standard
-Pages 3–8 build the method. Pages 9–16 develop an algebra-before-KKT toolkit. Pages 17–19 solve portfolio choice, and pages 20–23 solve the quantity-quality example. Page 24 is a mastery protocol; page 25 is a tear-out reference sheet.
+Pages 3–8 build the method. Pages 9–16 develop an algebra-before-KKT toolkit. Pages 17–18 introduce the no-profitable-trade certificate and its revealed- preference interpretation. Pages 19–21 solve portfolio choice, pages 22–25 solve the quantity-quality example, and page 26 revisits both examples through the new certificate. Page 27 is a mastery protocol; page 28 is a tear-out sheet.
 \end_layout
 
 \begin_layout Standard
@@ -6428,6 +6429,745 @@ pagekicker{
 
 \end_inset
 
+15 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ CERTIFY
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+No profitable trade: a multiplier-free test
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ask directly whether any feasible move pays
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a convex feasible set, let 
+\begin_inset Formula $f$
+\end_inset
+
+ be differentiable and concave, and take a feasible candidate 
+\begin_inset Formula $x\in C$
+\end_inset
+
+. Define its 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+exact regret
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ and its 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+linearized no-profitable-trade gap
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ by 
+\begin_inset Formula \[
+R_f(x\mid C)=\sup_{y\in C}\{f(y)-f(x)\},
+\qquad
+G_f(x\mid C)=\sup_{y\in C}\nabla f(x)^{\top}(y-x).
+\]
+\end_inset
+
+The choice 
+\begin_inset Formula $y=x$
+\end_inset
+
+ shows that both gaps are nonnegative. Concavity gives 
+\begin_inset Formula \[
+f(y)-f(x)\le \nabla f(x)^{\top}(y-x)
+\quad\Longrightarrow\quad
+0\le R_f(x\mid C)\le G_f(x\mid C).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{resultbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE NO-PROFITABLE-TRADE THEOREM
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+\boxed{x\in\arg\max_{y\in C}f(y)\quad\Longleftrightarrow\quad
+G_f(x\mid C)=0.}
+\]
+\end_inset
+
+If 
+\begin_inset Formula $G_f>0$
+\end_inset
+
+, a maximizer 
+\begin_inset Formula $y^{\ell}$
+\end_inset
+
+ of the linear support problem identifies the profitable direction 
+\begin_inset Formula $y^{\ell}-x$
+\end_inset
+
+: a sufficiently small step, or a line search, raises utility. The full jump to 
+\begin_inset Formula $y^{\ell}$
+\end_inset
+
+ need not do so. If 
+\begin_inset Formula $G_f=0$
+\end_inset
+
+, concavity upgrades the local statement to a global certificate. KKT and the normal-cone condition are dual representations of this same zero-gap fact. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{resultbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For one ordinary budget, 
+\begin_inset Formula \[
+C(p,m)=\{y\ge0:p\cdot y\le m\},\qquad p_i>0,
+\]
+\end_inset
+
+put 
+\begin_inset Formula \[
+\tau(x)=\max\left\{0,\max_i\frac{f_i(x)}{p_i}\right\}.
+\]
+\end_inset
+
+The support problem spends the entire linearized budget on a good with the highest positive marginal payoff per dollar, or chooses 
+\begin_inset Formula $y=0$
+\end_inset
+
+ if all marginal payoffs are nonpositive. Therefore 
+\begin_inset Formula \begin{equation}
+\boxed{G_f(x\mid p,m)=m\tau(x)-\nabla f(x)^{\top}x.}
+\label{eq:npt-budget-gap}
+\end{equation}
+\end_inset
+
+An especially revealing decomposition is 
+\begin_inset Formula \begin{equation}
+\boxed{
+G_f
+=\tau(m-p\cdot x)
++\sum_i p_ix_i\left(\tau-\frac{f_i(x)}{p_i}\right).}
+\label{eq:npt-gap-decomposition}
+\end{equation}
+\end_inset
+
+Every term is nonnegative. Zero gap says: do not leave a valuable budget slack, and place positive expenditure only on activities tied for the largest marginal payoff per dollar. This is compact KKT without first solving for multipliers. The size of the gap depends on utility's cardinal scale; its zero-versus-positive status and the ranking of marginal payoffs per dollar do not.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+USE THE ACTUAL FEASIBLE SET
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Formula 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:npt-budget-gap"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ assumes exactly one positive-price budget and nonnegativity. With caps, cones, borrowing limits, nonlinear constraints, or several resources, compute the support gap over the full feasible set. NPT tests optimality; retain multipliers when you need resource-specific shadow values or envelope effects. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{pitfallbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 18
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+16 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ REVEAL
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+From one optimal choice to revealed preference
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Local no-trade certificates must fit together
+\end_layout
+
+\begin_layout Standard
+Suppose we observe positive prices and chosen bundles 
+\begin_inset Formula $\{(p^t,x^t)\}_{t=1}^T$
+\end_inset
+
+, with 
+\begin_inset Formula $p^t\gg0$
+\end_inset
+
+ and 
+\begin_inset Formula $p^t\cdot x^t=m^t$
+\end_inset
+
+. If utility 
+\begin_inset Formula $u$
+\end_inset
+
+ were known, each observation would pass the same test: 
+\begin_inset Formula \[
+G_u(x^t\mid B^t)=0,
+\qquad
+B^t=\{x\ge0:p^t\cdot x\le m^t\}.
+\]
+\end_inset
+
+Revealed preference reverses the question: does there exist one utility function for which all of those local zero-gap statements hold simultaneously?
+\end_layout
+
+\begin_layout Standard
+At observation 
+\begin_inset Formula $t$
+\end_inset
+
+, KKT at a possible corner can be written 
+\begin_inset Formula \[
+\nabla u(x^t)=\lambda_t p^t-\mu^t,
+\qquad
+\lambda_t>0,
+\quad \mu^t\ge0,
+\quad \mu^t\cdot x^t=0.
+\]
+\end_inset
+
+Concavity then implies, for every observed bundle 
+\begin_inset Formula $x^s$
+\end_inset
+
+, 
+\begin_inset Formula \[
+\begin{aligned}
+u(x^s)-u(x^t)
+&\le \nabla u(x^t)^{\top}(x^s-x^t)\\
+&\le \lambda_t p^t\cdot(x^s-x^t).
+\end{aligned}
+\]
+\end_inset
+
+The corner multipliers disappear because 
+\begin_inset Formula $-\mu^t\cdot x^s+\mu^t\cdot x^t\le0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{resultbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+AFRIAT AS INVERSE NO-PROFITABLE-TRADE
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ The data satisfy GARP exactly when there are numbers 
+\begin_inset Formula $U_t$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_t>0$
+\end_inset
+
+ such that, for every 
+\begin_inset Formula $s,t$
+\end_inset
+
+, 
+\begin_inset Formula \begin{equation}
+\boxed{U_s\le U_t+\lambda_t p^t\cdot(x^s-x^t).}
+\label{eq:afriat-npt}
+\end{equation}
+\end_inset
+
+These inequalities glue the observation-specific supporting covectors 
+\begin_inset Formula $\lambda_t p^t$
+\end_inset
+
+ into one concave utility. One rationalizing construction is 
+\begin_inset Formula \[
+u_A(x)=\min_t\{U_t+\lambda_t p^t\cdot(x-x^t)\}.
+\]
+\end_inset
+
+Thus GARP is the observable, multiplier-free consistency test across budgets. WARP inspects only two-observation cycles; GARP rules out every finite revealed- preference cycle with at least one strict affordability comparison. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{resultbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The scaling 
+\begin_inset Formula $\lambda_t$
+\end_inset
+
+ generally cannot be set to one: it is the marginal utility of income and reconciles cardinal scales at different observations. In a quasilinear normalization it may be fixed, which is why raw price–quantity cyclic monotonicity is especially natural in quasilinear models.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE SAME IDEA BEYOND A SINGLE UTILITY
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For a preference function 
+\begin_inset Formula $r$
+\end_inset
+
+, define the blocking gap 
+\begin_inset Formula \[
+\mathcal B_r(x\mid B)=\sup_{y\in B}r(y,x).
+\]
+\end_inset
+
+With 
+\begin_inset Formula $r(y,x)=u(y)-u(x)$
+\end_inset
+
+ this is exact utility regret. For a coherent coalitional multi-utility representation, zero says that no feasible bundle and no relevant coalition profitably blocks 
+\begin_inset Formula $x$
+\end_inset
+
+. Under skew symmetry, no blocking and preference maximization coincide. The language changes; the certificate is still 
+\begin_inset Quotes eld
+\end_inset
+
+no profitable feasible deviation.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 19
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
 EXAMPLE 1
 \begin_inset ERT
 status collapsed
@@ -7130,7 +7870,7 @@ At
 \begin_inset Formula $w=24$
 \end_inset
 
-, these formulas reproduce the solution on page 10.
+, these formulas reproduce the solution above.
 \end_layout
 
 \begin_layout Standard
@@ -8621,7 +9361,439 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 24
+% Page 26
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+EXAMPLES REVISITED
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Certify both models without solving for multipliers
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Use the no-profitable-trade gap as the final audit
+\end_layout
+
+\begin_layout Standard
+The support-gap calculation does not replace the economic work used to discover a candidate. It gives a short, independent global certificate and, when a candidate is wrong, identifies an improving direction.
+\end_layout
+
+\begin_layout Subsection*
+Portfolio choice
+\end_layout
+
+\begin_layout Standard
+The asset prices are both one, so at any candidate with positive state consumption, 
+\begin_inset Formula \[
+\tau(\alpha,\beta)=\max\{0,F_{\alpha},F_{\beta}\},
+\qquad
+G_F=24\tau-\alpha F_{\alpha}-\beta F_{\beta}.
+\]
+\end_inset
+
+At the square-root solution 
+\begin_inset Formula $(\alpha^*,\beta^*)=(16,8)$
+\end_inset
+
+, 
+\begin_inset Formula \[
+F_{\alpha}=F_{\beta}=\tau=\frac5{48},
+\qquad
+G_F=24\frac5{48}-(16+8)\frac5{48}=0.
+\]
+\end_inset
+
+At the risk-neutral corner 
+\begin_inset Formula $(24,0)$
+\end_inset
+
+, 
+\begin_inset Formula $(F_{\alpha},F_{\beta})=(9/8,1)$
+\end_inset
+
+, so 
+\begin_inset Formula \[
+G_F=24\frac98-24\frac98=0.
+\]
+\end_inset
+
+The lower payoff per dollar on the excluded safe asset is precisely the zero-choice inequality. A candidate that spent a positive amount on it while 
+\begin_inset Formula $F_{\alpha}>F_{\beta}$
+\end_inset
+
+ would have a positive gap and an immediate switch trade.
+\end_layout
+
+\begin_layout Subsection*
+The three quantity–quality regimes
+\end_layout
+
+\begin_layout Standard
+For the reduced problem, let 
+\begin_inset Formula $C$
+\end_inset
+
+ contain all feasible 
+\begin_inset Formula $(n,H)$
+\end_inset
+
+ and compute 
+\begin_inset Formula \[
+G_W(n,H)=\sup_{(n',H')\in C}
+\nabla W(n,H)^{\top}\bigl((n',H')-(n,H)\bigr).
+\]
+\end_inset
+
+Each reported regime has zero gap:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="4" columns="3">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="98text%">
+<column alignment="none" valignment="top" width="19text%">
+<column alignment="none" valignment="top" width="20text%">
+<column alignment="none" valignment="top" varwidth="true">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Regime and candidate 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Gradient at candidate 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Why every feasible trade has nonpositive value
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+I: 
+\begin_inset Formula $(4,0)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(1,-1)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Feasibility gives 
+\begin_inset Formula $n'\le4-5H'-\tfrac12H'^2$
+\end_inset
+
+, so 
+\begin_inset Formula $(n'-4)-H'\le-6H'-\tfrac12H'^2\le0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+II: 
+\begin_inset Formula $(2,1)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(0,0)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Every linearized trade has value zero; strict concavity and feasibility select the unique global maximizer.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+III: 
+\begin_inset Formula $(0,0)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(2,-2)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+The quality floor 
+\begin_inset Formula $H'\ge2n'$
+\end_inset
+
+ gives 
+\begin_inset Formula $2n'-2H'\le-2n'\le0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{recipebox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE TWO-CERTIFICATE HABIT
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ Use economics, algebra, or geometry to find the candidate. Then verify it twice: 
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=
+\color KKTnavy
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+arabic*
+\end_layout
+
+\end_inset
+
+.
+\color inherit
+
+\end_layout
+
+\end_inset
+
+
+\series bold
+KKT audit:
+\series default
+ prices every resource and diagnoses every corner. 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+NPT audit:
+\series default
+ solves the linear support problem and proves that no feasible first-order trade pays. Concavity converts zero gap into global optimality. 
+\end_layout
+
+\begin_layout Standard
+Across observed budgets, replace the second audit by GARP or an Afriat certificate. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{recipebox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 27
 \end_layout
 
 \begin_layout Plain Layout
@@ -8811,7 +9983,7 @@ color{KKTnavy}
 \begin_inset Text
 
 \begin_layout Standard
-Does the candidate pass PDCS–GE below? Where is the active set valid in parameter space, and what do the multipliers mean?
+Does the candidate pass PDCS–GE below? Is its no-profitable-trade gap zero? Where is the active set valid in parameter space, and what do the multipliers mean?
 \end_layout
 
 \end_inset
@@ -9081,7 +10253,11 @@ f(y)-f(x^*)
 \]
 \end_inset
 
-This is why the certificate proves global optimality: feasibility makes both remaining terms nonpositive.
+This is why the certificate proves global optimality: feasibility makes both remaining terms nonpositive. Equivalently, the supremum of the middle linearized expression over all feasible 
+\begin_inset Formula $y$
+\end_inset
+
+ is the no-profitable-trade gap, and KKT proves that this gap is zero.
 \end_layout
 
 \begin_layout Standard
@@ -9146,14 +10322,6 @@ translate prose into nonnegative slacks and name every unit;
 
 \begin_layout Itemize
 predict the active set before calculating; 
-\end_layout
-
-\begin_layout Itemize
-diagnose the first incorrect line in a polished but false solution; 
-\end_layout
-
-\begin_layout Itemize
-reverse KKT: infer parameter restrictions from a proposed certificate; 
 \end_layout
 
 \begin_layout Itemize
@@ -9274,7 +10442,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 25
+% Page 28
 \end_layout
 
 \begin_layout Plain Layout
@@ -9587,6 +10755,105 @@ status collapsed
 \begin_layout Plain Layout
 
 \backslash
+begin{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+NO-PROFITABLE-TRADE GAP
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For concave differentiable 
+\begin_inset Formula $f$
+\end_inset
+
+ on convex 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula \[
+\begin{aligned}
+G_f(x\mid C)&=\sup_{y\in C}\nabla f(x)^{\top}(y-x)\ge0,\\
+x\text{ is optimal}&\quad\Longleftrightarrow\quad G_f=0.
+\end{aligned}
+\]
+\end_inset
+
+For 
+\begin_inset Formula $C=\{y\ge0:p\cdot y\le m\}$
+\end_inset
+
+, let 
+\begin_inset Formula $\tau=\max\{0,\max_i f_i/p_i\}$
+\end_inset
+
+. Then 
+\begin_inset Formula \[
+G_f=m\tau-\nabla f(x)^{\top}x.
+\]
+\end_inset
+
+Positive gap: exhibit the maximizing trade. Zero gap: global certificate. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
 begin{checkbox}
 \end_layout
 
@@ -9681,11 +10948,7 @@ Solve the implied equalities.
 \end_layout
 
 \begin_layout Enumerate
-Check original feasibility. 
-\end_layout
-
-\begin_layout Enumerate
-Check multiplier signs. 
+Check original feasibility and multiplier signs. 
 \end_layout
 
 \begin_layout Enumerate
@@ -9693,19 +10956,11 @@ Check residuals at zero choices.
 \end_layout
 
 \begin_layout Enumerate
-Check slack constraints have zero multipliers. 
+Check slack constraints and every complementary product. 
 \end_layout
 
 \begin_layout Enumerate
-Check every complementary product. 
-\end_layout
-
-\begin_layout Enumerate
-Invoke the correct global theorem. 
-\end_layout
-
-\begin_layout Enumerate
-Interpret units and envelope effects. 
+Invoke the global theorem; interpret units and envelope effects. 
 \end_layout
 
 \begin_layout Standard
@@ -10023,55 +11278,21 @@ color{KKTnavy}
 
 \begin_layout Standard
 
-\size footnotesize
+\size scriptsize
 Boyd and Vandenberghe, 
 \emph on
 Convex Optimization
 \emph default
-, chapters 5 and 10 (
+, chs. 5 and 10 (
 \begin_inset CommandInset href
 LatexCommand href
-name "official materials"
+name "book"
 target "https://web.stanford.edu/~boyd/cvxbook/"
 literal "false"
 
 \end_inset
 
-). Ferris and Pang (1997), 
-\begin_inset Quotes eld
-\end_inset
-
-Engineering and Economic Applications of Complementarity Problems
-\begin_inset Quotes erd
-\end_inset
-
- (
-\begin_inset CommandInset href
-LatexCommand href
-name "survey"
-target "https://pages.cs.wisc.edu/~ferris/papers/sirev-comp-app.pdf"
-literal "false"
-
-\end_inset
-
-). Rutherford (1995), 
-\begin_inset Quotes eld
-\end_inset
-
-Extension of GAMS for Complementarity Problems Arising in Applied Economic Analysis
-\begin_inset Quotes erd
-\end_inset
-
- (
-\begin_inset CommandInset href
-LatexCommand href
-name "DOI"
-target "https://doi.org/10.1016/0165-1889(94)00831-2"
-literal "false"
-
-\end_inset
-
-). Milgrom and Segal (2002), 
+); Milgrom and Segal (2002), 
 \begin_inset Quotes eld
 \end_inset
 
@@ -10082,17 +11303,17 @@ Envelope Theorems for Arbitrary Choice Sets
  (
 \begin_inset CommandInset href
 LatexCommand href
-name "paper"
-target "https://milgrom.people.stanford.edu/wp-content/uploads/2002/03/Envelope-Theorems.pdf"
+name "DOI"
+target "https://doi.org/10.1111/1468-0262.00313"
 literal "false"
 
 \end_inset
 
-). Galor (2005), 
+); Afriat (1967), 
 \begin_inset Quotes eld
 \end_inset
 
-From Stagnation to Growth: Unified Growth Theory
+The Construction of Utility Functions from Expenditure Data
 \begin_inset Quotes erd
 \end_inset
 
@@ -10100,7 +11321,41 @@ From Stagnation to Growth: Unified Growth Theory
 \begin_inset CommandInset href
 LatexCommand href
 name "DOI"
-target "https://doi.org/10.1016/S1574-0684(05)01004-X"
+target "https://doi.org/10.2307/2525382"
+literal "false"
+
+\end_inset
+
+); Varian (1982), 
+\begin_inset Quotes eld
+\end_inset
+
+The Nonparametric Approach to Demand Analysis
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset CommandInset href
+LatexCommand href
+name "DOI"
+target "https://doi.org/10.2307/1912771"
+literal "false"
+
+\end_inset
+
+); and Aguiar, Hjertstrand, Serrano, and Evren, 
+\begin_inset Quotes eld
+\end_inset
+
+A Rationalization of the Weak Axiom of Revealed Preference
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset CommandInset href
+LatexCommand href
+name "paper"
+target "https://arxiv.org/abs/1906.00296"
 literal "false"
 
 \end_inset
@@ -10112,7 +11367,7 @@ literal "false"
 
 \begin_layout Standard
 
-\begin_inset VSpace 6pt
+\begin_inset VSpace 2pt
 \end_inset
 
  
@@ -10152,14 +11407,14 @@ color{KKTgray}
 \end_inset
 
  
-\begin_inset VSpace 4pt
+\begin_inset VSpace 2pt
 \end_inset
 
  
 \size footnotesize
 
 \family sans
-Prepared for ECON 803, Fall 2026. This booklet uses a single maximization/slack convention throughout. When consulting another source, translate its convention before comparing signs.
+Prepared for ECON 803, Fall 2026. Maximization with nonnegative slacks is used throughout.
 \family default
 
 \size default
