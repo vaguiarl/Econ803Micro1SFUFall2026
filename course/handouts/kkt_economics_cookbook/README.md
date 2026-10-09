@@ -5,11 +5,11 @@ The authoritative editable source is the
 handout is the [PDF](./ECON803_Economic_KKT_Cookbook.pdf), exported directly
 from that LyX file.
 
-The `.tex` file is a readable build mirror retained for review, exact formula
-checking, and version control. Substantive classroom edits should be made in
-LyX and followed by a fresh PDF export and visual check.
+Generated `.tex` exports are intentionally untracked so that they cannot become
+a competing source of truth. Substantive classroom edits should be made in LyX
+and followed by a fresh PDF export and visual check.
 
-The 24-page booklet contains:
+The 25-page booklet contains:
 
 - one maximization/nonnegative-slack sign convention;
 - the compact complementarity and active-set method;
@@ -17,5 +17,7 @@ The 24-page booklet contains:
 - an algebra-before-KKT toolkit using tangent directions, state-good
   coordinates, Cauchy--Schwarz/Hölder, homogeneity, water filling, projection,
   and parameter-regime maps;
+- a reduced-cost entry test that predicts zero choices and certifies a proposed
+  active set before solving the full problem;
 - fully audited portfolio and quantity-quality examples;
 - a three-pass mastery protocol and tear-out reference sheet.

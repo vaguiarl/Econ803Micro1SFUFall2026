@@ -115,6 +115,7 @@
 \newcommand{\pagekicker}[2]{%
   \noindent\sectiontag{#1}\hspace{7pt}{\sffamily\bfseries\large\color{KKTnavy}#2}\par\vspace{5pt}}
 \newcommand{\auditmark}{\textcolor{KKTteal}{\ensuremath{\checkmark}}}
+\newcommand{\kkttearoutsize}{\small}
 
 % Keep the designed cover as one stable macro when this source is imported into
 % LyX.  tex2lyx otherwise flattens nested font and color scopes on the title.
@@ -680,7 +681,7 @@ How to use this booklet
 \end_layout
 
 \begin_layout Standard
-Pages 3–8 build the method. Pages 9–15 develop an algebra-before-KKT toolkit. Pages 16–18 solve portfolio choice, and pages 19–22 solve the quantity-quality example. Page 23 is a mastery protocol; page 24 is a tear-out reference sheet.
+Pages 3–8 build the method. Pages 9–16 develop an algebra-before-KKT toolkit. Pages 17–19 solve portfolio choice, and pages 20–23 solve the quantity-quality example. Page 24 is a mastery protocol; page 25 is a tear-out reference sheet.
 \end_layout
 
 \begin_layout Standard
@@ -5469,6 +5470,440 @@ status collapsed
 
 \end_inset
 
+ SCREEN
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Predict zero choices before solving
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The entry test: would a missing activity pay for itself?
+\end_layout
+
+\begin_layout Standard
+Assume KKT multipliers exist for the differentiable concave problem 
+\begin_inset Formula \[
+\max_{x\ge0} f(x)
+\quad\text{subject to}\quad
+Ax\le b,
+\]
+\end_inset
+
+with Lagrangian 
+\begin_inset Formula $L=f(x)+\lambda^{\top}(b-Ax)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+. At shadow prices 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, define activity 
+\begin_inset Formula $i$
+\end_inset
+
+'s 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+term{
+\end_layout
+
+\end_inset
+
+entry surplus
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+E_i(x,\lambda)
+=\frac{\partial f(x)}{\partial x_i}-A_{\cdot i}^{\top}\lambda.
+\]
+\end_inset
+
+The first term is marginal benefit; the second is the shadow value of every resource required by one unit of the activity. KKT gives 
+\begin_inset Formula \[
+E_i\le0,
+\qquad
+x_iE_i=0.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{resultbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THE ZERO-CHOICE EARLY WARNING
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \[
+\boxed{
+\begin{array}{ccl}
+E_i>0 &\Longrightarrow& \text{the proposed zero cannot be optimal},\\[2pt]
+E_i<0 &\Longrightarrow& x_i=0\text{ in any certified solution using these multipliers},\\[2pt]
+E_i=0 &\Longrightarrow& \text{first-order ambiguity: inspect curvature and degeneracy.}
+\end{array}}
+\]
+\end_inset
+
+The exclusion margin 
+\begin_inset Formula $M_i=-E_i=A_{\cdot i}^{\top}\lambda-f_i(x)$
+\end_inset
+
+ measures how far the activity is from entry. Its sign is invariant to positive rescaling of the objective, but its magnitude depends on units. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{resultbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Restricted solve, full certificate
+\end_layout
+
+\begin_layout Standard
+Choose a plausible active set 
+\begin_inset Formula $S$
+\end_inset
+
+, impose 
+\begin_inset Formula $x_{S^c}=0$
+\end_inset
+
+, and solve the smaller problem. Then test each omitted activity 
+\begin_inset Formula $j\notin S$
+\end_inset
+
+: 
+\begin_inset Formula \[
+\boxed{f_j(x^S)\le A_{\cdot j}^{\top}\lambda.}
+\]
+\end_inset
+
+If the included choices pass KKT and 
+\emph on
+one admissible
+\emph default
+ multiplier vector prices every omitted activity out, the restricted solution satisfies the full KKT system and is globally optimal. When restricted-problem multipliers are nonunique, one multiplier that fails is not enough to reject the allocation; look for a common multiplier vector that passes all entry tests.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+A THRESHOLD STUDENTS CAN SEE BEFORE CALCULATING
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ For 
+\begin_inset Formula $u_i(x_i)=a_ix_i-\frac12\kappa_ix_i^2$
+\end_inset
+
+, with 
+\begin_inset Formula $\kappa_i,p_i>0$
+\end_inset
+
+ and one budget, 
+\begin_inset Formula \[
+x_i(\lambda)=\frac{[a_i-\lambda p_i]_+}{\kappa_i},
+\qquad
+\boxed{x_i=0\iff \frac{a_i}{p_i}\le\lambda.}
+\]
+\end_inset
+
+Sort the reservation values 
+\begin_inset Formula $a_i/p_i$
+\end_inset
+
+. As resources tighten, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ rises and activities exit in threshold order; ties enter or exit together. If the budget is slack, 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definitionbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{insightbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+title=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+THREE FAST WARNINGS
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ An infinite one-sided marginal at zero rules out a corner when a small entry is feasible and shadow cost is finite. A strictly dominated activity can be removed before solving. With complementarities or other interactions, however, the marginal value at the origin can mislead: solve the restricted incumbent bundle first and evaluate the entry surplus there. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{insightbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+% Page 15
+\end_layout
+
+\begin_layout Plain Layout
+% -----------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagekicker{
+\end_layout
+
+\end_inset
+
+13 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
  PROJECT
 \begin_inset ERT
 status collapsed
@@ -5648,7 +6083,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 15
+% Page 16
 \end_layout
 
 \begin_layout Plain Layout
@@ -5673,7 +6108,7 @@ pagekicker{
 
 \end_inset
 
-13 
+14 
 \begin_inset ERT
 status collapsed
 
@@ -5968,7 +6403,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 16
+% Page 17
 \end_layout
 
 \begin_layout Plain Layout
@@ -6242,7 +6677,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 10
+% Page 18
 \end_layout
 
 \begin_layout Plain Layout
@@ -6499,7 +6934,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 11
+% Page 19
 \end_layout
 
 \begin_layout Plain Layout
@@ -6802,7 +7237,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 12
+% Page 20
 \end_layout
 
 \begin_layout Plain Layout
@@ -7317,7 +7752,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 13
+% Page 21
 \end_layout
 
 \begin_layout Plain Layout
@@ -7612,7 +8047,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 14
+% Page 22
 \end_layout
 
 \begin_layout Plain Layout
@@ -7881,7 +8316,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 15
+% Page 23
 \end_layout
 
 \begin_layout Plain Layout
@@ -8186,7 +8621,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 23
+% Page 24
 \end_layout
 
 \begin_layout Plain Layout
@@ -8839,7 +9274,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-% Page 24
+% Page 25
 \end_layout
 
 \begin_layout Plain Layout
@@ -8917,6 +9352,18 @@ status collapsed
 \end_inset
 
 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+kkttearoutsize
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset ERT
 status collapsed
 
@@ -9101,7 +9548,23 @@ status collapsed
 \]
 \end_inset
 
-Positive choice: equality. Zero choice: inequality. Positive multiplier: binding. Binding: multiplier may be zero. 
+Entry surplus: 
+\begin_inset Formula $E_i=\nabla_i f-(A^{\top}\lambda)_i$
+\end_inset
+
+. Positive choice: 
+\begin_inset Formula $E_i=0$
+\end_inset
+
+; zero choice: 
+\begin_inset Formula $E_i\le0$
+\end_inset
+
+; 
+\begin_inset Formula $E_i>0$
+\end_inset
+
+: enter. Positive multiplier: binding. Binding: multiplier may be zero. 
 \begin_inset ERT
 status collapsed
 
