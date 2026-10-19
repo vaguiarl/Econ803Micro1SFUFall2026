@@ -103,12 +103,7 @@ if rg -n -i "$hazards" "$notes_dir/$stem.lyx"; then
   exit 2
 fi
 
-restricted_assessments="$(git -C "$repo_dir" ls-files | rg -i '(^|/)(midterm|exam)|^problemsets/.*(solution|answer|key)' || true)"
-if [[ -n "$restricted_assessments" ]]; then
-  printf '%s\n' "$restricted_assessments" >&2
-  printf '\nRestricted assessment files are tracked in the public repository.\n' >&2
-  exit 3
-fi
+python3 "$repo_dir/scripts/check_public_assessments.py"
 
 printf '9/10 Regenerating the book map and duplication index...\n'
 perl "$repo_dir/scripts/book_map.pl" "$notes_dir/$stem.lyx" > "$repo_dir/BOOK_MAP.md"

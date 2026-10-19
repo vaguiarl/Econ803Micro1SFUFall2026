@@ -6,13 +6,14 @@ The Fall 2026 course runs from September 9 through December 7. Class meets Frida
 
 ## Student quick links
 
+- [Midterm 1 worked solutions (October 16, 2026; PDF)](course/released_assessments/2026-10-16/ECON803_Midterm1_Fall2026_Worked_Solutions.pdf) ([study guide and editable LyX source](course/released_assessments/2026-10-16/README.md))
 - [Download the current course notes (PDF)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/notes/Microeconomics_1_notes_by_Victor_Aguiar.pdf)
 - [Download the question-only practice book (PDF)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/problemsets/practice_book/ECON803_Practice_Book_Fall2026.pdf)
 - [Browse the canonical problem bank](problems/PROBLEM_BANK.md)
 - [Read the course outline](COURSE_OUTLINE.md)
 - [See the weekly release structure](problemsets/README.md)
 
-These links always point to the public `main` branch. Solutions and unreleased assessments remain in the private instructor repository.
+These links always point to the public `main` branch. Only explicitly released assessment solutions appear under `course/released_assessments/`; instructor rubrics, student records, other solutions and unreleased assessments remain private.
 
 The Fall 2026 baseline has four commitments:
 
@@ -55,7 +56,7 @@ The command rebuilds and preflights all vector figures before exporting LyX, ver
 
 ## Assessment policy
 
-This public edition contains 66 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. Every chapter closes with **Part I: By hand** and **Part II: a named chapter use case and verified scale-up**; the designated case is always the final problem. The canonical prompts live in `problems/PROBLEM_BANK.md`, the 17 case pathways live in `problems/CHAPTER_PATHWAYS.tsv`, and both are injected reproducibly into the LyX manuscript. The music-and-concerts case is Problem 10.4 and is also available as the standalone handout linked above. Its fan-demand part uses Chapter 1; the complete case combines consumer demand, production costs, and concert pricing. Solutions, answer keys, examinations, and unreleased weekly handouts remain in the private instructor repository. Standalone student sheets are released as teaching views of the same stable chapter architecture.
+This public edition contains 66 question-only end-of-chapter problems, each with a stable identifier and a **Core**, **Proof**, or **Applied** label. Every chapter closes with **Part I: By hand** and **Part II: a named chapter use case and verified scale-up**; the designated case is always the final problem. The canonical prompts live in `problems/PROBLEM_BANK.md`, the 17 case pathways live in `problems/CHAPTER_PATHWAYS.tsv`, and both are injected reproducibly into the LyX manuscript. The music-and-concerts case is Problem 10.4 and is also available as the standalone handout linked above. Its fan-demand part uses Chapter 1; the complete case combines consumer demand, production costs, and concert pricing. The book and practice bank remain question-only. After an assessment is completed, an explicitly authorized student solution may be published under `course/released_assessments/`, with its exact files listed in `PUBLIC_RELEASES.json`. All instructor rubrics, student records, other solutions, examinations, and unreleased weekly handouts remain private. Standalone student sheets are released as teaching views of the same stable chapter architecture.
 
 The workhorse-demand material now includes CES derivations, elasticities, calibration, limiting cases, and compensated welfare comparisons, plus a translog expenditure model with explicit regularity checks. Eleven worked examples connect those families to Cobb-Douglas, linear, Leontief, Stone-Geary, and quasilinear demand. Problems 1.2--1.6 and 2.4--2.6 provide further practice.
 

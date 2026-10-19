@@ -1,0 +1,1953 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{array}\usepackage{fancyhdr}\usepackage{lastpage}\usepackage{enumitem}
+
+
+
+
+
+\setlength{\parskip}{5pt}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=8pt,topsep=5pt}
+\renewcommand{\arraystretch}{1.18}
+
+\fancyhf{}
+\lhead{\small ECON 803 \;|\; Midterm 1 solutions}
+\rhead{\small Released October 18, 2026}
+\lfoot{\small October 16, 2026}
+\rfoot{\small Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\newcommand{\parttitle}[2]{\vspace{6pt}{\bfseries\color{examblue}#1}\hfill
+  {\bfseries[#2 points]}\par}
+\newcommand{\heading}[1]{{\large\bfseries\color{examblue}#1}\par
+  \vspace{3pt}{\color{examgray}\hrule}\vspace{7pt}}
+
+
+
+
+
+
+
+
+
+
+
+\end_preamble
+\use_default_options false
+\begin_modules
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "lmodern" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_title "ECON 803 Midterm 1 - Released worked solutions"
+\pdf_author "Victor H. Aguiar"
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "urlcolor=examblue,linkcolor=examblue"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor examblue 17365d
+\customcolor examgray 536273
+\customcolor exampale eff4fa
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.75in
+\topmargin 0.75in
+\rightmargin 0.75in
+\bottommargin 0.75in
+\headheight 15pt
+\headsep 18pt
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0pt
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\size largest
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{examblue}
+\end_layout
+
+\end_inset
+
+ Midterm 1: Worked Solutions
+\series default
+
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset VSpace 8pt
+\end_inset
+
+ 
+\size large
+ECON 803 
+\begin_inset space \quad{}
+
+\end_inset
+
+Fall 2026
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset VSpace 4pt
+\end_inset
+
+ Exam: October 16, 2026 
+\begin_inset space \quad{}
+
+\end_inset
+
+Public release: October 18, 2026 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 8pt
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 1
+use_makebox 0
+width "97text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "exampale"
+status open
+
+
+\begin_layout Plain Layout
+This student edition matches the October 16, 2026, 90-minute exam. It includes all ten subparts and two optional optimization routes. It contains no student records, grading notes, or unreleased assessment solutions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+How to use this solution
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ First read your personalized PDF feedback on Canvas. Attempt a repair before looking at the corresponding worked solution; then close the solution and repeat the argument with one parameter or data row changed. Bring your feedback and the attempted problem to office hours, marking the first line you cannot justify.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+A minimum reliable optimization answer.
+\series default
+ Write the choices, fixed parameters, domains and actual constraints. Compute the derivatives and state the full KKT conditions with a consistent sign convention. Solve one candidate; test its feasibility and any zero-choice entry condition. Recover the original choices, check the budget, and explain why the KKT certificate is globally sufficient. A negative interior candidate changes the active set, not the given parameters.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+A minimum reliable revealed-preference answer.
+\series default
+ Identify which regime supplies the bundle and which regime supplies the comparison prices and income. Write the event implication first, then the probability inequality. Carry numerical counts through to shares, the correctly directed welfare interval, and a one-sentence conclusion. Independent cross-sections do not provide household pairings.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Start small.
+\series default
+ Reproduce one complete household regime and the two-regime numerical welfare calculation without the key. Then attempt an altered regime and one short maximum-comparison or event-inclusion proof. These are practice milestones, not a prediction of a core-exam result or a substitute for the full syllabus.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Reading map.
+\series default
+ Question 1 covers expenditure coordinates, KKT, human-search corners, agent pricing and finite-data maximum comparisons. Question 2 covers cross-affordability, welfare bounds, overlap and transitivity. The appendix offers optional shorter optimization routes; it is not an additional exam requirement.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Notation reminder.
+\series default
+ In Question 1, 
+\begin_inset Formula $a$
+\end_inset
+
+ is household search, 
+\begin_inset Formula $A$
+\end_inset
+
+ its productivity, 
+\begin_inset Formula $b$
+\end_inset
+
+ supplied AI search, 
+\begin_inset Formula $F$
+\end_inset
+
+ the fixed fee, 
+\begin_inset Formula $D=1+Aa+b$
+\end_inset
+
+, 
+\begin_inset Formula $p=1/D$
+\end_inset
+
+, 
+\begin_inset Formula $e=pc$
+\end_inset
+
+, 
+\begin_inset Formula $c$
+\end_inset
+
+ physical groceries and 
+\begin_inset Formula $r$
+\end_inset
+
+ outside consumption. In Question 2, 
+\begin_inset Formula $r_{ts}$
+\end_inset
+
+ is instead a probability: it is the share of regime-
+\begin_inset Formula $s$
+\end_inset
+
+ bundles affordable at regime-
+\begin_inset Formula $t$
+\end_inset
+
+ prices and income.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+Question 1. AI as a tool and a hired shopping agent
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(a) Expenditure coordinates and global optimality
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+6
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ With 
+\begin_inset Formula $D=1+Aa+b>0$
+\end_inset
+
+, the price is 
+\begin_inset Formula $p=1/D$
+\end_inset
+
+, so 
+\begin_inset Formula $e=c/D>0$
+\end_inset
+
+ and 
+\begin_inset Formula $c=De$
+\end_inset
+
+. This is a one-to-one change of variables for fixed 
+\begin_inset Formula $A,b,F$
+\end_inset
+
+ and a given 
+\begin_inset Formula $a$
+\end_inset
+
+. Substitution gives 
+\begin_inset Formula \[
+f(e,a,r;A,b)=-\frac{1}{De}-\frac{a}{8}+r,\qquad e+r\le2-F,\quad e>0,\quad a,r\ge0.
+\]
+\end_inset
+
+The feasible set is convex. The objective is concave in all choices and strictly concave in 
+\begin_inset Formula $(e,a)$
+\end_inset
+
+. Thus a feasible point with a valid KKT certificate is a global optimum. Budget exhaustion determines 
+\begin_inset Formula $r$
+\end_inset
+
+; strict concavity then gives uniqueness of the full optimum.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(b) KKT conditions
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+10
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Use nonnegative multipliers 
+\begin_inset Formula $\lambda,\mu,\eta$
+\end_inset
+
+ on 
+\begin_inset Formula $2-F-e-r$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+, and 
+\begin_inset Formula $r$
+\end_inset
+
+: 
+\begin_inset Formula \[
+L=-\frac{1}{De}-\frac{a}{8}+r+\lambda(2-F-e-r)+\mu a+\eta r.
+\]
+\end_inset
+
+Stationarity is 
+\begin_inset Formula \[
+\frac{1}{De^{2}}-\lambda=0,\qquad\frac{A}{D^{2}e}-\frac{1}{8}+\mu=0,\qquad1-\lambda+\eta=0.
+\]
+\end_inset
+
+Primal and dual feasibility and complementary slackness are 
+\begin_inset Formula \[
+e>0,\quad a,r\ge0,\quad e+r\le2-F,\qquad\lambda,\mu,\eta\ge0,
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda(2-F-e-r)=0,\qquad\mu a=0,\qquad\eta r=0.
+\]
+\end_inset
+
+Equivalently the search entry surplus is 
+\begin_inset Formula $E_{a}=A/(D^{2}e)-1/8\le0$
+\end_inset
+
+ with 
+\begin_inset Formula $aE_{a}=0$
+\end_inset
+
+. If 
+\begin_inset Formula $r>0$
+\end_inset
+
+, then 
+\begin_inset Formula $\eta=0$
+\end_inset
+
+, so 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+Question 1, continued
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(c) Manual search, a tool, and delegation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+14
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Here 
+\begin_inset Formula $F=0$
+\end_inset
+
+ and the student may assume 
+\begin_inset Formula $r>0$
+\end_inset
+
+. The budget binds, 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+, and grocery stationarity gives 
+\begin_inset Formula \[
+e=D^{-1/2},\qquad c=\sqrt{D},\qquad r=2-D^{-1/2}.
+\]
+\end_inset
+
+Positive human effort requires 
+\begin_inset Formula \[
+\frac{A}{D^{3/2}}=\frac{1}{8}\quad\Longrightarrow\quad D=(8A)^{2/3}.
+\]
+\end_inset
+
+At 
+\begin_inset Formula $a=0$
+\end_inset
+
+, instead check 
+\begin_inset Formula $A/(1+b)^{3/2}\le1/8$
+\end_inset
+
+. The general solution with a positive numeraire is 
+\begin_inset Formula \[
+D^{*}=\max\{(8A)^{2/3},1+b\},\qquad a^{*}=\frac{D^{*}-1-b}{A}.
+\]
+\end_inset
+
+The three requested cases are: 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="4" columns="7">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="none" valignment="top" special="r@{}">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Regime 
+\begin_inset Formula $(A,b)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $a$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $e$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $c$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $p$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $r$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $V$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Manual 
+\begin_inset Formula $(1,0)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $3$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $1/2$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $2$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $1/4$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $3/2$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $5/8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Tool 
+\begin_inset Formula $(8,0)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $15/8$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $1/4$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $4$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $1/16$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $7/4$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $81/64$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Delegated 
+\begin_inset Formula $(8,63)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $1/8$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $8$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $1/64$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $15/8$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $7/4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $V=-1/c-a/8+r$
+\end_inset
+
+ is total household utility before a fee. For manual search and the tool, the interior search equality holds; the KKT multipliers are 
+\begin_inset Formula $(\lambda,\mu,\eta)=(1,0,0)$
+\end_inset
+
+. For delegated service, positive human search would require 
+\begin_inset Formula $1+8a+63=16$
+\end_inset
+
+, giving 
+\begin_inset Formula $a=-6$
+\end_inset
+
+, which is infeasible. At the actual boundary, 
+\begin_inset Formula \[
+E_{a}=\frac{8}{64^{3/2}}-\frac{1}{8}=\frac{1}{64}-\frac{1}{8}=-\frac{7}{64}<0.
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula $(\lambda,\mu,\eta)=(1,7/64,0)$
+\end_inset
+
+ certifies the corner. All budgets bind and all complementary products vanish. Concavity makes these unique global optima. The tool raises the productivity of human effort; delegated service supplies effective search even with zero human effort. Physical consumption rises while grocery expenditure falls. The cases are not claims about empirical AI effects.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+Question 1, continued
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(d) A profitable contract and consumer surplus
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+8
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ The agent operates in the 
+\begin_inset Formula $A=8$
+\end_inset
+
+ environment. Let 
+\begin_inset Formula $W(b)$
+\end_inset
+
+ be optimized household utility before the fee. The household's outside option is the powerful tool, 
+\begin_inset Formula $W(0)=81/64$
+\end_inset
+
+, not manual search. Its willingness to pay for delegation is 
+\begin_inset Formula $\Delta(b)=W(b)-W(0)$
+\end_inset
+
+. Because the numeraire stays positive, a fixed fee reduces optimized utility one-for-one and does not change 
+\begin_inset Formula $a,e,c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Revenue is increasing in 
+\begin_inset Formula $F$
+\end_inset
+
+, so the sharing restriction binds: 
+\begin_inset Formula \[
+F(b)=\frac{1}{4}\Delta(b),\qquad\Pi(b)=\frac{1}{4}[W(b)-W(0)]-\frac{b^{2}}{7680}.
+\]
+\end_inset
+
+The supplied envelope identity gives 
+\begin_inset Formula $W'(b)=1/(D^{2}e)$
+\end_inset
+
+. With 
+\begin_inset Formula $A=8$
+\end_inset
+
+ and 
+\begin_inset Formula $r>0$
+\end_inset
+
+, human search is positive when 
+\begin_inset Formula $b<15$
+\end_inset
+
+, then reaches zero at 
+\begin_inset Formula $b=15$
+\end_inset
+
+. Therefore 
+\begin_inset Formula \[
+W(b)=\begin{cases}
+81/64+b/64, & 0\le b\le15,\\
+2-2/\sqrt{1+b}, & b\ge15,
+\end{cases}\quad W'(b)=\begin{cases}
+1/64, & 0\le b\le15,\\
+(1+b)^{-3/2}, & b\ge15.
+\end{cases}
+\]
+\end_inset
+
+There is no derivative discontinuity at 
+\begin_inset Formula $b=15$
+\end_inset
+
+. For 
+\begin_inset Formula $b\le15$
+\end_inset
+
+, 
+\begin_inset Formula $\Pi'(b)=1/256-b/3840$
+\end_inset
+
+, which vanishes at 
+\begin_inset Formula $b=15$
+\end_inset
+
+. Beyond 15, the marginal benefit decreases and the marginal cost increases, so 
+\begin_inset Formula $\Pi'(b)<0$
+\end_inset
+
+. Alternatively, the given concavity of 
+\begin_inset Formula $W$
+\end_inset
+
+ and strictly convex cost imply that 
+\begin_inset Formula $\Pi$
+\end_inset
+
+ is strictly concave: its stationary point is the unique global maximum. Thus 
+\begin_inset Formula \[
+\boxed{b^{*}=15,\quad F^{*}=\frac{15}{256},\quad C(b^{*})=\frac{15}{512},\quad\Pi^{*}=\frac{15}{512}>0.}
+\]
+\end_inset
+
+No service 
+\begin_inset Formula $(b,F)=(0,0)$
+\end_inset
+
+ yields zero profit and is dominated. At the optimal contract, 
+\begin_inset Formula \[
+(a,e,c,p,r)=\left(0,\frac{1}{4},4,\frac{1}{16},\frac{433}{256}\right),\qquad V=W(15)-F^{*}=\frac{369}{256}.
+\]
+\end_inset
+
+The tool's utility was 
+\begin_inset Formula $81/64=324/256$
+\end_inset
+
+, so the consumer gains 
+\begin_inset Formula $45/256>0$
+\end_inset
+
+. Yet outside consumption falls from 
+\begin_inset Formula $7/4=448/256$
+\end_inset
+
+ to 
+\begin_inset Formula $433/256$
+\end_inset
+
+: the fee exceeds the change in grocery expenditure, which is zero here. The welfare gain instead includes eliminating human effort 
+\begin_inset Formula $15/8$
+\end_inset
+
+. A strict utility gain does not require increased cash.
+\end_layout
+
+\begin_layout Standard
+Weak voluntary participation only imposes 
+\begin_inset Formula $F\le\Delta(b)$
+\end_inset
+
+. A monopolist could set equality and leave zero consumer surplus. Here the explicit quarter-share cap guarantees a strictly positive consumer share whenever 
+\begin_inset Formula $\Delta(b)>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+Question 1, continued
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(e) Afriat-style inequalities from unique maximization
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+12
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ This subpart uses a separate interior panel and the known price technology, as stated in the revised exam. At observation 
+\begin_inset Formula $t$
+\end_inset
+
+, utility is strictly increasing in outside consumption, so the budget is exhausted: 
+\begin_inset Formula \[
+r_{t}=M_{t}-p_{t}c_{t}.
+\]
+\end_inset
+
+Here 
+\begin_inset Formula $M_{t}$
+\end_inset
+
+ is income net of the date-specific fixed fee. For a comparison pair with 
+\begin_inset Formula $q_{jt}c_{j}\le M_{t}$
+\end_inset
+
+, define the counterfactual outside consumption 
+\begin_inset Formula $r_{jt}=M_{t}-q_{jt}c_{j}\ge0$
+\end_inset
+
+. Then 
+\begin_inset Formula $(c_{j},a_{j},r_{jt})$
+\end_inset
+
+ is feasible at date t, with exactly the same AI assistance as the observed choice. By the definition of a maximum, 
+\begin_inset Formula \[
+U_{t}+r_{t}\ge U_{j}+r_{jt}.
+\]
+\end_inset
+
+Substitute the two outside-consumption expressions and cancel income: 
+\begin_inset Formula \begin{align*}
+U_{t}+M_{t}-p_{t}c_{t} & \ge U_{j}+M_{t}-q_{jt}c_{j},\\
+U_{j}-U_{t} & \le q_{jt}c_{j}-p_{t}c_{t}.
+\end{align*}
+\end_inset
+
+If 
+\begin_inset Formula $(c_{j},a_{j})\ne(c_{t},a_{t})$
+\end_inset
+
+, the counterfactual is different from the unique maximizer. The maximum comparison, and hence the final inequality, is strict. If the consumption-search pair is identical, both prices are evaluated at 
+\begin_inset Formula $(A_{t},b_{t})$
+\end_inset
+
+ and the inequality is equality, even when incomes or observed outside consumption differ across dates.
+\end_layout
+
+\begin_layout Standard
+The correct counterfactual price is 
+\begin_inset Formula $q_{jt}=p(a_{j};A_{t},b_{t})$
+\end_inset
+
+: it combines the alternative's human search with date t's tool and contracted service. Using 
+\begin_inset Formula $p_{j}=p(a_{j};A_{j},b_{j})$
+\end_inset
+
+ would compare a different environment. If 
+\begin_inset Formula $q_{jt}c_{j}>M_{t}$
+\end_inset
+
+, the alternative requires negative outside consumption and is not feasible; the displayed comparison is not imposed for that pair. No derivative, concavity, supporting plane, or multiplier is required in this subpart. These are necessary finite-data restrictions, not a sufficient rationalizability theorem.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Optional original-coordinate route.
+\series default
+ One may write the same maximum comparison directly as 
+\begin_inset Formula \[
+u(c_{t},a_{t})+M_{t}-p(a_{t};A_{t},b_{t})c_{t}\ge u(c_{j},a_{j})+M_{t}-p(a_{j};A_{t},b_{t})c_{j}.
+\]
+\end_inset
+
+This is the same proof in original coordinates; counterfactual feasibility and strictness must still be checked.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+Question 2. Population WARP
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(a) Affordability and welfare
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+10
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ On 
+\begin_inset Formula $A_{ts}$
+\end_inset
+
+, 
+\begin_inset Formula $p^{t}\cdot x^{s}_{\nu}<m_{t}$
+\end_inset
+
+ almost surely by the no-equality assumption. Choose a sufficiently small 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ so that 
+\begin_inset Formula $x^{s}_{\nu}+\varepsilon\mathbf{1}$
+\end_inset
+
+ is affordable at 
+\begin_inset Formula $(p^{t},m_{t})$
+\end_inset
+
+. Strictly increasing utility and optimality imply 
+\begin_inset Formula \[
+V^{t}_{\nu}\ge u_{\nu}(x^{s}_{\nu}+\varepsilon\mathbf{1})>u_{\nu}(x^{s}_{\nu})=V^{s}_{\nu}.
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula $A_{ts}\subseteq H_{ts}$
+\end_inset
+
+ almost surely. Taking probabilities gives 
+\begin_inset Formula $r_{ts}\le\theta_{ts}$
+\end_inset
+
+. A bundle strictly inside the other regime's budget can be improved there, so that regime delivers strictly greater welfare.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(b) Welfare bounds and cross-section identification
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+12
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Reversing regimes gives 
+\begin_inset Formula $A_{st}\subseteq H_{st}$
+\end_inset
+
+. The strict welfare events 
+\begin_inset Formula $H_{ts}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{st}$
+\end_inset
+
+ are disjoint, including when some types are indifferent. Therefore 
+\begin_inset Formula \[
+r_{st}\le\Pr(H_{st})\le1-\Pr(H_{ts})=1-\theta_{ts}.
+\]
+\end_inset
+
+Combining with part (a), 
+\begin_inset Formula \[
+\boxed{r_{ts}\le\theta_{ts}\le1-r_{st}},\qquad\boxed{r_{ts}+r_{st}\le1}.
+\]
+\end_inset
+
+The economist computes 
+\begin_inset Formula $r_{ts}$
+\end_inset
+
+ by pricing each observed regime-
+\begin_inset Formula $s$
+\end_inset
+
+ bundle at 
+\begin_inset Formula $p^{t}$
+\end_inset
+
+ and comparing with 
+\begin_inset Formula $m_{t}$
+\end_inset
+
+. This uses only the marginal distribution of regime-
+\begin_inset Formula $s$
+\end_inset
+
+ choices. Reverse the calculation using the regime-
+\begin_inset Formula $t$
+\end_inset
+
+ sample for 
+\begin_inset Formula $r_{st}$
+\end_inset
+
+. No household pairing is needed. A stable type distribution ensures both shares refer to the same latent population; without stability, their sum need not constrain a common population's behavior.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(c) Numerical welfare interval
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+10
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Five of the ten regime-2 cross-expenditures are below 
+\begin_inset Formula $m_{1}=12$
+\end_inset
+
+, so 
+\begin_inset Formula $r_{12}=5/10=0.50$
+\end_inset
+
+. Four of the ten regime-1 cross-expenditures are below 
+\begin_inset Formula $m_{2}=13$
+\end_inset
+
+, so 
+\begin_inset Formula $r_{21}=4/10=0.40$
+\end_inset
+
+. Thus 
+\begin_inset Formula \[
+r_{12}+r_{21}=0.90\le1,\qquad\boxed{\theta_{12}\in[0.50,0.60]}.
+\]
+\end_inset
+
+The pair satisfies population WARP with slack 
+\begin_inset Formula $0.10$
+\end_inset
+
+. Under the model, between 50% and 60% are better off in regime 1. The calculation is not a sampling-uncertainty test: the prompt treats the proportions as exact.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+Question 2, continued
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(d) A forced share of individual WARP violations
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+10
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=A_{12}$
+\end_inset
+
+ and 
+\begin_inset Formula $B=A_{21}$
+\end_inset
+
+ for the alternative population. Budget exhaustion remains maintained; this calculation relaxes universal individual WARP, not budget exhaustion. Then 
+\begin_inset Formula \[
+\Pr(A\cap B)\ge\Pr(A)+\Pr(B)-1=0.64+0.44-1=0.08.
+\]
+\end_inset
+
+On the intersection, each regime's chosen bundle is strictly affordable under the other budget almost surely. The choices are distinct, since identical bundles would have cross-expenditure equality by budget exhaustion. Mutual strict affordability violates individual WARP. Therefore 
+\begin_inset Formula \[
+\boxed{\text{at least 8\% of households must violate individual WARP}.}
+\]
+\end_inset
+
+Consequently, universal WARP is incompatible with these exact shares. The unknown overlap prevents the identification of particular households, and the total violating share could exceed the bound.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(e) Transitivity across three regimes
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+8
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Return to stable utility maximization. For every type, 
+\begin_inset Formula \[
+H_{12}\cap H_{23}\subseteq H_{13},
+\]
+\end_inset
+
+because 
+\begin_inset Formula $V^{1}_{\nu}>V^{2}_{\nu}$
+\end_inset
+
+ and 
+\begin_inset Formula $V^{2}_{\nu}>V^{3}_{\nu}$
+\end_inset
+
+ imply 
+\begin_inset Formula $V^{1}_{\nu}>V^{3}_{\nu}$
+\end_inset
+
+. Hence 
+\begin_inset Formula \begin{align*}
+\theta_{13} & \ge\Pr(H_{12}\cap H_{23})\\
+ & \ge\Pr(H_{12})+\Pr(H_{23})-1\\
+ & \ge r_{12}+r_{23}-1=0.72+0.65-1=0.37.
+\end{align*}
+\end_inset
+
+The direct bound is 
+\begin_inset Formula $\theta_{13}\ge r_{13}=0.20$
+\end_inset
+
+, so 
+\begin_inset Formula \[
+\boxed{\theta_{13}\ge\max\{0.20,0.37\}=0.37.}
+\]
+\end_inset
+
+At least 37% are better off in regime 1 than in regime 3. This extension uses transitive utility comparisons in the maintained rational model. Pairwise WARP alone is not asserted to imply transitivity.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+heading{
+\end_layout
+
+\end_inset
+
+Optional appendix: shorter economic KKT routes
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Method 1: numeraire normalization and entry screening.
+\series default
+ With a positive numeraire, set 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+ and use only 
+\begin_inset Formula \[
+e=D^{-1/2},\qquad E_{a}=AD^{-3/2}-\frac{1}{8}\le0,\qquad aE_{a}=0.
+\]
+\end_inset
+
+At 
+\begin_inset Formula $a=0$
+\end_inset
+
+, 
+\begin_inset Formula $D=1+b$
+\end_inset
+
+. Entry has positive surplus if 
+\begin_inset Formula $1+b<(8A)^{2/3}$
+\end_inset
+
+, so that boundary is rejected. Otherwise the boundary passes. A positive-search candidate requires 
+\begin_inset Formula $D=(8A)^{2/3}$
+\end_inset
+
+. Recover 
+\begin_inset Formula $\mu=-E_{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta=0$
+\end_inset
+
+. At the threshold the entry surplus is zero, not strictly negative: uniqueness follows from the global certificate. This method is the shortest route to the comparative table; no full second KKT calculation is needed for each case.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Method 2: budget reduction and one-dimensional optimization.
+\series default
+ Set 
+\begin_inset Formula $r=2-F-e$
+\end_inset
+
+, retaining 
+\begin_inset Formula $0<e\le2-F$
+\end_inset
+
+. Write 
+\begin_inset Formula $d=1+b$
+\end_inset
+
+ and 
+\begin_inset Formula $a=(D-d)/A$
+\end_inset
+
+, so 
+\begin_inset Formula $D\ge d$
+\end_inset
+
+. Maximization is equivalent to minimizing 
+\begin_inset Formula \[
+J(e,D)=e+\frac{1}{De}+\frac{D-d}{8A}.
+\]
+\end_inset
+
+For a fixed 
+\begin_inset Formula $D$
+\end_inset
+
+, the sharp inequality 
+\begin_inset Formula \[
+e+\frac{1}{De}\ge\frac{2}{\sqrt{D}},\qquad e+\frac{1}{De}-\frac{2}{\sqrt{D}}=\frac{(e-D^{-1/2})^{2}}{e}
+\]
+\end_inset
+
+gives the unique minimizing expenditure. It must satisfy the retained wealth constraint, which holds in (c) and for the contracts in (d). The remaining derivative is 
+\begin_inset Formula \[
+\frac{d}{dD}\left(\frac{2}{\sqrt{D}}+\frac{D-d}{8A}\right)=\frac{1}{8A}-D^{-3/2}.
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula $D^{*}=\max\{(8A)^{2/3},d\}$
+\end_inset
+
+. Recover 
+\begin_inset Formula $a,e,c,p,r$
+\end_inset
+
+. This route is global. The explicit KKT system is still required in (b), and a zero-effort check is still required in (c).
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\series bold
+Verification scope.
+\series default
+ The worked derivations and exact rational calculations have been checked against the distributed exam. No Lean verification is claimed. The released LyX file is the editable source; the PDF is exported from it. These classroom AI regimes are illustrative counterfactuals, not empirical estimates. The finite-data comparisons are necessary restrictions, not a complete rationalizability theorem. 
+\end_layout
+
+\end_body
+\end_document
