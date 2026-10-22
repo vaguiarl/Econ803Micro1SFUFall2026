@@ -5,7 +5,7 @@ Prepared: 19 September 2026
 
 ## Editorial recommendation
 
-The end of the consumer side should not introduce one catch-all “continuum of goods” model. It should teach students to choose among three distinct economic objects:
+The synthesis of consumer theory should not introduce one catch-all “continuum of goods” model. It should teach students to choose among three distinct economic objects:
 
 | Economic question | Choice object | Demand object | Appropriate framework |
 |---|---|---|---|
@@ -15,7 +15,7 @@ The end of the consumer side should not introduce one catch-all “continuum of 
 
 The distinction matters. A large catalog does not itself imply local substitution. A metric does not itself imply that close products are substitutes. Independent choice from an unlimited-replication catalog is not yet a matching market. Each conclusion needs its own assumptions.
 
-The recommended textbook section is **“The Many-Product Consumer.”** Its internal spine is product space, neighborhood demand, bundles, and matching. It should synthesize the preceding utility, revealed-preference, stochastic-choice, attention, and aggregation chapters rather than create a disconnected new theory.
+The material now forms the chapter **“Niche Consumption and Product Space,”** immediately after the unified General Equilibrium chapter and before Sequential Trade and Matching. Its internal spine is product space, neighborhood demand, bundles, and matching. It synthesizes the preceding utility, revealed preference, stochastic choice, attention, aggregation and equilibrium chapters rather than creating a disconnected new theory. The finite commodity existence theorem is not asserted to cover the continuum extension. The chapter has a reading guide linked to existing problems rather than an additional weekly assignment.
 
 ## 1. Scale, attention, and the relevant choice set
 

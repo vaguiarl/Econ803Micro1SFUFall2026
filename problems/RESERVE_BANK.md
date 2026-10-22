@@ -54,27 +54,27 @@ Firm $j$ has technology $q_j=A_j\ell_j^{a_j}k_j^{b_j}$ with $A_j>0$, $a_j,b_j>0$
 
 ## R006 | Applied | Selection versus capacity destruction in partial equilibrium
 
-There is a mass $\eta>0$ of consumers with $u(x,m;\alpha)=2\sqrt{\alpha x}+m$ and $\alpha\sim U[0,1]$. The numeraire is unrestricted, or wealth is sufficient for the interior solution. There is initially a unit mass of firms with $C(q;e)=q^2/(2e)$, where productivity has the uniform law on $e\in(0,1)$; endpoint conventions are immaterial for aggregation.
+This is the distributional extension of problem 10.A5, the restored Western 2019 final examination question. Use its consumer preferences, unrestricted numeraire budget and producer cost. Here allow any consumer mass $\eta>0$. Retain its distinction between actual removal and replacement of the producer population.
 
-**Part I — by hand.** Derive individual and aggregate demand, firm supply and profit, and the competitive equilibrium price. Verify Hotelling's lemma. Compare two shocks: (i) the unit mass of firms is replaced by a unit mass with $e\sim U[1/2,1]$; (ii) firms with $e<1/2$ disappear without replacement. Solve for both new prices and explain why selection and capacity destruction have opposite price effects. At the baseline equilibrium, compute the cross-sectional variance of consumption and mean indirect utility when numeraire wealth is constant.
+**Part I: by hand.** Complete problem 10.A5 first. Reproduce its uniform benchmark, both producer selection experiments, consumption variance and fixed initial wealth comparison as verification targets for the extension below. This reference replaces the previously duplicated uniform prompt; the complete five part question is now in the main chapter bank.
 
-**Part II — verified scale-up.** Replace the uniform type distributions by beta distributions and allow an arbitrary survival cutoff. Derive the market-clearing equation, solve it numerically over a parameter grid, and separate the effect of changing the conditional productivity distribution from changing producer mass. Include monotonicity checks and compare numerical integration with the uniform closed form.
+**Part II: verified extension.** Replace the uniform type distributions by beta distributions and allow an arbitrary survival cutoff. Define each probability law, the actual population measures and their masses before integrating. Derive the market clearing equation, solve it numerically over a parameter grid, and separate the effect of changing the conditional productivity distribution from changing producer mass. Include monotonicity checks and compare numerical integration with the uniform closed form. Hold initial wealth fixed in welfare comparisons and distinguish per consumer moments from population totals.
 
 # Equilibrium, Trade, and Computation
 
 ## R007 | Applied | CES structural gravity and multilateral resistance
 
-Destination $j$ has CES utility $U_j=[\sum_i a_i^{1/\sigma}c_{ij}^{(\sigma-1)/\sigma}]^{\sigma/(\sigma-1)}$ with $\sigma>1$ and $a_i,p_i,\tau_{ij},y_j>0$. Delivered prices are $p_{ij}=p_i\tau_{ij}$ and bilateral expenditure is $x_{ij}:=p_i\tau_{ij}c_{ij}$. Total income is $Y=\sum_jy_j$, and balanced expenditure and income impose market clearing $y_i=\sum_jx_{ij}$.
+This is a companion to the full restored gravity exercise 16.A1, not a second copy of its derivation. For comparison with the earlier reserve notation, set $a_i=\beta_i^{1-\sigma}$ and $\tau_{ij}=t_{ij}$, with $\sigma>1$. In this conditional resistance exercise, nominal incomes and shares are given; it does not independently solve the fixed physical supply economy.
 
-**Part I — by hand.** Derive the CES price index, bilateral quantities, and bilateral expenditure. With $\theta_j=y_j/Y$, define an outward multilateral-resistance index and derive the structural-gravity equation together with the inward-index system. Take logs and identify the exporter effect, importer effect, and trade-cost coefficient. Explain the reciprocal scale freedom and state a normalization; do not claim that symmetric trade costs alone pin down every unnormalized inward and outward index as equal.
+**Part I: by hand.** Complete parts (a) to (c) of 16.A1. Translate the resulting equations into the $a_i$ notation and use them as verification targets. Keep the distinction between origin revenue, destination expenditure and iceberg shipments.
 
-**Part II — verified scale-up.** For a synthetic economy with at least ten countries, solve the normalized multilateral-resistance system in log variables. Verify market clearing, bilateral adding-up, positivity, and invariance to the discarded scale normalization. Compare fixed-point iteration with a root solver and report convergence diagnostics. Recover the trade-cost coefficient from a regression with exporter and importer fixed effects.
+**Part II: verified extension.** Begin with the same country set and income shares as your 16.A1 calculation. Vary only asymmetry in the finite positive trade cost matrix, retaining domestic cost one and all trade factors at least one. Solve both normalized resistance systems. Verify every row and column expenditure sum, positivity and reciprocal index scaling. Compare a normalized iteration with a root solver and report residuals, not only step changes. For synthetic fixed effect recovery, check design rank and include bilateral cost variation that is not absorbed by origin and destination effects.
 
 ## R008 | Proof | Why a Banach argument fails even when existence and uniqueness hold
 
-On $K=[1/2,2]^2$, consider $g:K\to\mathbb R^2$ with identical components $g_j(P)=[(P_1^{-1/2}+P_2^{-1/2})/2]^2$.
+Use the map $g$ and rectangle $K=[1/2,2]^2$ from 16.A1(d). The full corrected hand diagnostic is now in the main chapter bank; this reserve entry supplies its numerical stability extension.
 
-**Part I — by hand.** Prove that $g$ is a continuous self-map of $K$ and use the appropriate fixed-point theorem to establish existence. Compute $Dg(1,1)$, its eigenvalues, and its Euclidean operator norm. Explain why no contraction proof in any induced norm can follow from the stated map. Nevertheless, prove directly that the positive fixed point is unique. Exhibit a two-cycle of the un-damped Picard iteration.
+**Part I: by hand.** Complete the fixed point diagnostic in 16.A1(d). Retain its exact fixed point and cycle as verification targets. For the damped rule below, derive the local eigenvalues at the fixed point and distinguish local stability from a contraction bound over the whole rectangle.
 
 **Part II — verified scale-up.** Use interval arithmetic or Lean-supported inequalities to certify invariance of $K$ and the derivative calculation. Compare plain iteration, the damped rule $P^{n+1}=(1-\lambda)P^n+\lambda g(P^n)$ for $\lambda=1/2$, and a root solver from multiple starting values. Ask Codex to create tests that distinguish existence, uniqueness, local stability, and global contraction; the report must not infer one property from another.
 

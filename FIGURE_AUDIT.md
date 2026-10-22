@@ -36,6 +36,31 @@ ship in the current public tree.
 
 ## Scope and method
 
+### General equilibrium consolidation on October 22, 2026
+
+The live manuscript now has nineteen checked vector graphics. Four are original
+Edgeworth teaching diagrams in the unified General Equilibrium chapter. The new
+`edgeworth_coordinates.pdf` explicitly labels both origins, complementary bundles,
+the common budget boundary and opposite affordable sides. Its prices `(2,1)`
+illustrate a budget, not an equilibrium. The new `edgeworth_redistribution.pdf`
+shows two complete equilibria at prices `(1,1)` when half a unit of each good is
+transferred from consumer 1 to consumer 2. Total resources stay `(4,4)` and wealth
+changes from `(4,4)` to `(3,5)`. Exact algebraic checks cover resources, both
+budgets, global Cobb Douglas demands, curve domains and tangency slopes.
+
+The earlier figure inventory below records its historical audit snapshots;
+the source files and current LyX Graphics insets determine the live inventory.
+
+### Original additions on October 21, 2026
+
+The current manuscript has seven vector graphics. The two additions,
+`edgeworth_trade.pdf` and `edgeworth_efficiency.pdf`, are original TikZ teaching
+diagrams, not adaptations of external figures. Both use total endowment
+$(4,4)$, individual endowments $(1,3)$ and $(3,1)$, and identical utilities
+$u_i=\sqrt{x_{i1}x_{i2}}$. Their analytic coordinates encode the initial trade
+lens, the contract curve, the strong core and competitive budget lines with
+and without transfers. The same vector and embedded font preflight applies.
+
 The inventory was obtained by parsing every `Graphics` inset in the LyX source,
 then reconciling those references with every file physically present under
 `notes/figures/` and every path tracked by Git. This accounts for:
@@ -235,7 +260,7 @@ Passing PDFs are exported to `notes/figures/tikz/`. Auxiliary files, logs, and
 180-dpi visual-review PNGs remain in the ignored `figures_tikz/build/`
 directory.
 
-### Current automated QA evidence
+### Initial release QA evidence
 
 | Export | Pages | Fonts | Type 3 | Unembedded | Raster image objects | Result |
 |---|---:|---:|---:|---:|---:|---|
@@ -247,6 +272,38 @@ directory.
 
 All five 180-dpi QA renders were also inspected for clipping, collisions,
 legibility, tick/legend correctness, and table-rule alignment.
+
+## Original equilibrium illustrations added in October 2026
+
+All ten additions below are original diagrams by the instructor's textbook
+project. They are generated from the displayed model, not traced from MWG,
+lecture slides or an archived scan. Their TikZ sources, captions and model
+parameters are editable. Each graphic has selectable vector text. The
+corresponding native LyX paragraph explains its economic scope.
+
+| Source stem | Chapter | Model and teaching purpose |
+|---|---:|---|
+| `pe_continuum_aggregation` | 10 | Taste law uniform on [0,2] and producer density 2e; integrates productive capacity and separates removal from replacement |
+| `ge_production_support` | 11 | Output 2 sqrt(z), time endowment 3; tangency at leisure and consumption (2,2), including profit income |
+| `ge_excess_demand` | 12 | Cobb Douglas exchange with aggregate endowment (4,4); both excess demands obey Walras law |
+| `ge_fixed_point` | 12 | Explicit continuous self map with fixed point one half; existence is distinct from convergence |
+| `ge_regular_roots` | 12 | Three local scalar geometries; regularity, isolated roots and uniqueness are different properties |
+| `ge_multiple_equilibria` | 12 | Bounded excess demand with roots 1,2,3; indices and stability for an explicitly stated dynamic |
+| `ge_price_adjustment` | 12 | Three discrete adjustment gains; the largest has an exact two cycle despite a unique equilibrium |
+| `ge_replica_core` | 12 | Endowments (4,1) and (1,4); exact equal treatment core intervals for one through four copies |
+| `ge_asset_span` | 14 | A bond alone versus a bond plus a state security; spanning is not itself budget feasibility |
+| `ge_circular_flow` | 16 | Goods, factors and monetary payments under a stated closed benchmark; rentals and profit are separate |
+
+The regression command `python3 scripts/check_equilibrium_examples.py`
+checks exact identities, accounting and figure data. Its finite samples are
+supplementary diagnostics, not substitutes for the analytical proofs in the
+text. No new Lean certification is claimed for these examples.
+
+The current build checks all seventeen exports. Each is one page, with zero
+raster image objects, zero Type 3 fonts and no unembedded fonts. All ten new
+renders were visually reviewed after fixing clipped annotations, crowded
+flow labels and transparent legends. The generated evidence is in
+`figures_tikz/build/checks.tsv`; the review PNGs stay in the ignored QA folder.
 
 ## Remaining publication actions
 

@@ -1,0 +1,266 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\pagestyle{plain}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding default
+\font_roman "cmr" "default"
+\font_sans "cmss" "default"
+\font_typewriter "cmtt" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 2
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.25in
+\topmargin 1.25in
+\rightmargin 1.25in
+\bottommargin 1.25in
+\secnumdepth 0
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+
+\begin_body
+\begin_layout Title
+From Household KKT to Growth
+\end_layout
+
+\begin_layout Author
+Victor H. Aguiar
+\end_layout
+
+\begin_layout Date
+ECON 803, Fall 2026
+\end_layout
+
+\begin_layout Standard
+Questions only. This original teaching extension of Problem 1.6 closes household quantity and quality choice with competitive firms, land ownership and resource clearing, then adds population and human capital dynamics. It is a tractable classroom model inspired by Unified Growth Theory, not a reproduction of the complete Galor model.
+\end_layout
+
+\begin_layout Standard
+These are the same questions as the textbook. Begin with the hand calculations and state a solution plan before using tools. Report the economic assumptions, the hand seed, one scaling step and an exact verification command. Numerical output alone is not a proof.
+\end_layout
+
+\begin_layout Standard
+Optional background: \begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+href{https://doi.org/10.1016/S1574-0684(05)01004-X}{Galor (2005), From Stagnation to Growth: Unified Growth Theory}
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Section*
+Problem 16.A3. From household KKT to a land constrained growth economy
+\end_layout
+
+\begin_layout Standard
+Suggested time: 90 minutes for the hand benchmarks. Total: 80 points. The optional program is not included in this time. This teaching case extends Problem 1.6 to competitive factor prices and a sequence of generations. It is inspired by Galor's quantity versus quality mechanism, not a reproduction of his full Unified Growth Theory.
+\end_layout
+
+\begin_layout Standard
+There is one consumption good, whose price is one, fixed land \begin_inset Formula $X>0$\end_inset
+, and a mass \begin_inset Formula $N>0$\end_inset
+ of identical current adults with skill \begin_inset Formula $h>0$\end_inset
+. A competitive constant returns firm rents land \begin_inset Formula $Z\geq0$\end_inset
+ and raw adult labor hours \begin_inset Formula $L\geq0$\end_inset
+ to produce \begin_inset Formula $Y=A Z^{1-\alpha}(hL)^\alpha$\end_inset
+, where \begin_inset Formula $A>0$\end_inset
+ and \begin_inset Formula $0<\alpha<1$\end_inset
+. The land market must clear at \begin_inset Formula $Z=X$\end_inset
+. The wage \begin_inset Formula $w>0$\end_inset
+ is paid per raw hour, and \begin_inset Formula $R$\end_inset
+ is rent per unit of land. Every adult owns an equal land share and receives \begin_inset Formula $\rho=RX/N$\end_inset
+. Firm profit is distributed but is zero at a competitive supporting price.
+\end_layout
+
+\begin_layout Standard
+Each adult has one unit of time. It chooses consumption \begin_inset Formula $c>0$\end_inset
+, continuous fertility \begin_inset Formula $n>0$\end_inset
+ and education time per child \begin_inset Formula $e\geq0$\end_inset
+ to maximize \begin_inset Formula $(1-\gamma)\log c+\gamma\log[n h_a(e)]$\end_inset
+, where \begin_inset Formula $0<\gamma<1$\end_inset
+, \begin_inset Formula $\tau>0$\end_inset
+, \begin_inset Formula $a>0$\end_inset
+, \begin_inset Formula $\overline c>0$\end_inset
+ and \begin_inset Formula $h_a(e)=1+ae/(\tau+e)$\end_inset
+. Total child time is \begin_inset Formula $t=n(\tau+e)$\end_inset
+. Constraints are \begin_inset Formula $c+wt\leq w+\rho$\end_inset
+, \begin_inset Formula $t\leq1$\end_inset
+ and \begin_inset Formula $c\geq\overline c$\end_inset
+. Land rent is nonlabor income: child time sacrifices wages, not rent. Each household takes \begin_inset Formula $w$\end_inset
+ and \begin_inset Formula $\rho$\end_inset
+ as given. The logarithm excludes zero fertility in this model.
+\end_layout
+
+\begin_layout Subsection*
+Part I. By hand
+\end_layout
+
+\begin_layout Standard
+(a) Set \begin_inset Formula $E=ne$\end_inset
+ and \begin_inset Formula $Q(n,E)=n+a nE/(\tau n+E)$\end_inset
+. State the transformed feasible set and write the complete KKT system, including the time bound, subsistence and the zero education entry inequality. Establish concavity and explain why a feasible KKT certificate gives a global optimum. [12]
+\end_layout
+
+\begin_layout Standard
+(b) At fixed prices, write \begin_inset Formula $I=w+\rho>\overline c$\end_inset
+. Solve globally for education, child time and consumption, including all three possible bounds on child time and the equality case \begin_inset Formula $a=1$\end_inset
+. Explain why replacing \begin_inset Formula $w$\end_inset
+ by \begin_inset Formula $I$\end_inset
+ in the cost of child time would be an economic error. [12]
+\end_layout
+
+\begin_layout Standard
+(c) Define \begin_inset Formula $B=A h^\alpha(X/N)^{1-\alpha}$\end_inset
+. A symmetric general equilibrium has \begin_inset Formula $L=N(1-t)$\end_inset
+ and \begin_inset Formula $Nc=Y$\end_inset
+. Derive factor prices, zero profit and the resource identity. Find all positive equilibria for every \begin_inset Formula $B>\overline c$\end_inset
+, identify the subsistence threshold and verify the household KKT certificate at the equilibrium. Explain what happens to feasibility when \begin_inset Formula $B\leq\overline c$\end_inset
+. [16]
+\end_layout
+
+\begin_layout Standard
+Dynamic benchmarks. Continue by hand. The optional program at the end checks these calculations; it does not replace the arguments. At the end of a generation all children become next generation adults, so \begin_inset Formula $N'=nN$\end_inset
+. Skill is inherited and augmented by education: \begin_inset Formula $h'=h h_a(e)$\end_inset
+. Land and \begin_inset Formula $A$\end_inset
+ stay fixed, and land ownership is shared equally among the next cohort. Parents value child quantity and quality through the displayed utility but do not solve a forward looking dynamic program. Thus \begin_inset Formula $n=1$\end_inset
+ means replacement of the current adult mass, not a literal demographic birth rate.
+\end_layout
+
+\begin_layout Standard
+(d) Derive the one dimensional law for \begin_inset Formula $B'$\end_inset
+. Set \begin_inset Formula $\alpha=3/4$\end_inset
+, \begin_inset Formula $\gamma=1/2$\end_inset
+, \begin_inset Formula $\tau=1/4$\end_inset
+ and \begin_inset Formula $\overline c=4$\end_inset
+. With \begin_inset Formula $a=1/2$\end_inset
+, find a subsistence steady state with replacement fertility and constant skill. Calculate the derivative of the local \begin_inset Formula $B$\end_inset
+ map there and explain the stability conclusion, including its scope. [12]
+\end_layout
+
+\begin_layout Standard
+(e) Start at that steady state and permanently raise \begin_inset Formula $a$\end_inset
+ to \begin_inset Formula $3$\end_inset
+. Calculate the impact education, child time, fertility and skill multiplier. Does the next generation cross the threshold into slack subsistence? Prove your comparison exactly. Compute the subsequent fertility and asymptotic growth factors of skill, adult mass, \begin_inset Formula $B$\end_inset
+ and consumption. [18]
+\end_layout
+
+\begin_layout Standard
+(f) Explain which feedbacks close the economy, why rents alter fertility incentives without being sacrificed per hour, and why the model does not deliver exact zero fertility or a full demographic transition. Distinguish an exogenous education return shock from endogenous technological progress, and distinguish the impact fertility response from its later level. [10]
+\end_layout
+
+\begin_layout Subsection*
+Part II. Codex and verification
+\end_layout
+
+\begin_layout Standard
+Optional tool extension. Keep \begin_inset Formula $A=8$\end_inset
+, \begin_inset Formula $X=h_0=1$\end_inset
+ and all calibrated parameters fixed, with the permanent \begin_inset Formula $a=1/2$\end_inset
+ to \begin_inset Formula $a=3$\end_inset
+ change at date zero. Vary only initial adult mass \begin_inset Formula $N_0\in(0,16)$\end_inset
+, including the steady state and regime boundary populations obtained by hand and points immediately around them. State Seed, Fixed, Scaled and Risk before coding. Simulate twenty generations using independently implemented household and equilibrium routines. Check all budgets, time and subsistence bounds, raw labor and land clearing, zero profit, aggregate goods clearing, KKT signs and complementary products at every date. Compare the household formula with an independent bounded optimization at selected dates and state tolerances. Plot the paths and mark the subsistence switch. Report what is proved analytically, what is checked on this finite grid and what is only a maintained demographic assumption.
+\end_layout
+
+\end_body
+\end_document

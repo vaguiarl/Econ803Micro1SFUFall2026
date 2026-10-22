@@ -7,7 +7,9 @@
 **Inventory audited:** `formal/theorem_inventory.tsv`
 **Purpose:** give the main text short, memorable theorem statements while preserving exact assumptions, complete arguments, citations, and formal-verification boundaries in a technical appendix.
 
-**Implementation status (19 September 2026):** Appendix B and the paired reader statements are implemented for `TS-C03-WGARP-CMU` and `TS-C03-WARP-CMU`. The live ledger contains 24 pairs: 2 migrated, 19 planned, and 3 source-gated. The WGARP pair is delegated to a checked wrapper around the pinned external theorem; the WARP strict-CMU pair is cited only and has no Lean certificate. `formal/theorem_pairs.tsv` is authoritative for current status.
+**Current architecture, October 22, 2026:** The former General Equilibrium, Positive Theory and Equilibrium Manifold chapters are one printed Chapter 11. Sequential Trade and Matching are now Chapters 12 and 13. Appendix B develops fixed points and equilibrium existence; the consumer technical records are now Appendix C. The historical chapter and appendix numbers in the planning sections below describe the earlier architecture. Stable theorem and problem IDs are preserved; `formal/theorem_pairs.tsv` controls current placement and proof status.
+
+**Implementation status (19 September 2026):** The consumer technical appendix and paired reader statements are implemented for `TS-C03-WGARP-CMU` and `TS-C03-WARP-CMU`. The ledger contains 24 pairs: 2 migrated, 19 planned, and 3 source-gated. The WGARP pair is delegated to a checked wrapper around the pinned external theorem; the WARP strict-CMU pair is cited only and has no Lean certificate.
 
 ## Editorial decision
 

@@ -40,6 +40,16 @@ printf '1/10 Building and validating vector figures...\n'
 bash "$repo_dir/figures_tikz/build_and_check.sh"
 
 printf '2/10 Checking that generated problem sets and reserve match the public banks...\n'
+python3 "$repo_dir/scripts/test_advanced_problem_program.py"
+python3 "$repo_dir/scripts/test_advanced_case_packets.py"
+python3 "$repo_dir/scripts/test_ge_chapter_grouping.py"
+python3 "$repo_dir/scripts/test_general_equilibrium_revision.py"
+python3 "$repo_dir/scripts/modernize_general_equilibrium.py" --check
+python3 "$repo_dir/scripts/test_niche_chapter_placement.py"
+python3 "$repo_dir/scripts/relocate_niche_consumption.py" --check
+python3 "$repo_dir/scripts/test_modern_production_material.py"
+python3 "$repo_dir/scripts/modernize_production.py" --check
+python3 "$repo_dir/scripts/check_equilibrium_examples.py"
 python3 "$repo_dir/scripts/inject_problem_sets.py" --check \
   "$notes_dir/$stem.lyx" "$repo_dir/problems/PROBLEM_BANK.md" \
   --pathways "$repo_dir/problems/CHAPTER_PATHWAYS.tsv"
@@ -47,6 +57,7 @@ python3 "$repo_dir/scripts/inject_reserve_bank.py" --check
 python3 "$repo_dir/scripts/inject_weekly_problem_plan.py" --check
 python3 "$repo_dir/scripts/build_artists_case.py" --check
 python3 "$repo_dir/scripts/build_practice_book.py" --check
+python3 "$repo_dir/scripts/build_advanced_case_packets.py" --check
 bash "$repo_dir/scripts/check_problem_sets.sh"
 
 printf '3/10 Validating notation ledger and first-use/glossary links...\n'
@@ -77,6 +88,7 @@ python3 "$repo_dir/scripts/check_pdf_notation_links.py" \
   --pdf "$pdf_path" \
   --ledger "$repo_dir/editorial/notation/glossary.tsv"
 bash "$repo_dir/scripts/build_practice_book.sh"
+python3 "$repo_dir/scripts/build_advanced_case_packets.py" --check --compile
 
 printf '7/10 Building the pinned Lean project and auditing kernel trust...\n'
 bash "$repo_dir/formal/scripts/check.sh"

@@ -3,7 +3,7 @@
 
 The public problem banks remain the source of record.  This generator reuses
 their validated parsers and writes a native LyX book containing the weekly
-map, all 66 chapter problems, and all 10 additional-practice problems.
+map, all chapter problems, and all additional practice problems.
 """
 
 from __future__ import annotations
@@ -17,12 +17,17 @@ from datetime import date
 from pathlib import Path
 
 from inject_problem_sets import (
+    BookChapterGroup,
     ChapterPathway,
     ChapterProblems,
     Problem,
+    advanced_difficulty_note,
     lyx_inline,
     parse_chapter_pathways,
+    parse_book_chapter_groups,
+    parse_advanced_plan,
     parse_problem_bank,
+    printed_chapter_groups,
     separator,
 )
 from inject_reserve_bank import ReserveProblem, parse_bank as parse_reserve_bank
@@ -32,6 +37,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MAIN_BOOK = ROOT / "notes" / "Microeconomics_1_notes_by_Victor_Aguiar.lyx"
 PROBLEM_BANK = ROOT / "problems" / "PROBLEM_BANK.md"
 PATHWAYS = ROOT / "problems" / "CHAPTER_PATHWAYS.tsv"
+CHAPTER_GROUPS = ROOT / "problems" / "BOOK_CHAPTER_GROUPS.tsv"
 WEEKLY_PLAN = ROOT / "problemsets" / "WEEKLY_RELEASE_PLAN.tsv"
 RESERVE_MAP = ROOT / "problemsets" / "RESERVE_WEEKLY_MAP.tsv"
 TARGET = (
@@ -41,6 +47,7 @@ TARGET = (
     / "ECON803_Practice_Book_Fall2026.lyx"
 )
 TARGET_PDF = TARGET.with_suffix(".pdf")
+NICHE_CHAPTER = "Niche Consumption and Product Space"
 
 
 @dataclass(frozen=True)
@@ -234,7 +241,7 @@ def parse_weekly_plan(
     return tuple(sets)
 
 
-def rendered_problem(problem: Problem) -> str:
+def rendered_problem(problem: Problem, *, part_layout: str = "Subsection*") -> str:
     heading = (
         "\\series bold\n"
         f"Problem {problem.identifier} [{problem.level}]. {ascii_dashes(problem.title)}.\n"
@@ -248,7 +255,7 @@ def rendered_problem(problem: Problem) -> str:
         part_match = re.match(r"^(Part [IVX]+)\. ([^.]+)\.\s*(.*)$", paragraph)
         if part_match:
             part, title, remainder = part_match.groups()
-            pieces.append(layout("Subsection*", f"{part}. {title}"))
+            pieces.append(layout(part_layout, f"{part}. {title}"))
             pieces.append(layout("Exercise*", inline(remainder)))
         else:
             pieces.append(layout("Exercise*", inline(paragraph)))
@@ -258,7 +265,7 @@ def rendered_problem(problem: Problem) -> str:
 
 def ordered_chapter_problems(
     chapter: ChapterProblems, pathway: ChapterPathway
-) -> tuple[tuple[Problem, ...], tuple[Problem, ...], Problem]:
+) -> tuple[tuple[Problem, ...], tuple[Problem, ...], tuple[Problem, ...], Problem]:
     hand = tuple(
         problem
         for problem in chapter.problems
@@ -267,25 +274,57 @@ def ordered_chapter_problems(
     bridges = tuple(
         problem
         for problem in chapter.problems
-        if problem.level != "Core" and problem.identifier != pathway.case_id
+        if problem.level not in {"Core", "Advanced"} and problem.identifier != pathway.case_id
+    )
+    advanced = tuple(
+        problem
+        for problem in chapter.problems
+        if problem.level == "Advanced" and problem.identifier != pathway.case_id
     )
     case = next(
         problem for problem in chapter.problems if problem.identifier == pathway.case_id
     )
     if not hand:
         raise ValueError(f"chapter has no hand benchmark: {chapter.chapter}")
-    return hand, bridges, case
+    return hand, advanced, bridges, case
 
 
-def render_chapter(chapter: ChapterProblems, pathway: ChapterPathway) -> str:
-    hand, bridges, case = ordered_chapter_problems(chapter, pathway)
-    pieces = [layout("Chapter", chapter.chapter)]
-    pieces.append(layout("Section*", "Part I: By hand"))
-    pieces.extend(rendered_problem(problem) for problem in hand)
+def render_chapter(
+    chapter: ChapterProblems,
+    pathway: ChapterPathway,
+    *,
+    topic_heading: str | None = None,
+) -> str:
+    hand, advanced, bridges, case = ordered_chapter_problems(chapter, pathway)
+    part_layout = "Subsection*" if topic_heading else "Section*"
+    problem_part_layout = "Subsubsection*" if topic_heading else "Subsection*"
 
-    pieces.append(layout("Section*", "Part II: Formal and applied extensions"))
+    def render(problem: Problem) -> str:
+        return rendered_problem(problem, part_layout=problem_part_layout)
+
+    pieces = [layout("Section" if topic_heading else "Chapter", topic_heading or chapter.chapter)]
+    pieces.append(layout(part_layout, "Part I: By hand"))
+    pieces.extend(render(problem) for problem in hand)
+
+    if advanced:
+        pieces.append(layout(part_layout, "Advanced exam practice"))
+        pieces.append(layout(
+            "Standard",
+            "The suggested time applies to the hand questions, not the optional tool extension. "
+            "Start with a diagram or solution plan, state the constraints, check all regimes "
+            "and explain global optimality and economic accounting. Attempt the hand questions "
+            "before using tools. These problems are additional preparation, not extra weekly "
+            "requirements unless assigned in class. Before an optional extension, state "
+            "Seed, Fixed, Scaled and Risk and enlarge one feature at a time.",
+        ))
+        difficulty_note = advanced_difficulty_note(advanced)
+        if difficulty_note:
+            pieces.append(layout("Standard", difficulty_note))
+        pieces.extend(render(problem) for problem in advanced)
+
+    pieces.append(layout(part_layout, "Part II: Formal and applied extensions"))
     if bridges:
-        pieces.extend(rendered_problem(problem) for problem in bridges)
+        pieces.extend(render(problem) for problem in bridges)
     else:
         pieces.append(
             layout(
@@ -294,7 +333,7 @@ def render_chapter(chapter: ChapterProblems, pathway: ChapterPathway) -> str:
             )
         )
 
-    pieces.append(layout("Section*", pathway.case_title))
+    pieces.append(layout(part_layout, pathway.case_title))
     seed_word = "Problem" if len(pathway.seed_ids) == 1 else "Problems"
     pieces.append(
         layout(
@@ -308,8 +347,63 @@ def render_chapter(chapter: ChapterProblems, pathway: ChapterPathway) -> str:
             ),
         )
     )
-    pieces.append(rendered_problem(case))
+    pieces.append(render(case))
     return "\n".join(pieces)
+
+
+def render_printed_chapter(
+    title: str,
+    topics: tuple[ChapterProblems, ...],
+    pathways: dict[str, ChapterPathway],
+    groups: dict[str, BookChapterGroup] | None = None,
+) -> str:
+    """Render one numbered chapter, retaining each permanent topic pathway."""
+    if len(topics) == 1:
+        rendered = render_chapter(topics[0], pathways[topics[0].chapter])
+        return rendered.replace(
+            layout("Chapter", topics[0].chapter), layout("Chapter", title), 1
+        )
+    if groups is None:
+        raise ValueError("grouped practice chapters require the topic grouping ledger")
+    pieces = [layout("Chapter", title)]
+    pieces.extend(
+        render_chapter(
+            topic,
+            pathways[topic.chapter],
+            topic_heading=groups[topic.chapter].topic_heading,
+        )
+        for topic in topics
+    )
+    return "\n".join(pieces)
+
+
+def render_niche_reading_guide() -> str:
+    """Keep a research synthesis chapter aligned without adding bank problems."""
+    paragraphs = (
+        "Read Chapter 12 of the notes for the evidence on niche consumption, "
+        "the geometry of differentiated products, neighborhood substitution and "
+        "bundles represented by measures. This is a research synthesis with no "
+        "additional weekly assignment. The references below revisit existing "
+        "problems; they do not add questions or change the weekly plan.",
+        "Problems 3.1 and 3.3 review finite revealed preference comparisons and "
+        "Afriat certificates. They provide the finite benchmark for the chapter's "
+        "continuum argument, not a proof that every finite result extends to an "
+        "arbitrary product space. Problem 6.1 isolates the logit restriction on "
+        "substitution through its odds ratios and IIA.",
+        "Problems 8.1 and 8.2 state sufficient conditions for exact aggregation. "
+        "Use those conditions to distinguish an individual household's basket "
+        "from aggregate demand. Problem 11.A4 separates redistribution from a "
+        "change in aggregate resources; Problem 13.1 combines individual "
+        "optimality across observations with market clearing.",
+        "Problem 15.1 introduces bilateral stability through deferred acceptance. "
+        "Compare that allocation problem with choosing a nearby product, but "
+        "do not identify geometric proximity with stability when both sides "
+        "have preferences and partners have limited capacity.",
+    )
+    return "\n".join(
+        [layout("Chapter", NICHE_CHAPTER), layout("Section", "Reading and existing practice")]
+        + [layout("Standard", inline(paragraph)) for paragraph in paragraphs]
+    )
 
 
 def reserve_paragraph(paragraph: str) -> str:
@@ -343,6 +437,9 @@ def rendered_reserve_problem(problem: ReserveProblem, weekly_set: str) -> str:
 
 
 def render_weekly_map(sets: tuple[WeeklySet, ...]) -> str:
+    advanced_plan = parse_advanced_plan(
+        ROOT / "problems" / "ADVANCED_PRACTICE_PLAN.tsv", parse_problem_bank(PROBLEM_BANK)
+    )
     pieces = [chapter_star("Fall 2026 Weekly Practice Map")]
     pieces.append(
         layout(
@@ -371,6 +468,14 @@ def render_weekly_map(sets: tuple[WeeklySet, ...]) -> str:
                 f"Optional reserve: {reserve}.",
             )
         )
+        if weekly.identifier in advanced_plan:
+            recommended, further = advanced_plan[weekly.identifier]
+            pieces.append(layout(
+                "Standard",
+                f"Advanced exam preparation: {recommended}. Further practice: {further}. "
+                "Attempt the recommended pair by hand after the foundations; keep the rest "
+                "for revision. This is additional preparation unless assigned in class.",
+            ))
     return "\n".join(pieces)
 
 
@@ -403,6 +508,7 @@ def render_reserve(
 def build() -> str:
     chapters = parse_problem_bank(PROBLEM_BANK)
     pathways = parse_chapter_pathways(PATHWAYS, chapters)
+    groups = parse_book_chapter_groups(CHAPTER_GROUPS, chapters)
     reserve = parse_reserve_bank()
     canonical_ids = {
         problem.identifier for chapter in chapters for problem in chapter.problems
@@ -423,14 +529,21 @@ def build() -> str:
         layout(
             "Standard",
             "This volume collects the complete student-facing problem program for ECON 803. "
-            "It contains 66 chapter problems and 10 additional-practice problems.",
+            f"It contains {len(canonical_ids)} chapter problems and {len(reserve_ids)} additional practice problems.",
+        ),
+        layout(
+            "Standard",
+            "Problem identifiers are permanent catalog labels. They can differ from the printed "
+            "chapter number after topics are combined, and they remain unchanged in weekly "
+            "assignments, case studies and the instructor handbook.",
         ),
         layout(
             "Standard",
             "Part I problems are compact benchmarks intended for derivation and discussion "
             "by hand. Part II problems develop proofs, applications, and one named use case "
-            "for each chapter. Labels identify Core, Proof, and Applied work; they are not "
-            "difficulty rankings.",
+            "for each bank topic. The three general equilibrium topics share one printed "
+            "chapter. Core, Proof and Applied identify the kind of work. "
+            "The Advanced sections add integrated exam practice on production and equilibrium.",
         ),
         layout(
             "Standard",
@@ -455,39 +568,45 @@ def build() -> str:
         "Expected Utility and Risk": "Risk, Stochastic Choice, and Attention",
         "Aggregate Demand and Representative Consumers": "Aggregation and Markets",
         "Theory of the Firm": "Production and Equilibrium",
-        "Testable Restrictions on the Equilibrium Manifold": "Advanced Equilibrium Applications",
+        "Sequential Trade": "Advanced Equilibrium Applications",
     }
-    for chapter in chapters:
-        if chapter.chapter == "Order Theory":
+    for title, topics in printed_chapter_groups(chapters, groups):
+        if title == "Order Theory":
             body.append(ert("appendix"))
-        elif chapter.chapter in part_starts:
-            body.append(layout("Part", part_starts[chapter.chapter]))
-        body.append(render_chapter(chapter, pathways[chapter.chapter]))
+        elif title in part_starts:
+            body.append(layout("Part", part_starts[title]))
+        if title == "Sequential Trade":
+            body.append(render_niche_reading_guide())
+        body.append(render_printed_chapter(title, topics, pathways, groups))
     body.append(render_reserve(reserve, weekly_sets))
     body.extend(["\\end_body\n", "\\end_document\n"])
     source = make_header() + "\n" + "\n".join(body)
-    validate_source(source, chapters, reserve)
+    validate_source(source, chapters, reserve, groups)
     return source
 
 
 def validate_source(
-    source: str, chapters: list[ChapterProblems], reserve: list[ReserveProblem]
+    source: str,
+    chapters: list[ChapterProblems],
+    reserve: list[ReserveProblem],
+    groups: dict[str, BookChapterGroup] | None = None,
 ) -> None:
     pathways = parse_chapter_pathways(PATHWAYS, chapters)
     expected_ids: list[str] = []
     for chapter in chapters:
-        hand, bridges, case = ordered_chapter_problems(
+        hand, advanced, bridges, case = ordered_chapter_problems(
             chapter, pathways[chapter.chapter]
         )
         expected_ids.extend(problem.identifier for problem in hand)
+        expected_ids.extend(problem.identifier for problem in advanced)
         expected_ids.extend(problem.identifier for problem in bridges)
         expected_ids.append(case.identifier)
     expected_ids.extend(problem.identifier for problem in reserve)
-    headings = re.findall(r"\\series bold\nProblem ([A-Z0-9]+(?:\.[0-9]+)?) \[", source)
+    headings = re.findall(r"\\series bold\nProblem ([A-Z0-9]+(?:\.A?[0-9]+)?) \[", source)
     if headings != expected_ids:
         raise ValueError("practice-book problem order or coverage is incorrect")
-    if len(expected_ids) != 76 or len(set(expected_ids)) != 76:
-        raise ValueError("practice book must contain exactly 76 unique problems")
+    if len(expected_ids) != len(set(expected_ids)):
+        raise ValueError("practice book contains duplicate problem identifiers")
     forbidden = ("instructor solution", "answer key follows", "SOURCE_LEDGER")
     lowered = source.lower()
     found = [token for token in forbidden if token.lower() in lowered]
@@ -495,6 +614,25 @@ def validate_source(
         raise ValueError("private-material marker in practice book: " + ", ".join(found))
     if source.count("\\begin_body") != 1 or source.count("\\end_body") != 1:
         raise ValueError("malformed LyX body")
+    physical = printed_chapter_groups(chapters, groups)
+    expected_titles = []
+    for title, _ in physical:
+        if title == "Sequential Trade":
+            expected_titles.append(NICHE_CHAPTER)
+        expected_titles.append(title)
+    titles = re.findall(r"\\begin_layout Chapter\n(.*?)\n\\end_layout", source, re.S)
+    if titles != expected_titles:
+        raise ValueError("practice-book printed chapter grouping is incorrect")
+    for title, topics in physical:
+        if len(topics) < 2:
+            continue
+        start = source.index(layout("Chapter", title))
+        next_chapter = source.find("\\begin_layout Chapter\n", start + 1)
+        body = source[start:next_chapter if next_chapter >= 0 else len(source)]
+        for topic in topics:
+            heading = groups[topic.chapter].topic_heading
+            if body.count(layout("Section", heading)) != 1:
+                raise ValueError("practice-book grouped topic heading is incorrect: " + heading)
 
 
 def check_pdf(
@@ -520,7 +658,7 @@ def check_pdf(
         raise SystemExit("practice-book PDF title is missing")
     if "Question-only Practice Book" not in text:
         raise SystemExit("practice-book PDF question-only label is missing")
-    print(f"Practice-book PDF contains {len(reader.pages)} pages and all 76 problem headings")
+    print(f"Practice-book PDF contains {len(reader.pages)} pages and all {len(expected_ids)} problem headings")
 
 
 def main() -> None:
@@ -537,7 +675,7 @@ def main() -> None:
     if args.check:
         if not TARGET.exists() or TARGET.read_text(encoding="utf-8") != source:
             raise SystemExit("practice-book LyX source is not synchronized")
-        print("Practice-book LyX source matches all 76 canonical questions")
+        print("Practice-book LyX source matches the complete public problem banks")
         return
     TARGET.parent.mkdir(parents=True, exist_ok=True)
     TARGET.write_text(source, encoding="utf-8")

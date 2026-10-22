@@ -78,7 +78,7 @@ for (my $i = 0; $i < @lines; $i++) {
         # Consecutive LyX Exercise layouts are exported as one theorem
         # environment.  Generated problem starts have a stable editorial
         # label; continuation paragraphs do not and must not be double-counted.
-        next if $kind =~ /^Exercise/ && layout_text($i) !~ /^Problem\s+[\w.]+\s+\[(?:Core|Proof|Applied)\]/;
+        next if $kind =~ /^Exercise/ && layout_text($i) !~ /^Problem\s+[\w.]+\s+\[(?:Core|Proof|Applied|Advanced)\]/;
         $formal_count{$chapter}{$kind}++;
     }
 }

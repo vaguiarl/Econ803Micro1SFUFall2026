@@ -57,6 +57,13 @@ recorded source.
 
 ## Main future targets
 
+The unified General Equilibrium chapter now provides an analytic Brouwer proof
+using continuous capped demand. Appendix B supplies the boundary budget and cap
+removal lemmas and the Kakutani extension for nonunique demand. The exact scopes
+are recorded in `coverage.json`; neither proof is claimed as locally verified in
+Lean. The separate narrative module checks declared dependencies and the logical
+composition of explicitly supplied analytic bridges, not those bridges themselves.
+
 No Lean-complete claim is made for continuous utility representation, Berge
 demand continuity, the full smooth consumer-duality chain, finite expected
 utility, the WARP--strict-CMU characterization, general-distribution FOSD,
@@ -83,5 +90,6 @@ The command builds the project, rejects unchecked declarations, validates and
 typechecks every verified coverage declaration, and requires each one to have
 an entry in `TrustAudit.lean`. It then checks every reported dependency against
 the explicit whitelist `propext`, `Classical.choice`, and `Quot.sound`.
-`Econ803.BookNarrative` checks dependency metadata only and does not prove
-economic claims.
+`Econ803.BookNarrative` checks dependency metadata and abstract logical contracts.
+Its concrete welfare and core wrapper consumes the existing finite price support
+certificates. It does not prove the analytic fixed point or existence theorems.

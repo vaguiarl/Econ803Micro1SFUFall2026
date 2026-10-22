@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{../figure_style.tex}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[book axis,width=12.2cm,height=8cm,xmin=0,xmax=3.4,ymin=0,ymax=4.5,
+ xlabel={Leisure $\ell$},ylabel={Consumption $c$},xtick={0,1,2,3},ytick={0,1,2,3,4},
+ grid=major,legend style={at={(.03,.03)},anchor=south west}]
+ \addplot[BookBlue,very thick,domain=0:3,samples=180]{2*sqrt(max(0,3-x))};
+ \addlegendentry{Frontier: $c=2\sqrt{3-\ell}$}
+ \addplot[BookOrange,thick,domain=0:3]{4-x};
+ \addlegendentry{Budget: $c=4-\ell$}
+ \addplot[BookGreen,thick,domain=.92:3,samples=120]{4/x};
+ \addlegendentry{Indifference curve: $c=4/\ell$}
+ \draw[BookGray,densely dashed] (axis cs:2,0)--(axis cs:2,2)--(axis cs:0,2);
+ \fill[BookBlue] (axis cs:2,2) circle(2pt);
+ \node[anchor=south west,fill=white,inner sep=2pt] at(axis cs:2.05,2.1){Equilibrium $(2,2)$};
+ \fill (axis cs:3,0) circle(1.6pt);
+ \node[anchor=north east,fill=white,inner sep=3pt,align=right] at(axis cs:3.25,4.25)
+ {$p=w=1$, profit $=1$\\Household wealth $=3+1=4$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -41,8 +41,144 @@ class ChapterPathway:
     verification: str
 
 
+@dataclass(frozen=True)
+class BookChapterGroup:
+    """Keep permanent bank topics independent of printed book chapters."""
+
+    topic: str
+    printed_chapter: str
+    topic_heading: str
+
+
 def normalize_space(text: str) -> str:
     return " ".join(text.split())
+
+
+def parse_book_chapter_groups(
+    path: Path, chapters: list[ChapterProblems]
+) -> dict[str, BookChapterGroup]:
+    """Read an exhaustive, ordered topic to physical chapter ledger."""
+    fields = ["topic", "printed_chapter", "topic_heading"]
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t")
+        if reader.fieldnames != fields:
+            raise ValueError("book chapter grouping columns must be: " + ", ".join(fields))
+        rows = list(reader)
+    groups: dict[str, BookChapterGroup] = {}
+    for line_number, row in enumerate(rows, start=2):
+        if None in row or any(row.get(field) is None for field in fields):
+            raise ValueError(f"malformed book chapter grouping row on line {line_number}")
+        values = {field: normalize_space(row[field]) for field in fields}
+        if any(not value for value in values.values()):
+            raise ValueError(f"blank book chapter grouping field on line {line_number}")
+        if any(re.search(r"[\x00-\x1f]|\\", row[field]) for field in fields):
+            raise ValueError(f"unsafe book chapter grouping field on line {line_number}")
+        if values["topic"] in groups:
+            raise ValueError("duplicate topic in book chapter grouping: " + values["topic"])
+        groups[values["topic"]] = BookChapterGroup(**values)
+    printed_chapter_groups(chapters, groups)
+    return groups
+
+
+def printed_chapter_groups(
+    chapters: list[ChapterProblems],
+    groups: dict[str, BookChapterGroup] | None = None,
+) -> tuple[tuple[str, tuple[ChapterProblems, ...]], ...]:
+    """Return physical chapters without changing topic, case or problem order.
+
+    The identity default intentionally preserves the public synthetic APIs used
+    by existing generators and regression tests.
+    """
+    if groups is None:
+        return tuple((chapter.chapter, (chapter,)) for chapter in chapters)
+    if list(groups) != [chapter.chapter for chapter in chapters]:
+        raise ValueError("book chapter grouping must match every bank topic in bank order")
+    result: list[tuple[str, tuple[ChapterProblems, ...]]] = []
+    seen: set[str] = set()
+    for chapter in chapters:
+        group = groups[chapter.chapter]
+        if group.topic != chapter.chapter:
+            raise ValueError("book chapter grouping topic key does not match its row")
+        title = group.printed_chapter
+        if result and result[-1][0] == title:
+            result[-1] = (title, (*result[-1][1], chapter))
+        else:
+            if title in seen:
+                raise ValueError("grouped bank topics must be consecutive: " + title)
+            result.append((title, (chapter,)))
+            seen.add(title)
+    for title, topics in result:
+        headings = [groups[topic.chapter].topic_heading for topic in topics]
+        if len(headings) != len(set(headings)):
+            raise ValueError("duplicate topic heading in printed chapter: " + title)
+    return tuple(result)
+
+
+def advanced_difficulty_note(problems: tuple[Problem, ...]) -> str | None:
+    """Keep archive provenance and the practice tiers identical in both books."""
+    identifiers = {problem.identifier for problem in problems}
+    if "9.A5" in identifiers:
+        note = (
+            "Difficulty guide. Problems 9.A1 to 9.A4 provide new optimization and regime practice. "
+            "Problem 9.A5 restores the Western 2017 final examination question on indivisible "
+            "production, including its original endowments and global equilibrium reasoning."
+        )
+        if "9.A6" in identifiers:
+            note += " Problem 9.A6 adds a simple housing production case connecting developer optimization, latent prices, land rents and general equilibrium."
+        return note
+    if "10.A5" in identifiers:
+        note = (
+            "Difficulty guide. Problems 10.A1 to 10.A4 are preparatory practice. "
+            "Problems 10.A5 and 10.A6 restore the harder continuum questions from "
+            "the Western 2019 final examination and the SFU 2024 Problem Set 7. "
+            "Their source notes distinguish necessary corrections from new extensions. "
+            "Use the restored questions as the main timed exam preparation."
+        )
+        if "10.A7" in identifiers:
+            note += " Problem 10.A7 restores the historical equilibrium and demand estimation exercise, with explicit corrections and a labelled time series extension."
+        if "10.A8" in identifiers:
+            note += " Problem 10.A8 connects discrete choice demand to pricing and endogeneity before a BLP style computational extension."
+        return note
+    if "11.A7" in identifiers:
+        return (
+            "Difficulty guide. Problems 11.A1 to 11.A6 develop geometric and regime reasoning. "
+            "Problem 11.A7 restores the Western 2018 final examination question on the "
+            "empirical content of equilibrium with production. It requires a full mathematical "
+            "certificate and both directions of a rationalization argument, not only a computed equilibrium."
+        )
+    if "16.A1" in identifiers:
+        return (
+            "Advanced case guide. Problems 16.A1 and 16.A2 restore both the theory and "
+            "Arabasta and Baltigo modeling parts of the SFU 2024 final examination. "
+            "Problem 16.A3 is a new general equilibrium and dynamic extension of the "
+            "Galor household problem 1.6. Each separates hand benchmarks from computational "
+            "verification and states its equilibrium closure explicitly. Separate student "
+            "packets contain these same questions."
+        )
+    return None
+
+
+def parse_advanced_plan(path: Path, chapters: list[ChapterProblems]) -> dict[str, tuple[str, str]]:
+    """Keep optional exam preparation separate from weekly required work."""
+    advanced = {
+        problem.identifier for chapter in chapters for problem in chapter.problems
+        if problem.level == "Advanced"
+    }
+    with path.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t")
+        if reader.fieldnames != ["set", "recommended_ids", "further_practice_ids"]:
+            raise ValueError("invalid advanced practice plan columns")
+        rows = list(reader)
+    result: dict[str, tuple[str, str]] = {}
+    assigned: list[str] = []
+    for row in rows:
+        if row["set"] in result or row["set"] not in {f"PS{i:02d}" for i in range(1, 14)}:
+            raise ValueError("duplicate or unknown advanced practice week")
+        result[row["set"]] = (row["recommended_ids"], row["further_practice_ids"])
+        assigned.extend(item.strip() for field in result[row["set"]] for item in field.split(",") if item.strip())
+    if Counter(assigned) != Counter(advanced):
+        raise ValueError("advanced practice plan must include every Advanced ID exactly once")
+    return result
 
 
 def slug(text: str) -> str:
@@ -108,7 +244,7 @@ def parse_problem_bank(path: Path) -> list[ChapterProblems]:
     if len(chapter_slugs) != len(set(chapter_slugs)):
         raise ValueError("two problem-bank chapters have the same slug")
     all_identifiers: list[str] = []
-    allowed_levels = {"Core", "Proof", "Applied"}
+    allowed_levels = {"Core", "Proof", "Applied", "Advanced"}
     for chapter in chapters:
         if not chapter.problems:
             raise ValueError(f"chapter has no problems: {chapter.chapter}")
@@ -234,16 +370,21 @@ def parse_chapter_pathways(
 def lyx_inline(text: str) -> str:
     pieces: list[str] = []
     position = 0
-    for match in re.finditer(r"\$(.+?)\$", text):
+    for match in re.finditer(r"\$(?P<formula>.+?)\$|`(?P<code>[^`\n]+)`", text):
         pieces.append(text[position : match.start()])
         # End the source line immediately after the inline formula inset.  LyX
         # keeps the preceding ordinary space, while later prose starts on the
         # next source line instead of being swallowed after ``\\end_inset``.
-        pieces.append(
-            "\\begin_inset Formula $"
-            + match.group(1)
-            + "$\\end_inset\n"
-        )
+        if match.group("formula") is not None:
+            pieces.append(
+                "\\begin_inset Formula $"
+                + match.group("formula")
+                + "$\\end_inset\n"
+            )
+        else:
+            # Native typewriter avoids literal Markdown delimiters and keeps
+            # command options as two ASCII hyphens in the exported PDF.
+            pieces.append("\n\\family typewriter\n" + match.group("code") + "\n\\family default\n")
         position = match.end()
     pieces.append(text[position:])
     return "".join(pieces).strip()
@@ -311,7 +452,13 @@ def problem_layout(problem: Problem) -> str:
     return "\n".join(parts)
 
 
-def problem_block(chapter: ChapterProblems, pathway: ChapterPathway) -> str:
+def problem_block(
+    chapter: ChapterProblems,
+    pathway: ChapterPathway,
+    *,
+    topic_heading: str | None = None,
+    include_problems_heading: bool = True,
+) -> str:
     chapter_slug = slug(chapter.chapter)
     hand_problems = tuple(
         problem
@@ -323,7 +470,12 @@ def problem_block(chapter: ChapterProblems, pathway: ChapterPathway) -> str:
     bridge_problems = tuple(
         problem
         for problem in chapter.problems
-        if problem.level != "Core" and problem.identifier != pathway.case_id
+        if problem.level not in {"Core", "Advanced"} and problem.identifier != pathway.case_id
+    )
+    advanced_problems = tuple(
+        problem
+        for problem in chapter.problems
+        if problem.level == "Advanced" and problem.identifier != pathway.case_id
     )
     case_problem = next(
         problem
@@ -331,19 +483,43 @@ def problem_block(chapter: ChapterProblems, pathway: ChapterPathway) -> str:
         if problem.identifier == pathway.case_id
     )
 
+    part_layout = "Subsubsection*" if topic_heading else "Subsection*"
+    case_layout = "Paragraph*" if topic_heading else "Subsubsection*"
     parts = [marker(f"ECON803_PROBLEMS_START:{chapter_slug}")]
-    parts.extend(
-        [
-            "\\begin_layout Section\nProblems\n\\end_layout\n",
-            "\\begin_layout Subsection*\nPart I: By hand\n\\end_layout\n",
-        ]
-    )
+    if include_problems_heading:
+        parts.append("\\begin_layout Section\nProblems\n\\end_layout\n")
+    if topic_heading:
+        parts.append(f"\\begin_layout Subsection*\n{topic_heading}\n\\end_layout\n")
+    parts.append(f"\\begin_layout {part_layout}\nPart I: By hand\n\\end_layout\n")
     for problem in hand_problems:
         parts.append(problem_layout(problem))
 
+    if advanced_problems:
+        parts.append(
+            f"\\begin_layout {part_layout}\nAdvanced exam practice\n\\end_layout\n"
+        )
+        parts.append(
+            "\\begin_layout Standard\n"
+            "These problems build toward integrated graduate exam arguments. "
+            "The suggested time applies to the hand questions, not the optional tool extension. "
+            "First draw a diagram or state a solution plan, define the feasible set, "
+            "and identify possible corners. Explain why each candidate is globally optimal "
+            "and check the economic accounting. Attempt the hand questions before using tools. "
+            "For an optional extension, state Seed, Fixed, Scaled and Risk before coding "
+            "and enlarge one feature at a time.\n"
+            "\\end_layout\n"
+        )
+        difficulty_note = advanced_difficulty_note(advanced_problems)
+        if difficulty_note:
+            parts.append(
+                "\\begin_layout Standard\n"
+                + difficulty_note + "\n\\end_layout\n"
+            )
+        parts.extend(problem_layout(problem) for problem in advanced_problems)
+
     parts.extend(
         [
-            "\\begin_layout Subsection*\n"
+            f"\\begin_layout {part_layout}\n"
             + f"Part II: {pathway.case_title} — chapter use case and verified scale-up\n"
             + "\\end_layout\n",
         ]
@@ -356,7 +532,7 @@ def problem_block(chapter: ChapterProblems, pathway: ChapterPathway) -> str:
     ) + ", ".join(pathway.seed_ids)
     if bridge_problems:
         parts.append(
-            "\\begin_layout Subsubsection*\n"
+            f"\\begin_layout {case_layout}\n"
             "Chapter use case\n"
             "\\end_layout\n"
         )
@@ -464,15 +640,21 @@ def expected_problem_order(
     bridge = [
         problem.identifier
         for problem in chapter.problems
-        if problem.level != "Core" and problem.identifier != pathway.case_id
+        if problem.level not in {"Core", "Advanced"} and problem.identifier != pathway.case_id
     ]
-    return tuple([*hand, *bridge, pathway.case_id])
+    advanced = [
+        problem.identifier
+        for problem in chapter.problems
+        if problem.level == "Advanced" and problem.identifier != pathway.case_id
+    ]
+    return tuple([*hand, *advanced, *bridge, pathway.case_id])
 
 
 def validate_generated_source(
     source: str,
     chapters: list[ChapterProblems],
     pathways: dict[str, ChapterPathway],
+    groups: dict[str, BookChapterGroup] | None = None,
 ) -> None:
     expected_markers = [
         token
@@ -488,66 +670,71 @@ def validate_generated_source(
     if actual_markers != expected_markers:
         raise ValueError("generated problem markers do not match the problem bank")
 
-    spans = {title: (start, end) for title, start, end in chapter_spans(source)}
+    span_list = chapter_spans(source)
+    if len({title for title, _, _ in span_list}) != len(span_list):
+        raise ValueError("duplicate numbered chapter title in LyX source")
+    spans = {title: (start, end) for title, start, end in span_list}
     all_headings: list[str] = []
-    for chapter in chapters:
-        chapter_start, chapter_end = spans[chapter.chapter]
+    for printed_title, topics in printed_chapter_groups(chapters, groups):
+        if printed_title not in spans:
+            raise ValueError("printed chapter not found in LyX source: " + printed_title)
+        chapter_start, chapter_end = spans[printed_title]
         chapter_source = source[chapter_start:chapter_end]
-        chapter_slug = slug(chapter.chapter)
-        start_marker = marker(f"ECON803_PROBLEMS_START:{chapter_slug}")
-        end_marker = marker(f"ECON803_PROBLEMS_END:{chapter_slug}")
-        block_start = chapter_source.find(start_marker)
-        block_end = chapter_source.find(end_marker, block_start)
-        if block_start < 0 or block_end < 0:
-            raise ValueError(f"generated block is outside chapter: {chapter.chapter}")
-        after_block = chapter_source[block_end + len(end_marker) :]
-        if after_block.strip():
-            raise ValueError(
-                f"generated problem block is not last in chapter: {chapter.chapter}"
+        grouped = len(topics) > 1
+        if chapter_source.count("\\begin_layout Section\nProblems\n\\end_layout") != 1:
+            raise ValueError(f"invalid Problems section in {printed_title}")
+        previous_end: int | None = None
+        for topic_index, chapter in enumerate(topics):
+            chapter_slug = slug(chapter.chapter)
+            start_marker = marker(f"ECON803_PROBLEMS_START:{chapter_slug}")
+            end_marker = marker(f"ECON803_PROBLEMS_END:{chapter_slug}")
+            block_start = chapter_source.find(start_marker)
+            block_end = chapter_source.find(end_marker, block_start)
+            if block_start < 0 or block_end < 0:
+                raise ValueError(f"generated block is outside chapter: {chapter.chapter}")
+            if previous_end is not None and chapter_source[previous_end:block_start].strip():
+                raise ValueError(f"grouped problem blocks are not consecutive in {printed_title}")
+            previous_end = block_end + len(end_marker)
+            block = chapter_source[block_start:previous_end]
+            if block.count("\\begin_layout Section\nProblems\n\\end_layout") != int(topic_index == 0):
+                raise ValueError(f"invalid Problems section in {chapter.chapter}")
+            part_layout = "Subsubsection*" if grouped else "Subsection*"
+            case_layout = "Paragraph*" if grouped else "Subsubsection*"
+            if grouped:
+                topic_heading = groups[chapter.chapter].topic_heading
+                if block.count(f"\\begin_layout Subsection*\n{topic_heading}\n\\end_layout") != 1:
+                    raise ValueError(f"invalid grouped topic heading in {chapter.chapter}")
+            if block.count(f"\\begin_layout {part_layout}\nPart I: By hand\n\\end_layout") != 1:
+                raise ValueError(f"invalid Part I heading in {chapter.chapter}")
+            part_ii_prefix = (
+                f"\\begin_layout {part_layout}\n"
+                f"Part II: {pathways[chapter.chapter].case_title} — "
+                "chapter use case and verified scale-up\n"
+                "\\end_layout"
             )
-        block = chapter_source[block_start : block_end + len(end_marker)]
-        if block.count("\\begin_layout Section\nProblems\n\\end_layout") != 1:
-            raise ValueError(f"invalid Problems section in {chapter.chapter}")
-        if block.count("\\begin_layout Subsection*\nPart I: By hand\n\\end_layout") != 1:
-            raise ValueError(f"invalid Part I heading in {chapter.chapter}")
-        part_ii_prefix = (
-            "\\begin_layout Subsection*\n"
-            f"Part II: {pathways[chapter.chapter].case_title} — "
-            "chapter use case and verified scale-up\n"
-            "\\end_layout"
-        )
-        if block.count(part_ii_prefix) != 1:
-            raise ValueError(f"invalid Part II heading in {chapter.chapter}")
-        case_heading = (
-            "\\begin_layout Subsubsection*\n"
-            "Chapter use case\n"
-            "\\end_layout"
-        )
-        expected_case_heading_count = int(
-            any(
-                problem.level != "Core"
+            if block.count(part_ii_prefix) != 1:
+                raise ValueError(f"invalid Part II heading in {chapter.chapter}")
+            case_heading = (
+                f"\\begin_layout {case_layout}\nChapter use case\n\\end_layout"
+            )
+            expected_case_heading_count = int(any(
+                problem.level not in {"Core", "Advanced"}
                 and problem.identifier != pathways[chapter.chapter].case_id
                 for problem in chapter.problems
+            ))
+            if block.count(case_heading) != expected_case_heading_count:
+                raise ValueError(f"invalid chapter-use-case heading in {chapter.chapter}")
+            headings = re.findall(
+                r"\\series bold\nProblem ([A-Z0-9]+\.A?[0-9]+) \[", block
             )
-        )
-        if block.count(case_heading) != expected_case_heading_count:
-            raise ValueError(f"invalid chapter-use-case heading in {chapter.chapter}")
-
-        headings = re.findall(
-            r"\\series bold\nProblem ([A-Z0-9]+\.[0-9]+) \[",
-            block,
-        )
-        expected_headings = list(
-            expected_problem_order(chapter, pathways[chapter.chapter])
-        )
-        if headings != expected_headings:
-            raise ValueError(
-                f"problem order mismatch in {chapter.chapter}: "
-                + ", ".join(headings)
-            )
-        if headings[-1] != pathways[chapter.chapter].case_id:
-            raise ValueError(f"chapter use case is not last in {chapter.chapter}")
-        all_headings.extend(headings)
+            expected_headings = list(expected_problem_order(chapter, pathways[chapter.chapter]))
+            if headings != expected_headings:
+                raise ValueError(f"problem order mismatch in {chapter.chapter}: " + ", ".join(headings))
+            if headings[-1] != pathways[chapter.chapter].case_id:
+                raise ValueError(f"chapter use case is not last in {chapter.chapter}")
+            all_headings.extend(headings)
+        if previous_end is None or chapter_source[previous_end:].strip():
+            raise ValueError(f"generated problem block is not last in chapter: {printed_title}")
 
     bank_ids = [
         problem.identifier
@@ -562,7 +749,7 @@ def validate_generated_source(
     # manuscript so the public bank remains the single question-only source of
     # record and every stable problem identifier appears exactly once.
     source_headings = re.findall(
-        r"\\series bold\nProblem ([A-Z0-9]+\.[0-9]+) \[",
+        r"\\series bold\nProblem ([A-Z0-9]+\.A?[0-9]+) \[",
         source,
     )
     if Counter(source_headings) != Counter(bank_ids):
@@ -583,6 +770,7 @@ def inject(
     source: str,
     chapters: list[ChapterProblems],
     pathways: dict[str, ChapterPathway],
+    groups: dict[str, BookChapterGroup] | None = None,
 ) -> str:
     source = strip_generated_blocks(source, chapters)
     span_list = chapter_spans(source)
@@ -590,22 +778,31 @@ def inject(
     if len(span_titles) != len(set(span_titles)):
         raise ValueError("duplicate numbered chapter title in LyX source")
     spans = {title: (start, end) for title, start, end in span_list}
-    missing = [chapter.chapter for chapter in chapters if chapter.chapter not in spans]
+    physical_chapters = printed_chapter_groups(chapters, groups)
+    missing = [title for title, _ in physical_chapters if title not in spans]
     if missing:
         raise ValueError("chapters not found in LyX source: " + ", ".join(missing))
     insertions = sorted(
         (
             (
-                spans[chapter.chapter][1],
-                problem_block(chapter, pathways[chapter.chapter]),
+                spans[title][1],
+                "\n".join(
+                    problem_block(
+                        chapter,
+                        pathways[chapter.chapter],
+                        topic_heading=(groups[chapter.chapter].topic_heading if len(topics) > 1 else None),
+                        include_problems_heading=index == 0,
+                    )
+                    for index, chapter in enumerate(topics)
+                ),
             )
-            for chapter in chapters
+            for title, topics in physical_chapters
         ),
         reverse=True,
     )
     for position, block in insertions:
         source = source[:position] + "\n" + block + "\n" + source[position:]
-    validate_generated_source(source, chapters, pathways)
+    validate_generated_source(source, chapters, pathways, groups)
     return source
 
 
@@ -614,14 +811,17 @@ def main() -> None:
     parser.add_argument("lyx", type=Path)
     parser.add_argument("bank", type=Path)
     parser.add_argument("--pathways", type=Path)
+    parser.add_argument("--groups", type=Path)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
     chapters = parse_problem_bank(args.bank)
     pathway_path = args.pathways or args.bank.with_name("CHAPTER_PATHWAYS.tsv")
     pathways = parse_chapter_pathways(pathway_path, chapters)
+    group_path = args.groups or args.bank.with_name("BOOK_CHAPTER_GROUPS.tsv")
+    groups = parse_book_chapter_groups(group_path, chapters) if group_path.exists() else None
     original = args.lyx.read_text(encoding="utf-8")
-    revised = inject(original, chapters, pathways)
+    revised = inject(original, chapters, pathways, groups)
     if args.check:
         if original != revised:
             raise SystemExit("problem sets are not synchronized with the bank")

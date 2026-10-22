@@ -137,7 +137,9 @@ def parse_bank() -> list[ReserveProblem]:
         raise ValueError("unknown reserve problem label")
     for problem in problems:
         joined = " ".join(problem.paragraphs)
-        if "**Part I — by hand.**" not in joined or "**Part II — verified scale-up.**" not in joined:
+        hand_labels = ("**Part I — by hand.**", "**Part I: by hand.**")
+        tool_labels = ("**Part II — verified scale-up.**", "**Part II: verified extension.**")
+        if not any(label in joined for label in hand_labels) or not any(label in joined for label in tool_labels):
             raise ValueError(f"reserve problem {problem.identifier} lacks two-part structure")
     return problems
 

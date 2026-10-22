@@ -143,7 +143,7 @@ sub excerpt_from_blocks {
 sub print_record {
     my ($start, $kind, $chapter, $section, $excerpt) = @_;
     return if $kind =~ /^Exercise/ &&
-      $excerpt !~ /^Problem\s+[\w.]+\s+\[(?:Core|Proof|Applied)\]/;
+      $excerpt !~ /^Problem\s+[\w.]+\s+\[(?:Core|Proof|Applied|Advanced)\]/;
     for ($chapter, $section, $excerpt) { s/\t/ /g; }
     print join("\t", $start, $kind, $chapter, $section, $excerpt), "\n";
 }

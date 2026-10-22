@@ -55,3 +55,10 @@ rejected.
 #print axioms Econ803.BookNarrative.productSpaceMap_ids_increase
 #print axioms Econ803.BookNarrative.productSpaceMap_empirical_grounding
 #print axioms Econ803.BookNarrative.productSpaceMap_theory_independent_of_evidence
+#print axioms Econ803.BookNarrative.generalEquilibriumMap_dependencies_precede
+#print axioms Econ803.BookNarrative.generalEquilibriumMap_ids_increase
+#print axioms Econ803.BookNarrative.generalEquilibriumMap_roots_explicit
+#print axioms Econ803.BookNarrative.generalEquilibriumMap_theory_independent_of_evidence
+#print axioms Econ803.BookNarrative.generalEquilibrium_function_branch_closes
+#print axioms Econ803.BookNarrative.generalEquilibrium_convex_branch_closes
+#print axioms Econ803.BookNarrative.generalEquilibrium_priceSupport_consequences

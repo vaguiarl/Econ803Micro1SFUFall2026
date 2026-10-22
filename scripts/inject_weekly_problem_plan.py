@@ -14,6 +14,8 @@ import datetime as dt
 import re
 from pathlib import Path
 
+from inject_problem_sets import parse_advanced_plan, parse_problem_bank
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = ROOT / "problemsets" / "WEEKLY_RELEASE_PLAN.tsv"
@@ -143,11 +145,9 @@ def read_plan() -> tuple[list[dict[str, str]], dict[str, tuple[str, str]]]:
                 item.strip() for item in row[field].split(",") if item.strip()
             )
 
-    bank_ids = re.findall(
-        r"^##\s+((?:[0-9]+|A)\.[0-9]+)\s+\|",
-        BANK.read_text(encoding="utf-8"),
-        flags=re.MULTILINE,
-    )
+    chapters = parse_problem_bank(BANK)
+    bank_ids = [problem.identifier for chapter in chapters for problem in chapter.problems]
+    advanced_ids = {problem.identifier for chapter in chapters for problem in chapter.problems if problem.level == "Advanced"}
     with PATHWAYS.open(encoding="utf-8", newline="") as handle:
         cases = {row["case_id"] for row in csv.DictReader(handle, delimiter="\t")}
     if len(assigned) != len(set(assigned)):
@@ -158,7 +158,7 @@ def read_plan() -> tuple[list[dict[str, str]], dict[str, tuple[str, str]]]:
     assigned_cases = sorted(set(assigned) & cases)
     if assigned_cases:
         raise ValueError("weekly plan includes case IDs: " + ", ".join(assigned_cases))
-    expected = set(bank_ids) - cases
+    expected = set(bank_ids) - cases - advanced_ids
     missing = sorted(expected - set(assigned))
     if missing:
         raise ValueError("unassigned non-case problem IDs: " + ", ".join(missing))
@@ -168,6 +168,9 @@ def read_plan() -> tuple[list[dict[str, str]], dict[str, tuple[str, str]]]:
 def render(
     rows: list[dict[str, str]], reserve: dict[str, tuple[str, str]]
 ) -> str:
+    advanced_plan = parse_advanced_plan(
+        ROOT / "problems" / "ADVANCED_PRACTICE_PLAN.tsv", parse_problem_bank(BANK)
+    )
     parts = [
         layout("Chapter*", "Weekly Problem Sets: Fall 2026"),
         marker(START),
@@ -196,6 +199,15 @@ def render(
             parts.append(layout("Description", f"Reserve required {reserve_required}"))
         if reserve_optional:
             parts.append(layout("Description", f"Reserve optional {reserve_optional}"))
+        if row["set"] in advanced_plan:
+            recommended, further = advanced_plan[row["set"]]
+            parts.append(layout(
+                "Standard",
+                f"Advanced exam preparation: {recommended}. Further practice: {further}. "
+                "Attempt the recommended pair by hand after the foundations; the remaining "
+                "problems form a revision bank. These are additional preparation, not extra "
+                "weekly requirements unless assigned in class. Suggested times exclude tool extensions.",
+            ))
     parts.extend(
         [
             layout(

@@ -26,28 +26,7 @@ REPLACEMENTS = (
  trade under uncertainty,
  matching,
  and computable general equilibrium.""",
-        """The material is cumulative.
- Part I begins with utility maximization and consumer demand,
- then develops duality,
- comparative statics,
- welfare,
- revealed preference,
- and abstract choice.
- Part II studies expected utility,
- stochastic choice,
- limited attention,
- and rational inattention.
- Part III turns to aggregation and representative consumers.
- Part IV develops production,
- competitive markets,
- and general equilibrium.
- Part V treats equilibrium restrictions,
- sequential trade,
- matching,
- and computable general equilibrium.
- Appendix A collects order theory,
- Appendix B records the exact versions of starred theorems,
- and the Glossary of Symbols provides linked notation.""",
+        """The material is cumulative. Part I begins with utility maximization and consumer demand, then develops duality, comparative statics, welfare, revealed preference and abstract choice. Part II studies expected utility, stochastic choice and attention. Part III turns to aggregation. Part IV develops production, competitive markets and one unified general equilibrium chapter, including existence, welfare, equilibrium behavior and empirical restrictions. Part V begins with niche consumption and product space, connecting consumer theory to the preceding equilibrium analysis, then treats sequential trade, matching and computable general equilibrium. Appendix A collects order theory, Appendix B develops fixed points and equilibrium existence, Appendix C records the exact versions of starred consumer theorems, and the final glossary provides linked notation.""",
     ),
     (
         "notation-glossary pointer",

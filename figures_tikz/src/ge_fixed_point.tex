@@ -1,0 +1,20 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{../figure_style.tex}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[book axis,width=10.2cm,height=8cm,xmin=.1,xmax=.9,ymin=.1,ymax=.9,
+ xlabel={Normalized price $s=p_1$, with $p_2=1-s$},ylabel={Updated normalized price},
+ xtick={.1,.25,.5,.75,.9},ytick={.1,.25,.5,.75,.9},grid=major,
+ legend style={at={(.03,.97)},anchor=north west}]
+ \addplot[BookGray,densely dashed,thick,domain=.1:.9] {x};
+ \addlegendentry{Fixed point line: $T(s)=s$}
+ \addplot[BookBlue,very thick,domain=.1:.9,samples=160] {x+1/(16*x)-1/8};
+ \addlegendentry{$T(s)=s+z_1(s)/32$}
+ \draw[BookGreen,densely dashed] (axis cs:.5,.1)--(axis cs:.5,.5)--(axis cs:.1,.5);
+ \fill[BookGreen] (axis cs:.5,.5) circle(2.2pt);
+ \node[anchor=south west,fill=white,inner sep=2pt] at(axis cs:.52,.52){$s^*=1/2$};
+ \node[anchor=north west,fill=white,inner sep=3pt,align=left] at(axis cs:.15,.29)
+ {$T:[1/10,9/10]\to[1/10,9/10]$\\$T(s)=s\ \Longleftrightarrow\ z_1(s)=0$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

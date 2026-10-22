@@ -1,6 +1,6 @@
 # Publication problem bank
 
-This file is the editable source for the end-of-chapter problems in the Fall 2026 textbook. Each problem has a stable current identifier and one of three labels: Core, Proof, or Applied. `CHAPTER_PATHWAYS.tsv` gives every chapter one named capstone case, a single scale axis, and an honest verification contract. The generator places Core benchmarks in Part I, formal and applied bridges in Part II, and the designated use case last. The public book contains questions only; solutions are maintained in the private instructor repository. Legacy Fall 2024/Fall 2026-baseline numbers are recorded in `PROBLEM_ID_ALIASES.tsv`.
+This file is the editable source for the chapter problems in the Fall 2026 textbook. Each problem has a stable identifier and a label: Core, Proof, Applied or Advanced. `CHAPTER_PATHWAYS.tsv` gives every chapter one named capstone case, a single scale axis and a verification contract. The generator places Core benchmarks in Part I, adds a distinct Advanced exam practice section where available, and retains formal and applied bridges in Part II with the designated use case last. Advanced problems integrate calculations, proof, regime checks and economic interpretation; the suggested time excludes optional tool work. The public book contains questions only; solutions are maintained in the private instructor repository. Legacy numbers are recorded in `PROBLEM_ID_ALIASES.tsv`. The advanced practice plan is additional preparation unless assigned in class. Source records distinguish actual historical restorations, new questions and material used only for difficulty calibration.
 
 <!-- ECON803_PROBLEM_RESTRUCTURE:1 -->
 
@@ -435,6 +435,146 @@ Suppose the minimum in $C(\boldsymbol w,q)=\min\{\boldsymbol w\cdot\boldsymbol z
 
 (c) Use homogeneity to show $D_{\boldsymbol w}\boldsymbol z(\boldsymbol w,q)\boldsymbol w=0$.
 
+## 9.A1 | Advanced | Automation, production lines and the value of capacity
+
+Suggested time: 35 minutes. Total: 30 points. The optional tool extension is not included in the suggested time.
+
+A competitive manufacturer sells a homogeneous output at the fixed price $p=8$. It operates two production lines. Their outputs are $q_1,q_2\geq0$, and their combined capacity is $q_1+q_2\leq6$. Costs are
+$C_1(q_1)=2q_1+\frac12q_1^2,\qquad C_2(q_2;a)=a q_2+\frac12q_2^2,$
+where $a\geq0$ is a technology parameter, not a choice. The manufacturer maximizes revenue less both production costs. There are no fixed costs.
+
+(a) Write the optimization problem and its KKT conditions. Use a nonnegative multiplier $\lambda$ for total capacity. Explain how the condition for a line with zero output differs from the equality for a line with positive output. [5]
+
+(b) For $a=4$, determine both outputs, profit and $\lambda$. Check every KKT condition rather than only solving the interior equations. [5]
+
+(c) An automation improvement reduces $a$ from $4$ to $1$, without changing output price or capacity. Solve the new problem. Explain why output on the first line can fall even though total technology has improved. [5]
+
+(d) Keeping capacity equal to $6$, solve for all $a\geq0$. Identify the value at which the second line shuts down. At that value, distinguish a binding capacity constraint from a strictly positive shadow value. [5]
+
+(e) Prove global optimality and uniqueness of your proposed allocation. You may use strict concavity and KKT sufficiency, but state the premises. Alternatively give an exact expression for the profit loss from any feasible deviation. [5]
+
+(f) Let $V(K,a)$ be maximum profit when total capacity is $K$. Interpret $\partial V/\partial K$ at $K=6$ for $a=4$ and $a=1$. Explain why the automation improvement raises the value of capacity in this example. [5]
+
+Optional tool extension. Extend the manufacturer to ten lines with costs $c_j q_j+\kappa_j q_j^2/2$, where $\kappa_j>0$. Sort the entry thresholds, solve the capacity equation, and test primal feasibility, multiplier signs, complementary slackness and every excluded line. Compare direct optimization with the exact active set method. A numerical solver is a check, not the proof requested in part (e).
+
+## 9.A2 | Advanced | Human input, machine capacity and cost duality
+
+Suggested time: 45 minutes. Total: 36 points. The optional tool extension is not included in the suggested time.
+
+A firm uses labor $\ell\geq0$ and machine services $r\geq0$. It can produce output $q\geq0$ satisfying
+$q\leq\sqrt{\ell}+\sqrt{a r},\qquad r\leq R.$
+Here $a>0$ is machine productivity and $R>0$ is the available quantity of machine services. Labor and machine prices are $w>0$ and $v>0$. The firm pays $w\ell+vr$. All inputs and outputs are continuously divisible, and there is no fixed cost.
+
+(a) For a required output $q>0$, write the cost minimization problem and show that its production constraint binds. Using $x=\sqrt{\ell}$ and $y=\sqrt{a r}$, reduce it to a strictly convex quadratic allocation problem. [5]
+
+(b) Find the unique conditional input demands and cost function $C(w,v,q;a,R)$ for every $q>0$. Identify the output threshold at which the machine capacity starts binding, and verify that cost and marginal cost match across the threshold. [8]
+
+(c) At a fixed output price $p>0$, derive optimal labor, machine use, output and profit. Give the complete price partition, including the boundary. [7]
+
+(d) Verify Hotelling's lemma with respect to $p$ in both regimes. Verify Shephard's lemma with respect to $w$ and $v$ in the conditional cost problem, stating which objects are held fixed. [6]
+
+(e) Take $p=3$, $w=v=1$ and $R=1$. Compare $a=1$ with $a=4$. Calculate output, both inputs, profit and the machine capacity multiplier in each case. Explain why greater productivity need not make the capacity constraint less valuable. [5]
+
+(f) Explain why the proposed solution is globally optimal. Distinguish improving machine productivity $a$ from increasing available machine services $R$. Which model feature prevents the firm from using an unlimited amount of the improved technology? [5]
+
+Optional tool extension. Draw the two dimensional regime map in $(p,R)$ for several values of $a$. Check continuity and envelope identities at the boundary using exact formulas before numerical differentiation. Report the analytical statement separately from any graph or solver output.
+
+## 9.A3 | Advanced | A common emissions budget and the limits of firm aggregation
+
+Suggested time: 40 minutes. Total: 32 points. The optional tool extension is not included in the suggested time.
+
+Two production units sell the same output at the fixed competitive price $p=6$. Their costs are
+$C_1(q_1)=q_1+\frac12q_1^2,\qquad C_2(q_2)=2q_2+\frac12q_2^2.$
+Outputs satisfy $q_1,q_2\geq0$. Initially each unit of output from unit 1 uses one emissions permit and each unit from unit 2 uses two. A manufacturer owns both units and has a total emissions budget $B>0$, so $q_1+2q_2\leq B$. It maximizes total revenue less production costs. There are no other constraints or fixed costs.
+
+(a) Derive the KKT system and explain the units of the common constraint multiplier. Why is adding the two unconstrained supplies generally incorrect? [5]
+
+(b) Solve the problem for every $B>0$, finding all thresholds at which a unit enters or the emissions budget ceases to have a positive shadow value. Check the boundary values. [8]
+
+(c) At $B=4$, compute outputs, gross revenue less production costs and the emissions multiplier. Prove that the allocation is globally optimal and unique. [5]
+
+(d) Suppose instead that independent firms operate the units and permits can be traded at the competitive price $\tau\geq0$. Each firm pays $\tau$ times its emissions. Show that an appropriate permit price implements the allocation from part (c). Explain why the initial ownership of permits affects income but not these output choices under the stated assumptions. [5]
+
+(e) An improvement reduces the emissions requirement of unit 2 from two permits to one, holding $p=6$ and $B=4$ fixed. Solve the new problem and compare each output, their total, production profit before permit payments, and the permit price. Explain why the price of the scarce permit can rise when a production unit becomes cleaner. [6]
+
+(f) Explain the difference between this manufacturer problem and a social planner problem that values consumer surplus or environmental damage. State one missing primitive needed to make a welfare claim. [3]
+
+Optional tool extension. Add heterogeneous units with costs $c_jq_j+q_j^2/(2e_j)$ and emissions coefficients $b_j>0$. Construct $q_j(\tau)=e_j[p-c_j-\tau b_j]_+$ and solve the permit clearing equation. Check the entry inequalities and distinguish output changes from transfers of permit rents.
+
+## 9.A4 | Advanced | A fixed software cost, entry and a missing competitive equilibrium
+
+Suggested time: 45 minutes. Total: 36 points. The optional tool extension is not included in the suggested time.
+
+A firm must activate a production system before producing. Activation is $d\in\{0,1\}$ and output satisfies $0\leq q\leq Kd$, where $K>0$. Its profit at the fixed output price $p\geq0$ is
+$pq-Fd-cq-\frac{q^2}{2e},$
+where $F>0$ is the activation cost, $c\geq0$ is unit operating cost and $e>0$ is productivity. Inactivity has $d=0$, $q=0$ and zero profit. All parameters are fixed when the firm chooses $(d,q)$.
+
+(a) Conditional on $d=1$, solve for output using KKT, including the lower and upper output constraints. Why is this conditional calculation not enough to find a global optimum of the original problem? [6]
+
+(b) Derive the entry price, allowing for the possibility that capacity is already binding at entry. State the entire output supply correspondence below, at and above that price. Do not discard tied optima. [9]
+
+(c) Set $c=2$, $e=1$, $K=4$ and $F=2$. Calculate supply and maximum profit at $p=3$, $p=4$ and $p=5$. Explain the jump in supply. [5]
+
+(d) At the fixed price $p=7/2$, an AI software improvement reduces $F$ from $2$ to $1/2$, without changing $c,e$ or $K$. Compare activity, output and profit before and after the change. For prices at which the firm is active under both costs, does reducing $F$ change its conditional output? [5]
+
+(e) Return to $F=2$. Suppose this firm is the only producer, consumers have aggregate demand $D(p)=\max\{5-p,0\}$, and all agents are price takers. Prove that there is no competitive market clearing price. Does the reduction to $F=1/2$ restore an equilibrium? If so, find it and verify that the firm prefers to operate. [7]
+
+(f) Explain which convexity property fails and why a smooth first order condition cannot rule out the failure in part (e). Distinguish the claim that no competitive equilibrium exists from the claim that no feasible or optimal allocation exists. [4]
+
+Optional tool extension. For a population of such firms, vary the distribution of fixed costs and capacities. Track the supply correspondence, allowing for ties at entry. Compare an atomic firm population with a continuum. A plot that crosses interpolated supply points is not proof of exact market clearing.
+
+## 9.A5 | Advanced | Indivisible production and two endowment configurations
+
+Restored from the Western University Fall 2017 final examination. The indivisible technology, literal utility and two original endowment configurations are retained.
+
+Suggested time: 40 minutes. Total: 40 points.
+
+There is one consumer and one firm, with one physical input and one output good. The consumer owns the firm. A consumer bundle is $(c,d)\in\mathbb R_+^2$, where $c$ is retained input and $d$ is consumption of the output. Utility is $u(c,d)=2-c+2d$. Thus the utility of retained input is decreasing, exactly as in the original displayed formula; do not replace it by a leisure utility.
+
+The firm has the production set $Y=\bigcup_{a\in\mathbb Z_+}\{(-a,a)-v:v\in\mathbb R_+^2\}$, where $\mathbb Z_+=\{0,1,2,\ldots\}$. It can choose an integer activity $a$ that uses $a$ units of input and produces $a$ units of output, and it can freely dispose of either commodity. Normalize the output price to 1 and denote the input price by $r\geq0$. The firm maximizes $(r,1)\cdot y$ over $y\in Y$. If this maximum is finite and attained, denote it by $\pi(r)$.
+
+For endowment $\omega=(\omega_c,\omega_d)$, the consumer budget is $rc+d\leq r\omega_c+\omega_d+\pi(r)$. A competitive equilibrium requires both global optimization problems and exact clearing $(c,d)=\omega+y$.
+
+(a) Characterize the firm's profit and its complete optimizing production correspondence for all $r\geq0$. Explain why free disposal and integer activity matter, and why the firm must not insert the economy's total input endowment as an additional private constraint. [12]
+
+(b) Begin with the original endowment $\omega=(2,0)$. Find every competitive equilibrium price, consumer bundle and production plan. Prove that no other price or integer activity can be an equilibrium. [12]
+
+(c) Change only the endowment to the other original case, $\omega=(0,2)$. Find the full equilibrium set and compare the input price determination with part (b). [10]
+
+(d) Exhibit two plans in $Y$ whose midpoint is not in $Y$. Explain why zero equilibrium profit does not make this technology a convex cone, and why first order calculus in $a$ cannot replace the global production comparison. [6]
+
+## 9.A6 | Advanced | Housing values, latent prices and land rents
+
+This is an original teaching specialization of the housing production and value proxy ideas in Epple, Gordon and Sieg (2010) and Aguiar, Kashaev and Allen (2023). It is not a reproduction of either paper's general identification theorem.
+
+Part I. By hand.
+
+Suggested time: 50 minutes. Total: 50 points. The optional tool extension is not included in the suggested time.
+
+Housing services are a homogeneous output. Developers use land $L\geq0$ and materials $M\geq0$ to produce $H=2A\sqrt{LM}$, where $A>0$ is a common technology parameter. Materials are units of the numeraire and cost 1 each. The price of one unit of housing is $p_q>0$ and the rent of one unit of land is $\rho>0$. Every developer takes both prices as given and chooses its own scale. There is no fixed cost, market power or uncertainty. All prices and revenues refer to the same single period.
+
+For a developer using positive land, define materials per unit of land $m=M/L$, housing per unit of land $q=H/L$, and observed housing revenue per unit of land $v=p_q q$. The conditional operating value per unit of land, before paying for land, is $\Pi(p_q;A):=\max_{m\geq0}\{2Ap_q\sqrt m-m\}$. Net developer profit also subtracts $\rho L$.
+
+(a) Find the unique conditional materials intensity, housing intensity, revenue and operating value. Provide a global argument, using either KKT after a change of variable or an exact algebraic bound. Explain why a land payment that is fixed conditional on $L$ does not change the choice of $m$. [8]
+
+(b) Consider otherwise comparable markets with the baseline technology $A=1$. Housing quantity $q$ and its price $p_q$ are not separately observed. The analyst observes $v$ and land rent $\rho(v)=v/2$ for every $v>0$, maintains zero net developer profit, and represents the latent price by $p_q=g(v)$. The units of housing are anchored by $g(2)=1$. Use the conditional operating value from part (a), the observed rent and zero profit to recover the price, housing intensity and materials intensity by algebra. Check the anchor and explain why this parametric inversion does not identify an unrestricted unknown technology. [8]
+
+(c) Return to any $A>0$ and let a developer choose both $L$ and $M$. Characterize its maximum net profit and all optimal input plans according to the relation between $\rho$ and the conditional operating value from part (a). Which relation permits positive land use and free entry without unbounded profit? Give a global certificate, not only two first order equalities. [6]
+
+(d) Close a genuine general equilibrium. A single household has utility $u(C,H)=C+B\log H$, where $C\geq0$ is numeraire consumption, $H>0$ is housing and $B>0$ is fixed. It owns a numeraire endowment $W>B$, all developers, and the fixed total land $\overline L>0$. It receives land rent, and firms have zero net profit in a free entry equilibrium. Its budget is $C+p_qH\leq W+\rho\overline L$. Materials used by developers come from the numeraire endowment. Write household KKT conditions taking prices as given. Derive equilibrium prices and aggregate $H,M,C$. Verify household global optimality, developer global optimality, land clearing, housing clearing and the numeraire resource identity $C+M=W$. Distinguish uniqueness of aggregate equilibrium from the division of production among firms. [12]
+
+(e) Set $W=10$, $B=4$, $\overline L=2$ and initially $A=1$. Calculate all prices, aggregate quantities and household income. Now double $A$ without changing preferences or endowments. Calculate the new equilibrium and the change in $v$. Explain how positive land rents can coexist with zero developer profit. [8]
+
+(f) For general $W>B$ and $\overline L>0$, compare $A$ and $2A$. Compute the household's utility gain and distinguish changes in physical housing from changes in housing expenditure. Can the analyst reuse the baseline price proxy and its anchor from part (b) after the technology changes? Explain what stays fixed in a valid comparison across markets and what fails when technology moves. State one reason this single location model does not by itself describe the spatial structure of a city. [8]
+
+Part II. Codex and verification.
+
+Optional analytic bridge. Now regard the common production function per unit land as unknown rather than impose the stated Cobb Douglas form. Maintain interior conditional optima, differentiability, material price 1, the full observed rent curve $\rho(v)=v/2$, zero net profit and the anchor $g(2)=1$. Use the envelope theorem and $v=p_q q$ to derive a differential equation for $g$. Recover the implied price and production relationship and explain which assumptions make this different from the algebraic inversion in part (b).
+
+Seed: the two equilibria in part (e). Fixed: $W=10$, $B=4$, the technology class, ownership, material price normalization, preferences, and the strictly positive domains. Scaled: aggregate land $\overline L>0$ over a grid, first at $A=1$ and then under the same stated doubling of $A$. This changes one market feature at a time while repeating the fixed technology comparison. Risk: confusing a conditional land choice with fixed aggregate land, counting rent as an additional resource cost, or using the old price proxy outside its technology regime.
+
+Build an equilibrium verifier rather than only plotting formulas. Check household KKT, the developer profit certificate, all three market identities, income accounting and the welfare difference. Reject invalid inputs. Include a test that deliberately reuses the old price proxy after the technology change and explain its failure. An optional Lean extension may certify the algebraic profit bound and the finite accounting identities from explicitly supplied positive price and equilibrium equations. Do not describe the empirical price proxy interpretation or a general existence theorem as Lean verified.
+
 # Competitive Markets and Partial Equilibrium
 
 ## 10.1 | Core | Linear partial equilibrium
@@ -495,6 +635,176 @@ Part IV. A royalty share. Now $\tau$ changes only the fraction of music revenue 
 
 (h) Explain what evidence distinguishes a fall in music volume from a fall in the royalty fraction. Discuss the roles of CES substitution, decreasing returns, and control of concert prices. Contrast the artist's decision with price-taking supply in the main chapter.
 
+## 10.A1 | Advanced | Dispatch, capacity rents, and a technology improvement
+
+Suggested time: 40 minutes. Total: 40 points.
+
+A competitive electricity market lasts one period. A representative buyer chooses electricity $Q\geq 0$ and money $c\geq 0$ to maximize $c+14Q-Q^2/2$ subject to $c+pQ\leq 100$, where $p\geq 0$ is the electricity price. The buyer takes prices as given. There are two price taking suppliers. Supplier 1 chooses $q_1\in[0,4]$ and pays $C_1(q_1)=4q_1+q_1^2/2$. Supplier 2 chooses $q_2\geq 0$ and initially pays $C_2(q_2)=8q_2+q_2^2$. Both suppliers can choose zero output at zero cost. Equilibrium requires $Q=q_1+q_2$. Ignore externalities. All money payments are transfers between the buyer and the suppliers, and total surplus counts electricity benefits less real production costs.
+
+(a) Derive the buyer's demand and both suppliers' supply functions for every $p\geq 0$. For supplier 1, write a KKT system including the capacity constraint and identify the price at which capacity begins to bind. Explain why each proposed choice is globally optimal. [10]
+
+(b) Find the initial competitive equilibrium. Report $p$, $Q$, $q_1$, $q_2$, and the capacity multiplier of supplier 1. Check market clearing and the inequalities implied by your proposed regimes. [8]
+
+(c) A software improvement changes only supplier 2's cost to $C_2^A(q_2)=2q_2+q_2^2$. There is no adoption cost. Find the new equilibrium and determine whether supplier 1's capacity still binds. Do not retain the old regime without checking it. [10]
+
+(d) Calculate consumer surplus, each supplier's profit, and total surplus before and after the improvement. Does the improvement benefit every market participant? Explain why a supplier can lose profit even when total surplus rises. Interpret supplier 1's capacity multiplier in both equilibria as the local marginal social value of additional capacity, holding the technology regime fixed. [12]
+
+Optional tool extension. Replace the capacity $4$ by $K>0$ and supplier 2's linear cost by $b\geq 0$. Use a script to enumerate candidate active sets, solve their market clearing equations, and reject candidates that violate output or capacity inequalities. Test the original and improved cases exactly using rational arithmetic. Plot equilibrium price, outputs, and the capacity value over a parameter grid. A graph is a diagnostic, not a proof of the regime boundaries.
+
+## 10.A2 | Advanced | A corrective tax that changes who participates
+
+Suggested time: 45 minutes. Total: 40 points.
+
+Two consumers $i\in\{A,B\}$ choose $x_i\geq 0$ and money $c_i\geq 0$. Their utilities are $u_A=c_A+12x_A-x_A^2/2$ and $u_B=c_B+8x_B-x_B^2/2$, and each initially has $100$ units of money. The consumer price is $p\geq 0$. A competitive producer chooses $Q\geq 0$ with cost $C(Q)=2Q+Q^2/2$. A unit tax $t\in[0,6]$ creates the wedge between the consumer price $p$ and the producer's receipt $p-t$. The government returns the revenue as lump sum money transfers, which are not conditional on a consumer's own purchase. Wealth is sufficient that money remains positive in every case considered. Total purchases $Q=x_A+x_B$ generate real external damage $D(Q)=Q^2/2$, measured in money and imposed outside these two consumers' choice problems. Social welfare is their gross consumption benefit less production cost and damage. There are no other market failures.
+
+(a) Derive individual demands and producer supply. Find the equilibrium at $t=0$ and verify whether both consumers buy positive quantities. [8]
+
+(b) Find equilibrium price and quantities as functions of $t$ on $[0,6]$. Identify all tax thresholds at which a consumer's choice changes regime. Then calculate the equilibrium at $t=4$. Check the omitted consumer's entry inequality whenever you claim a zero purchase. [12]
+
+(c) Formulate the planner's maximization over $x_A,x_B\geq 0$ and find the unique efficient allocation. Find a unit tax that implements it. Explain why simply assuming that both consumers remain active can give an incorrect tax. [12]
+
+(d) Calculate social welfare at $t=0$, $t=4$, and at your efficient tax. For $t=4$, reconcile welfare with consumer surplus, producer profit, government revenue, and external damage. Is it possible here for a welfare improving tax to reduce one consumer's market consumer surplus? Distinguish that surplus from the consumer's final welfare after any revenue transfer. [8]
+
+Optional tool extension. Replace damage by $\delta Q^2/2$, where $\delta\geq 0$, and for this extension allow any unit tax $t\geq 0$ rather than retaining the upper bound $6$. Enumerate the efficient active sets and derive the value of $\delta$ at which consumer B exits. Write exact tests for primal feasibility, all zero purchase inequalities, and the equality $t=\delta Q$ at the proposed implementing allocation. Numerical optimization can check examples but does not replace the regime proof.
+
+## 10.A3 | Advanced | Free entry, smaller plants, and the limit of marginal conditions
+
+Suggested time: 40 minutes. Total: 40 points.
+
+A market has demand $D(p)=\max\{a-p,0\}$, with $a>6$. It is generated by a buyer who chooses $c,Q\geq 0$ to maximize $c+aQ-Q^2/2$ subject to $c+pQ\leq M$, where $p\geq 0$ and money wealth $M>a^2/4$. Each potential price taking plant may stay closed and pay zero, or open, choose $q>0$, and pay $C_F(q)=F+q^2$, where $F>0$ is an avoidable real setup cost. Thus $C_F(0)=0$. Begin with $F=9$ and $a=12$. In the first model the active mass $n$ of identical atomistic plants may be any nonnegative real number. A free entry competitive equilibrium requires individual global profit maximization, market clearing, and zero maximal profit when $n>0$, since further identical plants may enter. Ignore financing constraints and externalities.
+
+(a) For every $p\geq 0$, find a plant's globally optimal supply correspondence. Explain why solving a first order condition conditional on opening does not determine whether the plant should open. Include the price at which the plant is indifferent between opening and staying closed. [10]
+
+(b) For $F=9$ and $a=12$, find the equilibrium price, output per active plant, active mass, and total output. Verify all the equilibrium conditions. [8]
+
+(c) A production improvement reduces $F$ from $9$ to $1$ without changing variable cost. Find the new equilibrium. Calculate the change in consumer surplus and total surplus, counting every active plant's setup cost. Explain how output per plant, total output, and the active mass can move differently. [10]
+
+(d) Now change the model. There are countably many potential plants, the number $n$ of active plants must be an integer, and every active plant remains a price taker. Retain the equilibrium requirement that no inactive plant can earn strictly positive profit at the prevailing price. Set $F=9$ and $a=13$. Does such a competitive free entry equilibrium exist? Prove your answer. Explain which divisibility assumption in the first model matters and why an integer entry game would be a different model. [12]
+
+Optional tool extension. For a grid of $a$ and $F$, compute the divisible mass equilibrium and then test whether it can be implemented by an integer number of identical plants under the exact prevailing price definition in part d. Keep this model separate from a strategic entry game in which an entrant anticipates a new price. Use exact arithmetic when $a$ and $\sqrt F$ are rational.
+
+## 10.A4 | Advanced | Two local markets, a capacity bottleneck, and investment
+
+Suggested time: 45 minutes. Total: 40 points.
+
+Two locations A and B consume a homogeneous service. Their inverse demands are $P_A(q_A)=10-q_A$ and $P_B(q_B)=14-2q_B$ over nonnegative quantities, with zero purchases at prices at or above their respective choke prices. They arise from utilities $c_A+10q_A-q_A^2/2$ and $c_B+14q_B-q_B^2$, with money sufficiently abundant that its nonnegativity never binds. All production occurs at A. A price taking producer chooses total output $Q\geq 0$ and pays $C(Q)=2Q+Q^2/2$. An existing transporter buys $t$ units at price $p_A$ and resells them at $p_B$, at no variable resource cost, subject to $0\leq t\leq k$, where $k>0$. It takes both prices as given. Clearing requires $Q=q_A+t$ and $t=q_B$. The producer and transporter maximize profits. There are no taxes or externalities.
+
+(a) Write the surplus maximization problem over $q_A,q_B\geq 0$ with $q_B\leq k$. Derive a KKT certificate, prove global optimality, and find the allocation as a function of $k>0$. Identify the exact capacity threshold beyond which additional capacity is unused. [12]
+
+(b) Find prices and profits that decentralize your allocation as a competitive equilibrium. Interpret $p_B-p_A$ and verify the transporter's choice in both the binding and slack capacity regimes. Give all quantities, prices, and the transporter's profit at $k=1$. [10]
+
+(c) Compare $k=1$ with $k=3$. Calculate the change in total surplus and in each location's consumer surplus. Does greater connectivity necessarily make both locations' consumers better off? Explain how this can coexist with a total surplus gain. [8]
+
+(d) A planner can expand the original $k=1$ link by $e\geq 0$ at real cost $e^2$, so $k=1+e$. Find the globally optimal expansion and verify the regime used. Relate the expansion condition to the capacity price gap. Explain why the transporter's lost or gained rent is not an additional resource cost of the project. [10]
+
+Optional tool extension. Extend the planner model to three locations and two directed links. List flow conservation and link capacity constraints explicitly. Enumerate active links, derive nodal prices from marginal benefits and production costs, and check every zero flow or capacity inequality. First reproduce the two location solution exactly. A solver's allocation is not sufficient without those checks.
+
+## 10.A5 | Advanced | The original continuum market: population, productive capacity and welfare
+
+Restored from the Western University Fall 2019 final examination. The original model and five part structure are retained. The two interpretations of producer selection are stated separately, and the welfare comparison holds initial wealth fixed.
+
+Suggested time: 60 minutes. Total: 60 points. For a timed rehearsal, attempt parts (a) to (d) in 45 minutes and complete part (e) afterward.
+
+Consider a competitive market for a consumption good $x$ and a numeraire $m$. There is a mass $\eta\geq1$ of consumers. A consumer has taste $\alpha\sim U[0,1]$, initial numeraire wealth $\omega\geq0$, and utility $u_\alpha(x,m)=2\sqrt{\alpha x}+m$. The joint distribution $F$ of $(\alpha,\omega)$ is held fixed across comparisons, and its mean wealth is $\Omega<\infty$. The consumer chooses $x\geq0$ and unrestricted $m\in\mathbb R$ subject to $px+m\leq\omega$. Thus borrowing is allowed, the initial endowment of the consumption good is zero, and initial wealth is a fixed partial equilibrium primitive. Do not add producer profit to this consumer budget.
+
+Initially there is a unit mass of competitive firms. Their productivity $e$ is uniformly distributed on $(0,1)$, and a type $e$ firm chooses output $q\geq0$ with numeraire cost $C(q;e)=q^2/(2e)$. The output price is $p>0$ and the numeraire price is 1. There is no fixed cost or entry margin.
+
+(a) Find each consumer's goods demand and each firm's supply. Aggregate over both populations and solve for the equilibrium price and total quantity. Distinguish a mean quantity from a population total, and justify individual optimality and equilibrium uniqueness. [14]
+
+(b) Derive the individual profit function $\pi(p,e)$ and verify Hotelling's lemma by differentiating with respect to the output price. [8]
+
+(c) Consider the original question's earthquake interpretation: all firms with $e<1/2$ disappear without replacement. State the mass of surviving firms, derive aggregate supply, and find the new equilibrium price and quantity. Now consider a different experiment: replace the initial firms by a unit mass whose productivity is uniformly distributed on $[1/2,1]$. Solve this experiment as well. Compare both prices with the initial equilibrium and explain why a higher conditional mean productivity does not by itself determine the effect of an earthquake. [16]
+
+(d) At the initial equilibrium, derive the cross sectional variance of an individual consumer's goods consumption. How does it change with $\eta$ when the producer population and the joint type and wealth distribution are held fixed? This part uses the absolute variance, not a normalized relative inequality measure. [10]
+
+(e) Derive average indirect utility and average remaining numeraire consumption at the initial equilibrium. How do they change with $\eta$? Reconcile the welfare comparison with part (d), and explain why holding initial wealth fixed is different from holding remaining numeraire consumption fixed. [12]
+
+## 10.A6 | Advanced | Heterogeneous elasticities, a hidden aggregation identity and ownership income
+
+Restored from the first exercise of the SFU Fall 2024 Problem Set 7, also used at Western in 2020. The continuum model and ownership accounting are retained. The endpoint utility is normalized, and the price limit and resource accounting are corrected. Part (d) and the optional tool extension are new practice extensions.
+
+Suggested time: 60 minutes. Total: 60 points. Work by hand.
+
+There is a unit mass of consumers indexed by $(\alpha,\omega)$. Their joint probability distribution is $F$, its taste marginal is $\alpha\sim U[1,2]$, and the initial numeraire endowment $\omega\geq0$ has finite mean $\Omega$. A consumer chooses a consumption good $x>0$ and numeraire $m\in\mathbb R$. The numeraire can be negative, so no borrowing or nonnegative money constraint is imposed. For a fixed demand parameter $A\in(0,1]$, utility is $u_\alpha(x,m)=\phi_\alpha(x;A)+m$, where $\phi_\alpha(x;A)=A^{1/\alpha}\frac{\alpha}{\alpha-1}(x^{1-1/\alpha}-1)$ for $\alpha>1$ and $\phi_1(x;A)=A\log x$.
+
+There is also a unit mass of competitive firms with type $\beta\sim U[1,2]$. A type $\beta$ firm chooses $q\geq0$ and uses the numeraire input $C_\beta(q)=q^{1+1/\beta}/(1+1/\beta)$. The consumption good price is $p>0$ and the numeraire price is 1. There are no fixed costs or entry choices. Every firm is owned by consumers. The ownership kernel is a measurable function $\theta(\alpha,\omega,\beta)\geq0$ satisfying $\int\theta(\alpha,\omega,\beta)dF(\alpha,\omega)=1$ for every $\beta$. The consumer's income is $y(\alpha,\omega;p)=\omega+\int_1^2\theta(\alpha,\omega,\beta)\pi_\beta(p)d\beta$, and the budget is $px+m\leq y$. Assume the displayed integrals are finite. The initial endowment of the consumption good is zero.
+
+(a) Verify the utility limit at $\alpha=1$. Derive the consumer's unique demand and the firm's unique output and profit at every $p>0$. Give global optimality arguments, not only first order equations. Explain why ownership income does not affect the goods demand under the stated budget domain. [10]
+
+(b) Define $H(p)=\int_1^2p^t dt$. Derive its expression for $p\ne1$, its value at $p=1$, and $H'(1)$. Express aggregate goods demand $D(p)$ and supply $S(p)$ using $H$. Find an identity relating $D(p)$, $S(p)$ and $p$ that remains valid at $p=1$. Explain which feature of the two type distributions makes this identity possible. [14]
+
+(c) Find the unique equilibrium price and total quantity for every $A\in(0,1]$. Verify the case $A=1$ directly instead of canceling terms containing $\log p$. Derive each type's equilibrium quantity and show how consumer and producer types can be paired to check market clearing. [10]
+
+(d) Compute the price elasticity with respect to $A$. Express the elasticity of total equilibrium output with respect to $A$ as a weighted average of producer types, and derive meaningful bounds. Evaluate its limiting value as $A$ approaches 1. Explain why individual constant elasticities do not imply a constant aggregate quantity elasticity along this equilibrium path. Do not infer a welfare ranking merely from changing a taste parameter. [12]
+
+(e) Derive mean numeraire consumption, including distributed profits. Prove that average consumption of the numeraire plus the numeraire used in production equals its initial aggregate endowment. At $A=1$, evaluate total profit, total production cost and mean numeraire consumption. Explain precisely which assumption supports the claim that the distribution of initial wealth and ownership does not change the equilibrium goods price, and why that claim can fail if consumers must have $m\geq0$. [14]
+
+Optional tool extension. First replace the uniform laws by a consumer elasticity distribution $G$ on $[1,2]$ and a producer distribution equal to the law of $3-\alpha$ when $\alpha\sim G$. Derive the new aggregate identity and price for consumer mass $M_c>0$ and firm mass $M_f>0$. State how the ownership normalization must change when the consumer measure has mass $M_c$. Then choose a producer distribution that is not this reflection and test whether the same closed form still holds. Verify individual budgets, ownership totals, both aggregate resource equations and the $p=1$ limits. Numerical integration is a check, not a substitute for the aggregation proof.
+
+## 10.A7 | Advanced | How market clearing creates endogeneity
+
+Restored from Exercise 2 of the SFU Fall 2024 Problem Set 7, also used at Western in 2019. The original static market model and four identification tasks are retained. Slope terminology, stochastic assumptions and the excluded supply shifter are corrected. Part (e) and Part II are new time series extensions.
+
+Suggested time: 50 minutes for Part I. Total: 60 points. Work by hand before using a program.
+
+Part I. By hand.
+
+At each date $t$, a competitive market clears after a demand shock $u_t$ and a supply shock $v_t$ are realized. Good 2 is the numeraire; $p_t$ is the price of good 1 in units of good 2, and $Q_t$ is its traded quantity. Aggregate demand and supply on their interior ranges are
+$Q_t^d=\alpha_0+\alpha_1p_t+u_t$ and $Q_t^s=\beta_0+\beta_1p_t+v_t$,
+where $\alpha_1<0<\beta_1$ and all four coefficients are fixed. There is no storage or choice linking dates. Equilibrium requires $Q_t=Q_t^d=Q_t^s$. Assume a bounded shock support on which the clearing price and quantity are strictly positive; state the required inequalities in part (a). Do not truncate negative computed observations or replace them by zero.
+
+Initially, $(u_t,v_t)$ are independent and identically distributed across dates, have mean zero, satisfy $\operatorname{Cov}(u_t,v_t)=0$, and have finite variances $\sigma_u^2,\sigma_v^2$ with $\sigma_u^2+\sigma_v^2>0$. The shocks need not be independent within a date. Write $D=\beta_1-\alpha_1>0$. An analyst observes only equilibrium $(p_t,Q_t)$ and regresses $Q_t$ on a constant and $p_t$. Let $\widehat\gamma_{1,T}$ denote the ordinary least squares slope from $T$ observations, using sample covariances with sample means removed.
+
+(a) Derive the unique clearing price and quantity for every shock realization. State the two inequalities defining the strictly positive equilibrium region and verify both original market equations. Explain why observations from different dates do not generally trace one fixed demand curve. [12]
+
+(b) Derive $\operatorname{Cov}(p_t,u_t)$, $\operatorname{Cov}(p_t,v_t)$, $\operatorname{Var}(p_t)$ and the probability limit of $\widehat\gamma_{1,T}$. Express that limit as a weighted average of the demand and supply slopes. Calculate its difference from $\alpha_1$. Explain the economic source of the correlation rather than calling it only an omitted variable problem. Distinguish a slope from the price elasticity of demand at an interior observation. [16]
+
+(c) Characterize exactly when this regression identifies the demand slope under the maintained assumptions, and when it instead identifies the supply slope. What if neither shock varies? For $\alpha_1=-2$, $\beta_1=1$, $\sigma_u^2=4$ and $\sigma_v^2=1$, determine the sign and value of the limiting regression slope. Can the fitted relationship slope upward even though every demand curve slopes downward? [8]
+
+(d) Replace the supply shock by $v_t=-\delta z_t+\eta_t$, where $\delta>0$ and $z_t$ is an observed cost shifter. For this part, $u_t,\eta_t,z_t$ are mutually independent, centered and independent across dates, with finite variances and $\operatorname{Var}(z_t)>0$. Retain the positive equilibrium support restriction. Derive the covariance of $z_t$ with equilibrium price and quantity. Show which slope is identified by their ratio and justify consistency of the corresponding sample covariance estimator. Give a plausible economic cost shifter and state its exclusion restriction. Explain why a shifter that directly enters demand is not generally an excluded instrument for demand. Which slope would a pure demand shifter identify under the symmetric exclusion assumptions? [12]
+
+(e) New time series extension. Keep the static market and the cost shifter formulation, but let $u_t=\rho_u u_{t-1}+\varepsilon_t$, $\eta_t=\rho_\eta\eta_{t-1}+\xi_t$ and $z_t=\rho_z z_{t-1}+\omega_t$, where $|\rho_u|,|\rho_\eta|,|\rho_z|<1$. Each process is initialized in its stationary law. The three innovation sequences are mutually independent across processes and dates, centered, bounded and have finite variance. The three stationary processes are independent of one another; their supports and intercepts ensure positive clearing prices and quantities. You may use the stationary moment law of large numbers for these processes. Does contemporaneous $z_t$ remain a valid demand instrument? Derive $\operatorname{Cov}(p_{t-1},u_t)$ and assess whether lagged price is automatically a valid and relevant instrument. Explain why correcting standard errors for serial correlation cannot repair an invalid instrument. Does the simultaneity problem here require stochastic trends or dynamic optimization? [12]
+
+Part II. Codex and verification.
+
+Seed: the clearing equations and population moments from Part I. Fixed: the static economic model, coefficients, marginal shock variances, independence across the three shock processes, sample length and estimator definitions. Scaled: a common persistence parameter $\rho_u=\rho_\eta=\rho_z=\rho$ over $0,1/4,1/2,3/4,4/5$. Risk: confusing serial dependence with identification, using a weak covariance denominator, or silently changing the economic model by clipping observations.
+
+Use $\alpha_0=100$, $\beta_0=0$, $\alpha_1=-2$, $\beta_1=1$, $\delta=1$, and stationary marginal variances $\operatorname{Var}(u_t)=\operatorname{Var}(\eta_t)=\operatorname{Var}(z_t)=1$. One bounded implementation uses independent innovations taking the two values $\pm\sqrt{1-\rho^2}$ with equal probability for each process. Document stationary initialization or a controlled burn period. Keep $T=20000$ retained observations per run and use several recorded random seeds.
+
+Compute clearing prices and quantities directly, verify both market equations and prove that the prescribed support keeps them positive. Compare ordinary least squares, the current cost instrument and the lagged price instrument with the population limits derived by hand. At $\rho=0$, report a population first stage that vanishes as irrelevance, not as a numerical estimate of a structural slope. Report covariance denominators and sampling variation; if reporting standard errors, use a procedure valid for dependent moment observations.
+
+Include a deliberately invalid instrument $z_t^{bad}=z_t+u_t$ and explain which moment restriction fails. Distinguish the finite stationary experiment from a spurious regression between unrelated stochastic trends. Your program must reproduce the independent date benchmark and the analytical moment identities before presenting graphs. A simulation does not establish an exclusion restriction or a continuum of parameter claims.
+
+## 10.A8 | Advanced | Prices, quality and a small differentiated product market
+
+This original teaching case connects stochastic choice to firms that set prices. It is inspired by Berry, Levinsohn and Pakes, Automobile Prices in Market Equilibrium, Econometrica 1995, DOI 10.2307/2171802. The hand calculation is a homogeneous logit benchmark, not the full BLP model or its automobile application.
+
+Part I. By hand.
+
+Allow 50 minutes. There are 50 practice points. In each market $t$, a unit mass of consumers chooses at most one of two inside products $j=1,2$, or the outside option $j=0$. Product $j$ has an observed scalar characteristic $x_{jt}$, coefficient $\beta$, and quality $\xi_{jt}$ that consumers and firms know but an analyst may not observe. Write $\delta_{jt}=\beta x_{jt}+\xi_{jt}$. Consumer $i$ obtains $u_{ijt}=\delta_{jt}-\alpha p_{jt}+\varepsilon_{ijt}$ from an inside product and $u_{i0t}=\varepsilon_{i0t}$ from the outside option. Here $p_{jt}\geq0$ is a price, $\alpha>0$ is the marginal utility cost of a unit of expenditure, and all $\varepsilon_{ijt}$ are independent across consumers, products and markets with distribution function $F(e)=\exp\{-\exp(-e)\}$. The outside option has price and deterministic utility zero. Consumers take prices as given; income constraints do not bind in this quasilinear demand specification.
+
+You may use the logit formula: if $v_{jt}:=\delta_{jt}-\alpha p_{jt}$, then $s_{jt}=e^{v_{jt}}/(1+e^{v_{1t}}+e^{v_{2t}})$ and $s_{0t}=1/(1+e^{v_{1t}}+e^{v_{2t}})$. These shares are probabilities over the whole market, including consumers who buy neither inside product.
+
+(a) Derive $\log(s_{jt}/s_{0t})$ and all own and cross price derivatives of the shares, holding qualities fixed. For $k\ne j$, including $k=0$, define the diversion ratio from $j$ to $k$ as $D_{j\to k}:=(\partial s_{kt}/\partial p_{jt})/(-\partial s_{jt}/\partial p_{jt})$. Derive it and explain what the formula does, and does not, say about products that are near one another in characteristic space. [12 points]
+
+(b) Each product is sold by a different firm. Firm $j$ has constant marginal cost $c_j>0$, no fixed cost or capacity constraint, and chooses $p_j\geq0$ to maximize $\pi_j=(p_j-c_j)s_j$. It observes qualities and takes the rival price as given. Derive its interior pricing condition and express the markup $p_j-c_j$ using $\alpha$ and its share. Then prove that the condition identifies the unique global best response, not merely a stationary price. You may first exclude prices below cost and then study how the sign of the profit derivative changes. Do not assume that the profit function is globally concave. [14 points]
+
+(c) Set $\alpha=1$, $\beta x_{jt}=0$ and $c_1=c_2=1/2$ in both markets. In market 1, both qualities are $\xi_{j1}=2$ and a proposed price profile is $p_{11}=p_{21}=2$. In market 2, both qualities are $\xi_{j2}=9/4+\log3$ and a proposed profile is $p_{12}=p_{22}=9/4$. Compute all three shares, each firm's markup and profit in each market. Verify that both profiles are Nash equilibria using the global best response argument. Within each market, hold its supplied qualities fixed when considering a price deviation. [12 points]
+
+(d) An analyst pools the four product observations and runs an ordinary least squares regression with an intercept of $y_{jt}:=\log(s_{jt}/s_{0t})$ on $p_{jt}$, omitting quality. Calculate the fitted price slope exactly. Compare it with the structural price coefficient in utility. Explain how a higher price and a higher share can occur together across these markets without violating downward sloping demand. State an economically plausible excluded cost shifter, the exclusion and relevance conditions it would need, and why two constructed markets do not establish those conditions. [12 points]
+
+Part II. Codex and verification.
+
+Scale one feature: replace the common price coefficient by two known consumer types, with $\alpha_1=1/2$ and $\alpha_2=3/2$, each of mass $1/2$. Hold the two products, two markets, recorded prices, qualities, outside option and shock distribution fixed. This is a conditional demand inversion exercise. Do not assume that the old prices remain pricing equilibria after the preference distribution changes.
+
+Let $\bar\alpha=1$ and define the mean utility net of the mean price effect by $v_{jt}=\delta_{jt}-\bar\alpha p_{jt}$. Type $h$ has deterministic inside utility $v_{jt}-(\alpha_h-\bar\alpha)p_{jt}$. Compute its logit probabilities, including the outside option, and average over types to obtain aggregate shares $s_{jt}(v_t,p_t)$. First generate exact model target shares $S_{jt}$ from the supplied qualities and prices. Keep the known type distribution fixed throughout inversion.
+
+Write a small program at `work/blp_case.py` that recovers $v_t$ from the target inside shares and the recorded prices. You may use the iteration $v_{jt}^{r+1}=v_{jt}^{r}+\log S_{jt}-\log s_{jt}(v_t^r,p_t)$, where $r$ is an iteration count. State initialization, stopping rule, tolerance and maximum iteration count. Compute probabilities stably and keep the outside deterministic utility fixed at zero. Report a failure rather than a recovered answer if the stopping conditions are not met.
+
+Run `python3 work/blp_case.py --check`. The check must compare recovered mean utilities with the values used to generate the targets, reconstruct all inside and outside shares, verify probability adding up, and test several distinct initial vectors. Require maximum share error below $10^{-10}$ and maximum mean utility error below $10^{-8}$. Include the homogeneous limit in which both price coefficients equal one, one deliberately invalid target with zero outside share that the input checks reject, and a demonstration that the homogeneous log odds formula need not invert the mixed model. Numerical success is not a proof of a global contraction on all utility vectors.
+
+Before coding, record the hand seed, fixed assumptions, the single heterogeneity extension and its new failure risk. Submit source, material prompts, the validation command and output, and one generated step checked independently. Finally explain why share inversion conditional on known taste parameters does not itself identify unknown taste parameters or solve price endogeneity. Discuss what additional markets, excluded cost variation and rank conditions an actual estimation design would require. Estimating the full BLP model, simulating an automobile industry and proving a general identification theorem are not part of this exercise.
+
 # General Equilibrium Theory
 
 ## 11.1 | Core | Cobb-Douglas exchange equilibrium
@@ -537,6 +847,134 @@ There are two goods. Good 1 can be consumed or used as input $z$ to produce good
 
 (c) Verify that the consumer and firm choices clear both markets.
 
+## 11.A1 | Advanced | The lens, the strong core and the price line
+
+Suggested time: 40 minutes for the hand part. Total: 50 points. Work by hand.
+
+There are two consumers A and B, two goods, consumption sets $\mathbb R_+^2$, and utilities $u^i(x)=\sqrt{x_1x_2}$. Endowments are $\omega^A=(5,1)$ and $\omega^B=(1,5)$. Prices are strictly positive. For this question, a coalition strongly blocks an allocation if it can redistribute its own endowment so that every member is weakly better off and at least one is strictly better off; the strong core admits no such coalition.
+
+(a) Draw the box, mark both origins and the endowment point, and express B's consumption when A receives $(a,b)$. State the resource equations and the inequalities defining the individually rational lens. [8]
+
+(b) Derive the complete Pareto set. Give an explicit mutually beneficial feasible trade from every allocation with $a\ne b$, rather than relying only on tangency. [10]
+
+(c) Determine the strong core exactly. Explain why its characterization uses both singleton coalitions and the coalition containing both consumers. [8]
+
+(d) Normalize $p_2=1$. Derive demands, solve for the equilibrium relative price and allocation, and check both budgets and both markets. Mark the common budget line in your diagram. [10]
+
+(e) Can every allocation in the strong core be a competitive allocation with the original endowments? Justify your answer. Find transfers with $T_A+T_B=0$ that support $x^A=(7/2,7/2)$ and the complementary bundle for B. [8]
+
+(f) Explain which of the box, Pareto set, individually rational lens and competitive allocation can change when physical endowments are redistributed while their aggregate is held fixed. [6]
+
+Optional tool extension. Keep utilities and aggregate resources fixed and vary only the scalar $s\in[0,6]$ in endowments $(s,6-s)$ and $(6-s,s)$. Use Codex and Python to draw the lens and strong core and recover the equilibrium for a rational grid including $s=0,3,6$. Verify both budgets and resources exactly, and verify individual rationality through squared utilities. Distinguish these finite checks from the hand proof.
+
+## 11.A2 | Advanced | A kink, an indifferent consumer and one clearing allocation
+
+Suggested time: 40 minutes for the hand part. Total: 50 points. Work by hand.
+
+Consumption sets are $\mathbb R_+^2$. Consumer A has $u^A(x)=\min\{x_1,x_2\}$ and endowment $(4,0)$. Consumer B has $u^B(x)=2x_1+x_2$ and endowment $(0,4)$. Normalize $p=(q,1)$ with $q>0$. A competitive equilibrium requires individual utility maximization and exact clearing in both goods.
+
+(a) Derive A's demand and B's full demand correspondence for every $q>0$. Explain why applying a differentiable tangency condition to A or selecting a single arbitrary demand for B can give a wrong answer. [12]
+
+(b) Show that no equilibrium can have $q<2$ or $q>2$. At the remaining relative price, select demands that clear both markets. Verify budgets and identify whether prices, equilibrium allocations and individual demand are unique. [12]
+
+(c) Draw the box, both origins, the endowment, the equilibrium and the common budget line. At $q=1$ and $q=3$, compute aggregate excess demand and explain the direction in which relative prices would have to move to reach equilibrium. [8]
+
+(d) Derive the entire Pareto set using a direct argument. Which resources can A give away without lowering utility when $x^A_1\ne x^A_2$? [10]
+
+(e) Under the book's strong blocking convention, determine the strong core. Compare it with the competitive allocation and explain what this example teaches about kinks, corner choices and market clearing. [8]
+
+Optional tool extension. Vary only $q$ on a positive rational grid containing $1,2,3$ and values immediately on both sides of $2$. Compute the full demands and check $qz_1+z_2=0$ exactly. At $q=2$, represent B's full demand segment and recover the clearing selection rather than inserting an arbitrary bundle. A plot of excess demand is not a proof of price adjustment convergence.
+
+## 11.A3 | Advanced | An endowment threshold makes a consumer enter
+
+Suggested time: 45 minutes for the hand part. Total: 50 points. Work by hand.
+
+There are two goods, denoted $(x,y)$, and two consumers with nonnegative consumption. Preferences are $u^A(x,y)=\log(1+x)+y$ and $u^B(x,y)=2\log(1+x)+y$. Endowments are $\omega^A=(Q,0)$ and $\omega^B=(0,10)$, where $Q>0$. Normalize prices to $(q,1)$ with $q>0$. Consumers take prices as given.
+
+(a) Derive both demands for every $q>0$, including A's possible zero consumption of $y$ and zero consumption of $x$. Do not assume the numeraire is positive before checking it. [12]
+
+(b) Find all competitive equilibria for every $Q>0$. Give the exact threshold at which A starts consuming good $x$, and report all four quantities and the relative price on both sides of the threshold, including equality. [14]
+
+(c) Verify both budgets and both markets. Give a global optimality argument for each consumer and evaluate the entry condition for A's good $x$ at the threshold and on either side. [10]
+
+(d) Compute the equilibrium for $Q=1/2$ and $Q=4$. Draw the corresponding boxes, with good $x$ horizontal. Mark the equilibrium corner in the first box and the interior allocation in the second. [8]
+
+(e) Is the equilibrium relative price continuous and differentiable at the entry threshold? Explain why a zero choice at an equality threshold is compatible with a unique optimum, and why quasilinearity alone does not justify ignoring the nonnegative numeraire constraint. [6]
+
+Optional tool extension. Vary only $Q>0$ on a rational grid containing $1/2,1,4$ and values immediately around $1$. Implement the full capped demands and the equilibrium formulas independently. Check nonnegativity, both budgets, both market equations, entry inequalities and complementary products exactly. Plot the entry threshold and explain the different one sided derivatives.
+
+## 11.A4 | Advanced | Redistribution moves prices but does not resize the box
+
+Suggested time: 40 minutes for the hand part. Total: 50 points. Work by hand.
+
+Two consumers have $u^A(x)=x_1^{2/3}x_2^{1/3}$ and $u^B(x)=x_1^{1/3}x_2^{2/3}$ on $\mathbb R_+^2$. Endowments are $\omega^A=(t,3)$ and $\omega^B=(6-t,3)$, where $0\leq t\leq6$. Normalize prices to $(q,1)$ with $q>0$. Increasing $t$ transfers physical units of good 1 from B to A before trade.
+
+(a) Derive both demands as functions of $q$ and $t$. Solve for the unique equilibrium relative price and all four consumption quantities. Check both resource equations. [16]
+
+(b) Compute the equilibria at $t=3$ and $t=6$. Explain why a transfer of a good can raise that good's relative price even though aggregate resources have not changed. [8]
+
+(c) Using A's coordinates $(a,b)$, derive the interior contract curve and include its endpoints with a valid boundary argument. Draw the two equilibria on the same box. [10]
+
+(d) A policymaker proposes the equal allocation $x^A=x^B=(3,3)$. Can any lump sum transfers and common strictly positive prices decentralize it as an equilibrium for these preferences? Give an explicit Pareto comparison rather than relying only on unequal marginal rates of substitution. [10]
+
+(e) Distinguish a redistribution of initial physical endowments from a change in the aggregate endowment. Explain which objects remain fixed here and why calculating a price effect while holding both consumers' wealths fixed would answer a different question. [6]
+
+Optional tool extension. Vary only $t\in[0,6]$ on a rational grid containing $0,3,6$. Verify the two budget identities, both resource equations and membership of the reported allocation in the contract curve exactly. Plot $q(t)$ and the equilibrium path on a single unchanged box. Do not introduce a second taste or resource parameter.
+
+## 11.A5 | Advanced | Who owns the firm and who receives its gains
+
+Suggested time: 45 minutes for the hand part. Total: 50 points. Work by hand.
+
+There are two goods and two consumers, each endowed with $(2,0)$ and each having utility $u^i(x)=\sqrt{x_1x_2}$ on $\mathbb R_+^2$. A firm can use $z\geq0$ units of good 1 to produce $2\sqrt z$ units of good 2. A owns share $\theta\in[0,1]$ of its profit and B owns share $1-\theta$. Normalize prices to $(q,1)$ with $q>0$. The firm and consumers take prices as given.
+
+(a) Solve the firm's profit maximization problem for every $q>0$, prove global optimality and report input, output and profit. Explain why diminishing returns can generate positive profit without monopoly power. [8]
+
+(b) Write both consumers' wealths and derive their demands. Find the equilibrium price, production and consumption for every $\theta\in[0,1]$. [14]
+
+(c) Verify both consumer budgets and the two resource equations, including the input used by the firm. Explain why good 1 consumption does not sum to its initial endowment. [8]
+
+(d) Compare $\theta=0$ and $\theta=1$. In this model, which real decisions depend on ownership and which do not? Identify the preference feature responsible for the aggregate invariance, without claiming that ownership never matters for equilibrium production. [6]
+
+(e) A planner uses a fixed weight $\gamma\in(0,1)$ and maximizes $\gamma(\log x^A_1+\log x^A_2)+(1-\gamma)(\log x^B_1+\log x^B_2)$ subject to the production and resource constraints. Solve first for the allocation conditional on $z$, then for $z$. Find the weight supporting the competitive allocation for a given $\theta$. [10]
+
+(f) After production is fixed, draw the feasible exchange box for the output and remaining input. Explain why using the original $4$ by $0$ endowment rectangle as the final consumption box would be misleading. [4]
+
+Optional tool extension. Vary only $\theta\in[0,1]$ on a rational grid containing $0,1/2,1$. Check both ownership shares, both private budgets and both resource equations, retaining $\sqrt3$ symbolically or stating numerical tolerances. Verify the corresponding planner weight and distinguish distributional changes from the invariant production and price choices.
+
+## 11.A6 | Advanced | A tax wedge remains even when every dollar is rebated
+
+Suggested time: 45 minutes for the hand part. Total: 50 points. Work by hand.
+
+Two consumers have utility $u^i(x,y)=\sqrt{xy}$ on $\mathbb R_+^2$. Endowments are $\omega^A=(4,0)$ and $\omega^B=(0,4)$. The producer prices are $(q,1)$ with $q>0$. Consumer A pays an ad valorem tax $\tau\geq0$ on every unit of good $y$ consumed. Consumer B is not taxed and receives all tax revenue as a lump sum transfer $T$. The government consumes no goods. Each consumer takes $(q,T)$ as given. Their budgets are $qx_A+(1+\tau)y_A\leq4q$ and $qx_B+y_B\leq4+T$. Government budget balance requires $T=\tau y_A$.
+
+(a) Derive both demands conditional on $(q,T)$. State the exact equations for clearing the goods markets and balancing the government budget. [8]
+
+(b) Solve for $q$, $T$ and all four consumption quantities as functions of $\tau$. Verify both goods markets and both private budgets. Do not count tax revenue as destroyed physical output. [14]
+
+(c) Draw the equilibria at $\tau=0$ and $\tau=2$ on the same Edgeworth box. Explain why A and B generally do not face the same budget slope even though there is one producer price vector. [8]
+
+(d) Compare both consumers' welfare as $\tau$ rises from zero. Explain why a policy can benefit its rebate recipient but still generate an inefficient allocation. [6]
+
+(e) For every $\tau>0$, construct a feasible allocation that makes both consumers strictly better off than the taxed equilibrium. Verify the gains algebraically, including nonnegative consumption. You may look for a trade that moves each consumer toward equal quantities of the two goods. [10]
+
+(f) Which hypothesis of the competitive welfare argument fails? Distinguish a transfer of purchasing power from the marginal tax wedge, and explain why rebating every dollar does not eliminate the latter. [4]
+
+Optional tool extension. Vary only $\tau\geq0$ on a rational grid containing $0,2$ and small positive taxes. Check both private budgets, government balance, both resource equations and the exact squared utility gain identity for the proposed Pareto improvement. Keep the rebate rule fixed and label $\tau=0$ separately, where the strict gain becomes zero.
+
+## 11.A7 | Advanced | Observed production and the empirical content of general equilibrium
+
+Restored from the Western University Fall 2018 final examination. The two original tasks are retained. The supporting inequality indices, income accounting and fixed consumer identity are made explicit.
+
+Suggested time: 60 minutes. Total: 60 points. You may use Afriat's theorem, but must explain how it is applied and how the market and ownership restrictions enter.
+
+There are $L$ goods, a finite set of market observations $t=1,\ldots,T$, and the same finite set of consumers $i=1,\ldots,I$ in each observation. Consumer $i$ has one preference across all observations. Rationalization means that there exist continuous, concave and strictly increasing utilities $u_i:\mathbb R_+^L\to\mathbb R$ for which the observed market conditions are competitive equilibria.
+
+For every observation $t$, the data include positive prices $p^t\in\mathbb R_{++}^L$, positive individual incomes $b_i^t>0$, aggregate endowment $\omega^t\in\mathbb R_+^L$, and the net production plan $y^t\in\mathbb R^L$ of the unique local firm. The common technology $Y\subseteq\mathbb R^L$ is known, nonempty, closed, convex and satisfies free disposal. Observed plans must belong to $Y$ and maximize profit at their observed prices. Individual consumption bundles are unobserved. Individual nonnegative endowments summing to $\omega^t$ and nonnegative ownership shares summing to 1 may vary across observations; incomes include endowment value and the individual's share of firm profit. There are no unobserved outside transfers.
+
+(a) Write a necessary and sufficient rationalization certificate using latent bundles $x_i^t$, utility levels $U_i^t$ and positive multipliers $\lambda_i^t$. Include consumer budgets, all cross observation consumer inequalities, goods market clearing, firm profit maximization and aggregate income accounting. Prove sufficiency by constructing utilities from the certificate. Also show that the aggregate income identity allows a feasible allocation of individual endowments and ownership shares consistent with the stated incomes. Distinguish what is a finite latent consumer system from what must be checked against the known technology. [35]
+
+(b) Now specialize to the same single consumer observed in every market and to the original free disposal technology $Y=\mathbb R_-^L$. The observed data are $(p^t,b^t,\omega^t)_{t=1}^T$. Prove that these data are rationalizable if and only if $b^t=p^t\cdot\omega^t$ in every observation and the price and bundle data $(p^t,\omega^t)_{t=1}^T$ satisfy GARP. State GARP precisely. Explain why the result would not be valid if each observation belonged to a different consumer with an unrelated preference. [25]
+
 # Positive Theory of Equilibrium
 
 ## 12.1 | Core | Differential identities for excess demand
@@ -578,6 +1016,24 @@ Use the strong-blocking convention in a finite pure-exchange economy with locall
 (b) Give an economic reason why the converse can fail with finitely many consumers.
 
 (c) State the content, but not a proof, of the core-convergence theorem for replica economies.
+
+## 12.A1 | Advanced | One allocation and a whole interval of equilibrium prices
+
+Suggested time: 35 minutes for the hand part. Total: 50 points. Work by hand.
+
+Two consumers have $u^A(x)=2x_1+x_2$ and $u^B(x)=x_1+2x_2$ on $\mathbb R_+^2$. Endowments are $\omega^A=(4,0)$ and $\omega^B=(0,4)$. Normalize prices to $(q,1)$ with $q>0$.
+
+(a) Derive both full demand correspondences, including the prices at which a consumer is indifferent across a budget line. Find every normalized equilibrium price and every equilibrium allocation. [14]
+
+(b) Give a KKT or direct budget certificate supporting the equilibrium allocation at every price you found. Why would imposing equality of the two marginal rates of substitution incorrectly reject the allocation? [10]
+
+(c) Draw the entire Pareto set and determine the strong core under the book's strong blocking convention. Explain whether the original endowment permits any mutually acceptable strict gain from trade. [12]
+
+(d) At an equilibrium price strictly inside the equilibrium price interval, calculate the derivative of normalized aggregate excess demand. Is this equilibrium regular? Distinguish uniqueness of an allocation, local uniqueness of normalized prices and the single valuedness of individual demand. [8]
+
+(e) Does this example contradict the chapter's strict gross substitutes uniqueness proposition? Identify the missing strictness rather than treating linear utility as evidence of irrational behavior. [6]
+
+Optional tool extension. Vary only $q>0$ on a rational grid including $1/2,2$, points between them and points just outside them. Implement full demand correspondences at the two equality prices. Verify the clearing selection and corner entry inequalities exactly, and check the reduced derivative inside the interval. Explain why sampling many clearing prices does not by itself prove the full interval claim.
 
 # Testable Restrictions on the Equilibrium Manifold
 
@@ -706,6 +1162,92 @@ A small open economy takes the world price $P^{W}$ and exchange rate $\mathrm{ER
 (b) Derive the symbolic first-order decomposition $d\mathcal W=d\,\mathrm{CS}+d\,\mathrm{PS}+d\,\mathrm{TR}$ and simplify it at free trade. Do not assume numerical functional forms.
 
 (c) Explain which general-equilibrium channels are omitted by that approximation and must be restored in a CGE counterfactual.
+
+## 16.A1 | Advanced | CES trade, market clearing and the limits of a fixed point argument
+
+Restored from the theory problem in the SFU Fall 2024 final examination. The original four stage argument and CES weighting are retained. The symmetry and fixed point claims are corrected. The following timing and points are for practice, not the original exam allocation.
+
+Suggested time: 70 minutes. Total: 60 points for Part I.
+
+Part I. By hand.
+
+There are $N\geq2$ countries, indexed by $i$ for origins and $j$ for destinations. Country $i$ owns a fixed quantity $Q_i>0$ of its unique variety, has no other goods endowment, and has factory price $p_i>0$. Its income is $y_i=p_iQ_i$. All varieties are traded competitively. Delivering one unit from $i$ to $j$ uses $t_{ij}\geq1$ origin units, with $t_{ii}=1$. Delivered prices are $p_{ij}=p_it_{ij}$. There are no outside transfers or trade deficits. Destination $j$ chooses nonnegative delivered quantities $c_{ij}$ with budget $\sum_i p_it_{ij}c_{ij}\leq y_j$ and utility $U_j(c)=[\sum_i\beta_i^{(1-\sigma)/\sigma}c_{ij}^{(\sigma-1)/\sigma}]^{\sigma/(\sigma-1)}$, where $\beta_i>0$ and $\sigma>0$, $\sigma\ne1$. For $0<\sigma<1$, define utility to be zero when any component is zero, its continuous boundary value. You may use the standard concavity of this CES aggregator. Bilateral expenditure is $x_{ij}=p_it_{ij}c_{ij}$, including domestic expenditure when $i=j$. Let $Y=\sum_i y_i$ and $\theta_i=y_i/Y$.
+
+(a) Derive the optimal bilateral quantities, bilateral expenditures and destination unit expenditure index $P_j$, step by step. Explain why the optimum exhausts the budget, is interior and is globally optimal. Your argument must preserve the displayed $\beta_i$ weighting. [16]
+
+(b) State physical market clearing, including iceberg use, and its nominal form. Use your expenditure formula to isolate $\beta_ip_i$ as a function of $y_i$, the trade costs and the destination indices. Explain why the income identity $y_i=p_iQ_i$ must still hold when interpreting the result as the original fixed supply economy. [10]
+
+(c) Define outward multilateral resistance by $\Pi_i^{1-\sigma}=\sum_j\theta_j(t_{ij}/P_j)^{1-\sigma}$. Eliminate $\beta_ip_i$ to derive the structural gravity equation and the inward resistance system. Show the reciprocal scale freedom of the two resistance systems and state a normalization. Take logs to identify the exporter effect, importer effect and coefficient on $\log t_{ij}$. Distinguish the conditional index normalization from changing nominal currency units in the underlying economy. [16]
+
+(d) Suppose $t_{ij}=t_{ji}$. You may use the following result without proof: for a strictly positive finite trade cost matrix and positive shares summing to one, the joint inward and outward resistance system has a positive index pair, and any two such pairs differ only by reciprocal scalar rescaling. Use this result to explain when a normalization with $\Pi_i=P_i$ is available, and why symmetry alone does not make every unnormalized pair equal.
+
+For the rest of this part use exactly the original diagnostic values $N=2$, $\sigma=1/2$, $t_{ij}=1$ and $\theta_i=1/2$. After choosing the symmetric normalization, write the inward equations as $P=g(P)$. Determine whether $g$ maps $\{P:P_i\geq1\}$ into itself. Then use $K=[1/2,2]^2$: prove that $g$ maps $K$ into itself and apply Brouwer to establish a fixed point. Determine all positive fixed points directly. Compute $Dg$ at $(1,1)$ and decide whether an induced matrix norm can be strictly below one there. Finally calculate two iterations from $P^{(0)}=(2,2)$ and explain what they show about repeated substitution, existence and uniqueness. [18]
+
+Part II. Codex and verification.
+
+Construct a synthetic economy with at least ten countries, positive $\beta_i,Q_i$, finite iceberg costs and $\sigma>1$. Keep fixed physical supplies rather than silently treating both factory prices and nominal incomes as independent data. Solve for positive factory prices in log variables with one numeraire normalization. Compute incomes, delivered consumption, expenditure, both resistance systems and the physical shipment totals. Check every consumer budget, both row and column expenditure sums, all physical goods markets, positivity and the omitted redundant equation. Repeat under a change of currency units and verify how prices, incomes, nominal trade and physical quantities transform. Compare a normalized resistance iteration with a root solver conditional on the resulting income shares, align their index gauges before comparing them, and report full residuals as well as stopping criteria. For the synthetic fixed effect regression, require nonadditive bilateral variation in $\log t_{ij}$ and report the design rank after choosing a dummy normalization. Recover the theoretical cost coefficient. Reproduce the two country diagnostic separately and do not infer convergence from an equation having a unique solution.
+
+## 16.A2 | Advanced | Arabasta and Baltigo: building the original gravity model of trade
+
+Restored from Problem 2 of the SFU December 2024 final examination. The original six modeling tasks, Arabasta and Baltigo, unequal country incomes, transport technology and distance comparisons are retained. Part II is a new computational extension.
+
+Part I. By hand.
+
+Suggested time: 75 minutes. Total: 60 points.
+
+There are two countries, Arabasta $a$ and Baltigo $b$, and one good from each origin. Quantity $c_{ij}$ is consumption in destination $j$ of origin $i$'s good. Nominal income and expenditure are $y_a,y_b>0$. Origin prices are $p_a,p_b>0$. Domestic delivery has no resource loss, while bilateral trade has the symmetric iceberg factor $\tau\geq1$: $p_{aa}=p_a$, $p_{bb}=p_b$, $p_{ab}=p_a\tau$ and $p_{ba}=p_b\tau$. Delivering one unit abroad requires $\tau$ units at origin. Bilateral expenditure is $x_{ij}=p_{ij}c_{ij}$ and origin revenue clearing requires $y_i=x_{ia}+x_{ib}$.
+
+Use equal origin weights and common CES preferences. Write the substitution elasticity as $\sigma>1$ and use $\sigma=2$ for the closed form equilibrium calculations. The original key's power utility with exponent $1/2$ is ordinally equivalent to this case; its exponent is not the substitution elasticity.
+
+Normalize $p_b=1$. In Part I, $y_a$ and $y_b$ are fixed nominal incomes measured in these units. Origin supply quantities are not independently fixed: after solving the revenue equations they are implied by $Q_i=y_i/p_i$. State this conditional nominal income closure when interpreting a counterfactual. It is not a comparison that holds both nominal incomes and physical endowments fixed.
+
+(a) Original task 1.1. Specify a one parameter CES utility family and Arabasta's budget. Explain which goods, prices and income enter this problem. [10]
+
+(b) Original task 1.2. Write the Lagrangian and derive both consumption quantities in Arabasta. Relabel carefully to obtain Baltigo's demands. Give a global optimality argument and state where your solution is interior. [10]
+
+(c) Original task 2.1. Write both countries' revenue clearing conditions. Specialize to $\sigma=2$, impose $p_b=1$, and solve explicitly for the unique positive origin price $p_a$ as a function of $y_a,y_b,\tau$. Reject any algebraic root that is not an admissible price, and check the case $\tau=1$ directly. [10]
+
+(d) Original task 2.2. Let $d\geq0$ be distance. Propose a one parameter engineering transport technology $d=f(k)$ with nonincreasing returns in ship capital services $k$. Normalize the rental cost of these services to one in the origin good resource units used to define iceberg shipping. Derive the per delivered unit resource requirement $C(d)$ and set $\tau(d)=1+C(d)$. Verify $\tau(0)=1$ and that larger distance increases the barrier. Explain why you must not add a second monetary transport bill to the country budget. The historical key's constant returns choice is admissible; a concave power technology is also admissible. [10]
+
+(e) Original task 3.1. Eliminate the origin price from Arabasta's equilibrium import quantity $c_{ba}$ and nominal imports $x_{ba}$. Derive the corresponding exports $c_{ab},x_{ab}$ and verify both budgets and both physical resource equations, including iceberg use. As a common numerical check, use $y_a=5$, $y_b=2$, $d=1$ and the admissible technology $f(k)=\sqrt{k}$. This check is part of the existing task, not an additional scored question. [10]
+
+(f) Original task 3.2. Prove that doubling both nominal incomes doubles bilateral nominal trade in this closure. Then prove that increasing distance strictly reduces bilateral nominal imports, holding those incomes fixed. Separate the response of import quantities from nominal import values, and explain why this is not yet a welfare theorem for a fixed physical endowment economy. [10]
+
+Part II. Codex and verification.
+
+This is a new extension, separate from the restored final question. Begin only after completing the hand arguments.
+
+1. Use the numerical seed from part (e), fix the engineering parameter, and vary only distance over $d\geq0$. Ask Codex to implement your analytical price, expenditure and quantity formulas, and independently solve the two revenue equations. Compare both methods. Test positivity, budget exhaustion, balanced bilateral expenditure, the domestic expenditure residuals, and every origin resource equation. Include zero distance without evaluating a formula that divides by zero. Plot bilateral expenditure and both implied origin supply quantities. Explain explicitly which physical quantity changes when nominal GDP is held fixed.
+
+2. Optional different closure. Freeze physical endowments at the values you derived from the seed, and retain $p_b=1$. Now income must be endogenous, $y_a=p_aQ_a$ and $y_b=Q_b$. Derive the positive price equation under this closure, establish uniqueness of its positive root, and solve it as distance varies. Verify the original consumer problems, physical market clearing and income accounting independently. Compare the two closures at the seed and away from it. Any utility comparison must use the same CES preference and the full fixed endowment closure, not interpret the fixed nominal GDP family as the same physical economy.
+
+## 16.A3 | Advanced | From household KKT to a land constrained growth economy
+
+Suggested time: 90 minutes for the hand benchmarks. Total: 80 points. The optional program is not included in this time. This teaching case extends Problem 1.6 to competitive factor prices and a sequence of generations. It is inspired by Galor's quantity versus quality mechanism, not a reproduction of his full Unified Growth Theory.
+
+There is one consumption good, whose price is one, fixed land $X>0$, and a mass $N>0$ of identical current adults with skill $h>0$. A competitive constant returns firm rents land $Z\geq0$ and raw adult labor hours $L\geq0$ to produce $Y=A Z^{1-\alpha}(hL)^\alpha$, where $A>0$ and $0<\alpha<1$. The land market must clear at $Z=X$. The wage $w>0$ is paid per raw hour, and $R$ is rent per unit of land. Every adult owns an equal land share and receives $\rho=RX/N$. Firm profit is distributed but is zero at a competitive supporting price.
+
+Each adult has one unit of time. It chooses consumption $c>0$, continuous fertility $n>0$ and education time per child $e\geq0$ to maximize $(1-\gamma)\log c+\gamma\log[n h_a(e)]$, where $0<\gamma<1$, $\tau>0$, $a>0$, $\overline c>0$ and $h_a(e)=1+ae/(\tau+e)$. Total child time is $t=n(\tau+e)$. Constraints are $c+wt\leq w+\rho$, $t\leq1$ and $c\geq\overline c$. Land rent is nonlabor income: child time sacrifices wages, not rent. Each household takes $w$ and $\rho$ as given. The logarithm excludes zero fertility in this model.
+
+Part I. By hand.
+
+(a) Set $E=ne$ and $Q(n,E)=n+a nE/(\tau n+E)$. State the transformed feasible set and write the complete KKT system, including the time bound, subsistence and the zero education entry inequality. Establish concavity and explain why a feasible KKT certificate gives a global optimum. [12]
+
+(b) At fixed prices, write $I=w+\rho>\overline c$. Solve globally for education, child time and consumption, including all three possible bounds on child time and the equality case $a=1$. Explain why replacing $w$ by $I$ in the cost of child time would be an economic error. [12]
+
+(c) Define $B=A h^\alpha(X/N)^{1-\alpha}$. A symmetric general equilibrium has $L=N(1-t)$ and $Nc=Y$. Derive factor prices, zero profit and the resource identity. Find all positive equilibria for every $B>\overline c$, identify the subsistence threshold and verify the household KKT certificate at the equilibrium. Explain what happens to feasibility when $B\leq\overline c$. [16]
+
+Dynamic benchmarks. Continue by hand. The optional program at the end checks these calculations; it does not replace the arguments. At the end of a generation all children become next generation adults, so $N'=nN$. Skill is inherited and augmented by education: $h'=h h_a(e)$. Land and $A$ stay fixed, and land ownership is shared equally among the next cohort. Parents value child quantity and quality through the displayed utility but do not solve a forward looking dynamic program. Thus $n=1$ means replacement of the current adult mass, not a literal demographic birth rate.
+
+(d) Derive the one dimensional law for $B'$. Set $\alpha=3/4$, $\gamma=1/2$, $\tau=1/4$ and $\overline c=4$. With $a=1/2$, find a subsistence steady state with replacement fertility and constant skill. Calculate the derivative of the local $B$ map there and explain the stability conclusion, including its scope. [12]
+
+(e) Start at that steady state and permanently raise $a$ to $3$. Calculate the impact education, child time, fertility and skill multiplier. Does the next generation cross the threshold into slack subsistence? Prove your comparison exactly. Compute the subsequent fertility and asymptotic growth factors of skill, adult mass, $B$ and consumption. [18]
+
+(f) Explain which feedbacks close the economy, why rents alter fertility incentives without being sacrificed per hour, and why the model does not deliver exact zero fertility or a full demographic transition. Distinguish an exogenous education return shock from endogenous technological progress, and distinguish the impact fertility response from its later level. [10]
+
+Part II. Codex and verification.
+
+Optional tool extension. Keep $A=8$, $X=h_0=1$ and all calibrated parameters fixed, with the permanent $a=1/2$ to $a=3$ change at date zero. Vary only initial adult mass $N_0\in(0,16)$, including the steady state and regime boundary populations obtained by hand and points immediately around them. State Seed, Fixed, Scaled and Risk before coding. Simulate twenty generations using independently implemented household and equilibrium routines. Check all budgets, time and subsistence bounds, raw labor and land clearing, zero profit, aggregate goods clearing, KKT signs and complementary products at every date. Compare the household formula with an independent bounded optimization at selected dates and state tolerances. Plot the paths and mark the subsistence switch. Report what is proved analytically, what is checked on this finite grid and what is only a maintained demographic assumption.
 
 # Order Theory
 

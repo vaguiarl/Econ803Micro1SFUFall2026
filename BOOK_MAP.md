@@ -9,19 +9,19 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | The Classical Rational Consumer | Revealed Preference and Recoverability | 10 | 14 | 2 | 8 |
 | The Classical Rational Consumer | Choice Without Budget Geometry | 7 | 4 | 2 | 4 |
 | Risk, Stochastic Choice, and Attention | Expected Utility and Risk | 8 | 10 | 0 | 5 |
-| Risk, Stochastic Choice, and Attention | Stochastic Choice and Random Utility | 3 | 2 | 0 | 4 |
+| Risk, Stochastic Choice, and Attention | Stochastic Choice and Random Utility | 3 | 4 | 2 | 5 |
 | Risk, Stochastic Choice, and Attention | Limited Attention and Costly Information | 1 | 3 | 1 | 6 |
-| Aggregation and Markets | Aggregate Demand and Representative Consumers | 5 | 4 | 3 | 3 |
-| Production and Equilibrium | Theory of the Firm | 3 | 4 | 0 | 4 |
-| Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 4 |
-| Production and Equilibrium | General Equilibrium Theory | 7 | 6 | 0 | 6 |
-| Production and Equilibrium | Positive Theory of Equilibrium | 6 | 6 | 0 | 5 |
-| Advanced Equilibrium Applications | Testable Restrictions on the Equilibrium Manifold | 2 | 0 | 0 | 3 |
-| Advanced Equilibrium Applications | Sequential Trade | 3 | 1 | 0 | 3 |
+| Aggregation and Markets | Aggregate Demand and Representative Consumers | 4 | 2 | 1 | 3 |
+| Production and Equilibrium | Theory of the Firm | 3 | 5 | 1 | 12 |
+| Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 13 |
+| Production and Equilibrium | General Equilibrium | 16 | 13 | 2 | 29 |
+| Advanced Equilibrium Applications | Niche Consumption and Product Space | 1 | 2 | 2 | 0 |
+| Advanced Equilibrium Applications | Sequential Trade | 3 | 1 | 0 | 4 |
 | Advanced Equilibrium Applications | Matching | 1 | 2 | 0 | 3 |
-| Advanced Equilibrium Applications | Computable General Equilibrium | 1 | 0 | 0 | 3 |
+| Advanced Equilibrium Applications | Computable General Equilibrium | 1 | 0 | 0 | 6 |
 | Supplemental material | Additional Practice Reserve | 0 | 0 | 0 | 10 |
 | Mathematical appendices | Order Theory | 7 | 6 | 6 | 9 |
+| Mathematical appendices | Fixed Points and Equilibrium Existence | 0 | 4 | 0 | 0 |
 | Mathematical appendices | Technical Theorem Records | 0 | 2 | 0 | 0 |
 | Mathematical appendices | Glossary of Symbols | 0 | 0 | 0 | 0 |
 
@@ -70,6 +70,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Integrability
 - Examples and Applications of Demand Integrability
 - GARP and Afriat's Theorem
+  - Out-of-sample predictions
 - WGARP and Coalitional Multi-Utility
 - SARP and Strict Rationalization
 - Forecasting with Varian's Support Set
@@ -111,7 +112,9 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 
 - Stochastic Choice on a Finite Universe
 - Random Utility Representation
-- A Parametric Discrete-Choice Specification
+- Discrete Bundles, a Numeraire, and Cost Efficiency
+  - The Quasilinear Specialization
+  - Add Shocks Only after the Economic Reduction
 - Multinomial Logit and IIA
 - Random Expected Utility
 - Attributes, Choice Probabilities, and Consumer Surplus
@@ -133,12 +136,6 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Gorman Aggregation
 - Aggregate Demand and WARP
 - Representative Consumers and Welfare
-- The Many-Product Consumer
-  - One item: ideal points and local diversion
-  - Many items: bundles over product space
-  - Finite-data Afriat logic is dimension-free
-  - When product choice becomes matching
-  - Evidence and the modern research map
 - Problems
 
 ### Theory of the Firm
@@ -148,45 +145,85 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Profit maximization
 - Cost minimization
 - Aggregation and efficiency
+- Modern production: what optimization lets us learn
+  - First distinguish quantities, prices and productivity
+  - A flexible input turns a first order condition into a share equation
+  - Profits reveal supporting inequalities, not just a scalar outcome
+  - A complete example of partial identification
+  - Productivity rankings and price proxies
 - Problems
 
 ### Competitive Markets and Partial Equilibrium
 
 - Competitive equilibrium
 - Partial equilibrium with a numeraire
+- A continuum of consumers and heterogeneous firms
+  - Individual optimization before integration
+  - Population moments determine this particular market
+  - Destruction, selection and replacement
+  - Welfare and the constraint that breaks the shortcut
 - Welfare in the partial model
 - Problems
 
-### General Equilibrium Theory
+### General Equilibrium
 
 - Pure exchange economies: the Edgeworth box
+  - One point, two consumers
+  - Gains from trade before prices
+  - Efficiency is not a tangency formula
+  - Prices select an allocation through wealth
+  - Welfare and redistribution
+  - A solution plan for an unfamiliar box
+- From individual choices to aggregate excess demand
+  - Three accounting restrictions, not three equilibrium conditions
+  - A worked excess demand system
+  - Price normalization and the missing equation
+- Existence through a continuous price map
+  - From a crossing to a fixed point
+  - A sufficient exchange economy theorem
+  - Build the map, then read its fixed point
+  - A fixed point we can draw
 - One consumer and one producer
+  - Reading production and household choice in one diagram
 - Production, ownership, and feasibility
 - Welfare theorems
+- Local uniqueness, regularity and comparative statics
+- Multiplicity and the limits of aggregate restrictions
+  - An exact three crossing illustration
+  - The signed count
+  - What Sonnenschein, Mantel and Debreu establish
+- Adjustment is different from comparative statics
+  - Continuous adjustment requires its own rule
+  - Even a unique equilibrium can defeat a price iteration
+- Gross substitutes: an extra restriction that restores uniqueness
+  - A production qualification
+- Coalitions, the core and the discipline of replication
+  - What resources does a blocking coalition own?
+  - A concrete noncompetitive allocation and its challengers
+  - The shrinking intervals can be computed, not just sketched
+  - The general core convergence statement
 - General equilibrium with inattention
-- Problems
-
-### Positive Theory of Equilibrium
-
-- Aggregate excess demand in pure exchange
-- Existence
-- Local uniqueness and regularity
-- What equilibrium theory does not identify
-- Uniqueness and gross substitutes
-- The core
-- Problems
-
-### Testable Restrictions on the Equilibrium Manifold
-
-- Observables and the equilibrium manifold
+- What equilibrium observations can reveal
 - Afriat inequalities and elimination of unobservables
 - Brown--Matzkin theorem
+- A unified solution plan
 - Problems
+
+### Niche Consumption and Product Space
+
+- The Many-Product Consumer
+- One item: ideal points and local diversion
+- Many items: bundles over product space
+- Finite-data Afriat logic is dimension-free
+- When product choice becomes matching
+- Evidence and the modern research map
+- Reading and synthesis
 
 ### Sequential Trade
 
 - Arrow--Debreu benchmark
 - Spot markets and sequential trade
+  - A payoff span is not a budget set
 - Problems
 
 ### Matching
@@ -202,6 +239,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - A two-sector small open economy
 - Social accounting and calibration
 - Equilibrium closure
+  - Following the physical and monetary circuits
 - Counterfactual policies
 - Problems
 
@@ -224,6 +262,12 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Order Extensions
 - Checklist for Economic Applications
 - Problems
+
+### Fixed Points and Equilibrium Existence
+
+- Compact budgets and demand at boundary prices
+- Why the artificial cap disappears
+- Kakutani and nonunique demand
 
 ### Technical Theorem Records
 
@@ -254,4 +298,4 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 
 | Section title | Occurrences |
 |---|---:|
-| Problems | 17 |
+| Problems | 15 |
