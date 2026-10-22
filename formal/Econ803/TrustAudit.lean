@@ -62,3 +62,10 @@ rejected.
 #print axioms Econ803.BookNarrative.generalEquilibrium_function_branch_closes
 #print axioms Econ803.BookNarrative.generalEquilibrium_convex_branch_closes
 #print axioms Econ803.BookNarrative.generalEquilibrium_priceSupport_consequences
+#print axioms Econ803.BookNarrative.modernProductionMap_dependencies_precede
+#print axioms Econ803.BookNarrative.modernProductionMap_ids_increase
+#print axioms Econ803.BookNarrative.modernProductionMap_roots_explicit
+#print axioms Econ803.BookNarrative.modernProductionMap_empirical_grounding
+#print axioms Econ803.BookNarrative.modernProductionMap_theory_independent_of_evidence
+#print axioms Econ803.BookNarrative.modernProduction_value_branch_closes
+#print axioms Econ803.BookNarrative.modernProduction_physical_branch_closes

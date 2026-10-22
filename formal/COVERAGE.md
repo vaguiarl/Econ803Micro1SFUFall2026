@@ -93,3 +93,7 @@ the explicit whitelist `propext`, `Classical.choice`, and `Quot.sound`.
 `Econ803.BookNarrative` checks dependency metadata and abstract logical contracts.
 Its concrete welfare and core wrapper consumes the existing finite price support
 certificates. It does not prove the analytic fixed point or existence theorems.
+The modern production map separately checks the declared argument order and
+conditional composition of the value and physical output routes. Support
+recovery, the multioutput examples, and econometric identification remain
+explicit analytic obligations, not new Lean verified production theorems.

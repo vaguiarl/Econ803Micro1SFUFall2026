@@ -378,4 +378,271 @@ theorem generalEquilibrium_priceSupport_consequences
     Econ803.Equilibrium.priceSupport_rulesOut_strongCoalitionBlock
       r p endowment x hbudget hsupport⟩
 
+/-!
+## Modern production: a value-first dependency audit
+
+The common commodity space comes before a comparison of technologies. A
+scalar physical output measure is a separate specialization, and a scalar
+productivity type that nests technologies is a maintained rankability
+restriction. Neither follows from a scalar profit observation.
+
+This map records analytic and identification obligations; its checks do not
+prove support-function duality, the counterexamples about chosen quantities,
+or econometric identification. In particular, the all-supporting-prices
+converse has stronger premises than the forward value comparison. Observed
+values are an empirical input, not a substitute for measurement or price-proxy
+restrictions. The physical-output/share-equation branch enters only after its
+own timing, interiority, and shock assumptions.
+-/
+
+def modernProductionMap : List NarrativeClaim := [
+  { logicalId := 1,
+    label := "Heterogeneous products need not have a natural scalar physical aggregate",
+    kind := .economicPremise, dependencies := [] },
+  { logicalId := 2,
+    label := "Declare a common commodity space for technology comparisons",
+    kind := .modelAssumption, dependencies := [1] },
+  { logicalId := 3,
+    label := "Production sets contain vector net plans in that common space",
+    kind := .definition, dependencies := [2] },
+  { logicalId := 4,
+    label := "Globally optimizing profit is the support value of the net-plan set",
+    kind := .definition, dependencies := [3] },
+  { logicalId := 5,
+    label := "Nested feasible sets are compared at common prices and constraints",
+    kind := .modelAssumption, dependencies := [2, 3, 4] },
+  { logicalId := 6,
+    label := "A larger feasible set gives weak profit dominance by copying plans",
+    kind := .analyticResult, dependencies := [4, 5] },
+  { logicalId := 7,
+    label := "A strict comparison additionally requires a priced profit improvement",
+    kind := .modelAssumption, dependencies := [4, 5] },
+  { logicalId := 8,
+    label := "The priced improvement gives strict rather than only weak value dominance",
+    kind := .analyticResult, dependencies := [6, 7] },
+  { logicalId := 9,
+    label := "Closed convex freely disposable sets and all supporting prices",
+    kind := .modelAssumption, dependencies := [3, 4] },
+  { logicalId := 10,
+    label := "Uniform support-value ordering implies set inclusion under these extra premises",
+    kind := .analyticResult, dependencies := [4, 9] },
+  { logicalId := 11,
+    label := "Several outputs allow substitution among feasible net plans",
+    kind := .modelAssumption, dependencies := [3, 5] },
+  { logicalId := 12,
+    label := "Nested technologies can reduce a chosen coordinate or switch the output mix",
+    kind := .analyticResult, dependencies := [4, 5, 11] },
+  { logicalId := 13,
+    label := "Profit-level ordering supplies no coordinatewise quantity ranking",
+    kind := .interpretation, dependencies := [6, 8, 12] },
+  { logicalId := 14,
+    label := "A scalar nested productivity index assumes rankability of the technology family",
+    kind := .modelAssumption, dependencies := [3, 5, 13] },
+  { logicalId := 15,
+    label := "Incomparable technologies need not fit that scalar nested representation",
+    kind := .interpretation, dependencies := [10, 14] },
+  { logicalId := 16,
+    label := "Observed optimizing values and available price or proxy measurements",
+    kind := .empiricalInput, dependencies := [] },
+  { logicalId := 17,
+    label := "Valid value measurement and a specified observed-price or proxy model",
+    kind := .modelAssumption, dependencies := [2, 4] },
+  { logicalId := 18,
+    label := "Value identification requires explicit heterogeneity noise support and proxy restrictions",
+    kind := .modelAssumption, dependencies := [4, 17] },
+  { logicalId := 19,
+    label := "The value function is identified only under those identifying restrictions",
+    kind := .analyticResult, dependencies := [4, 17, 18] },
+  { logicalId := 20,
+    label := "Observed values measure the identified object only under the declared measurement model",
+    kind := .interpretation, dependencies := [16, 17, 18, 19] },
+  { logicalId := 21,
+    label := "The observed price support can be a finite or restricted domain",
+    kind := .modelAssumption, dependencies := [3, 4] },
+  { logicalId := 22,
+    label := "Identified optimizing values give supporting outer bounds on that price domain",
+    kind := .analyticResult, dependencies := [4, 19, 21] },
+  { logicalId := 23,
+    label := "Full set recovery needs the all-supporting-prices premises beyond restricted bounds",
+    kind := .interpretation, dependencies := [9, 10, 22] },
+  { logicalId := 24,
+    label := "The physical-output branch separately assumes a single measured output technology",
+    kind := .modelAssumption, dependencies := [1, 3] },
+  { logicalId := 25,
+    label := "Productivity is known before choices and the independent output shock arrives afterward",
+    kind := .modelAssumption, dependencies := [24] },
+  { logicalId := 26,
+    label := "A differentiable flexible input is interior without an omitted constraint or dynamic wedge",
+    kind := .modelAssumption, dependencies := [24, 25] },
+  { logicalId := 27,
+    label := "The input optimality condition yields the conditional-revenue share equation",
+    kind := .analyticResult, dependencies := [24, 25, 26] },
+  { logicalId := 28,
+    label := "The share equation and shock restrictions recover the flexible elasticity on support",
+    kind := .analyticResult, dependencies := [25, 26, 27] },
+  { logicalId := 29,
+    label := "A valid integration domain and further dynamic identifying restrictions are imposed",
+    kind := .modelAssumption, dependencies := [24, 25] },
+  { logicalId := 30,
+    label := "Recovering one derivative leaves a function of other inputs until the extra restrictions apply",
+    kind := .analyticResult, dependencies := [27, 28, 29] },
+  { logicalId := 31,
+    label := "Value-first analysis and the scalar-output specialization answer distinct measurement questions",
+    kind := .interpretation, dependencies := [13, 15, 20, 22, 23, 24, 30] }
+]
+
+theorem modernProductionMap_dependencies_precede :
+    claimDependenciesPrecede modernProductionMap = true := by
+  decide
+
+theorem modernProductionMap_ids_increase :
+    claimIdsIncrease modernProductionMap = true := by
+  decide
+
+theorem modernProductionMap_roots_explicit :
+    claimRootsAreExplicit modernProductionMap = true := by
+  decide
+
+theorem modernProductionMap_empirical_grounding :
+    empiricalFindingsAreGrounded modernProductionMap = true := by
+  decide
+
+theorem modernProductionMap_theory_independent_of_evidence :
+    theoryAvoidsEmpiricalInputs modernProductionMap = true := by
+  decide
+
+/-- Abstract obligations for the value-first argument. None of these fields
+defines a technology, a scalar index, an observation model, or an identified
+object. The substantive analytic and econometric implications are inputs in
+`ModernProductionValueLinks`, not mathematical results established here. -/
+structure ModernProductionClaims where
+  commonCommoditySpace : Prop
+  vectorNetPlans : Prop
+  globallyOptimizingValue : Prop
+  commonPricesAndConstraints : Prop
+  nestedTechnologies : Prop
+  weakValueOrder : Prop
+  pricedStrictImprovement : Prop
+  strictValueOrder : Prop
+  closedConvexFreeDisposal : Prop
+  allSupportingPrices : Prop
+  uniformValueOrder : Prop
+  technologyInclusion : Prop
+  multiOutputChoiceExamples : Prop
+  noCoordinatewiseQuantityRanking : Prop
+  scalarNestedRankability : Prop
+  scalarTypeRepresentation : Prop
+  validValueMeasurement : Prop
+  priceAndProxyIdentifyingRestrictions : Prop
+  identifiedValueFunction : Prop
+  restrictedPriceDomain : Prop
+  outerTechnologyBounds : Prop
+  fullTechnologyRecovery : Prop
+  scalarOutputModel : Prop
+  timingAndShockRestrictions : Prop
+  flexibleInteriorInput : Prop
+  identifiedFlexibleElasticity : Prop
+  additionalIntegrationDynamicRestrictions : Prop
+  recoveredRemainingTechnology : Prop
+
+structure ModernProductionValueInputs (c : ModernProductionClaims) : Prop where
+  commonCommoditySpace : c.commonCommoditySpace
+  globallyOptimizingValue : c.globallyOptimizingValue
+
+/-- All bridges are explicit premises. The support converse and full recovery
+consume closedness, convexity, free disposal, and all supporting prices;
+restricted bounds consume an already identified value function. The scalar
+type representation has its own rankability premise. No link turns observed
+profit alone into a technology or a productivity ranking. -/
+structure ModernProductionValueLinks (c : ModernProductionClaims) : Prop where
+  vectorPlans : c.commonCommoditySpace → c.vectorNetPlans
+  weakOrder : c.vectorNetPlans → c.globallyOptimizingValue →
+    c.commonPricesAndConstraints → c.nestedTechnologies → c.weakValueOrder
+  strictOrder : c.weakValueOrder → c.pricedStrictImprovement → c.strictValueOrder
+  supportConverse : c.vectorNetPlans → c.globallyOptimizingValue →
+    c.closedConvexFreeDisposal → c.allSupportingPrices → c.uniformValueOrder →
+    c.technologyInclusion
+  quantityRankingCounterexamples : c.vectorNetPlans → c.globallyOptimizingValue →
+    c.multiOutputChoiceExamples → c.noCoordinatewiseQuantityRanking
+  scalarRepresentation : c.vectorNetPlans → c.scalarNestedRankability →
+    c.scalarTypeRepresentation
+  valueIdentification : c.vectorNetPlans → c.globallyOptimizingValue →
+    c.validValueMeasurement → c.priceAndProxyIdentifyingRestrictions →
+    c.identifiedValueFunction
+  restrictedBounds : c.vectorNetPlans → c.globallyOptimizingValue →
+    c.identifiedValueFunction → c.restrictedPriceDomain → c.outerTechnologyBounds
+  fullRecovery : c.vectorNetPlans → c.globallyOptimizingValue →
+    c.identifiedValueFunction → c.closedConvexFreeDisposal → c.allSupportingPrices →
+    c.fullTechnologyRecovery
+
+structure ModernProductionValueConclusions (c : ModernProductionClaims) : Prop where
+  vectorNetPlans : c.vectorNetPlans
+  weakOrderUnderNesting : c.commonPricesAndConstraints →
+    c.nestedTechnologies → c.weakValueOrder
+  strictOrderUnderPricedImprovement : c.commonPricesAndConstraints →
+    c.nestedTechnologies → c.pricedStrictImprovement → c.strictValueOrder
+  inclusionUnderFullSupport : c.closedConvexFreeDisposal → c.allSupportingPrices →
+    c.uniformValueOrder → c.technologyInclusion
+  noQuantityRankingGivenExamples : c.multiOutputChoiceExamples →
+    c.noCoordinatewiseQuantityRanking
+  scalarRepresentationUnderRankability : c.scalarNestedRankability →
+    c.scalarTypeRepresentation
+  valueIdentificationUnderRestrictions : c.validValueMeasurement →
+    c.priceAndProxyIdentifyingRestrictions → c.identifiedValueFunction
+  boundsAfterValueIdentification : c.validValueMeasurement →
+    c.priceAndProxyIdentifyingRestrictions → c.restrictedPriceDomain →
+    c.outerTechnologyBounds
+  fullRecoveryUnderExtraPremises : c.validValueMeasurement →
+    c.priceAndProxyIdentifyingRestrictions → c.closedConvexFreeDisposal →
+    c.allSupportingPrices → c.fullTechnologyRecovery
+
+/-- Lean checks the composition and conditional form of the declared value
+bridges. It does not prove the support converse, the quantity examples, a
+scalar representation theorem, value identification, or technology recovery. -/
+theorem modernProduction_value_branch_closes
+    (c : ModernProductionClaims) (i : ModernProductionValueInputs c)
+    (links : ModernProductionValueLinks c) : ModernProductionValueConclusions c := by
+  have vectors := links.vectorPlans i.commonCommoditySpace
+  have weakOrder := links.weakOrder vectors i.globallyOptimizingValue
+  have identifyValue := links.valueIdentification vectors i.globallyOptimizingValue
+  exact {
+    vectorNetPlans := vectors
+    weakOrderUnderNesting := weakOrder
+    strictOrderUnderPricedImprovement := fun prices nested improvement =>
+      links.strictOrder (weakOrder prices nested) improvement
+    inclusionUnderFullSupport := links.supportConverse vectors i.globallyOptimizingValue
+    noQuantityRankingGivenExamples :=
+      links.quantityRankingCounterexamples vectors i.globallyOptimizingValue
+    scalarRepresentationUnderRankability := links.scalarRepresentation vectors
+    valueIdentificationUnderRestrictions := identifyValue
+    boundsAfterValueIdentification := fun measurement restrictions domain =>
+      links.restrictedBounds vectors i.globallyOptimizingValue
+        (identifyValue measurement restrictions) domain
+    fullRecoveryUnderExtraPremises := fun measurement restrictions regularity prices =>
+      links.fullRecovery vectors i.globallyOptimizingValue
+        (identifyValue measurement restrictions) regularity prices
+  }
+
+/-- This separate specialization does not consume the value-branch inputs or
+links. Timing and flexible-input interiority must be supplied explicitly;
+recovering the remaining technology also needs its own extra restrictions. -/
+structure ModernProductionPhysicalLinks (c : ModernProductionClaims) : Prop where
+  flexibleElasticity : c.scalarOutputModel → c.timingAndShockRestrictions →
+    c.flexibleInteriorInput → c.identifiedFlexibleElasticity
+  remainingTechnology : c.scalarOutputModel → c.timingAndShockRestrictions →
+    c.identifiedFlexibleElasticity → c.additionalIntegrationDynamicRestrictions →
+    c.recoveredRemainingTechnology
+
+/-- Only conditional composition is checked. The first-order/share equation,
+shock recovery, integration, and dynamic identifying arguments remain explicit
+analytic obligations in the supplied links. -/
+theorem modernProduction_physical_branch_closes
+    (c : ModernProductionClaims) (scalar : c.scalarOutputModel)
+    (timing : c.timingAndShockRestrictions) (interior : c.flexibleInteriorInput)
+    (links : ModernProductionPhysicalLinks c) :
+    c.identifiedFlexibleElasticity ∧
+      (c.additionalIntegrationDynamicRestrictions → c.recoveredRemainingTechnology) := by
+  have elasticity := links.flexibleElasticity scalar timing interior
+  exact ⟨elasticity, links.remainingTechnology scalar timing elasticity⟩
+
 end Econ803.BookNarrative

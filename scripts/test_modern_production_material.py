@@ -39,13 +39,66 @@ class ModernProductionMaterialTests(unittest.TestCase):
         material = modern.modern_production_blocks()
         self.assertIsInstance(material, str)
         self.assertEqual(material.count("\\begin_layout Section\n"), 1)
-        self.assertEqual(material.count("\\begin_layout Subsection\n"), 5)
+        self.assertEqual(material.count("\\begin_layout Subsection\n"), 7)
         self.assertIn('name "sec:production-identification"', material)
         self.assertIn('key "aguiarkashaevallen2023"', material)
         self.assertIn('key "gandhinavarrorivers2020"', material)
         self.assertNotIn("\\begin_layout Chapter\n", material)
         self.assertNotIn("\\begin_inset ERT", material)
         self.assertNotIn("\\n$Y=", material)
+
+    def test_dual_and_set_productivity_precede_scalar_specialization(self):
+        source = migration.BOOK.read_text(encoding="utf-8")
+        for material in (modern.MODERN_PRODUCTION, source):
+            dual = material.index('name "sec:production-dual-measurement"')
+            productivity = material.index('name "sec:production-set-productivity"')
+            scalar = material.index('Now specialize to one physical output')
+            self.assertLess(dual, productivity)
+            self.assertLess(productivity, scalar)
+            for phrase in (
+                'scalar value, not a scalar physical output',
+                'partial order on technologies',
+                'common prices and common restrictions',
+                'strict expansion need not raise value strictly',
+                'does not make an ill defined commodity well defined',
+                'all supporting prices',
+            ):
+                self.assertIn(phrase.lower(), material.lower())
+
+    def test_multioutput_expansion_equality_and_unique_choice_switch(self):
+        # Each Q is the convex hull of these vertices, so support values
+        # are exactly the maximum of three vertex values.
+        origin = (F(0), F(0))
+        vertices_a = (origin, (F(1), F(0)), (F(0), F(1)))
+        vertices_b = (origin, (F(1), F(0)), (F(0), F(2)))
+        for q1, q2 in vertices_a:
+            self.assertLessEqual(q1 + q2 / 2, 1)
+        self.assertGreater(vertices_b[-1][0] + vertices_b[-1][1], 1)
+
+        def values(vertices, prices):
+            return tuple(prices[0] * q1 + prices[1] * q2 for q1, q2 in vertices)
+
+        for prices in ((F(0), F(1)), (F(1), F(0)), (F(3), F(1)), (F(3, 2), F(1))):
+            self.assertEqual(max(values(vertices_a, prices)), max(prices))
+            self.assertEqual(max(values(vertices_b, prices)), max(prices[0], 2 * prices[1]))
+            self.assertLessEqual(max(values(vertices_a, prices)), max(values(vertices_b, prices)))
+        prices = (F(3), F(1))
+        self.assertEqual(max(values(vertices_a, prices)), 3)
+        self.assertEqual(max(values(vertices_b, prices)), 3)
+        prices = (F(3, 2), F(1))
+        va, vb = values(vertices_a, prices), values(vertices_b, prices)
+        self.assertEqual([q for q, v in zip(vertices_a, va) if v == max(va)], [(F(1), F(0))])
+        self.assertEqual([q for q, v in zip(vertices_b, vb) if v == max(vb)], [(F(0), F(2))])
+        self.assertEqual((max(va), max(vb)), (F(3, 2), F(2)))
+
+    def test_multioutput_specialization_reverses_value_rankings(self):
+        # B has intercepts (1,2), C has intercepts (2,1).
+        # Neither contains the other: use the exclusive axis vertices.
+        self.assertGreater(F(2) + F(0) / 2, 1)  # (2,0) not in B
+        self.assertGreater(F(0) / 2 + F(2), 1)  # (0,2) not in C
+        for p1, p2, vb, vc in ((F(3), F(1), F(3), F(6)), (F(1), F(3), F(6), F(3))):
+            self.assertEqual(max(p1, 2 * p2), vb)
+            self.assertEqual(max(2 * p1, p2), vc)
 
     def test_power_technology_profit_share_and_global_gap(self):
         # f(z)=a sqrt(z), use z=u^2 so the global profit gap is a square.

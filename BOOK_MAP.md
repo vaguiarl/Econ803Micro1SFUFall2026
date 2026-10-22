@@ -12,7 +12,7 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 | Risk, Stochastic Choice, and Attention | Stochastic Choice and Random Utility | 3 | 4 | 2 | 5 |
 | Risk, Stochastic Choice, and Attention | Limited Attention and Costly Information | 1 | 3 | 1 | 6 |
 | Aggregation and Markets | Aggregate Demand and Representative Consumers | 4 | 2 | 1 | 3 |
-| Production and Equilibrium | Theory of the Firm | 3 | 5 | 1 | 12 |
+| Production and Equilibrium | Theory of the Firm | 4 | 6 | 2 | 13 |
 | Production and Equilibrium | Competitive Markets and Partial Equilibrium | 4 | 4 | 0 | 13 |
 | Production and Equilibrium | General Equilibrium | 16 | 13 | 2 | 29 |
 | Advanced Equilibrium Applications | Niche Consumption and Product Space | 1 | 2 | 2 | 0 |
@@ -146,11 +146,13 @@ Generated from the LyX source by `scripts/book_map.pl`. Generated problems are c
 - Cost minimization
 - Aggregation and efficiency
 - Modern production: what optimization lets us learn
-  - First distinguish quantities, prices and productivity
+  - Why the dual matters when output is hard to measure
+  - Productivity as an expansion of production possibilities
+  - A specialization with one physical output
   - A flexible input turns a first order condition into a share equation
   - Profits reveal supporting inequalities, not just a scalar outcome
   - A complete example of partial identification
-  - Productivity rankings and price proxies
+  - From productivity types to price proxies
 - Problems
 
 ### Competitive Markets and Partial Equilibrium

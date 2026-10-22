@@ -15647,20 +15647,178 @@ name "sec:production-identification"
 \end_layout
 
 \begin_layout Standard
-The preceding theory starts from a technology and derives optimal choices. Empirical production theory asks the reverse question: which features of technology can observed choices or values recover? These are not inverse calculations without assumptions. A good fit to observed revenue can conceal different physical technologies, prices, productivity and market power. We develop two bridges from the classical model: a flexible input's optimality condition restricts expenditure shares, while the profit function restricts the feasible production set.
+The preceding theory starts from a technology and derives optimal choices. Empirical production theory asks the reverse question: which features of technology can observed choices or values recover? Start with the dual when physical output is difficult to measure or has several components: optimizing values can discipline a production set without first constructing a scalar physical output index. We first explain that advantage and define productivity as an expansion of production possibilities. We then specialize to a physical output model, where a flexible input's optimality condition restricts expenditure shares. Both routes require explicit measurement and behavioral assumptions; a good fit to revenue is not itself recovery of technology.
 \end_layout
 
 \begin_layout Subsection
-First distinguish quantities, prices and productivity
+Why the dual matters when output is hard to measure
 \end_layout
 
 \begin_layout Standard
-Keep \begin_inset Formula $f$\end_inset
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:production-dual-measurement"
+
+\end_inset
+\end_layout
+
+\begin_layout Standard
+A hospital supplies many services; a developer supplies housing of different sizes, locations and qualities. Adding the numbers of these services does not produce a natural physical output measure. Choosing a scalar index before studying technology can build the desired conclusion into the measurement. The production set avoids this step: it records which vectors of goods can be produced with which vectors of inputs.
+\end_layout
+
+\begin_layout Standard
+Let \begin_inset Formula $Y(e)\subseteq\mathbb R^{K+d}$\end_inset
+ be the feasible net plans of a technology of type \begin_inset Formula $e$\end_inset
+, including disposal. For plans with nonnegative output and input use, write \begin_inset Formula $y=(\boldsymbol q,-\boldsymbol z)$\end_inset
+, where \begin_inset Formula $\boldsymbol q\in\mathbb R_+^K$\end_inset
+ lists outputs and \begin_inset Formula $\boldsymbol z\in\mathbb R_+^d$\end_inset
+ lists inputs. At common prices \begin_inset Formula $p=(\boldsymbol p_q,\boldsymbol w)\geq0$\end_inset
+, the profit function is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\pi(p,e)=\sup_{y\in Y(e)}p\cdot y,\qquad p\cdot(\boldsymbol q,-\boldsymbol z)=\boldsymbol p_q\cdot\boldsymbol q-\boldsymbol w\cdot\boldsymbol z.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Profit is a scalar value, not a scalar physical output. Prices value distinct outputs in a common monetary unit without assuming that their quantities can be added. Each optimized value supplies a supporting bound \begin_inset Formula $p\cdot y\leq\pi(p,e)$\end_inset
+ on the technology. With enough price variation and the maintained shape restrictions, those restrictions recover the production set; with less variation, they bound it. The support recovery proposition below states exactly when the converse works.
+\end_layout
+
+\begin_layout Standard
+The same logic accommodates fixed choices. For a common fixed input bundle \begin_inset Formula $\boldsymbol z$\end_inset
+, define \begin_inset Formula $Q(\boldsymbol z,e):=\{\boldsymbol q\geq0:(\boldsymbol q,-\boldsymbol z)\in Y(e)\}$\end_inset
+. Maximized revenue and the cost of a prescribed output vector are, respectively,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+\begin{aligned}r(\boldsymbol p_q,\boldsymbol z,e)&=\sup_{\boldsymbol q\in Q(\boldsymbol z,e)}\boldsymbol p_q\cdot\boldsymbol q,\\ C(\boldsymbol w,\boldsymbol q,e)&=\inf_{\substack{\boldsymbol z\geq0:\\(\boldsymbol q,-\boldsymbol z)\in Y(e)}}\boldsymbol w\cdot\boldsymbol z.\end{aligned}
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+Restricted profit with those inputs fixed is \begin_inset Formula $r-\boldsymbol w\cdot\boldsymbol z$\end_inset
+. Fixing the output vector instead turns maximizing negative input expenditure into \begin_inset Formula $-C$\end_inset
+. Under free disposal, producing the prescribed output is equivalent to being able to produce at least that vector. An infeasible target has cost \begin_inset Formula $+\infty$\end_inset
+; a value function need not be finite or attained without additional assumptions. These are conditional optimization problems, not permission to treat a fixed choice as freely adjustable.
+\end_layout
+
+\begin_layout Standard
+This is the empirical power of the dual: quantities of flexible goods can be latent while values and sufficiently informative prices or price proxies still restrict technology. But the dual does not make an ill defined commodity well defined. One must declare the goods and qualities, use compatible prices and units, and justify why observed accounting values equal, or are a specified noisy measure of, the relevant globally optimized value. A hospital may face administered prices and maximize a nonfinancial objective. Its decision problem must be justified, rather than presumed to be profit maximization. Price taking, constraints and the observation model must match the application. The identification argument in Aguiar, Kashaev and Allen makes these additional steps explicit; we return to it after the worked examples.
+\end_layout
+
+\begin_layout Subsection
+Productivity as an expansion of production possibilities
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:production-set-productivity"
+
+\end_inset
+\end_layout
+
+\begin_layout Definition
+Set expansion productivity. In a common commodity space, call \begin_inset Formula $Y'$\end_inset
+ weakly more productive than \begin_inset Formula $Y$\end_inset
+ in the set expansion sense if \begin_inset Formula $Y\subseteq Y'$\end_inset
+. It can reproduce every plan of \begin_inset Formula $Y$\end_inset
+ and may offer additional ones. This comparison makes sense with many outputs and does not require a scalar production function. At any common fixed input bundle, it expands the feasible output set; at any common feasible output target, it weakly lowers minimum input cost.
+\end_layout
+
+\begin_layout Standard
+Containment is a partial order on technologies, not generally a complete ranking. An ordered scalar type \begin_inset Formula $e$\end_inset
+ satisfying \begin_inset Formula $e\leq e'\Rightarrow Y(e)\subseteq Y(e')$\end_inset
+ assumes that the technologies are nested. It rules out some patterns of specialization. The labels are ordinal: replacing \begin_inset Formula $e$\end_inset
+ by a strictly increasing transformation changes no ranking, and twice the index does not mean twice the output. Multiplying a scalar production function by a productivity factor is one special nested model, not the definition of productivity with several outputs.
+\end_layout
+
+\begin_layout Proposition
+The dual test for a productivity ordering. Inclusion \begin_inset Formula $Y\subseteq Y'$\end_inset
+ implies \begin_inset Formula $\pi_Y(p)\leq\pi_{Y'}(p)$\end_inset
+ at every common price. If both sets are nonempty, closed, convex and freely disposable, the converse holds when the value inequalities are known at every \begin_inset Formula $p\in\mathbb R_+^{K+d}$\end_inset
+, with infinite values allowed. Comparing values at only the observed prices generally does not establish set inclusion.
+\end_layout
+
+\begin_layout Proof
+For the forward direction, every plan available to the first technology remains available to the second, so taking a supremum preserves the inequality. For the converse, any \begin_inset Formula $y\in Y$\end_inset
+ satisfies \begin_inset Formula $p\cdot y\leq\pi_Y(p)\leq\pi_{Y'}(p)$\end_inset
+ for all nonnegative prices. The support recovery proposition below then gives \begin_inset Formula $y\in Y'$\end_inset
+. The forward direction needs no convexity assumption; the converse uses the stated technology class and all supporting prices.
+\end_layout
+
+\begin_layout Standard
+Strict expansion need not raise value strictly at a particular price: a newly available plan may not improve the optimum there. Nor does a value ordering rank every chosen input or output coordinate. Common prices and common restrictions are essential. Differences in revenue or profit across firms facing different prices or fixed inputs cannot, by themselves, be read as productivity differences.
+\end_layout
+
+\begin_layout Example
+A larger output set need not raise every output. Hold the same input bundle fixed and consider two feasible output sets in \begin_inset Formula $\mathbb R_+^2$\end_inset
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\[
+Q_A=\{\boldsymbol q\geq0:q_1+q_2\leq1\},\qquad Q_B=\{\boldsymbol q\geq0:q_1+q_2/2\leq1\}.
+\]
+\end_inset
+\end_layout
+
+\begin_layout Standard
+At this fixed input bundle, \begin_inset Formula $Q_A\subsetneq Q_B$\end_inset
+: the second technology can produce everything the first can, and \begin_inset Formula $(0,2)$\end_inset
+ is newly feasible. Maximizing a linear revenue over each triangle gives \begin_inset Formula $r_A(\boldsymbol p_q)=\max\{p_1,p_2\}$\end_inset
+ and \begin_inset Formula $r_B(\boldsymbol p_q)=\max\{p_1,2p_2\}$\end_inset
+ at nonnegative output prices. At \begin_inset Formula $(p_1,p_2)=(3,1)$\end_inset
+ both values are \begin_inset Formula $3$\end_inset
+. At \begin_inset Formula $(3/2,1)$\end_inset
+, however, the unique revenue maximizing output switches from \begin_inset Formula $(1,0)$\end_inset
+ to \begin_inset Formula $(0,2)$\end_inset
+, and value rises from \begin_inset Formula $3/2$\end_inset
+ to \begin_inset Formula $2$\end_inset
+. Output 1 falls to zero despite the technological improvement. The common fixed input cost cancels in the profit comparison.
+\end_layout
+
+\begin_layout Standard
+For contrast, let \begin_inset Formula $Q_C=\{\boldsymbol q\geq0:q_1/2+q_2\leq1\}$\end_inset
+. Neither \begin_inset Formula $Q_B$\end_inset
+ nor \begin_inset Formula $Q_C$\end_inset
+ contains the other: their exclusive output possibilities include \begin_inset Formula $(0,2)$\end_inset
+ and \begin_inset Formula $(2,0)$\end_inset
+, respectively. At prices \begin_inset Formula $(3,1)$\end_inset
+, their maximized revenues are \begin_inset Formula $3$\end_inset
+ and \begin_inset Formula $6$\end_inset
+; at \begin_inset Formula $(1,3)$\end_inset
+, they are \begin_inset Formula $6$\end_inset
+ and \begin_inset Formula $3$\end_inset
+. These technologies specialize in different directions, so no price independent set expansion ranking exists. A scalar productivity index would conceal that distinction.
+\end_layout
+
+\begin_layout Standard
+The dual therefore handles multiple outputs by valuing feasible vectors, not by declaring each output proportional to one latent scalar. An empirical scalar type model adds rankability and, when needed for identification, strict value separation at the maintained prices. Those assumptions must be stated rather than inferred from the existence of a profit function.
+\end_layout
+
+\begin_layout Subsection
+A specialization with one physical output
+\end_layout
+
+\begin_layout Standard
+Now specialize to one physical output. Keep \begin_inset Formula $f$\end_inset
  for the production function, \begin_inset Formula $\boldsymbol z$\end_inset
  for physical inputs, \begin_inset Formula $p_q$\end_inset
  for output price and \begin_inset Formula $\boldsymbol w$\end_inset
  for input prices. Revenue \begin_inset Formula $R=p_q q$\end_inset
- is a value, not an output quantity. If output quality or product prices differ across firms, dividing every revenue observation by a common price index need not recover \begin_inset Formula $q$\end_inset
+ is a value, not an output quantity; \begin_inset Formula $R$\end_inset
+ denotes realized revenue, whereas \begin_inset Formula $r$\end_inset
+ above denotes maximized revenue conditional on fixed inputs. If output quality or product prices differ across firms, dividing every revenue observation by a common price index need not recover \begin_inset Formula $q$\end_inset
 . Likewise \begin_inset Formula $w_mz_m$\end_inset
  is expenditure on input \begin_inset Formula $m$\end_inset
 , not its quantity. The measurement question comes before differentiation.
@@ -15935,14 +16093,18 @@ These are valid bounds, not a point prediction. With only profit values, rather 
 \end_layout
 
 \begin_layout Subsection
-Productivity rankings and price proxies
+From productivity types to price proxies
 \end_layout
 
 \begin_layout Standard
-If technologies are nested, \begin_inset Formula $Y(e)\subseteq Y(e')$\end_inset
- for \begin_inset Formula $e<e'$\end_inset
-, then \begin_inset Formula $\pi(p,e)\leq\pi(p,e')$\end_inset
-: the higher type can copy every lower type plan. This does not rank each input or output choice. Nested sets give a weak value ranking; strict ranking needs an improvement that matters at the maintained prices. A common inactive optimum, for example, can give equal values to distinct types.
+The set expansion ordering in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:production-set-productivity"
+nolink "false"
+
+\end_inset
+ supplies the economic interpretation of a nested productivity type. Identification requires more than this weak ordering: the analyst must distinguish types in the observed values and recover any prices used to interpret them.
 \end_layout
 
 \begin_layout Standard
