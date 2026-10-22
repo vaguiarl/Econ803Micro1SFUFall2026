@@ -2,18 +2,20 @@
 \input{../figure_style.tex}
 \begin{document}
 \begin{tikzpicture}
-\begin{axis}[book axis,width=10.2cm,height=8cm,xmin=.1,xmax=.9,ymin=.1,ymax=.9,
+\begin{axis}[book axis,axis equal image,width=10.2cm,height=10.2cm,
+ xmin=.1,xmax=.9,ymin=.1,ymax=.9,clip=false,
  xlabel={Normalized price $s=p_1$, with $p_2=1-s$},ylabel={Updated normalized price},
  xtick={.1,.25,.5,.75,.9},ytick={.1,.25,.5,.75,.9},grid=major,
- legend style={at={(.03,.97)},anchor=north west}]
+ legend style={at={(.03,.97)},anchor=north west,fill=none,draw=none}]
  \addplot[BookGray,densely dashed,thick,domain=.1:.9] {x};
  \addlegendentry{Fixed point line: $T(s)=s$}
  \addplot[BookBlue,very thick,domain=.1:.9,samples=160] {x+1/(16*x)-1/8};
  \addlegendentry{$T(s)=s+z_1(s)/32$}
  \draw[BookGreen,densely dashed] (axis cs:.5,.1)--(axis cs:.5,.5)--(axis cs:.1,.5);
  \fill[BookGreen] (axis cs:.5,.5) circle(2.2pt);
- \node[anchor=south west,fill=white,inner sep=2pt] at(axis cs:.52,.52){$s^*=1/2$};
- \node[anchor=north west,fill=white,inner sep=3pt,align=left] at(axis cs:.15,.29)
+ % Keep the crossing and both curve segments free of annotation backgrounds.
+ \node[anchor=north west,fill=none,inner sep=0pt] at(axis cs:.56,.44){$s^*=1/2$};
+ \node[anchor=north west,fill=none,inner sep=0pt,align=left] at(rel axis cs:0,-.15)
  {$T:[1/10,9/10]\to[1/10,9/10]$\\$T(s)=s\ \Longleftrightarrow\ z_1(s)=0$};
 \end{axis}
 \end{tikzpicture}
