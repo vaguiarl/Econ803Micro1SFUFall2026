@@ -1,0 +1,52 @@
+{
+  "file": "ECON803_The_Race_to_Prove_the_Invisible_Hand.mp3",
+  "duration_seconds": 779.429252,
+  "bytes": 9354797,
+  "sha256": "4552d78ca75d57e685680cb8545f18c515bbbdae232ff3016dcd0d31644cfc78",
+  "script_sha256": "ee6b4982182f1df0356ecb1f111d4230dd19109c433130bce65e711b7f97cd96",
+  "voice": "Daniel",
+  "rate": 155,
+  "synthetic_narration": true,
+  "chapters": [
+    {
+      "title": "A price for every market",
+      "duration_seconds": 83.246757,
+      "start_seconds": 0
+    },
+    {
+      "title": "Before the finish line",
+      "duration_seconds": 83.095057,
+      "start_seconds": 83.247
+    },
+    {
+      "title": "McKenzie and the problem of credit",
+      "duration_seconds": 108.916054,
+      "start_seconds": 166.342
+    },
+    {
+      "title": "The economic loop",
+      "duration_seconds": 86.852154,
+      "start_seconds": 275.258
+    },
+    {
+      "title": "A crossing you can calculate",
+      "duration_seconds": 109.984535,
+      "start_seconds": 362.11
+    },
+    {
+      "title": "What the theorem needs",
+      "duration_seconds": 120.188798,
+      "start_seconds": 472.095
+    },
+    {
+      "title": "What existence leaves open",
+      "duration_seconds": 100.927755,
+      "start_seconds": 592.283
+    },
+    {
+      "title": "Your reading task",
+      "duration_seconds": 86.218141,
+      "start_seconds": 693.211
+    }
+  ]
+}

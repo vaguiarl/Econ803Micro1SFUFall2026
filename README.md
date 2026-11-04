@@ -6,6 +6,7 @@ The Fall 2026 course runs from September 9 through December 7. Class meets Frida
 
 ## Student quick links
 
+- [November 9 to 13 self study: The Race to Prove the Invisible Hand (audio, transcript and equilibrium reading guide)](course/handouts/equilibrium_history/README.md)
 - [Midterm 1 worked solutions (October 16, 2026; PDF)](course/released_assessments/2026-10-16/ECON803_Midterm1_Fall2026_Worked_Solutions.pdf) ([study guide and editable LyX source](course/released_assessments/2026-10-16/README.md))
 - [Download the current course notes (PDF)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/notes/Microeconomics_1_notes_by_Victor_Aguiar.pdf)
 - [Download the question-only practice book (PDF)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/problemsets/practice_book/ECON803_Practice_Book_Fall2026.pdf)
