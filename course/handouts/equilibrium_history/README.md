@@ -1,10 +1,17 @@
-# The Race to Prove the Invisible Hand
+# The Price of Proof
 
 McKenzie, Arrow and Debreu. ECON 803 self study for November 9 to 13, 2026.
 
-[Listen to the episode (MP3)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/course/handouts/equilibrium_history/ECON803_The_Race_to_Prove_the_Invisible_Hand.mp3) or [read the transcript and sources](TRANSCRIPT.md). The recording uses synthetic narration and does not reproduce anyone's voice. Reading the transcript is an equivalent way to use the episode.
+[Listen to the complete 30 minute English episode (MP3)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/course/handouts/equilibrium_history/first_version/ECON803_The_Price_of_Proof_30_Minutes_English.mp3) or [read the English transcript and sources](first_version/ECON803_The_Price_of_Proof_Transcript_English.md). Reading the transcript is an equivalent way to use the episode. This version replaces the earlier 13 minute recording.
 
-There is no ECON 803 class on Friday, November 13. Use this week to understand the existence argument and its assumptions. The episode connects the history of scientific credit to a precise question: when can individually optimal plans fit together at common prices?
+There is no ECON 803 class on Friday, November 13. I will be in California that week to present my research at Caltech and work on research with possible collaborators. Use this episode and the assigned reading for independent study in place of our class.
+
+The episode connects the history of scientific credit to a precise question: when can individually optimal plans fit together at common prices? Each part runs approximately fifteen minutes.
+
+1. [Part One: the historical drama](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/course/handouts/equilibrium_history/first_version/ECON803_The_Price_of_Proof_Part_1_English.mp3) follows McKenzie, Arrow and Debreu, Nash's contribution, the documented editorial record and the debate over priority. It places the result in the context of markets and planning during the Cold War.
+2. [Part Two: the proof and the invisible hand](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/course/handouts/equilibrium_history/first_version/ECON803_The_Price_of_Proof_Part_2_English.mp3) explains how to visualize the existence argument, why its assumptions matter and what existence tells us about the invisible hand.
+
+Part One uses a synthetic voice based on Victor's authorized recording. Part Two uses a clear English narrator. Other synthetic readers perform short document excerpts. These are performed readings, rather than original historical recordings. The source recording remains private.
 
 ## Reading in the live notes
 
@@ -47,12 +54,8 @@ No additional submission is required for this activity. The separate [problem se
 
 ## Sources and production
 
-Historical claims are attributed in the transcript. The episode distinguishes archival evidence from judgments about motives and includes a critical perspective on the historical interpretation. It contains no reenacted dialogue or invented quotations. Its economic example follows the authoritative LyX notes.
+Historical claims are attributed in the transcript. The episode distinguishes archival evidence and retrospective testimony from interpretations of motives. Its economic example follows the authoritative LyX notes.
 
-The editable script is [episode.json](episode.json). The transcript and audio can be rebuilt on macOS with the installed Daniel voice, Python 3 and FFmpeg:
+The [release package](first_version/README.md) contains both parts, the complete episode, transcript, source notes, editable script, production manifests and technical QA. [CURRENT.json](CURRENT.json) identifies the current released version and its content hashes.
 
-```sh
-python3 course/handouts/equilibrium_history/build_episode.py
-```
-
-Use `--transcript-only` to regenerate the transcript on another platform. The build records chapter timings, the voice, duration and content hashes in `audio_manifest.json` and decodes the complete MP3 to check encoding integrity. Audio synthesis requires no API credentials. It is a course audio episode with a transcript, rather than a subscription podcast feed.
+The earlier recording and its original script remain available as a superseded edition. The current version uses [produce_full_episode.py](produce_full_episode.py); see the release package for its dependencies and private input requirements. It is a course audio episode with a transcript, rather than a subscription podcast feed.

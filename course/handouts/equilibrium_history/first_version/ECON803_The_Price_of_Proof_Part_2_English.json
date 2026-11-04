@@ -1,0 +1,232 @@
+{
+  "part": 2,
+  "title": "The Price of Proof",
+  "language": "en",
+  "file": "ECON803_The_Price_of_Proof_Part_2_English.mp3",
+  "target_seconds": 900,
+  "raw_seconds": 997.7,
+  "tempo_factor": 1.1085555555555555,
+  "narrator_voice": "am_michael",
+  "synthetic_narrator": true,
+  "performed_document_readings": true,
+  "segments": [
+    {
+      "kind": "narrator",
+      "text": "Welcome to Part Two. In the first part, we followed a theorem through papers, correspondence, and the history of scientific credit. Now we will follow the mathematical construction itself. This is a guide for PhD students reading a proof: keep the notes open, keep a pencil nearby, and ask at each step what the step gives us, and what it still does not give us. Our goal is not to recite symbols. It is to understand how individual choices, resource limits, and a fixed point fit together. We will first separate two pictures that are easy to confuse.",
+      "section": "opening",
+      "section_title": "Part Two: seeing the proof",
+      "speaker": "Narrator",
+      "start_seconds": 0.0,
+      "duration_seconds": 35.7
+    },
+    {
+      "kind": "narrator",
+      "text": "Then we will build the price map, interpret its fixed point, and check carefully that the artificial devices used in the proof disappear before we call the result a competitive equilibrium. At the end, we will ask what the theorem says about the invisible hand, and what it leaves open.",
+      "section": "opening",
+      "section_title": "Part Two: seeing the proof",
+      "speaker": "Narrator",
+      "start_seconds": 36.286,
+      "duration_seconds": 18.447
+    },
+    {
+      "kind": "narrator",
+      "text": "Start with two images. In an Edgeworth box, a point represents a feasible allocation: who gets which goods, given the total resources. The box helps us see trade, gains from exchange, and allocations that cannot be improved for everyone in the relevant sense. But a feasible point is not yet a competitive equilibrium. It need not be chosen by consumers at any common prices. And an efficient allocation is not automatically a market clearing outcome at the wealth each person receives from their endowment. The second image is price space. Here we ask whether there are relative prices at which each person wants a bundle and the choices add up to available resources.",
+      "section": "two_pictures",
+      "section_title": "Allocations and prices are different spaces",
+      "speaker": "Narrator",
+      "start_seconds": 57.44,
+      "duration_seconds": 43.773
+    },
+    {
+      "kind": "narrator",
+      "text": "The existence theorem finds a point in this price space and then verifies the allocation attached to it. Keep these pictures separate. Feasibility is about resources. Competitive equilibrium also requires individual optimization at common prices. In the box, the total amount of each good is fixed. Moving to a different point changes who consumes what, not the aggregate supply. In price space, we vary candidate prices and track the demands those prices induce.",
+      "section": "two_pictures",
+      "section_title": "Allocations and prices are different spaces",
+      "speaker": "Narrator",
+      "start_seconds": 101.799,
+      "duration_seconds": 29.114
+    },
+    {
+      "kind": "narrator",
+      "text": "With two goods, the price argument can look like a crossing on a line. Normalize the price of good two to one, and let the relative price of good one vary. Under the chapter’s continuity conditions, suppose excess demand for good one is positive at one positive relative price and negative at a higher one. The intermediate value theorem gives a price between them where that market clears. Walras’ law then clears the other market. This is a clean one dimensional picture. In the worked example in the notes, the relevant excess demand is two divided by the relative price, minus two, and it crosses zero at one.",
+      "section": "one_dimensional",
+      "section_title": "A crossing in the two good case",
+      "speaker": "Narrator",
+      "start_seconds": 133.62,
+      "duration_seconds": 38.564
+    },
+    {
+      "kind": "narrator",
+      "text": "Its downward slope also proves uniqueness in that example. Existence and uniqueness are separate conclusions: the crossing establishes existence; the slope establishes uniqueness here. With many goods, there is no single horizontal price axis to inspect. A fixed point gives a higher dimensional analogue of the crossing argument.",
+      "section": "one_dimensional",
+      "section_title": "A crossing in the two good case",
+      "speaker": "Narrator",
+      "start_seconds": 172.77,
+      "duration_seconds": 22.281
+    },
+    {
+      "kind": "narrator",
+      "text": "Here is the sufficient theorem we will prove. There are finitely many consumers and finitely many goods. Each consumer can choose any nonnegative bundle. Each individual endowment contains a strictly positive amount of every good. Preferences are complete, transitive, continuous, strictly convex, and strongly monotone. Strong monotonicity means that if one bundle has at least as much of every good as another and strictly more of at least one, it is strictly preferred. Strict convexity is a property of preferences: mixtures of distinct equally good bundles are strictly preferred. It is not a claim that some chosen numerical utility representation must itself be strictly convex.",
+      "section": "theorem",
+      "section_title": "The theorem and its assumptions",
+      "speaker": "Narrator",
+      "start_seconds": 197.757,
+      "duration_seconds": 44.788
+    },
+    {
+      "kind": "narrator",
+      "text": "Under these assumptions, a normalized strictly positive price vector and utility maximizing bundles exist that clear all markets. This theorem is sufficient, not a characterization of every economy where equilibrium happens to exist. Each assumption has a job in this proof. We will see where those jobs occur rather than treating the assumptions as a ceremonial list.",
+      "section": "theorem",
+      "section_title": "The theorem and its assumptions",
+      "speaker": "Narrator",
+      "start_seconds": 243.132,
+      "duration_seconds": 24.694
+    },
+    {
+      "kind": "narrator",
+      "text": "Normalize candidate prices to the closed simplex: prices are nonnegative and sum to one. This set is compact and convex, exactly the kind of domain Brouwer needs. It includes boundary points where some prices are zero. At such a price, an ordinary budget set can be unbounded, because a free good can be chosen in any quantity. So temporarily cap each person’s consumption bundle coordinate by coordinate at twice the aggregate endowment. This cap applies to each individual problem. It is not an aggregate feasibility condition, and it does not say that people can jointly consume twice the resources.",
+      "section": "closed_simplex_cap",
+      "section_title": "Making demand defined at boundary prices",
+      "speaker": "Narrator",
+      "start_seconds": 271.434,
+      "duration_seconds": 38.519
+    },
+    {
+      "kind": "narrator",
+      "text": "Positive individual endowments ensure each person’s wealth is strictly positive at every normalized candidate price, including boundary prices. On the common compact box, the budget and continuous preference assumptions give a best bundle. Strict convexity makes that choice unique; the maximum theorem then gives continuous capped demand. The cap is a proof device to make demand well defined everywhere on the closed simplex.",
+      "section": "closed_simplex_cap",
+      "section_title": "Making demand defined at boundary prices",
+      "speaker": "Narrator",
+      "start_seconds": 310.539,
+      "duration_seconds": 27.558
+    },
+    {
+      "kind": "narrator",
+      "text": "At each candidate price, add everyone’s capped demand and subtract the aggregate endowment. That gives the excess demand vector. For each good, retain only its positive part: if desired purchases exceed supply, record the shortage; otherwise record zero. Add that shortage amount to the corresponding candidate price weight, then divide every coordinate by one plus the sum of all positive shortages. This is the map. Every new price coordinate is nonnegative, and the coordinates sum to one, so the map sends the closed price simplex into itself. Capped demand is continuous, and taking positive parts and normalizing preserves continuity. Brouwer’s theorem therefore gives a fixed point.",
+      "section": "construct_map",
+      "section_title": "Build the price map",
+      "speaker": "Narrator",
+      "start_seconds": 340.804,
+      "duration_seconds": 45.871
+    },
+    {
+      "kind": "narrator",
+      "text": "Be precise about the interpretation: this adjustment is a mathematical construction that makes the fixed point argument work. It is not a claim that an actual auctioneer follows this rule, and it says nothing yet about convergence of repeated price updates.",
+      "section": "construct_map",
+      "section_title": "Build the price map",
+      "speaker": "Narrator",
+      "start_seconds": 387.261,
+      "duration_seconds": 17.117
+    },
+    {
+      "kind": "narrator",
+      "text": "Now inspect what a fixed point says. Rearranging its coordinate equations gives: each positive shortage equals the total shortage, call it S, times that good’s price. Suppose S were positive. Then every positively priced good would have positive excess demand. The dot product of prices and excess demand would equal S times the sum of squared prices, which is strictly positive. But adding the individual budget inequalities gives the opposite: the price value of aggregate excess demand is at most zero. Contradiction. Thus S is zero, and every excess demand coordinate is nonpositive. Notice what we have not used.",
+      "section": "fixed_point_contradiction",
+      "section_title": "Read the fixed point carefully",
+      "speaker": "Narrator",
+      "start_seconds": 407.986,
+      "duration_seconds": 42.42
+    },
+    {
+      "kind": "narrator",
+      "text": "We have not declared that budgets bind, and we have not invoked Walras’ law as an equality. The capped choices might leave some budget unspent, because the cap could block further purchases. At this stage the fixed point gives no positive excess demand, not yet exact market clearing. The distinction is essential to the proof.",
+      "section": "fixed_point_contradiction",
+      "section_title": "Read the fixed point carefully",
+      "speaker": "Narrator",
+      "start_seconds": 450.992,
+      "duration_seconds": 21.379
+    },
+    {
+      "kind": "narrator",
+      "text": "Aggregate demand is now no greater than the aggregate endowment. Since bundles are nonnegative, each person’s bundle is no greater than the total endowment, coordinate by coordinate. Everyone is therefore strictly below the artificial ceiling at twice that amount. Strong monotonicity now rules out a zero price: if a good were free, that person could increase consumption of it within the cap and strictly improve. All prices are positive. With room below the cap, a person with budget slack could increase some good and improve, so every budget binds. Now Walras’ law gives price value of excess demand equal to zero.",
+      "section": "remove_cap",
+      "section_title": "Prove the cap disappears",
+      "speaker": "Narrator",
+      "start_seconds": 475.98,
+      "duration_seconds": 40.796
+    },
+    {
+      "kind": "narrator",
+      "text": "Since every price is positive and every excess demand coordinate is nonpositive, each coordinate must be zero. This establishes exact market clearing. The cap removal argument then shows the capped optimum is also an unrestricted optimum. If a strictly preferred unrestricted affordable bundle existed, continuity lets us scale it down slightly to make it strictly affordable. A small mixture with the capped choice stays under the cap, and convex preferences make it at least as good; a small increase using the resulting budget slack makes it strictly better. That contradicts capped optimality. Strict convexity gives a shorter mixture argument in this theorem.",
+      "section": "remove_cap",
+      "section_title": "Prove the cap disappears",
+      "speaker": "Narrator",
+      "start_seconds": 517.362,
+      "duration_seconds": 44.044
+    },
+    {
+      "kind": "narrator",
+      "text": "Let’s make a separate, drawable example. There are two consumers with endowments one and three, and three and one. Each has Cobb Douglas utility equal to the square root of the product of the two goods. Let the normalized prices be s and one minus s. Equal spending shares give total demand for good one equal to two divided by s, so excess demand is two divided by s minus four. The notes define an illustrative scalar map: s plus excess demand divided by thirty two, on the interval from one tenth to nine tenths. It maps that interval into itself; its minimum is three eighths and its maximum is thirty eight forty fifths.",
+      "section": "worked_example",
+      "section_title": "A fixed point we can draw",
+      "speaker": "Narrator",
+      "start_seconds": 565.015,
+      "duration_seconds": 42.352
+    },
+    {
+      "kind": "narrator",
+      "text": "A fixed point lies where excess demand is zero, at s equal to one half, with each consumer consuming two of each good. This is a scalar teaching map, distinct from the general positive part normalized map we just proved. This economy also fails the theorem’s global strictness assumptions on the axes: with one good at zero, increasing only the other need not improve utility. Its interior equilibrium is established by direct calculation. Do not present this example as verifying every hypothesis of the general theorem.",
+      "section": "worked_example",
+      "section_title": "A fixed point we can draw",
+      "speaker": "Narrator",
+      "start_seconds": 607.953,
+      "duration_seconds": 35.564
+    },
+    {
+      "kind": "narrator",
+      "text": "What if preferences are convex but not strictly convex? A consumer may have several optimal bundles at the same prices. We cannot simply choose one arbitrarily and pretend that the selected demand function is continuous. Instead, demand is a correspondence: it assigns a set of optimal bundles to each price. The budget maximum theorem gives nonempty compact demand sets, convex preferences give convex values, and the correspondence is upper hemicontinuous. In practical terms, if prices and chosen bundles converge, the limiting bundle remains optimal at the limiting prices; upper hemicontinuity rules out a nonoptimal limiting bundle. The common compact box ensures sequences of chosen bundles have convergent subsequences.",
+      "section": "correspondence",
+      "section_title": "When optimal demand is not unique",
+      "speaker": "Narrator",
+      "start_seconds": 647.126,
+      "duration_seconds": 49.253
+    },
+    {
+      "kind": "narrator",
+      "text": "The appendix then uses Kakutani’s fixed point theorem, which applies to upper hemicontinuous correspondences with nonempty compact convex values. Its map pairs each proposed allocation with price weights maximizing the value of the imbalance, and each household’s capped demand set. This auxiliary price response tests scarcity in the proof. It is not a literal strategic game or a trading rule. The same feasibility, budget, positivity, and cap removal checks are still required before calling the outcome equilibrium.",
+      "section": "correspondence",
+      "section_title": "When optimal demand is not unique",
+      "speaker": "Narrator",
+      "start_seconds": 696.966,
+      "duration_seconds": 35.429
+    },
+    {
+      "kind": "narrator",
+      "text": "Now return to the invisible hand. The existence theorem establishes a logical compatibility: under its assumptions, there are prices and individually optimal choices that clear markets. That is a substantial result. It does not itself prove that the equilibrium is fair, that history selects one equilibrium, or that an adjustment process converges. Nor does this pure exchange theorem establish full employment in an economy with production and labor choices. Welfare claims require their own premises. Under local nonsatiation and the relevant competitive market structure, the first welfare theorem says a competitive equilibrium allocation is Pareto efficient. That does not mean it is equitable.",
+      "section": "invisible_hand",
+      "section_title": "What the invisible hand theorem establishes",
+      "speaker": "Narrator",
+      "start_seconds": 736.003,
+      "duration_seconds": 46.073
+    },
+    {
+      "kind": "narrator",
+      "text": "The second welfare theorem connects efficient allocations to competitive equilibria under convexity and redistribution through price support; achieving full individual optimality from a budget quasi equilibrium needs additional conditions. Treat these as separate results with separate hypotheses. The existence proof does not automatically implement the price information that participants would need. Externalities, missing markets, or nonconvexities matter when they defeat premises needed by a particular theorem. The right question is which premise does the work, and which conclusion follows.",
+      "section": "invisible_hand",
+      "section_title": "What the invisible hand theorem establishes",
+      "speaker": "Narrator",
+      "start_seconds": 782.663,
+      "duration_seconds": 39.398
+    },
+    {
+      "kind": "narrator",
+      "text": "As you close this episode, make sure you can explain the proof without leaning on the notation. Why do we use a compact price simplex? Why is a cap needed at zero prices? What does the positive part of excess demand do in the map? Why does the fixed point first give only nonpositive excess demand? Which later arguments make prices positive, budgets bind, markets clear, and the cap irrelevant? And what does this theorem leave unanswered about welfare, uniqueness, convergence, and employment?",
+      "section": "closing",
+      "section_title": "Read the proof independently",
+      "speaker": "Narrator",
+      "start_seconds": 825.669,
+      "duration_seconds": 31.415
+    },
+    {
+      "kind": "narrator",
+      "text": "Read section eleven point three, Existence through a continuous price map, printed pages one hundred thirty nine to one hundred forty one, and Appendix B, pages two hundred fifteen to two hundred seventeen. Review sections eleven point one and eleven point two, and Figure eleven point six on page one hundred sixty six. There is no class November thirteenth. There is no extra submission for this activity. The separate firm and partial equilibrium problem set is due November thirteenth at eleven fifty nine p.m., Vancouver time. Read with pencil in hand, and reconstruct the argument yourself.",
+      "section": "closing",
+      "section_title": "Read the proof independently",
+      "speaker": "Narrator",
+      "start_seconds": 857.67,
+      "duration_seconds": 39.624
+    }
+  ],
+  "sha256": "6e68c9a95231f85119e61d84c10e2a409e17eb2f18333000e4b93d3d167ba2d3",
+  "master_gain_db": -0.7
+}

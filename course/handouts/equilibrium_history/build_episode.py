@@ -19,12 +19,27 @@ def run(*args):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--transcript-only", action="store_true")
+    parser.add_argument("--script", type=Path, default=ROOT / "episode.json")
+    parser.add_argument("--transcript-output", type=Path)
     options = parser.parse_args()
-    data = json.loads((ROOT / "episode.json").read_text())
+    script = options.script.resolve()
+    if script != ROOT / "episode.json" and options.transcript_output is None:
+        parser.error("An alternate script needs --transcript-output to preserve the released transcript")
+    data = json.loads(script.read_text())
     transcript = [f"# {data['title']}", f"\n{data['subtitle']}\n", data["course"],
                   "\nSynthetic narration. Original teaching script; historical sources are linked by section.\n"]
+    if data.get("spoken_language"):
+        transcript += ["Language: " + data["spoken_language"] + ".\n"]
+    if data.get("status"):
+        transcript += [f"Status: {data['status']}.\n"]
+    if data.get("audio_status"):
+        transcript += [f"Audio: {data['audio_status']}.\n"]
+    if data.get("performance_note"):
+        transcript += [data["performance_note"] + "\n"]
     for section in data["sections"]:
         transcript += [f"## {section['title']}\n", section["text"], ""]
+        for reading in section.get("readings", []):
+            transcript += [f"Performed document reading: {reading['speaker']}, {reading['document']}.\n"]
         if section["sources"]:
             links = [f"[{data['sources'][key]['label']}]({data['sources'][key]['url']})"
                      for key in section["sources"]]
@@ -32,9 +47,12 @@ def main():
     transcript += ["## Source notes\n"]
     for source in data["sources"].values():
         transcript += [f"[{source['label']}]({source['url']}). {source['note']}\n"]
-    (ROOT / "TRANSCRIPT.md").write_text("\n".join(transcript))
+    transcript_output = options.transcript_output or ROOT / "TRANSCRIPT.md"
+    transcript_output.write_text("\n".join(transcript))
     if options.transcript_only:
         return
+    if not data.get("voice") or not data.get("rate"):
+        raise SystemExit("This script has no approved narration voice. The transcript is ready; review the private voice preview before rendering audio.")
     for executable in ("say", "ffmpeg", "ffprobe"):
         if not shutil.which(executable):
             raise SystemExit(f"Missing executable: {executable}")
@@ -54,7 +72,7 @@ def main():
         listing.write_text("\n".join(f"file '{work / f'part_{i:02d}.aiff'}'" for i in range(len(chapters))))
         metadata = [";FFMETADATA1", f"title={data['title']}: {data['subtitle']}",
                     "artist=ECON 803 teaching materials", "album=Victor Aguiar · Fall 2026",
-                    "comment=Synthetic narration using macOS Daniel; script and sources accompany the audio."]
+                    f"comment=Synthetic narration using macOS {data['voice']}; script and sources accompany the audio."]
         elapsed = 0
         for chapter in chapters:
             chapter["start_seconds"] = round(elapsed, 3)
@@ -77,7 +95,7 @@ def main():
     run("ffmpeg", "-v", "error", "-i", str(output), "-f", "null", "-")
     manifest = {"file": output.name, "duration_seconds": float(verified["format"]["duration"]),
                 "bytes": output.stat().st_size, "sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
-                "script_sha256": hashlib.sha256((ROOT / "episode.json").read_bytes()).hexdigest(),
+                "script_sha256": hashlib.sha256(script.read_bytes()).hexdigest(),
                 "voice": data["voice"], "rate": data["rate"], "synthetic_narration": True,
                 "chapters": chapters}
     (ROOT / "audio_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")

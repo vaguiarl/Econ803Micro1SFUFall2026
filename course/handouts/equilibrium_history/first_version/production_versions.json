@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14",
+  "packages": {
+    "mlx-audio": "0.6.4",
+    "mlx": "0.32.4",
+    "misaki": "0.9.4",
+    "spacy": "3.8.18",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0",
+    "transformers": "5.22.1"
+  }
+}

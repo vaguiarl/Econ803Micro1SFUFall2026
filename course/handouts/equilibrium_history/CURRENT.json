@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "revision": "english_30min_v1",
+  "release_state": "released",
+  "release_date": "2026-11-04",
+  "title": "The Price of Proof",
+  "language": "en",
+  "audio": {
+    "path": "first_version/ECON803_The_Price_of_Proof_30_Minutes_English.mp3",
+    "sha256": "9a1608db00830ad8721e903ed646f11f24c54bdd645d6dfde6da8c0fd1cac2ac"
+  },
+  "transcript": {
+    "path": "first_version/ECON803_The_Price_of_Proof_Transcript_English.md",
+    "sha256": "98ed8a1336c4bb0c5d2d8fa49776992eab2439c100ad49924309bc30a1ba0694"
+  },
+  "script": {
+    "path": "first_version/episode_30min_v1.json",
+    "sha256": "4e27410f57312e0d4cf49320f11821795edc80372dcdbafc7c7d61549295cd55"
+  },
+  "duration_seconds": 1799.9604166666666,
+  "preview": {
+    "path": "first_version/ECON803_The_Price_of_Proof_Preview_English.mp3",
+    "sha256": "6d403ece76d4cdc6aff062972c08e22fb9d7fe56e5b71c6315f8710dd9dd7108",
+    "description": "A separately encoded 60 second excerpt from the actual final mix"
+  },
+  "manifests": [
+    "first_version/ECON803_The_Price_of_Proof_30_Minutes_English.json",
+    "first_version/ECON803_The_Price_of_Proof_Part_1_English.json",
+    "first_version/ECON803_The_Price_of_Proof_Part_2_English.json",
+    "first_version/production_versions.json"
+  ],
+  "technical_qa": {
+    "path": "first_version/release_qa.json",
+    "passed": true
+  },
+  "listening_status": "No independent human listening review attested; technical and Part One automatic transcription checks are recorded",
+  "supersedes": {
+    "commit": "0b085bf69075e69c39372362df76dbd2c2bc4216",
+    "episode": "ECON803_The_Race_to_Prove_the_Invisible_Hand.mp3",
+    "status": "superseded"
+  },
+  "canvas_announcement": "https://canvas.sfu.ca/courses/16693/discussion_topics/299521?is_announcement=true",
+  "private_reference_included": false
+}

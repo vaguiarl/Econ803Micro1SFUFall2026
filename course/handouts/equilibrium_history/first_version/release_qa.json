@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "built_at_utc": "2026-11-04T19:35:42.892570+00:00",
+  "technical_qa_only": true,
+  "human_listening": "not assessed",
+  "release_authorization": "Explicit instruction by Victor Aguiar to commit, push and update the ECON 803 Canvas announcement on November 4, 2026",
+  "passed": true,
+  "audio": {
+    "path": "ECON803_The_Price_of_Proof_30_Minutes_English.mp3",
+    "sha256": "9a1608db00830ad8721e903ed646f11f24c54bdd645d6dfde6da8c0fd1cac2ac",
+    "size_bytes": 21600872,
+    "codec": "mp3",
+    "sample_rate_hz": 24000,
+    "channels": 1,
+    "decoded_samples_at_48khz": 86398100,
+    "duration_seconds": 1799.9604166666666,
+    "levels": {
+      "integrated_lufs": -18.2,
+      "true_peak_dbtp": -2.06,
+      "loudness_range_lu": 3.2
+    },
+    "complete_decode_passed": true,
+    "input_hash_unchanged_during_qa": true
+  },
+  "stems": [
+    {
+      "path": "part1_raw.wav",
+      "sha256": "f49cf7418bd1874bb2a08b0cadaf3654bb847c74a5085c5aec3189737d612566",
+      "size_bytes": 42721486,
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "decoded_samples_at_48khz": 42721442,
+      "duration_seconds": 890.0300416666666,
+      "levels": {
+        "integrated_lufs": -21.99,
+        "true_peak_dbtp": -1.66,
+        "loudness_range_lu": 4.5
+      },
+      "complete_decode_passed": true,
+      "input_hash_unchanged_during_qa": true,
+      "availability": "Private lossless production source; excluded from release"
+    },
+    {
+      "path": "part2_raw.wav",
+      "sha256": "b3da62069934aad9d2440f980e09e86e2866d68896089b250243dece9f1a762e",
+      "size_bytes": 47889644,
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "decoded_samples_at_48khz": 47889600,
+      "duration_seconds": 997.7,
+      "levels": {
+        "integrated_lufs": -27.58,
+        "true_peak_dbtp": -3.6,
+        "loudness_range_lu": 3.4
+      },
+      "complete_decode_passed": true,
+      "input_hash_unchanged_during_qa": true,
+      "availability": "Private lossless production source; excluded from release"
+    }
+  ],
+  "criteria": {
+    "minimum_seconds": 1799.8,
+    "target_lufs": -18.0,
+    "lufs_tolerance": 1.0,
+    "peak_limit_dbtp": -1.5
+  },
+  "checks": {
+    "minimum_runtime": true,
+    "loudness": true,
+    "true_peak": true
+  },
+  "runtime_note": "Target 1800 seconds; 0.2 second encoding tolerance. The encoded file is shorter by about 0.04 second.",
+  "mastering": {
+    "gain_db": -0.7,
+    "source": "Existing lossless normalized stems",
+    "narration_regenerated": false,
+    "mono_integrated_loudness_target_lufs": -18,
+    "earlier_encoded_true_peak_dbtp": -1.3
+  },
+  "speech_review": {
+    "part_one_automatic_transcription": {
+      "language": "en",
+      "expected_words": 2215,
+      "recognized_words": 2227,
+      "alignment_ratio": 0.9531742458352094,
+      "flagged_review_spans": 0
+    },
+    "part_two_full_automatic_transcription": "Not performed",
+    "human_listening": "Not independently attested"
+  }
+}
