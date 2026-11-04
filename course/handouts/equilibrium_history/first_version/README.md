@@ -2,11 +2,13 @@
 
 Released for ECON 803 independent study during November 9 to 13, 2026. English throughout. Total running time: thirty minutes, in two parts of approximately fifteen minutes each.
 
+Part One was recast on November 4 with the energetic English delivery approved by Victor. The links below serve this updated edition.
+
 There is no ECON 803 class on Friday, November 13. I will be in California that week to present my research at Caltech and work on research with possible collaborators. Use the episode and [reading guide](../README.md) in place of our class.
 
 [Complete episode](ECON803_The_Price_of_Proof_30_Minutes_English.mp3)
 
-[Opening preview, 60 seconds](ECON803_The_Price_of_Proof_Preview_English.mp3), separately encoded from the final mix.
+[Opening preview, 60 seconds](ECON803_The_Price_of_Proof_Preview_English.mp3), copied from the final encoded mix.
 
 [Part One: the historical drama](ECON803_The_Price_of_Proof_Part_1_English.mp3)
 
@@ -18,7 +20,7 @@ Part One follows the competition over equilibrium existence, Nash’s mathematic
 
 Part Two is a conceptual guide for PhD students. It separates allocation space from price space, constructs the capped demand map, explains the fixed point contradiction, and checks price positivity, market clearing and removal of the artificial cap. It then introduces the Kakutani extension and distinguishes existence from welfare, distribution, uniqueness, convergence, computation and information.
 
-Part One uses a synthetic voice based on Victor’s authorized recording. Part Two uses a clear English narrator. Other synthetic readers perform the document excerpts. The source recording stays private and is not included in the episode. These are performed readings rather than original historical recordings.
+Part One uses Victor’s authorized synthetic teaching voice, recast locally with his approved energetic English delivery. Part Two uses a clear English narrator. Other synthetic readers perform the document excerpts. Source recordings stay private and are not included in the episode. These are performed readings rather than original historical recordings.
 
 ## Listen with pencil and paper
 
@@ -32,10 +34,10 @@ Use Chapter 11, especially §11.3, and Appendix B of the [live textbook](../../.
 
 In the November 4 textbook build, §11.3 is on printed pages 139 to 141, Appendix B on pages 215 to 217, and Figure 11.6 floats to page 166. Follow section titles if later builds move the pages.
 
-## Reproduce the audio
+## Script and production
 
-The [script](episode_30min_v1.json) contains the two parts, document readings, source references and visual cues. [The producer](../produce_full_episode.py) renders short resumable segments, keeps private reference data in a separate cache, measures each part and adjusts pacing to fifteen minutes. The final MP3 includes two chapters.
+The [current script](episode_30min_v2.json) contains the two parts, document readings, source references and visual cues. [The earlier producer](../produce_full_episode.py) documents the original rendering workflow. The current edition uses cached local narration, retains the four document readings, and preserves the standalone Part Two recording. The final MP3 includes two chapters.
 
-The producer requires MLX Audio, NumPy, SoundFile, num2words, FFmpeg and the local voice models. It takes explicit paths for the private reference audio, its transcript and the cache. No private reference data are stored in this folder. Content hashes and measured timings accompany the finished audio. Historical years and calendar dates are spelled out for synthesis while retaining their ordinary written form in the transcript.
+Local production uses MLX Audio, NumPy, SoundFile, FFmpeg and local voice models. Reference audio, its transcript and the segment cache remain private. Content hashes and measured timings accompany the finished audio. Historical years and calendar dates are spelled out for synthesis while retaining their ordinary written form in the transcript. One sentence was clarified to read “protect authors and support credible decisions.”
 
-[release_qa.json](release_qa.json) records final encoded audio measurements and the limits of the review. The final master applies a gain of minus 0.7 dB to retain peak headroom after encoding. Technical checks and automatic transcription do not establish a human listening review.
+[release_qa.json](release_qa.json) records final encoded audio measurements and the limits of the review. Part One was normalized in two measured passes. The standalone Part Two MP3 is unchanged; the combined MP3 reencodes its preserved audio. Technical checks and automatic transcription do not establish a full human listening review.

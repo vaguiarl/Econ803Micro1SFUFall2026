@@ -1,15 +1,16 @@
 {
+  "revision": "english_30min_v2_energetic",
   "file": "ECON803_The_Price_of_Proof_30_Minutes_English.mp3",
   "language": "en",
-  "duration_seconds": 1799.960417,
+  "duration_seconds": 1799.9579583333334,
   "chapters": [
     {
       "id": 0,
       "time_base": "1/1000",
       "start": 0,
       "start_time": "0.000000",
-      "end": 900000,
-      "end_time": "900.000000",
+      "end": 899976,
+      "end_time": "899.976000",
       "tags": {
         "title": "Part One: The Drama"
       }
@@ -17,20 +18,25 @@
     {
       "id": 1,
       "time_base": "1/1000",
-      "start": 900000,
-      "start_time": "900.000000",
-      "end": 1800000,
-      "end_time": "1800.000000",
+      "start": 899976,
+      "start_time": "899.976000",
+      "end": 1799958,
+      "end_time": "1799.958000",
       "tags": {
         "title": "Part Two: The Proof and the Invisible Hand"
       }
     }
   ],
-  "script_sha256": "4e27410f57312e0d4cf49320f11821795edc80372dcdbafc7c7d61549295cd55",
-  "sha256": "9a1608db00830ad8721e903ed646f11f24c54bdd645d6dfde6da8c0fd1cac2ac",
+  "script_file": "episode_30min_v2.json",
+  "script_sha256": "f968088bed31c85052d0eac324438d7cfe36f908191f96dece673572182db458",
+  "sha256": "99d4d268484e4f0d1a9a713713cf2c3d65b88f281c2338a6b9b9f2b571afb726",
   "synthetic_narration": true,
+  "part_one_narration": "Approved energetic English delivery, rendered locally",
   "part2_narrator_voice": "am_michael",
   "performed_document_readings": true,
   "private_reference_included": false,
-  "master_gain_db": -0.7
+  "part2_standalone_unchanged": true,
+  "part2_standalone_sha256": "6e68c9a95231f85119e61d84c10e2a409e17eb2f18333000e4b93d3d167ba2d3",
+  "part2_in_combined_mp3_reencoded": true,
+  "provider_credits_for_recast": 0
 }

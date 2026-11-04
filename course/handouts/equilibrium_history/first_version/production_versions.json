@@ -8,5 +8,8 @@
     "numpy": "2.5.4",
     "soundfile": "0.14.0",
     "transformers": "5.22.1"
-  }
+  },
+  "current_revision": "english_30min_v2_energetic",
+  "part_one_engine": "Local Qwen3 TTS Base 0.6B",
+  "part_one_language": "English"
 }

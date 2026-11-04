@@ -149,7 +149,7 @@ The dates around Debreu’s referee role matter. Arrow and Debreu submitted thei
 
 A referee influences how a result is assessed and presented. When the referee is pursuing closely related work, the role creates a conflict that deserves care. Weintraub attributes apparent nondisclosure to his interpretation of the record. The documents support concern about the competing roles; they do not establish intentional obstruction.
 
-A qualified scholar may be able to evaluate a technical argument, while having a stake that makes the arrangement troubling. The profession needs procedures that protect authors and credible decisions. Describe the conflict plainly, while staying disciplined about what the evidence shows. The uncertainty concerns motive and responsibility, not the documented dates or the fact of the referee assignment.
+A qualified scholar may be able to evaluate a technical argument, while having a stake that makes the arrangement troubling. The profession needs procedures that protect authors and support credible decisions. Describe the conflict plainly, while staying disciplined about what the evidence shows. The uncertainty concerns motive and responsibility, not the documented dates or the fact of the referee assignment.
 
 
 Sources: [Weintraub (2011), Retrospectives: Lionel W. McKenzie and the Proof of the Existence of a Competitive Equilibrium](https://hope.econ.duke.edu/sites/hope.econ.duke.edu/files/McKenzie_paper_SSRN.pdf); [Arrow and Debreu (1954), Existence of an Equilibrium for a Competitive Economy](https://web.stanford.edu/class/msande311/arrow-debreu.pdf).

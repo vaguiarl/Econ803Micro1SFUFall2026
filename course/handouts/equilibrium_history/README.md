@@ -11,7 +11,7 @@ The episode connects the history of scientific credit to a precise question: whe
 1. [Part One: the historical drama](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/course/handouts/equilibrium_history/first_version/ECON803_The_Price_of_Proof_Part_1_English.mp3) follows McKenzie, Arrow and Debreu, Nash's contribution, the documented editorial record and the debate over priority. It places the result in the context of markets and planning during the Cold War.
 2. [Part Two: the proof and the invisible hand](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/course/handouts/equilibrium_history/first_version/ECON803_The_Price_of_Proof_Part_2_English.mp3) explains how to visualize the existence argument, why its assumptions matter and what existence tells us about the invisible hand.
 
-Part One uses a synthetic voice based on Victor's authorized recording. Part Two uses a clear English narrator. Other synthetic readers perform short document excerpts. These are performed readings, rather than original historical recordings. The source recording remains private.
+Part One now uses Victor's approved energetic English synthetic delivery, rendered locally. Part Two uses a clear English narrator. Other synthetic readers perform short document excerpts. These are performed readings, rather than original historical recordings. The source recordings remain private.
 
 ## Reading in the live notes
 
@@ -58,4 +58,4 @@ Historical claims are attributed in the transcript. The episode distinguishes ar
 
 The [release package](first_version/README.md) contains both parts, the complete episode, transcript, source notes, editable script, production manifests and technical QA. [CURRENT.json](CURRENT.json) identifies the current released version and its content hashes.
 
-The earlier recording and its original script remain available as a superseded edition. The current version uses [produce_full_episode.py](produce_full_episode.py); see the release package for its dependencies and private input requirements. It is a course audio episode with a transcript, rather than a subscription podcast feed.
+The earlier recording and its original script remain available as a superseded edition. The current edition reuses the document readings and Part Two, with new local narration for Part One. The [earlier producer](produce_full_episode.py) documents the original generation workflow; the release package records the current script, measured timings and checks. It is a course audio episode with a transcript, rather than a subscription podcast feed.

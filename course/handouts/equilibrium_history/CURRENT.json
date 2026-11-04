@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
-  "revision": "english_30min_v1",
+  "revision": "english_30min_v2_energetic",
   "release_state": "released",
   "release_date": "2026-11-04",
   "title": "The Price of Proof",
   "language": "en",
   "audio": {
     "path": "first_version/ECON803_The_Price_of_Proof_30_Minutes_English.mp3",
-    "sha256": "9a1608db00830ad8721e903ed646f11f24c54bdd645d6dfde6da8c0fd1cac2ac"
+    "sha256": "99d4d268484e4f0d1a9a713713cf2c3d65b88f281c2338a6b9b9f2b571afb726"
   },
   "transcript": {
     "path": "first_version/ECON803_The_Price_of_Proof_Transcript_English.md",
-    "sha256": "98ed8a1336c4bb0c5d2d8fa49776992eab2439c100ad49924309bc30a1ba0694"
+    "sha256": "c60409edf266fa232eee68853a3eac1d20ed23416aed398ee47709a2bb0a1daf"
   },
   "script": {
-    "path": "first_version/episode_30min_v1.json",
-    "sha256": "4e27410f57312e0d4cf49320f11821795edc80372dcdbafc7c7d61549295cd55"
+    "path": "first_version/episode_30min_v2.json",
+    "sha256": "f968088bed31c85052d0eac324438d7cfe36f908191f96dece673572182db458"
   },
-  "duration_seconds": 1799.9604166666666,
+  "duration_seconds": 1799.9579583333334,
   "preview": {
     "path": "first_version/ECON803_The_Price_of_Proof_Preview_English.mp3",
-    "sha256": "6d403ece76d4cdc6aff062972c08e22fb9d7fe56e5b71c6315f8710dd9dd7108",
-    "description": "A separately encoded 60 second excerpt from the actual final mix"
+    "sha256": "50689458f0d35541b0839fd4cfbed758348838e3977a8a9c2bd3dbd77cb53c48",
+    "description": "Opening minute copied from final encoded mix; opening packet hashes verified"
   },
   "manifests": [
     "first_version/ECON803_The_Price_of_Proof_30_Minutes_English.json",
@@ -33,12 +33,13 @@
     "path": "first_version/release_qa.json",
     "passed": true
   },
-  "listening_status": "No independent human listening review attested; technical and Part One automatic transcription checks are recorded",
+  "listening_status": "Energetic voice sample approved by Victor; complete automatic transcription, focused repairs and technical QA recorded; no full independent human listening attested",
   "supersedes": {
-    "commit": "0b085bf69075e69c39372362df76dbd2c2bc4216",
-    "episode": "ECON803_The_Race_to_Prove_the_Invisible_Hand.mp3",
+    "commit": "df6d11e3c025f9cfc29cce282be40ba37b1f0cdc",
+    "revision": "english_30min_v1",
     "status": "superseded"
   },
   "canvas_announcement": "https://canvas.sfu.ca/courses/16693/discussion_topics/299521?is_announcement=true",
-  "private_reference_included": false
+  "private_reference_included": false,
+  "provider_credits_for_recast": 0
 }
