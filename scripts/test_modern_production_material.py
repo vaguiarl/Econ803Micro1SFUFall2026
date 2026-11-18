@@ -63,7 +63,7 @@ class ModernProductionMaterialTests(unittest.TestCase):
                 'does not make an ill defined commodity well defined',
                 'all supporting prices',
             ):
-                self.assertIn(phrase.lower(), material.lower())
+                self.assertTrue(phrase.lower() in " ".join(material.lower().split()), f"Missing production exposition phrase: {phrase}")
 
     def test_multioutput_expansion_equality_and_unique_choice_switch(self):
         # Each Q is the convex hull of these vertices, so support values
@@ -157,7 +157,7 @@ class ModernProductionMaterialTests(unittest.TestCase):
             "not the same object as a proxy",
             "set both shocks",
         ):
-            self.assertIn(phrase.lower(), material.lower())
+            self.assertTrue(phrase.lower() in " ".join(material.lower().split()), f"Missing production exposition phrase: {phrase}")
 
     def test_one_price_proxy_euler_algebra(self):
         # pi(p,w)=p^2/w, g(v)=v^2: the displayed ratio equals 2/v.

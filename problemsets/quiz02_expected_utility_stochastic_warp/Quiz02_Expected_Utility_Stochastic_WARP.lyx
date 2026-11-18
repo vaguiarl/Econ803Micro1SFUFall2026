@@ -1,0 +1,1009 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{booktabs}
+\usepackage{array}\usepackage{fancyhdr}
+
+
+
+
+
+
+
+\setlength{\parskip}{4pt}
+\setlist[enumerate]{leftmargin=1.65em,itemsep=5pt,topsep=4pt}
+\renewcommand{\arraystretch}{1.18}
+
+\fancyhf{}
+\lhead{\small ECON 803 --- Microeconomic Theory I}
+\rhead{\small Fall 2026}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+
+\newcommand{\question}[2]{%
+  {\large\bfseries\color{quizblue} Question #1}\hfill
+  {\bfseries\color{quizblue}[#2 points]}\par
+  \vspace{2pt}\color{rulegray}\hrule\color{black}\vspace{7pt}}
+
+\newcommand{\answerline}{\par\vspace{0.31in}\color{rulegray}\hrule\color{black}}
+
+
+\end_preamble
+\use_default_options false
+\begin_modules
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "lmodern" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=NavyBlue,urlcolor=NavyBlue"
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor quizblue 17365d
+\customcolor rulegray 727c8a
+\customcolor softblue eff4fa
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.72in
+\topmargin 0.62in
+\rightmargin 0.72in
+\bottommargin 0.62in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0pt
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\size largest
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{quizblue}
+\end_layout
+
+\end_inset
+
+ In-Class Quiz 2
+\series default
+
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset VSpace 2pt
+\end_inset
+
+ 
+\size large
+Expected Utility, Portfolio Choice, and Stochastic WARP
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset VSpace 4pt
+\end_inset
+
+ 
+\size small
+October 9, 2026 
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Formula $\bullet$
+\end_inset
+
+ 
+\begin_inset space \quad{}
+
+\end_inset
+
+25 minutes 
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Formula $\bullet$
+\end_inset
+
+ 
+\begin_inset space \quad{}
+
+\end_inset
+
+20 points
+\size default
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 4pt
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="none" valignment="top" special="@{\extracolsep{\fill}}l">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Name:
+\series default
+ 
+\begin_inset CommandInset line
+LatexCommand rule
+width "3.25in"
+height "0.4pt"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Student number:
+\series default
+ 
+\begin_inset CommandInset line
+LatexCommand rule
+width "1.8in"
+height "0.4pt"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 7pt
+\end_inset
+
+ 
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "quizblue"
+backgroundcolor "softblue"
+status open
+
+
+\begin_layout Plain Layout
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "96.5text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\series bold
+Instructions.
+\series default
+ Show the calculation that supports each answer. You may use a calculator, but no notes or electronic assistance. All notation needed for the quiz is defined below. 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 6pt
+\end_inset
+
+ 
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "quizblue"
+backgroundcolor "softblue"
+status open
+
+
+\begin_layout Plain Layout
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "96.5text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\series bold
+Economic KKT cookbook.
+\series default
+ For 
+\begin_inset Formula $\max_{x\ge0}f(x)$
+\end_inset
+
+ subject to 
+\begin_inset Formula $Ax\le b$
+\end_inset
+
+, use 
+\begin_inset Formula \[
+0\le x\perp A^\top\lambda-\nabla f(x)\ge0,
+\;
+0\le\lambda\perp b-Ax\ge0.
+\]
+\end_inset
+
+Here 
+\begin_inset Formula $a\perp z$
+\end_inset
+
+ means 
+\begin_inset Formula $a_i z_i=0$
+\end_inset
+
+ component by component. Guess the positive choices and binding resource constraints, solve their equalities, and then verify every remaining inequality. Once 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is known, the envelope theorem gives 
+\begin_inset Formula $V_{b_j}=\lambda_j$
+\end_inset
+
+ wherever the value function is differentiable. 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 12pt
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+question{
+\end_layout
+
+\end_inset
+
+1: A budgeted portfolio choice
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+8
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A consumer has date-0 wealth 
+\begin_inset Formula $w=24$
+\end_inset
+
+ and consumes only at date 1. She invests 
+\begin_inset Formula $\alpha\ge0$
+\end_inset
+
+ dollars in a risky asset and 
+\begin_inset Formula $\beta\ge0$
+\end_inset
+
+ dollars in a safe asset, subject to 
+\begin_inset Formula \[
+\alpha+\beta\le24.
+\]
+\end_inset
+
+The safe asset has gross return 
+\begin_inset Formula $1$
+\end_inset
+
+. The risky asset has gross return 
+\begin_inset Formula \[
+\widetilde R=
+\begin{cases}
+\tfrac12,&\text{in state }L\text{, with probability }\tfrac12,\\[2pt]
+\tfrac74,&\text{in state }H\text{, with probability }\tfrac12.
+\end{cases}
+\]
+\end_inset
+
+Borrowing and short selling are not allowed. Her Bernoulli utility is 
+\begin_inset Formula $u(c)=\sqrt c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+alph*
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+Explain why the budget binds. Write date-1 consumption in each state and reduce the problem to a maximization over 
+\begin_inset Formula $\alpha\in[0,24]$
+\end_inset
+
+. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Enumerate
+Use the KKT cookbook above. State your active-set guess; find 
+\begin_inset Formula $(\alpha^*,\beta^*)$
+\end_inset
+
+, consumption in each state, maximal expected utility, and the wealth multiplier 
+\begin_inset Formula $\lambda^*$
+\end_inset
+
+. Verify every sign and complementarity condition, explain why the solution is the unique global optimum, and interpret 
+\begin_inset Formula $V'(24)=\lambda^*$
+\end_inset
+
+ for the indirect value 
+\begin_inset Formula $V(w)$
+\end_inset
+
+. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[4] 
+\end_layout
+
+\begin_layout Enumerate
+Suppose instead that the consumer is risk neutral, with 
+\begin_inset Formula $u(c)=c$
+\end_inset
+
+. What portfolio does she choose? Briefly explain why it differs from the answer in part (b). 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+question{
+\end_layout
+
+\end_inset
+
+2: Stochastic WARP in a heterogeneous population
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+12
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are two budgets 
+\begin_inset Formula $B_1=(p^1,m_1)$
+\end_inset
+
+ and 
+\begin_inset Formula $B_2=(p^2,m_2)$
+\end_inset
+
+, with 
+\begin_inset Formula $m_1=m_2=12$
+\end_inset
+
+. A consumer's stable type is denoted by 
+\begin_inset Formula $\nu$
+\end_inset
+
+, demand by 
+\begin_inset Formula $q(p,m;\nu)$
+\end_inset
+
+, and indirect utility by 
+\begin_inset Formula $v(p,m;\nu)$
+\end_inset
+
+. Write 
+\begin_inset Formula \[
+q^1_\nu=q(p^1,m_1;\nu),\; q^2_\nu=q(p^2,m_2;\nu).
+\]
+\end_inset
+
+For two cross-sections, define the cross-affordability shares 
+\begin_inset Formula \[
+r_{12}=\Pr\!\left[m_1\ge p^1\!\cdot q^2_\nu\right],
+\;
+r_{21}=\Pr\!\left[m_2\ge p^2\!\cdot q^1_\nu\right].
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula $r_{12}$
+\end_inset
+
+ is the share of types whose choice under budget 2 would also have been affordable under budget 1. Assume no cross-expenditure equality and no welfare tie has positive probability. Individual utility maximization implies 
+\begin_inset Formula \[
+r_{12}\le \theta_{12}\le 1-r_{21},
+\;
+\theta_{12}:=\Pr\!\left[v(p^1,m_1;\nu)>v(p^2,m_2;\nu)\right],
+\]
+\end_inset
+
+and hence the pairwise 
+\series bold
+Weak Axiom of Stochastic Revealed Preference (WASRP)
+\series default
+: 
+\begin_inset Formula \[
+r_{12}+r_{21}\le 1.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The population has five equally likely types. Their cross expenditures are: 
+\begin_inset Formula \[
+\begin{array}{c|ccccc}
+\toprule
+\text{type }\nu & 1 & 2 & 3 & 4 & 5\\
+\midrule
+p^1\!\cdot q^2_\nu & 9 & 10.5 & 11.25 & 13.5 & 13.5\\
+p^2\!\cdot q^1_\nu & 15 & 13.5 & 12.6 & 9 & 15\\
+\bottomrule
+\end{array}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+alph*
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+Identify the types counted by each cross-affordability event. Compute 
+\begin_inset Formula $r_{12}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{21}$
+\end_inset
+
+. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[4] 
+\end_layout
+
+\begin_layout Enumerate
+Test WASRP and report its slack, 
+\begin_inset Formula $1-r_{12}-r_{21}$
+\end_inset
+
+. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Enumerate
+Give the tight interval implied above for 
+\begin_inset Formula $\theta_{12}$
+\end_inset
+
+, and interpret its two endpoints. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Enumerate
+In another sample, suppose the estimated shares are 
+\begin_inset Formula $r_{12}=0.62$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{21}=0.48$
+\end_inset
+
+. Test WASRP. What is the smallest population share that must lie in both cross-affordability events? 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Enumerate
+In one sentence, explain why satisfying this two-budget inequality does not by itself establish a full random-utility rationalization for a data set with many budgets. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{rulegray}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hrule
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{black}
+\end_layout
+
+\end_inset
+
+ 
+\size footnotesize
+Conceptual source: Cosaert and Demuynck (2018), adapted from the instructor's 2019 comprehensive-exam question.
+\size default
+
+\end_layout
+
+\end_body
+\end_document

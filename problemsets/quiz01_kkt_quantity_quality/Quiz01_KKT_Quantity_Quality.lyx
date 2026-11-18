@@ -1,30 +1,51 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass article
 \begin_preamble
-\usepackage{microtype}
-\usepackage{xcolor}
-\definecolor{quizblue}{rgb}{0.08,0.24,0.46}
-\AtBeginDocument{\hypersetup{linkcolor=quizblue,urlcolor=quizblue,citecolor=quizblue}}
+\usepackage{array}\usepackage{fancyhdr}
+
+
+
+
+
+
+
+\setlength{\parskip}{4pt}
+\setlist[enumerate]{leftmargin=1.65em,itemsep=4pt,topsep=3pt}
+\renewcommand{\arraystretch}{1.16}
+
+\fancyhf{}
+\lhead{\small ECON 803 --- Microeconomic Theory I}
+\rhead{\small Fall 2026}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+
+\newcommand{\question}[2]{%
+  {\large\bfseries\color{quizblue} Question #1}\hfill
+  {\bfseries\color{quizblue}[#2 points]}\par
+  \vspace{2pt}\color{rulegray}\hrule\color{black}\vspace{6pt}}
+\newcommand{\answerline}{\par\vspace{0.27in}\color{rulegray}\hrule\color{black}}
+
+
 \end_preamble
 \use_default_options false
 \begin_modules
-theorems-ams
+enumitem
 \end_modules
 \maintain_unincluded_children no
 \language english
-\language_package default
+\language_package none
 \inputencoding utf8
-\fontencoding default
-\font_roman "cmr" "default"
-\font_sans "cmss" "default"
-\font_typewriter "cmtt" "default"
+\fontencoding T1
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "lmodern" "default"
 \font_math "auto" "auto"
-\font_default_family rmdefault
+\font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_roman_osf false
@@ -42,518 +63,1268 @@ theorems-ams
 \paperfontsize 10
 \spacing single
 \use_hyperref true
-\pdf_bookmarks true
-\pdf_bookmarksnumbered false
-\pdf_bookmarksopen false
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
 \pdf_bookmarksopenlevel 1
-\pdf_breaklinks false
-\pdf_pdfborder false
-\pdf_colorlinks true
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
 \pdf_backref false
-\pdf_pdfusetitle true
-\papersize a4
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=NavyBlue,urlcolor=NavyBlue"
+\papersize letterpaper
 \use_geometry true
 \use_package amsmath 2
 \use_package amssymb 2
 \use_package cancel 0
-\use_package esint 2
+\use_package esint 1
 \use_package mathdots 0
-\use_package mathtools 2
+\use_package mathtools 0
 \use_package mhchem 0
 \use_package stackrel 0
 \use_package stmaryrd 0
 \use_package undertilde 0
-\cite_engine natbib
-\cite_engine_type authoryear
-\biblio_style plainnat
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 0
-\use_formatted_ref 0
+\crossref_package prettyref
 \use_minted 0
-\use_lineno 0
+\use_lineno false
+\customcolor quizblue 17365d
+\customcolor rulegray 727c8a
+\customcolor softblue eff4fa
 \index Index
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 0.78in
-\topmargin 0.65in
-\rightmargin 0.78in
-\bottommargin 0.65in
-\secnumdepth 0
-\tocdepth 2
-\paragraph_separation skip
-\defskip smallskip
-\paragraph_indentation default
+\leftmargin 0.70in
+\topmargin 0.60in
+\rightmargin 0.70in
+\bottommargin 0.60in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0pt
 \is_math_indent 0
 \math_numbering_side default
 \quotes_style english
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 1
-\paperpagestyle plain
-\tablestyle default
+\paperpagestyle fancy
 \tracking_changes false
 \output_changes false
 \change_bars false
-\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
-\begin_layout Title
-Quiz 1: KKT Regimes in a Quantity-Quality Household
-\end_layout
-
-\begin_layout Author
-ECON 803 - Microeconomic Theory I - Fall 2026
-\end_layout
-
-\begin_layout Date
-October 2, 2026 - 25 minutes - 20 points
-\end_layout
 
 \begin_layout Standard
-Name: ............................................................ Student number: ........................................
-\end_layout
+\align center
 
-\begin_layout Standard
-Show the KKT conditions and enough algebra to identify every active set.
- The model and all notation needed for the quiz are defined below;
- no prior knowledge of Galor is required.
-\end_layout
+\size largest
 
-\begin_layout Section*
-A static household quantity-quality problem
-\end_layout
+\series bold
 
-\begin_layout Standard
-Consider a household with regime-specific income 
-\begin_inset Formula $y_r$
-\end_inset
-
-.
- It allocates resources among its own consumption,
- the number of children,
- and investment in the children's human capital.
- More children increase family size (quantity),
- while more investment per child increases child quality.
- Because both uses are costly,
- the household faces a quantity-quality trade-off.
- Galor studies this mechanism inside a dynamic growth model;
- here we use a deliberately simple static problem to isolate the KKT economics.
-\end_layout
-
-\begin_layout Standard
-The choice variables are:
- 
-\begin_inset Formula $c\geq\bar c=1$
-\end_inset
-
- is parental consumption (the numeraire,
- with price one) and must meet a subsistence requirement 
-\begin_inset Formula $\bar c=1$
-\end_inset
-
-;
- 
-\begin_inset Formula $n\geq0$
-\end_inset
-
- is a divisible fertility index;
- and 
-\begin_inset Formula $H\geq0$
-\end_inset
-
- is total human-capital investment across all children,
- not investment per child.
- When 
-\begin_inset Formula $n>0$
-\end_inset
-
-,
- average quality per child is
- 
-\begin_inset Formula $q=H/n$
-\end_inset
-
-.
- Thus 
-\begin_inset Formula $n=1/4$
-\end_inset
-
- means a near-zero positive value of this index,
- not literally one-quarter of a child.
-\end_layout
-
-\begin_layout Standard
-The parameters are:
- 
-\begin_inset Formula $y_r>0$
-\end_inset
-
-,
- income in regime 
-\begin_inset Formula $r$
-\end_inset
-
-;
- 
-\begin_inset Formula $p\geq0$
-\end_inset
-
-,
- the direct resource cost of each unit of fertility;
- 
-\begin_inset Formula $k\geq0$
-\end_inset
-
-,
- the linear price of total human-capital investment;
- 
-\begin_inset Formula $s\geq0$
-\end_inset
-
-,
- the minimum required quality per child;
- and 
-\begin_inset Formula $\underline n_r\geq0$
-\end_inset
-
-,
- the fertility floor in regime 
-\begin_inset Formula $r$
-\end_inset
-
-.
- The household chooses 
-\begin_inset Formula $c\geq\bar c$
-\end_inset
-
-,
- 
-\begin_inset Formula $H\geq0$
-\end_inset
-
-,
- and 
-\begin_inset Formula $n\geq\underline n_r$
-\end_inset
-
- to maximize
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-U(c,n,H)=c+6n-\frac12n^2+4H-\frac12H^2
-\]
-\end_inset
-
-\end_layout
-
-\begin_layout Standard
-The terms 
-\begin_inset Formula $6n-n^2/2$
-\end_inset
-
- and 
-\begin_inset Formula $4H-H^2/2$
-\end_inset
-
- give diminishing marginal benefits from family size and total child human capital.
- The quadratic specification is chosen for tractability,
- not as a literal description of preferences.
-\end_layout
-
-\begin_layout Standard
-The constraints are
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula
-\[
-c+pn+kH+\frac12H^2\leq y_r,
-\qquad
-sn\leq H\leq4n,
-\qquad
-n\geq\underline n_r,
-\quad c\geq\bar c=1.
-\]
-\end_inset
-
-\end_layout
-
-\begin_layout Standard
-Budget:
- income is 
-\begin_inset Formula $y_r$
-\end_inset
-
- and varies across regimes.
- Expenditure is parental consumption 
-\begin_inset Formula $c$
-\end_inset
-
-,
- direct child cost 
-\begin_inset Formula $pn$
-\end_inset
-
-,
- linear education cost 
-\begin_inset Formula $kH$
-\end_inset
-
-,
- and the convex cost 
-\begin_inset Formula $H^2/2$
-\end_inset
-
-.
- The last term makes additional aggregate investment progressively more expensive.
- Since more 
-\begin_inset Formula $c$
-\end_inset
-
- always raises utility,
- no income is discarded at an optimum.
- The constraint 
-\begin_inset Formula $c\geq\bar c=1$
-\end_inset
-
- requires subsistence consumption;
- it will bind in the low-income Malthusian regime.
-\end_layout
-
-\begin_layout Standard
-Quality cone:
- 
-\begin_inset Formula $sn\leq H\leq4n$
-\end_inset
-
- links total investment to the number of children.
- If 
-\begin_inset Formula $n>0$
-\end_inset
-
-,
- division by 
-\begin_inset Formula $n$
-\end_inset
-
- gives 
-\begin_inset Formula $s\leq q=H/n\leq4$
-\end_inset
-
-.
- Thus every child must receive at least quality 
-\begin_inset Formula $s$
-\end_inset
-
-,
- while 4 is a normalized upper bound on quality per child.
- If 
-\begin_inset Formula $n=0$
-\end_inset
-
-,
- the two inequalities force 
-\begin_inset Formula $H=0$
-\end_inset
-
-,
- so the household cannot purchase child human capital without children.
-\end_layout
-
-\begin_layout Standard
-Fertility floor:
- 
-\begin_inset Formula $n\geq\underline n_r$
-\end_inset
-
- is zero in the first two regimes.
- In the last regime it is 
-\begin_inset Formula $1/4$
-\end_inset
-
-,
- which produces a positive but near-zero KKT corner.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-1. General KKT system [8 points]
-\end_layout
-
-\begin_layout Standard
-(a) Use multipliers 
-\begin_inset Formula $\lambda,\mu_c,\mu_n,\alpha,\beta\geq0$
-\end_inset
-
- for,
- respectively,
- the budget slack,
- 
-\begin_inset Formula $c-\bar c\geq0$
-\end_inset
-
-,
- 
-\begin_inset Formula $n-\underline n_r\geq0$
-\end_inset
-
-,
- 
-\begin_inset Formula $H-sn\geq0$
-\end_inset
-
-,
- and 
-\begin_inset Formula $4n-H\geq0$
-\end_inset
-
-.
- Write the Lagrangian and the complete KKT system.
- [6]
-\end_layout
-
-\begin_layout Standard
-(b) Explain why these conditions are sufficient and why the budget binds.
- Show that whenever 
-\begin_inset Formula $c^*>\bar c$
-\end_inset
-
-,
- 
-\begin_inset Formula $\lambda^*=1$
-\end_inset
-
-,
- and explain why 
-\begin_inset Formula $\lambda^*>1$
-\end_inset
-
- can occur when subsistence binds.
- [2]
-\end_layout
-
-\begin_layout Section*
-2. Solve three regimes [9 points]
-\end_layout
-
-\begin_layout Standard
-For each regime,
- find 
-\begin_inset Formula $(c^*,n^*,H^*)$
-\end_inset
-
-,
- report 
-\begin_inset Formula $q^*=H^*/n^*$
-\end_inset
-
- when it is defined,
- identify the active inequalities,
- and give one valid multiplier vector.
- You may first use the binding budget to eliminate consumption.
- [3 points each]
- The snapshots vary income and relative costs jointly;
- use them to compare KKT regimes,
- not as a ceteris paribus claim that low income alone causes high fertility.
-\end_layout
-
-\begin_layout Description
-Very-low-income,
- quantity-dominant (Malthusian): 
-\begin_inset Formula $(y_r,p,k,s,\underline n_r)=(5,1,5,0,0)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-Modern quantity-quality balance: 
-\begin_inset Formula $(y_r,p,k,s,\underline n_r)=(20,4,2,0,0)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-High-quality-cost,
- low-fertility (post-modern) extension: 
-\begin_inset Formula $(y_r,p,k,s,\underline n_r)=(20,4,6,2,1/4)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Section*
-3. Interpretation [3 points]
-\end_layout
-
-\begin_layout Standard
-(a) Use the active constraints to explain why the poor Malthusian household spends all income above subsistence on child quantity and buys no child human capital,
- while the modern household chooses both quantity and quality.
- [1]
-\end_layout
-
-\begin_layout Standard
-(b) Explain why a high quality price 
-\begin_inset Formula $k$
-\end_inset
-
- alone need not eliminate fertility,
- but a high 
-\begin_inset Formula $k$
-\end_inset
-
- together with the minimum-quality requirement 
-\begin_inset Formula $H\geq2n$
-\end_inset
-
- can push fertility down to its small lower bound.
- [1]
-\end_layout
-
-\begin_layout Standard
-(c) A full growth model would let today's household choices affect tomorrow.
- Name one plausible feedback---for example,
- education could raise the next generation's human capital,
- fertility could change future population,
- or technology could change the return to education.
- Then explain why the binding low-fertility floor is our teaching extension rather than Galor's prediction.
- [1]
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status collapsed
 
 \begin_layout Plain Layout
 
 \backslash
-vfill
-\backslash
-footnotesize Source note: inspired by Oded Galor, ``From Stagnation to Growth: Unified Growth Theory,'' Handbook of Economic Growth 1A (2005), 171--293, especially equations (4)--(10). DOI: 10.1016/S1574-0684(05)01004-X. Galor's subsistence mechanism motivates the consumption floor. The first snapshot's income is one quarter of modern income. The quadratic objective, convex monetary education cost, quality cone, and binding low-fertility floor are teaching extensions.
+color{quizblue}
 \end_layout
 
 \end_inset
 
+ Quiz 1: Economic KKT Regimes
+\series default
+
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset VSpace 2pt
+\end_inset
+
+ 
+\size large
+Quantity–Quality Choice — Revised Practice Version
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset VSpace 4pt
+\end_inset
+
+ 
+\size small
+25 minutes 
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Formula $\bullet$
+\end_inset
+
+ 
+\begin_inset space \quad{}
+
+\end_inset
+
+20 points
+\size default
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 3pt
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="none" valignment="top" special="@{\extracolsep{\fill}}l">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Name:
+\series default
+ 
+\begin_inset CommandInset line
+LatexCommand rule
+width "3.25in"
+height "0.4pt"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Student number:
+\series default
+ 
+\begin_inset CommandInset line
+LatexCommand rule
+width "1.8in"
+height "0.4pt"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 7pt
+\end_inset
+
+ 
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "quizblue"
+backgroundcolor "softblue"
+status open
+
+
+\begin_layout Plain Layout
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "96.5text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\series bold
+Economic KKT cookbook.
+\series default
+ For 
+\begin_inset Formula $\max_{z\ge0}f(z)$
+\end_inset
+
+ subject to slacks 
+\begin_inset Formula $g_j(z)\ge0$
+\end_inset
+
+, define 
+\begin_inset Formula \[
+D_i=f_i+\sum_j\lambda_j g_{j,i}.
+\]
+\end_inset
+
+Then write 
+\begin_inset Formula $0\le z_i\perp -D_i\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $0\le\lambda_j\perp g_j(z)\ge0$
+\end_inset
+
+; 
+\begin_inset Formula $a\perp b$
+\end_inset
+
+ means 
+\begin_inset Formula $ab=0$
+\end_inset
+
+. Guess which choices are positive and which constraints bind, solve the resulting equalities, and verify every remaining sign. For a variable whose sign is already implied by other constraints, use 
+\begin_inset Formula $D_i=0$
+\end_inset
+
+ and do not add a redundant multiplier. 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 8pt
+\end_inset
+
+ 
+\series bold
+Model.
+\series default
+ A household chooses parental consumption 
+\begin_inset Formula $c$
+\end_inset
+
+, a divisible fertility index 
+\begin_inset Formula $n$
+\end_inset
+
+, and total human-capital investment across children 
+\begin_inset Formula $H$
+\end_inset
+
+. If 
+\begin_inset Formula $n>0$
+\end_inset
+
+, quality per child is 
+\begin_inset Formula $q=H/n$
+\end_inset
+
+. Preferences are 
+\begin_inset Formula \[
+U(c,n,H)=c+6n-\tfrac12 n^2+4H-\tfrac12H^2.
+\]
+\end_inset
+
+The constraints are 
+\begin_inset Formula \[
+c+pn+kH+\tfrac12H^2\le y,\; c\ge1,\; n\ge0,\; sn\le H\le4n.
+\]
+\end_inset
+
+Here 
+\begin_inset Formula $y$
+\end_inset
+
+ is income, 
+\begin_inset Formula $p$
+\end_inset
+
+ is the direct resource cost of fertility, 
+\begin_inset Formula $k$
+\end_inset
+
+ is the linear price of total human-capital investment, and 
+\begin_inset Formula $s$
+\end_inset
+
+ is minimum quality per child. The cone 
+\begin_inset Formula $sn\le H\le4n$
+\end_inset
+
+ means 
+\begin_inset Formula $s\le q\le4$
+\end_inset
+
+ when 
+\begin_inset Formula $n>0$
+\end_inset
+
+ and forces 
+\begin_inset Formula $H=0$
+\end_inset
+
+ when 
+\begin_inset Formula $n=0$
+\end_inset
+
+. Thus 
+\begin_inset Formula $H\ge0$
+\end_inset
+
+ is already implied and needs no separate multiplier. The quadratic terms are a tractable static approximation; no prior knowledge of Galor is required.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+question{
+\end_layout
+
+\end_inset
+
+1: Reduce the problem and write KKT
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+6
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because utility is increasing in 
+\begin_inset Formula $c$
+\end_inset
+
+, the budget binds. After substituting 
+\begin_inset Formula \[
+c=y-pn-kH-\tfrac12H^2,
+\]
+\end_inset
+
+the household maximizes 
+\begin_inset Formula \[
+W(n,H)=y+(6-p)n-\tfrac12n^2+(4-k)H-H^2
+\]
+\end_inset
+
+subject to 
+\begin_inset Formula \[
+R(n,H):=y-1-pn-kH-\tfrac12H^2\ge0,\;n\ge0,\;H-sn\ge0,\;4n-H\ge0.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+alph*
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+With multipliers 
+\begin_inset Formula $\eta,\alpha,\beta\ge0$
+\end_inset
+
+ on 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\begin_inset Formula $H-sn$
+\end_inset
+
+, and 
+\begin_inset Formula $4n-H$
+\end_inset
+
+, respectively, write the compact complementarity KKT system. Handle 
+\begin_inset Formula $n\ge0$
+\end_inset
+
+ directly with the cookbook and use equality stationarity for 
+\begin_inset Formula $H$
+\end_inset
+
+. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[4] 
+\end_layout
+
+\begin_layout Enumerate
+Explain why a verified KKT point is a global optimum here. If 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the multiplier on the original budget, show that 
+\begin_inset Formula $\lambda=1+\eta$
+\end_inset
+
+ and state the envelope interpretation of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+question{
+\end_layout
+
+\end_inset
+
+2: Solve three economic regimes
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+12
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For each row below, use an active-set guess and the KKT system from Question 1 to find 
+\begin_inset Formula $(c^*,n^*,H^*)$
+\end_inset
+
+, report 
+\begin_inset Formula $q^*=H^*/n^*$
+\end_inset
+
+ when defined, identify the active inequalities, and give one valid vector 
+\begin_inset Formula $(\eta,\alpha,\beta)$
+\end_inset
+
+. Also report the marginal value of income 
+\begin_inset Formula $\lambda=1+\eta$
+\end_inset
+
+. The snapshots vary income and relative costs jointly; they are not a ceteris-paribus claim that income alone determines fertility.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="4" columns="5">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="none" valignment="top" special="c@{}">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Regime 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $y$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $p$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Very-low-income, quantity-dominant (Malthusian) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $5$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $1$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $5$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Modern quantity–quality balance 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $20$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $4$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $2$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+High-quality-cost, zero-fertility extension 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $20$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $4$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $6$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+alph*
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+Solve the very-low-income regime. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[4] 
+\end_layout
+
+\begin_layout Enumerate
+Solve the modern balanced regime. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[4] 
+\end_layout
+
+\begin_layout Enumerate
+Solve the high-quality-cost regime. At the cone's apex, an active constraint may have a zero multiplier; one valid multiplier vector is enough. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[4] 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+question{
+\end_layout
+
+\end_inset
+
+3: Economic interpretation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+label=(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+alph*
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+Explain why the Malthusian snapshot spends all income above subsistence on child quantity, whereas the modern snapshot chooses both quantity and quality. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[1] 
+\end_layout
+
+\begin_layout Enumerate
+Why does a high 
+\begin_inset Formula $k$
+\end_inset
+
+ alone need not eliminate fertility, while a high 
+\begin_inset Formula $k$
+\end_inset
+
+ together with 
+\begin_inset Formula $H\ge2n$
+\end_inset
+
+ can make 
+\begin_inset Formula $n=0$
+\end_inset
+
+ optimal? Refer to the KKT inequality for a zero choice. 
+\begin_inset space \hfill{}
+
+\end_inset
+
+[1] 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+answerline
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{rulegray}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hrule
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{black}
+\end_layout
+
+\end_inset
+
+ 
+\size footnotesize
+Economic inspiration: Galor (2005), 
+\begin_inset Quotes eld
+\end_inset
+
+From Stagnation to Growth: Unified Growth Theory.
+\begin_inset Quotes erd
+\end_inset
+
+ The quadratic objective, convex investment cost, quality cone, and exact zero-fertility corner are teaching extensions designed to isolate active-set logic.
+\size default
 
 \end_layout
 
