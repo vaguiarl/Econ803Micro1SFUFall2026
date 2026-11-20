@@ -17,6 +17,24 @@
           "sha256": "7debc041982c3a5129e5ddb4fbe4afc830b07f4bed63014e8f7f9d4579f85729"
         }
       ]
+    },
+    {
+      "assessment": "Midterm 2, November 20, 2026: student-facing worked solutions",
+      "released_on": "2026-11-20",
+      "files": [
+        {
+          "path": "course/released_assessments/2026-11-20/ECON803_Midterm2_Fall2026_Worked_Solutions.pdf",
+          "sha256": "ee19d88b2d00f0015c681116c3b02c50b1fc04911216dad726f622a8fed5ebc3"
+        },
+        {
+          "path": "course/released_assessments/2026-11-20/ECON803_Midterm2_Fall2026_Worked_Solutions.lyx",
+          "sha256": "ee99eac440372d11b021085ab98bcbc6e07b9a73e3e5bbe1b6d20d5c82456b33"
+        },
+        {
+          "path": "course/released_assessments/2026-11-20/README.md",
+          "sha256": "f00f97eb0039bfa73c5302e1d743cf59778bf0311596ee4cf5a080280d42f2e2"
+        }
+      ]
     }
   ]
 }

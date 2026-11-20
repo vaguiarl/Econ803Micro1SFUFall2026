@@ -27,6 +27,10 @@ RESTRICTED = re.compile(
 )
 
 
+# Exact, already public textbook snapshot; these are not assessment answers.
+FROZEN_PUBLIC_NOTES = {'notes/frozen/midterm_2_2026_11_20/Midterm_2_Frozen_Version.pdf': 'a441203f9ecd9724a4bd6dbb280fefe85ff0973544c8996431cf8ef3561eac8b', 'notes/frozen/midterm_2_2026_11_20/README.md': 'c3182d18d06ac1daff8c55dca9100925d9e5e41210c5d2d0afc68d37abe6341f', 'notes/frozen/midterm_2_2026_11_20/manifest.json': 'eb14be00c3dbd86f9c50c848b130b45b1fa139d8a0b41f423a6981ac0f5c5298'}
+
+
 def git(repo: Path, *args: str) -> bytes:
     result = subprocess.run(
         ["git", "-C", str(repo), *args], capture_output=True, check=False
@@ -141,6 +145,17 @@ def check(repo: Path, staged: bool) -> list[str]:
             errors.append(f"Release artifact SHA-256 mismatch: {path!r}")
         else:
             valid.add(path)
+
+    for path, expected in FROZEN_PUBLIC_NOTES.items():
+        if path in modes:
+            try:
+                digest = hashlib.sha256(read_tracked(repo, path, modes, staged)).hexdigest()
+                if digest == expected:
+                    valid.add(path)
+                else:
+                    errors.append(f"Frozen textbook snapshot SHA-256 mismatch: {path!r}")
+            except ValueError as exc:
+                errors.append(str(exc))
 
     for path in sorted(modes):
         if RESTRICTED.search(path) and path not in valid:

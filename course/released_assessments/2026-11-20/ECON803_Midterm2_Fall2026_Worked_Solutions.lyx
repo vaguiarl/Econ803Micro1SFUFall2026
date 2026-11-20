@@ -1,0 +1,3316 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\textclass article
+\begin_preamble
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+
+
+
+
+
+
+\setlength{\parskip}{0.42em}
+\setlength{\headheight}{22pt}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rulegray}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\small{}ECON 803 \textbar{} Midterm 2 worked solutions}
+\fancyhead[R]{\small{}November 20, 2026}
+\fancyfoot[C]{\small{}Page \thepage\ of \pageref{LastPage}}
+\usepackage{lastpage}
+\newcommand{\parttitle}[3]{\vspace{0.35em}{\large\bfseries\color{navy}#1\quad #2}\hfill{\bfseries #3 points}\par\vspace{0.15em}\color{navy}\rule{\textwidth}{0.55pt}\color{black}\vspace{0.3em}}
+\newcommand{\IR}{\mathrm{IR}}
+\newcommand{\core}{\mathrm{Core}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\MRS}{\mathrm{MRS}}
+\newcommand{\1}{\mathbf 1}
+
+\end_preamble
+\use_default_options false
+\begin_modules
+enumitem
+tcolorbox
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "lmodern" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder true
+\pdf_colorlinks 0
+\pdf_backref false
+\pdf_title "Midterm 2 worked solutions"
+\pdf_author "Victor H. Aguiar"
+\pdf_pdfusetitle 0
+\papersize letter
+\use_geometry true
+\use_package amsmath 2
+\use_package xcolor 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor navy 182f4d
+\customcolor pale f0f4f9
+\customcolor rulegray c6cfda
+\fontcolor none
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.8in
+\topmargin 0.8in
+\rightmargin 0.8in
+\bottommargin 0.8in
+\footskip 0.38in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0pt
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\size giant
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{navy}
+\end_layout
+
+\end_inset
+
+Worked Solutions
+\series default
+
+\size default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+
+\backslash
+[0.3em]
+\end_layout
+
+\end_inset
+
+ 
+\size larger
+ECON 803 Midterm Examination
+\size default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+
+\backslash
+[0.2em]
+\end_layout
+
+\end_inset
+
+ 
+\size large
+Friday, November 20, 2026
+\size default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+
+\backslash
+[0.15em]
+\end_layout
+
+\end_inset
+
+ 
+\size large
+9:30 a.m. to noon
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Formula $\vert$
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+150 minutes
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Formula $\vert$
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+100 points
+\size default
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace 0.4em
+\end_inset
+
+ 
+\begin_inset Flex Color Box
+status collapsed
+
+\begin_layout Standard
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+colback=pale,colframe=navy!50,boxrule=0.6pt,arc=1mm
+\end_layout
+
+\end_inset
+
+These solutions use the positive consumption domains and the supplied strong blocking convention for the core in Question 2. The frictionless physical allocation and core are treated separately from owner attention costs, which enter the net welfare comparison. For Question 1(c), the requirement to prove uniqueness or to rule out other equilibria is waived. 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Development economics context.
+\series default
+ The fictional app places harvest insurance and digital contracting in a rural setting. Townsend (1994) studies consumption insurance in Indian villages, Udry (1994) studies state contingent rural loan repayments in Nigeria, and Jack and Suri (2014) study mobile money and risk sharing in Kenya. These studies motivate the setting; the app, harvest quantities, and fully enforceable market are assumptions of the exercise. 
+\shape italic
+Thought boxes show a student setup. Notes references point to printed page numbers in the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Midterm 2 frozen version"
+target "https://github.com/vaguiarl/Econ803Micro1SFUFall2026/releases/download/midterm-2-frozen-version-2026-11-20/Midterm_2_Frozen_Version.pdf"
+literal "false"
+
+\end_inset
+
+.
+\shape default
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 1. A harvest insurance app
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+An ordinary Edgeworth box in the exam's notation.
+\series default
+ The two goods are consumption in dry weather, 
+\begin_inset Formula $c_{i1}$
+\end_inset
+
+, and consumption in rainy weather, 
+\begin_inset Formula $c_{i2}$
+\end_inset
+
+. Final holdings and security trades satisfy 
+\begin_inset Formula \[
+ c_{i1}=\omega_{i1}+a_{i1},\qquad
+ c_{i2}=\omega_{i2}+a_{i2},\qquad i\in\{A,B\}.
+\]
+\end_inset
+
+Farm A is irrigated with endowment 
+\begin_inset Formula $\omega_A=(2,2)$
+\end_inset
+
+; Farm B relies on rainfall with endowment 
+\begin_inset Formula $\omega_B=(1,4)$
+\end_inset
+
+. Total resources are 
+\begin_inset Formula $(3,6)$
+\end_inset
+
+, so the box has width 3 and height 6. The given Bernoulli utility is 
+\begin_inset Formula $u(c)=-1/c$
+\end_inset
+
+. Use the supplied equally weighted expected utility as the ordinary two good preference index: 
+\begin_inset Formula \[
+ U_i(c_{i1},c_{i2})=-\frac1{2c_{i1}}-\frac1{2c_{i2}},\qquad c_{i1},c_{i2}>0.
+\]
+\end_inset
+
+The goods remain state contingent: each is grain delivered in a different weather state.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(a)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Budgets and feasibility
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+6
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Color Box
+status collapsed
+
+\begin_layout Standard
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+colback=pale,colframe=navy!45,boxrule=.45pt,arc=1mm,left=2mm,right=2mm,top=1mm,bottom=1mm,title=
+\size small
+
+\series bold
+Student thought: recognize the familiar model
+\series default
+
+\size default
+,coltitle=navy,colbacktitle=navy!8
+\end_layout
+
+\end_inset
+
+
+\size small
+I would use the given utility and treat dry and rainy consumption as the two goods of an ordinary exchange economy. I would add endowments, draw the box and write the consumption budget. I would keep 
+\begin_inset Formula $c$
+\end_inset
+
+ throughout and use 
+\begin_inset Formula $a=c-\omega$
+\end_inset
+
+ only for the requested security translation. 
+\end_layout
+
+\begin_layout Standard
+
+\size small
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\shape italic
+Notes: box and endowment budgets, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+11.1.1 and 11.1.4, pp.
+\begin_inset space \space{}
+
+\end_inset
+
+131 and 134.
+\shape default
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The consumption budget is 
+\begin_inset Formula \[
+ q_1c_{i1}+q_2c_{i2}\le q_1\omega_{i1}+q_2\omega_{i2}.
+\]
+\end_inset
+
+Substituting 
+\begin_inset Formula $a_{is}=c_{is}-\omega_{is}$
+\end_inset
+
+ gives the equivalent security budget 
+\begin_inset Formula \[
+ q_1a_{i1}+q_2a_{i2}\le0.
+\]
+\end_inset
+
+Divide by 
+\begin_inset Formula $q_2>0$
+\end_inset
+
+ and express wealth in units of rainy state consumption: 
+\begin_inset Formula \[
+ p:=\frac{q_1}{q_2},\qquad m_i:=p\omega_{i1}+\omega_{i2},\qquad
+ pc_{i1}+c_{i2}\le m_i.
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula $m_A=2p+2$
+\end_inset
+
+ and 
+\begin_inset Formula $m_B=p+4$
+\end_inset
+
+. Monotonicity makes each budget bind at an optimum. Feasibility and security clearing are 
+\begin_inset Formula \[
+ c_{A1}+c_{B1}=3,\qquad c_{A2}+c_{B2}=6,\qquad
+ a_{As}+a_{Bs}=0\quad(s=1,2).
+\]
+\end_inset
+
+The two contingent commodities are distinct because one claim delivers only in dry weather and the other only in rainy weather.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(b)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+The Pareto set
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+10
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Color Box
+status collapsed
+
+\begin_layout Standard
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+colback=pale,colframe=navy!45,boxrule=.45pt,arc=1mm,left=2mm,right=2mm,top=1mm,bottom=1mm,title=
+\size small
+
+\series bold
+Student thought: separate efficiency from equilibrium
+\series default
+
+\size default
+,coltitle=navy,colbacktitle=navy!8
+\end_layout
+
+\end_inset
+
+
+\size small
+I would find the contract curve first, using equal MRS and resource feasibility. For equilibrium, I would derive demands from each budget and the price ratio, then impose market clearing. I would include a global check: tangency alone does not establish the result. 
+\end_layout
+
+\begin_layout Standard
+
+\size small
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\shape italic
+Notes: efficiency and the solution plan, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+11.1.3 and 11.1.6, pp.
+\begin_inset space \space{}
+
+\end_inset
+
+133–134 and 136.
+\shape default
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For either household the marginal rate of substitution is 
+\begin_inset Formula \[
+ \MRS_i=\frac{\partial_1 U_i}{\partial_2 U_i}
+ =\left(\frac{c_{i2}}{c_{i1}}\right)^2.
+\]
+\end_inset
+
+All consumption is strictly positive. An efficient allocation must therefore have equal MRS. B's consumption is measured from the opposite origin, with 
+\begin_inset Formula $c_{B1}=3-c_{A1}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{B2}=6-c_{A2}$
+\end_inset
+
+. Consequently, 
+\begin_inset Formula \[
+ \left(\frac{c_{A2}}{c_{A1}}\right)^2
+ =\left(\frac{6-c_{A2}}{3-c_{A1}}\right)^2
+ \quad\Longleftrightarrow\quad c_{A2}=2c_{A1}.
+\]
+\end_inset
+
+Hence the full candidate contract curve is 
+\begin_inset Formula \[
+ \boxed{c_A=(t,2t),\qquad c_B=(3-t,6-2t),\qquad 0<t<3.}
+\]
+\end_inset
+
+It is the open diagonal joining the two origins of the rectangular box.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Global sufficiency.
+\series default
+ At every allocation on this line, both MRS equal 4, so the same positive price vector 
+\begin_inset Formula $(4,1)$
+\end_inset
+
+ supports both indifference curves. Let 
+\begin_inset Formula $c_i^*$
+\end_inset
+
+ be a candidate and 
+\begin_inset Formula $\widetilde c_i$
+\end_inset
+
+ any other positive bundle. Concavity gives 
+\begin_inset Formula \[
+ U_i(\widetilde c_i)-U_i(c_i^*)
+ \le \partial_2U_i(c_i^*)\bigl[4(\widetilde c_{i1}-c_{i1}^*)
+ +(\widetilde c_{i2}-c_{i2}^*)\bigr].
+\]
+\end_inset
+
+Since 
+\begin_inset Formula $\partial_2U_i(c_i^*)>0$
+\end_inset
+
+, a weak improvement requires a nonnegative expenditure change at 
+\begin_inset Formula $(4,1)$
+\end_inset
+
+, and a strict improvement requires a positive change. Summing the two expenditure changes gives zero by resource feasibility, ruling out a Pareto improvement. Every displayed allocation is therefore globally efficient. This proves sufficiency as well as necessity. The limiting points 
+\begin_inset Formula $t=0$
+\end_inset
+
+ and 
+\begin_inset Formula $t=3$
+\end_inset
+
+ give one household zero consumption and are excluded by the strict domain.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(c)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Walrasian equilibrium
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+20
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Ordinary consumer demand.
+\series default
+ Fix any relative price 
+\begin_inset Formula $p>0$
+\end_inset
+
+ and wealth 
+\begin_inset Formula $m_i>0$
+\end_inset
+
+. Tangency and the binding budget give 
+\begin_inset Formula \[
+ \left(\frac{c_{i2}}{c_{i1}}\right)^2=p,\qquad
+ pc_{i1}+c_{i2}=m_i.
+\]
+\end_inset
+
+Thus 
+\begin_inset Formula \[
+ \boxed{c_{i1}(p)=\frac{m_i}{p+\sqrt p},\qquad
+ c_{i2}(p)=\frac{\sqrt p\,m_i}{p+\sqrt p},\qquad
+ m_i=p\omega_{i1}+\omega_{i2}.}
+\]
+\end_inset
+
+This demand is globally optimal. Substitute 
+\begin_inset Formula $c_{i2}=m_i-pc_{i1}$
+\end_inset
+
+ into utility. On 
+\begin_inset Formula $0<c_{i1}<m_i/p$
+\end_inset
+
+, the resulting one variable objective satisfies 
+\begin_inset Formula \[
+ f_i'(c_{i1})=\frac1{2c_{i1}^2}-\frac{p}{2(m_i-pc_{i1})^2},\qquad
+ f_i''(c_{i1})=-\frac1{c_{i1}^3}-\frac{p^2}{(m_i-pc_{i1})^3}<0.
+\]
+\end_inset
+
+The displayed positive affordable candidate is stationary, and strict concavity makes it a global maximum. No multiplier calculation is needed.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Clear the Edgeworth box.
+\series default
+ Both demands satisfy 
+\begin_inset Formula $c_{i2}=\sqrt p\,c_{i1}$
+\end_inset
+
+. Summing and imposing resource feasibility gives 
+\begin_inset Formula \[
+ 6=3\sqrt p\quad\Longrightarrow\quad p=4.
+\]
+\end_inset
+
+At prices 
+\begin_inset Formula $(p,1)=(4,1)$
+\end_inset
+
+, endowment wealths are 
+\begin_inset Formula $m_A=10$
+\end_inset
+
+ and 
+\begin_inset Formula $m_B=8$
+\end_inset
+
+. Substitution gives 
+\begin_inset Formula \[
+ \boxed{c_A=\left(\frac53,\frac{10}3\right),\qquad
+ c_B=\left(\frac43,\frac83\right).}
+\]
+\end_inset
+
+Geometrically, A's equilibrium is the intersection of its budget 
+\begin_inset Formula $4c_{A1}+c_{A2}=10$
+\end_inset
+
+, through the endowment 
+\begin_inset Formula $(2,2)$
+\end_inset
+
+, and the contract curve 
+\begin_inset Formula $c_{A2}=2c_{A1}$
+\end_inset
+
+. B's budget is 
+\begin_inset Formula $4c_{B1}+c_{B2}=8$
+\end_inset
+
+. Both demands are optimal and sum to 
+\begin_inset Formula $(3,6)$
+\end_inset
+
+, establishing equilibrium existence directly.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+State prices.
+\series default
+ Since 
+\begin_inset Formula $p=q_1/q_2=4$
+\end_inset
+
+, normalized prices are 
+\begin_inset Formula $q=(4/5,1/5)$
+\end_inset
+
+ and the full positive price set is 
+\begin_inset Formula \[
+ \boxed{q=k(4,1),\qquad k>0.}
+\]
+\end_inset
+
+Consumption is unchanged by price scaling. Normalized wealths are 
+\begin_inset Formula $q\cdot\omega_A=2$
+\end_inset
+
+ and 
+\begin_inset Formula $q\cdot\omega_B=8/5$
+\end_inset
+
+; these use a different accounting unit from 
+\begin_inset Formula $m_A=10,m_B=8$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(d)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Harvest transfers and the box
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+14
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Recover net trades directly from consumption: 
+\begin_inset Formula $a_i=c_i-\omega_i$
+\end_inset
+
+. Therefore 
+\begin_inset Formula \[
+ a_A=\left(\frac53-2,\frac{10}3-2\right)
+ =\left(-\frac13,\frac43\right),\qquad
+ a_B=\left(\frac13,-\frac43\right).
+\]
+\end_inset
+
+Each portfolio has zero value at 
+\begin_inset Formula $(4,1)$
+\end_inset
+
+, since 
+\begin_inset Formula $4(-1/3)+4/3=0$
+\end_inset
+
+ for A, and B has the opposite portfolio. They also have zero value at normalized prices and clear in both states. In dry weather A delivers 
+\begin_inset Formula $1/3$
+\end_inset
+
+ grain unit to B; in rainy weather B delivers 
+\begin_inset Formula $4/3$
+\end_inset
+
+ units to A. A supplies dry weather insurance in exchange for rainy weather grain. 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+definecolor{qoneTeal}{RGB}{27,126,132}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+definecolor{qoneNavy}{RGB}{29,62,101}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+definecolor{qoneOrange}{RGB}{205,91,44}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}[x=2.25cm,y=.98cm,font=
+\backslash
+small,>=Stealth,line cap=round]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % Light box and unobtrusive ticks for both agents' reversed axes.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[black!45,line width=.65pt] (0,0) rectangle (3,6);
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+foreach 
+\backslash
+x in {0,1,2,3}{
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!45] (
+\backslash
+x,-.045) -- (
+\backslash
+x,.045);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+ifnum
+\backslash
+x>0
+\end_layout
+
+\begin_layout Plain Layout
+      
+\backslash
+node[below,text=black!65] at (
+\backslash
+x,-.09) {
+\backslash
+(
+\backslash
+x
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+fi
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!35] (
+\backslash
+x,5.955) -- (
+\backslash
+x,6.045);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+pgfmathtruncatemacro{
+\backslash
+bxtick}{3-
+\backslash
+x}
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+ifnum
+\backslash
+bxtick>0
+\end_layout
+
+\begin_layout Plain Layout
+      
+\backslash
+node[above,text=black!60] at (
+\backslash
+x,6.09) {
+\backslash
+(
+\backslash
+bxtick
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+fi
+\end_layout
+
+\begin_layout Plain Layout
+  }
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+foreach 
+\backslash
+y in {0,2,4,6}{
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!45] (-.045,
+\backslash
+y) -- (.045,
+\backslash
+y);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+ifnum
+\backslash
+y>0
+\end_layout
+
+\begin_layout Plain Layout
+      
+\backslash
+node[left,text=black!65] at (-.075,
+\backslash
+y) {
+\backslash
+(
+\backslash
+y
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+fi
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!35] (2.955,
+\backslash
+y) -- (3.045,
+\backslash
+y);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+pgfmathtruncatemacro{
+\backslash
+bytick}{6-
+\backslash
+y}
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+ifnum
+\backslash
+bytick>0
+\end_layout
+
+\begin_layout Plain Layout
+      
+\backslash
+node[right,text=black!60] at (3.075,
+\backslash
+y) {
+\backslash
+(
+\backslash
+bytick
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+fi
+\end_layout
+
+\begin_layout Plain Layout
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % Axis labels preserve the dry/rainy state interpretation at each origin.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[below,align=center] at (1.5,-.34)
+\end_layout
+
+\begin_layout Plain Layout
+    {
+\backslash
+(c_{A1}
+\backslash
+)
+\backslash
+quad
+\backslash
+scriptsize dry state};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[above,align=center] at (1.5,6.42)
+\end_layout
+
+\begin_layout Plain Layout
+    {
+\backslash
+(c_{B1}
+\backslash
+)
+\backslash
+quad
+\backslash
+scriptsize dry state};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[rotate=90,align=center] at (-.67,3)
+\end_layout
+
+\begin_layout Plain Layout
+    {
+\backslash
+(c_{A2}
+\backslash
+)
+\backslash
+quad
+\backslash
+scriptsize rainy state};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[rotate=-90,align=center] at (3.67,3)
+\end_layout
+
+\begin_layout Plain Layout
+    {
+\backslash
+(c_{B2}
+\backslash
+)
+\backslash
+quad
+\backslash
+scriptsize rainy state};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[below left,text=black!60] at (-.16,-.21) {
+\backslash
+(O_A
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[above right,text=black!60] at (3.14,6.23) {
+\backslash
+(O_B
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % The two indifference curves through W are tangent to the budget.
+\end_layout
+
+\begin_layout Plain Layout
+  % U_A(W)=-9/20; U_B(W)=-9/16. Clip strictly to the common box.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+begin{scope}
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+clip (.015,.025) rectangle (2.985,5.975);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!45,densely dashed,line width=.65pt]
+\end_layout
+
+\begin_layout Plain Layout
+      plot[domain=1.364:2.985,samples=110] (
+\backslash
+x,{
+\backslash
+x/(.9*
+\backslash
+x-1)});
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!45,densely dashed,line width=.65pt]
+\end_layout
+
+\begin_layout Plain Layout
+      plot[domain=.015:1.956,samples=110] (
+\backslash
+x,{6-(3-
+\backslash
+x)/(1.125*(3-
+\backslash
+x)-1)});
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[anchor=west,text=black!60,font=
+\backslash
+footnotesize]
+\end_layout
+
+\begin_layout Plain Layout
+    at (2.10,2.72) {
+\backslash
+(U_A=-9/20
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[anchor=west,text=black!60,font=
+\backslash
+footnotesize]
+\end_layout
+
+\begin_layout Plain Layout
+    at (.10,4.22) {
+\backslash
+(U_B=-9/16
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % Pareto set: open endpoints; Walrasian budget line through the endowment.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[qoneTeal,line width=1.25pt] (0,0) -- (3,6);
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[fill=white,draw=qoneTeal,line width=.85pt] (0,0) circle[radius=2.1pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[fill=white,draw=qoneTeal,line width=.85pt] (3,6) circle[radius=2.1pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[qoneNavy,line width=1.15pt] (1,6) -- (2.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % Endowment and Walrasian allocation, both expressed in A coordinates.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+fill[qoneOrange] (2,2) circle[radius=2.5pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[above right,text=qoneOrange] at (2.10,2.26) {
+\backslash
+(E
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+fill[qoneOrange,draw=white,line width=.45pt]
+\end_layout
+
+\begin_layout Plain Layout
+    ({5/3},{10/3}) circle[radius=3pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[anchor=east,text=qoneOrange] at (1.28,3.30) {
+\backslash
+(W
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[qoneOrange!80,line width=.45pt] (1.31,3.31) -- (1.61,3.33);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % Outside legend and coordinate callouts keep the plotted allocations clear.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[align=center,text=black!72] at (1.5,7.40) {
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+(E:
+\backslash
+;
+\backslash
+omega_A=(2,2)
+\backslash
+)
+\backslash
+qquad 
+\backslash
+(W:
+\backslash
+;c_A^*=(5/3,10/3)
+\backslash
+)
+\backslash
+
+\backslash
+[-1pt]
+\end_layout
+
+\begin_layout Plain Layout
+    {
+\backslash
+color{qoneTeal}Contract curve: 
+\backslash
+(c_{A2}=2c_{A1}
+\backslash
+), open endpoints}
+\backslash
+
+\backslash
+[-1pt]
+\end_layout
+
+\begin_layout Plain Layout
+    {
+\backslash
+color{qoneNavy}Budget: 
+\backslash
+(4c_{A1}+c_{A2}=10
+\backslash
+), 
+\backslash
+(q_1/q_2=4
+\backslash
+)}};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The box redistributes 3 units in dry weather and 6 in rainy weather. Contracts cannot change those totals. Both households cannot have constant consumption across states while consuming the full harvest: their combined constant consumption would have to equal both 3 and 6. At equilibrium A consumes 
+\begin_inset Formula $5/9$
+\end_inset
+
+ and B consumes 
+\begin_inset Formula $4/9$
+\end_inset
+
+ of the total harvest in either state. They share aggregate risk rather than eliminate it. Zero portfolio value is a price weighted condition, distinct from zero expected grain transfers.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 2. Cobb Douglas barter
+\end_layout
+
+\begin_layout Standard
+Use the exam notation throughout: 
+\begin_inset Formula $U_i(x_i,y_i)=\sqrt{x_i y_i}$
+\end_inset
+
+, with 
+\begin_inset Formula $x_i,y_i>0$
+\end_inset
+
+, endowments 
+\begin_inset Formula $\omega_A=(3,1)$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_B=(1,3)$
+\end_inset
+
+, and total resources 
+\begin_inset Formula $(4,4)$
+\end_inset
+
+. The box uses A's coordinates; B's bundle is 
+\begin_inset Formula $(4-x_A,4-y_A)$
+\end_inset
+
+. Parts (a) to (c) concern physical goods before negotiation costs.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(a)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+The box, efficiency and the core
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+10
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Color Box
+status collapsed
+
+\begin_layout Standard
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+colback=pale,colframe=navy!45,boxrule=.45pt,arc=1mm,left=2mm,right=2mm,top=1mm,bottom=1mm,title=
+\size small
+
+\series bold
+Student thought: organize the three tasks
+\series default
+
+\size default
+,coltitle=navy,colbacktitle=navy!8
+\end_layout
+
+\end_inset
+
+
+\size small
+I would use the familiar box, keeping the exam's strictly positive domain. First find the contract curve, then impose individual rationality using the supplied core criterion. Only then follow the two given offers and check the terminal bundle against the original budgets. This separates efficiency, voluntary participation and equilibrium. 
+\end_layout
+
+\begin_layout Standard
+
+\size small
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\shape italic
+Notes: contract curve and prices, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+11.1.3–11.1.4, pp.
+\begin_inset space \space{}
+
+\end_inset
+
+133–134; strong core, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+11.11.1, p.
+\begin_inset space \space{}
+
+\end_inset
+
+149.
+\shape default
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Contract curve.
+\series default
+ For either consumer, 
+\begin_inset Formula $\MRS_i=y_i/x_i$
+\end_inset
+
+. Interior efficiency requires equal MRS, so 
+\begin_inset Formula \[
+ \frac{y_A}{x_A}=\frac{4-y_A}{4-x_A}
+ \quad\Longleftrightarrow\quad y_A=x_A.
+\]
+\end_inset
+
+Thus the candidate Pareto set is the open diagonal 
+\begin_inset Formula \[
+ \boxed{A=(t,t),\qquad B=(4-t,4-t),\qquad 0<t<4.}
+\]
+\end_inset
+
+The endpoints are excluded by strictly positive consumption.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Global efficiency by one inequality.
+\series default
+ Arithmetic geometric means give 
+\begin_inset Formula \[
+ U_A+U_B=\sqrt{x_Ay_A}+\sqrt{x_By_B}
+ \le\frac{x_A+y_A+x_B+y_B}{2}=4.
+\]
+\end_inset
+
+Every displayed diagonal allocation attains 4, since 
+\begin_inset Formula $U_A=t$
+\end_inset
+
+ and 
+\begin_inset Formula $U_B=4-t$
+\end_inset
+
+. A Pareto improvement would increase this sum above 4, which is impossible. This proves sufficiency; the MRS argument proves necessity.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Core.
+\series default
+ Both consumers initially obtain 
+\begin_inset Formula $\sqrt3$
+\end_inset
+
+. Individual rationality on the contract curve requires 
+\begin_inset Formula \[
+ t\ge\sqrt3,\qquad 4-t\ge\sqrt3.
+\]
+\end_inset
+
+Using the supplied core criterion, the frictionless core is therefore 
+\begin_inset Formula \[
+ \boxed{\sqrt3\le t\le4-\sqrt3,\qquad A=(t,t),\quad B=(4-t,4-t).}
+\]
+\end_inset
+
+It is a closed segment of the open contract curve. Its endpoints are included because individual rationality is weak.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(b)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+A preliminary barter offer
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+8
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ At the current allocation 
+\begin_inset Formula $A=(2+d,2-d)$
+\end_inset
+
+, 
+\begin_inset Formula $B=(2-d,2+d)$
+\end_inset
+
+, both consumers have utility 
+\begin_inset Formula $\sqrt{4-d^2}$
+\end_inset
+
+. The preliminary offer exchanges 
+\begin_inset Formula $d/2$
+\end_inset
+
+ units of A's 
+\begin_inset Formula $x$
+\end_inset
+
+ for 
+\begin_inset Formula $d/2$
+\end_inset
+
+ units of B's 
+\begin_inset Formula $y$
+\end_inset
+
+, leaving 
+\begin_inset Formula \[
+ A'=\left(2+\frac d2,2-\frac d2\right),\qquad
+ B'=\left(2-\frac d2,2+\frac d2\right).
+\]
+\end_inset
+
+Each new utility is 
+\begin_inset Formula $\sqrt{4-d^2/4}$
+\end_inset
+
+. Hence each consumer's gross gain is 
+\begin_inset Formula \[
+ \boxed{\Delta(d)=\sqrt{4-d^2/4}-\sqrt{4-d^2}>0,\qquad 0<d\le1.}
+\]
+\end_inset
+
+The inequality is strict because the radicand rises by 
+\begin_inset Formula $3d^2/4>0$
+\end_inset
+
+. All bundles are positive and the transfers preserve total resources. Both consumers benefit before costs. Part (d) checks acceptance when attention costs are included. An initial MRS describes a local trade rate; a finite offer requires the direct utility comparison above.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(c)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Final settlement and equilibrium
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+14
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Two rounds, two equal quantity exchanges.
+\series default
+ Starting from 
+\begin_inset Formula $d=1$
+\end_inset
+
+, A gives 
+\begin_inset Formula $1/2$
+\end_inset
+
+ unit of 
+\begin_inset Formula $x$
+\end_inset
+
+ and receives 
+\begin_inset Formula $1/2$
+\end_inset
+
+ unit of 
+\begin_inset Formula $y$
+\end_inset
+
+ in each of the two authorized rounds: 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset FormulaMacro
+\renewcommand{\arraystretch}{1.25}
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="4" columns="3">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="center" valignment="top">
+<column alignment="none" valignment="top" special="c@{}">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Stage 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+A's bundle 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+B's bundle
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Endowment 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(3,1)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(1,3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+After round 1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(5/2,3/2)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(3/2,5/2)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+After round 2 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(2,2)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $(2,2)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second round settles the entire remaining imbalance. The terminal allocation has 
+\begin_inset Formula $t=2$
+\end_inset
+
+, so 
+\begin_inset Formula $\sqrt3<2<4-\sqrt3$
+\end_inset
+
+ places it in the frictionless core.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Walrasian equilibrium.
+\series default
+ Choose 
+\begin_inset Formula $p=(1,1)$
+\end_inset
+
+. Both endowments have wealth 4, so each budget is 
+\begin_inset Formula $x_i+y_i\le4$
+\end_inset
+
+. For every affordable bundle, 
+\begin_inset Formula \[
+ \sqrt{x_i y_i}\le\frac{x_i+y_i}{2}\le2.
+\]
+\end_inset
+
+Equality holds at 
+\begin_inset Formula $(2,2)$
+\end_inset
+
+, establishing global demand optimality directly. The two demands sum to 
+\begin_inset Formula $(4,4)$
+\end_inset
+
+ and clear both markets. Thus the terminal allocation and these prices form a Walrasian equilibrium.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Simple Edgeworth box: full contract curve, closed core and exactly two offers.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+definecolor{barterNavy}{RGB}{29,62,101}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+definecolor{barterTeal}{RGB}{27,126,132}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+definecolor{barterOrange}{RGB}{205,91,44}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}[x=1.5cm,y=1.5cm,font=
+\backslash
+small,>=Stealth,line cap=round]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[black!45,line width=.65pt] (0,0) rectangle (4,4);
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+foreach 
+\backslash
+v in {1,2,3,4}{
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!45] (
+\backslash
+v,-.04) -- (
+\backslash
+v,.04);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!45] (-.04,
+\backslash
+v) -- (.04,
+\backslash
+v);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+node[below,text=black!60] at (
+\backslash
+v,-.07) {
+\backslash
+(
+\backslash
+v
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+node[left,text=black!60] at (-.07,
+\backslash
+v) {
+\backslash
+(
+\backslash
+v
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  }
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+foreach 
+\backslash
+v/
+\backslash
+b in {0/4,1/3,2/2,3/1}{
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!35] (
+\backslash
+v,3.96) -- (
+\backslash
+v,4.04);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+draw[black!35] (3.96,
+\backslash
+v) -- (4.04,
+\backslash
+v);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+node[above,text=black!60] at (
+\backslash
+v,4.07) {
+\backslash
+(
+\backslash
+b
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+node[right,text=black!60] at (4.07,
+\backslash
+v) {
+\backslash
+(
+\backslash
+b
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  }
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[below] at (2,-.42) {
+\backslash
+(x_A
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[rotate=90] at (-.52,2) {
+\backslash
+(y_A
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[above] at (2,4.38) {
+\backslash
+(x_B
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[rotate=-90] at (4.52,2) {
+\backslash
+(y_B
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[below left,text=black!60] at (-.10,-.11) {
+\backslash
+(O_A
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[above right,text=black!60] at (4.10,4.11) {
+\backslash
+(O_B
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % The whole open diagonal is efficient; only its central closed segment is core.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[barterNavy,dashed,line width=.9pt] (0,0) -- (4,4);
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[barterTeal,line width=3pt]
+\end_layout
+
+\begin_layout Plain Layout
+    ({sqrt(3)},{sqrt(3)}) -- ({4-sqrt(3)},{4-sqrt(3)});
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+fill[barterTeal] ({sqrt(3)},{sqrt(3)}) circle[radius=2pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+fill[barterTeal] ({4-sqrt(3)},{4-sqrt(3)}) circle[radius=2pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[fill=white,draw=barterNavy,line width=.8pt] (0,0) circle[radius=2pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[fill=white,draw=barterNavy,line width=.8pt] (4,4) circle[radius=2pt];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % Two distinct arrows: the second settles all remaining imbalance.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[barterOrange,line width=1.2pt,-{Stealth[length=2mm]},shorten >=3pt,shorten <=3pt]
+\end_layout
+
+\begin_layout Plain Layout
+    (3,1) -- (2.5,1.5);
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+draw[barterOrange,line width=1.2pt,-{Stealth[length=2mm]},shorten >=3pt,shorten <=3pt]
+\end_layout
+
+\begin_layout Plain Layout
+    (2.5,1.5) -- (2,2);
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[text=barterOrange,font=
+\backslash
+footnotesize] at (2.98,1.42) {1};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[text=barterOrange,font=
+\backslash
+footnotesize] at (2.05,1.56) {2};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+fill[barterOrange] (3,1) circle[radius=2.5pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[below right,text=barterOrange] at (3.05,.95) {
+\backslash
+(E
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+fill[barterOrange] (2.5,1.5) circle[radius=2.5pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[above right,text=barterOrange] at (2.59,1.66) {
+\backslash
+(A_1
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+fill[barterNavy,draw=white,line width=.5pt] (2,2) circle[radius=2.8pt];
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[above left,text=barterNavy] at (1.92,2.10) {
+\backslash
+(F
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+  % One compact key above the box; no labels cover its central objects.
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+node[align=center,font=
+\backslash
+footnotesize] at (2,4.98)
+\end_layout
+
+\begin_layout Plain Layout
+    {{
+\backslash
+color{barterNavy}Contract curve: 
+\backslash
+(y_A=x_A
+\backslash
+), 
+\backslash
+(0<x_A<4
+\backslash
+)}
+\backslash
+
+\backslash
+[1pt]
+\end_layout
+
+\begin_layout Plain Layout
+     {
+\backslash
+color{barterTeal}Core: 
+\backslash
+(
+\backslash
+sqrt3
+\backslash
+le x_A
+\backslash
+le4-
+\backslash
+sqrt3
+\backslash
+)}};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The orange arrows are rounds 1 and 2: 
+\begin_inset Formula $E\to A_1\to F$
+\end_inset
+
+. Coordinates are listed in the table above.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(d)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Owner time and negotiation costs
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+8
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Color Box
+status collapsed
+
+\begin_layout Standard
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+colback=pale,colframe=navy!45,boxrule=.45pt,arc=1mm,left=2mm,right=2mm,top=1mm,bottom=1mm,title=
+\size small
+
+\series bold
+Student thought: add the cost accounting last
+\series default
+
+\size default
+,coltitle=navy,colbacktitle=navy!8
+\end_layout
+
+\end_inset
+
+
+\size small
+I would compare each offered trade's gain with its current round cost. Once I know which rounds occur, I would count owner minutes and subtract their stated disutility from the given utility. I would keep those utility units fixed and account separately for goods and attention costs. 
+\end_layout
+
+\begin_layout Standard
+
+\size small
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\shape italic
+Notes: gross gains from trade, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+11.1.2, p.
+\begin_inset space \space{}
+
+\end_inset
+
+132. The exam supplies the attention cost rule.
+\shape default
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Acceptance first.
+\series default
+ At 
+\begin_inset Formula $1/100$
+\end_inset
+
+ utility unit per minute, each owner's cost per completed round is 
+\begin_inset Formula \[
+ k^{\mathrm H}=\frac4{100}=0.04,\qquad k^{\mathrm B}=\frac1{100}=0.01.
+\]
+\end_inset
+
+The supplied gross gains are 
+\begin_inset Formula $\Delta_1\approx0.20444$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta_2\approx0.06351$
+\end_inset
+
+. Both exceed 0.04 and 0.01, so each owner accepts both rounds under either method. Compare the current gain with the current round's cost; past costs are sunk and rejection is free.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Totals over the two completed rounds.
+\series default
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset FormulaMacro
+\renewcommand{\arraystretch}{1.3}
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="5" columns="3">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="right" valignment="top">
+<column alignment="none" valignment="top" special="r@{}">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Human 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Bot
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Minutes per owner 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+8 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Owner minutes for the pair 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+16 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Cost per owner, 
+\begin_inset Formula $C_i$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+0.08 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+0.02
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Cost for the pair, 
+\begin_inset Formula $C_A+C_B$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+0.16 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+0.04
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Each entry is rounds times minutes per round, with cost equal to minutes divided by 100. Joint owner minutes add time across the two owners; they do not measure elapsed wall time. The bot reduces owner attention. Neither method consumes the physical goods in the box.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+parttitle{
+\end_layout
+
+\end_inset
+
+(e)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Welfare losses and the value of the bot
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+10
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Benchmark and net welfare.
+\series default
+ From part (a), aggregate goods utility is at most 4. At the terminal allocation both consumers obtain 2, so the frictionless benchmark is 
+\begin_inset Formula $W^*=4$
+\end_inset
+
+. Other diagonal allocations also attain aggregate utility 4; the assigned trading procedure selects equal division. Using the supplied utility and time units, 
+\begin_inset Formula \[
+ W^{\mathrm m}=\sum_i(U_i-C_i^{\mathrm m})=4-(C_A^{\mathrm m}+C_B^{\mathrm m}),
+ \qquad \mathrm m\in\{\mathrm H,\mathrm B\}.
+\]
+\end_inset
+
+Substitute the costs from part (d): 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset FormulaMacro
+\renewcommand{\arraystretch}{1.3}
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="4" columns="3">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="right" valignment="top">
+<column alignment="none" valignment="top" special="r@{}">
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Human 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Bot
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Net utility per owner 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $2-0.08=1.92$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset Formula $2-0.02=1.98$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Aggregate net welfare, 
+\begin_inset Formula $W^{\mathrm m}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+3.84 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+3.96
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Welfare loss, 
+\begin_inset Formula $L^{\mathrm m}=4-W^{\mathrm m}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+0.16 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+0.04
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The bot's value is 
+\begin_inset Formula $1.98-1.92=0.06$
+\end_inset
+
+ utility unit per owner and 
+\begin_inset Formula $3.96-3.84=0.12$
+\end_inset
+
+ for the pair. It saves 6 owner minutes each, or 12 jointly.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Decomposition.
+\series default
+ For either method, 
+\begin_inset Formula \[
+ L^{\mathrm m}
+ =\underbrace{\bigl[4-(U_A+U_B)\bigr]}_{\text{goods allocation loss}}
+ +\underbrace{C_A^{\mathrm m}+C_B^{\mathrm m}}_{\text{negotiation cost}}.
+\]
+\end_inset
+
+Both methods reach the same goods allocation, with 
+\begin_inset Formula $U_A+U_B=4$
+\end_inset
+
+. Goods allocation loss is therefore zero. The entire remaining loss is owner attention cost, which falls from 0.16 to 0.04 with the bot. This explains the welfare gain at unchanged terminal consumption and supporting goods prices.
+\end_layout
+
+\end_body
+\end_document
