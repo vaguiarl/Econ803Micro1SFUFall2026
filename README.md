@@ -6,6 +6,7 @@ The Fall 2026 course runs from September 9 through December 7. Class meets Frida
 
 ## Student quick links
 
+- [Midterm 2 frozen version of the notes (PDF)](https://github.com/vaguiarl/Econ803Micro1SFUFall2026/releases/download/midterm-2-frozen-version-2026-11-20/Midterm_2_Frozen_Version.pdf) ([fixed version details](notes/frozen/midterm_2_2026_11_20/README.md))
 - [November 9 to 13 self study: The Price of Proof (30 minute English podcast, transcript and equilibrium reading guide)](course/handouts/equilibrium_history/README.md)
 - [Midterm 1 worked solutions (October 16, 2026; PDF)](course/released_assessments/2026-10-16/ECON803_Midterm1_Fall2026_Worked_Solutions.pdf) ([study guide and editable LyX source](course/released_assessments/2026-10-16/README.md))
 - [Download the current course notes (PDF)](https://raw.githubusercontent.com/vaguiarl/Econ803Micro1SFUFall2026/main/notes/Microeconomics_1_notes_by_Victor_Aguiar.pdf)
@@ -17,7 +18,7 @@ The Fall 2026 course runs from September 9 through December 7. Class meets Frida
 - [Read the course outline](COURSE_OUTLINE.md)
 - [See the weekly release structure](problemsets/README.md)
 
-These links always point to the public `main` branch. Only explicitly released assessment solutions appear under `course/released_assessments/`; instructor rubrics, student records, other solutions and unreleased assessments remain private.
+The Midterm 2 notes link points to a fixed release attachment. Other textbook and practice links follow the public `main` branch. Only explicitly released assessment solutions appear under `course/released_assessments/`; instructor rubrics, student records, other solutions and unreleased assessments remain private.
 
 The Fall 2026 baseline has four commitments:
 

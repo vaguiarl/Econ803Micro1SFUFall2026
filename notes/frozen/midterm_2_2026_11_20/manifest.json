@@ -1,0 +1,16 @@
+{
+  "title": "Midterm 2 frozen version",
+  "course": "ECON 803",
+  "freeze_date": "2026-11-20",
+  "source": "notes/Microeconomics_1_notes_by_Victor_Aguiar.pdf",
+  "source_commit": "bd3bef405f1291ee4c494826f1cf734f773cb95f",
+  "pdf": "Midterm_2_Frozen_Version.pdf",
+  "sha256": "a441203f9ecd9724a4bd6dbb280fefe85ff0973544c8996431cf8ef3561eac8b",
+  "bytes": 1331769,
+  "physical_pdf_pages": 248,
+  "pagination": "Original printed page numbers preserved; no cover or content edits. Printed page n is PDF page n+13 for the cited chapters.",
+  "release_tag": "midterm-2-frozen-version-2026-11-20",
+  "download_url": "https://github.com/vaguiarl/Econ803Micro1SFUFall2026/releases/download/midterm-2-frozen-version-2026-11-20/Midterm_2_Frozen_Version.pdf",
+  "release_url": "https://github.com/vaguiarl/Econ803Micro1SFUFall2026/releases/tag/midterm-2-frozen-version-2026-11-20",
+  "content_scope": "Frozen copy of existing public textbook notes."
+}
